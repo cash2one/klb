@@ -1,0 +1,188 @@
+{% extends 'common/common.html' %}
+{% load staticfiles %}
+{% load webtag %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" media="all"
+          href="{% static 'stylesheets' %}/bootstrap-datepicker.standalone.min.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'stylesheets' %}/steps-page.css"/>
+    <style type="text/css">
+        .insurance-form label {
+            width: 150px;
+        }
+
+        .insurance-form .T-popover {
+            width: 370px;
+            max-width: 370px;
+            padding: 15px;
+            background: transparent;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .H-chejiahao, .H-zhuceriqi, .H-pinpaihao, .H-pinpaimiaoshu, .H-fadongjihao {
+            height: 25px;
+            background-color: rgba(207, 50, 84, .5);
+        }
+
+        .H-chejiahao {
+            width: 270px;
+            margin: 137px 0 0 70px;
+        }
+
+        .H-zhuceriqi {
+            width: 130px;
+            margin: 186px 0 0 70px;
+        }
+
+        .H-pinpaihao {
+            width: 162px;
+            margin: 106px 0 0 178px;
+        }
+
+        .H-pinpaimiaoshu {
+            width: 120px;
+            margin: 50px 0 0 20px;
+            display: none
+        }
+
+        .H-fadongjihao {
+            width: 270px;
+            margin: 162px 0 0 70px;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="container margin-top margin-bottom white-bg pricing-wrap">
+        <div class="row lateral-padding">
+            <div class="steps-title">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="25"
+                         aria-valuemin="0" aria-valuemax="100" style="width: 25%"></div>
+                </div>
+                <a href="javascript:void(0);" class="active">01.输入信息</a>
+                <a href="javascript:void(0);">02.精准报价</a>
+                <a href="javascript:void(0);">03.官网支付</a>
+            </div>
+
+            <hr class="color dashed">
+
+            {#            <h3 class="bottom-line">填写详细信息</h3>#}
+
+            <div class="col-md-7 insurance-form">
+                <h3 class="bottom-line">车辆投保信息
+                    <span class="more-group red">（请准确填写车辆信息，仅支持9座以下家庭自用客车比价）</span>
+                </h3>
+
+                <ul class="form-box" id="form-box-l">
+                    <li class="form-group" data-submenu-id="submenu-01">
+                        <label for="vin" class="text-right">车架号：</label>
+                        <input type="text" name="vin" id="vin" value="{{ request.GET.vin }}" maxlength="17" class="form-control">
+
+
+                        <div id="submenu-01" class="popover T-popover">
+                            <div class="H-chejiahao"></div>
+                        </div>
+                    </li>
+                    <li class="form-group" data-submenu-id="submenu-05">
+                        <label for="car-L-05" class="text-right">发动机号：</label>
+                        <input type="text" name="engine" id="engine" value="{{ request.GET.engine }}" maxlength="20"
+                               class="form-control" class="form-control">
+                        <span class="Validform_checktip"></span>
+
+                        <div id="submenu-05" class="popover T-popover">
+                            <div class="H-fadongjihao"></div>
+                        </div>
+                    </li>
+                </ul>
+                <p class="tc padding-20">
+                    <input type="hidden" name="licenseNo" value="{{ request.GET.licenseNo }}" id="licenseNo">
+                    <input type="hidden" name="cityCode" value="{{ request.GET.cityCode }}" id="cityCode">
+                    <input type="hidden" name="ownerName" value="{{ request.GET.ownerName }}" id="ownerName">
+                    <input type="hidden" name="drivCity" value="{{ request.GET.drivCity }}" id="drivCity">
+                    <a href="/web/pricing/1/" class="btn btn-danger btn-large">上一步</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="javascript:void(0);" class="btn btn-danger btn-large" id="s_next_btn">下一步</a>
+                </p>
+            </div>
+
+            <div class="col-md-5 insurance-panel">
+                <div class="tc">
+                    <img src="{% static 'images/jsz.jpg' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="padding: 5px;display: none;" id="carlist_b">
+        <div class="list-group" id="carlist">
+
+        </div>
+    </div>
+{% endblock %}
+{% block footerjs %}
+    <script src="{% static 'javascripts/hoverMenu.min.js' %}"></script>
+    <script src="{% static 'javascripts/bootstrap-datepicker.min.js' %}"></script>
+    <script src="{% static 'javascripts/bootstrap-datepicker.zh-CN.min.js' %}"></script>
+    <script src="{% static 'javascripts/Validform_v5.3.2_min.js' %}"></script>
+    <script src="{% static 'javascripts/steps2.js' %}"></script>
+    <script>
+        function getBXlist(d) {
+            var citycode = $(d).attr("citycode");
+            var ownername = $(d).attr("ownername");
+            var engine = $(d).attr("engine");
+            var vin = $(d).attr("vin");
+            var licenseno = $(d).attr("licenseno");
+            var drivCity = $(d).attr("drivCity");
+            var key = encodeURIComponent($(d).attr("key"));
+            var vehiclefgwcode = encodeURIComponent($(d).attr("vehiclefgwcode"));
+            var value = encodeURIComponent($(d).text());
+            window.location.href = "/web/pricing/4/?licenseno=" + licenseno + "&citycode=" + citycode + "&ownername=" + ownername + "&engine=" + engine + "&vin=" + vin + "&key=" + key + "&vehiclefgwcode=" + vehiclefgwcode + "&value=" + value+"&a=b"+"&drivCity="+drivCity;
+
+        }
+        $(function () {
+            $("#s_next_btn").click(function () {
+                var vin = $.trim($("#vin").val());
+                var engine = $.trim($("#engine").val());
+                if (engine == "" || engine == "") {
+                    layer.alert("车架号和发动机号不能为空");
+                } else if (vin !== "") {
+                    var index = layer.load(2);
+                    var url = "http://chexian.sinosig.com/Partner/netVehicleModel.action?searchCode=" + vin + "&searchType=1&encoding=utf-8&isSeats=1&pageSize=100";
+                    $.ajax({
+                        type: "get",
+                        async: false,
+                        url: url,
+                        dataType: "jsonp",
+                        success: function (data) {
+                            if (data.rows.length > 0) {
+                                $("#carlist").empty().append('<a href="javascript:void(0);" class="list-group-item disabled">请选择车型</a>');
+                                for (var i = 0; i < data.rows.length; i++) {
+                                    $("#carlist").append('<a href="javascript:void(0);" onclick="getBXlist(this);" class="list-group-item" vin="'+vin+'" engine="' + engine + '" citycode="{{ request.GET.citycode }}"drivCity="{{ request.GET.drivCity }}"ownername="{{ request.GET.ownername }}" licenseno="{{ request.GET.licenseno }}" key="' + data.rows[i].key + '" vehicleFgwCode="' + data.rows[i].vehicleFgwCode + '">' + data.rows[i].value + '</a>');
+
+                                }
+                                var w = $("body").width() / 1.5;
+                                var h = $('#carlist_b').height() + 10;
+                                layer.open({
+                                    type: 1,
+                                    title: false,
+                                    closeBtn: true,
+                                    shadeClose: false,
+                                    skin: 'layui-layer-rim',
+                                    scrollbar: true,
+                                    area: [w + 'px', h + 'px'],
+                                    content: $('#carlist_b')
+                                });
+
+                            } else {
+                                layer.alert("您输入的车架号不正确");
+                            }
+                        },
+                        error: function () {
+                            alert('fail');
+                        }
+                    });
+                    layer.close(index);
+                }
+            });
+
+        });
+    </script>
+{% endblock %}

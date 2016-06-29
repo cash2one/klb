@@ -1,0 +1,160 @@
+/*  user-center page */
+.userCenter-page {
+    background-color: #f1f1f1;
+}
+
+/* login page */
+.login-pane .tab-pane {
+    background-color: #fff;
+    border: #ddd 1px solid;
+    border-top: none;
+    padding: 10px;
+}
+
+#mobile-login, #email-login {
+    min-height: 210px;
+}
+
+/* sign in page */
+.sign-in-form {
+    padding: 20px 40px;
+}
+
+.sign-in-form .tab-pane form {
+    padding: 30px 0 15px 0;
+}
+
+.sign-in-form h4 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-tabs-bg {
+    background: #F3F3F7;
+    padding: 5px 20px 0;
+    border: #ddd 1px solid;
+    border-bottom: none;
+}
+
+.nav-tabs > li > a {
+    border: none;
+}
+
+.nav-tabs > li > a:hover {
+    background: none;
+}
+
+.sign-in-form .tab-pane {
+    border: #ddd 1px solid;
+    border-top: none;
+}
+
+.tab-pane .form-group {
+    clear: both;
+    height: 35px;
+    margin-top: 10px;
+    padding: 0 20px;
+}
+
+.tab-pane .form-group > label {
+    float: left;
+    width: 23%;
+    text-align: right;
+    margin: 5px 5px 0 0;
+}
+
+.tab-pane .form-group > .form-control {
+    float: left;
+    width: 50%;
+}
+
+.tab-pane .form-group .input-sm {
+    width: 20%;
+}
+
+.tab-pane .form-group .btn {
+    padding: 8px 30px;
+}
+
+/* .sign-in-form .nav-tabs>li:nth-child(2){
+    border-left: #ddd 1px solid;
+    border-right: #ddd 1px solid;
+    border-bottom: none;
+    margin: 0 10px;
+    padding: 0 10px;
+} */
+/* .sign-in-form .nav-tabs>li.active>a, .sign-in-form .nav-tabs>li.active>a:focus, .sign-in-form .nav-tabs>li.active>a:hover{
+   border: none;
+   border-bottom: #f00 2px solid;
+} */
+.verification-code {
+    margin: 0 10px;
+}
+
+.useragreement-content ul {
+    list-style: none;
+}
+
+#QQ-login {
+    padding: 50px 0;
+}
+
+.QR-code {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+    text-align: center;
+    min-height: 215px;
+}
+
+.QR-code h6 {
+    margin-top: 0;
+}
+
+.show-QR-way {
+    width: 258px;
+    height: 200px;
+    background: url(../images/weixin_logintip.png) no-repeat;
+    position: absolute;
+    top: 0;
+    left: -20px;
+    display: none;
+}
+
+.show-QR:hover .show-QR-way {
+    display: block !important;
+}
+
+.weixin-zc-info h6 {
+    margin: 15px 0;
+
+}
+
+.weixin-zc-info ol {
+    margin-top: 10px;
+    padding-left: 20px;
+    line-height: 36px;
+}
+
+.impowerBox .qrcode {
+    width: 200px !important;
+}
+
+.impowerBox .title {
+    display: none !important;
+}
+
+.impowerBox .info {
+    width: 200px !important;
+}
+
+.status_icon {
+    display：none !important;
+}
+
+.impowerBox .status {
+    text-align: center !important;
+}

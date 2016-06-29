@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="GBK" standalone="yes"?>
+<PackageList>
+    <Package>
+        <Header>
+            <Version>2</Version>
+            <RequestType>100</RequestType>
+            <InsureType>100</InsureType>
+            <SessionId>%s</SessionId>
+            <SendTime>%s</SendTime>
+            <Status>100</Status>
+            <ErrorMessage></ErrorMessage>
+            <SellerId>2015061901</SellerId>
+        </Header>
+        <Request>
+            <InputsList>
+                <Inputs type="vehicleInfo">
+                    <Input name="cityCode">%s</Input>
+                    <Input name="licenseNo">%s</Input>
+                    <Input name="idNoType">09</Input>
+                    <Input name="noLicenseFlag">0</Input>
+                    <Input name="idNo">0710</Input>
+                    <Input name="mobilePhone"></Input>
+                </Inputs>
+            </InputsList>
+        </Request>
+        <Sign><!--[SIGN]--></Sign>
+    </Package>
+</PackageList>

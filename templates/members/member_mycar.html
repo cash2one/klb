@@ -1,0 +1,262 @@
+{% extends 'common/member_common.html' %}
+{% load staticfiles %}
+{% block content_title %}车辆信息{% endblock %}
+
+{% block content_detail %}
+    {% if not car %}
+        <h5 style="margin: 10px 0 10px 0;">您还未添加车辆,请先&nbsp;&nbsp;
+            <button class="btn btn-default" type="button" id="addcar_btn">添加车辆</button>
+        </h5>
+    {% else %}
+        <h5 style="margin: 10px 0 10px 0;">
+            <button class="btn btn-default" type="button" id="addcar_btn">添加新的车辆</button>
+        </h5>
+    {% endif %}
+    <div class="panel-group" id="accordion2">
+        {% if car %}
+            {% for c in car %}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a class="panel-toggle" data-toggle="collapse" data-parent="#accordion2"
+                           href="#collapse{{ c.id }}">
+                            <i class="fa fa-car"></i>{{ c.chepai }}
+                        </a>
+                    </div>
+                    <div id="collapse{{ c.id }}"
+                         class="panel-collapse collapse {% ifequal forloop.counter 1 %}in{% endifequal %}">
+                        <div class="panel-body">
+                            <table class="table table-bordered table-striped">
+                                <tbody>
+                                <tr>
+                                    <td class="tc">车牌号</td>
+                                    <td><a href="#" id="carID" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.chepai }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">产品名称</td>
+                                    <td><a href="#" id="carFrame" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.brand }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">制造年份</td>
+                                    <td><a href="#" id="driveID" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.productionDate }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">产品型号</td>
+                                    <td><a href="#" id="brandID" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.model }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">发动机型号</td>
+                                    <td><a href="#" id="brandID" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.engineType }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">排量（CC）</td>
+                                    <td><a href="#" id="ownership" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.displacement }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">功率（KW）</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.power }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">产品类型</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.type }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">额定质量</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.reatedQuality }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">总质量</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.totalQuality }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">装备质量</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.equipmentQuality }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">燃料种类</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.combustionType }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">排放依据标准</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.emissionStandards }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">轴数</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.shaftNum }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">轴距</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.shaftdistance }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">轴荷</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.shaftLoad }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">弹簧片数</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.springNum }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">轮胎数</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.tireNum }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">轮胎规格</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.tireSpecifications }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">接近离去角</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.departureAngle }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">前悬后悬</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.beforeAfterHanging }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">前轮距</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.beforeWheelTrack }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">后轮距</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.afterWheelTrack }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">整车长</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.carLong }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">整车宽</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.carWidth }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">整车高</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.carHigh }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">货箱长</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.crateLong }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">货箱宽</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.crateWidth }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">货箱高</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.crateHight }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">最高车速</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.maxSpeed }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">额定载客量</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.carrying }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">驾驶室准乘人数</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.cabCarring }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">转向形式</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.turnToType }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">准拖挂车总质量</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.trailerTotalQuality }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">载质量利用系数</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.loadQualityFactor }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">半挂车鞍座最大承载质量</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.semiSaddleBearingQuelity }}</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tc">发动机生产商</td>
+                                    <td><a href="#" id="address" data-type="text" data-pk="1" data-title=""
+                                           class="editable editable-click">{{ c.carinfo.engineProducers }}</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+
+{% endblock %}

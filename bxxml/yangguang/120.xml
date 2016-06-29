@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='GBK' standalone='yes'?>
+<PackageList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Package>
+		<Header>
+			<Version>2</Version>
+			<RequestType>120</RequestType>
+			<InsureType>100</InsureType>
+			<SessionId>%s</SessionId>
+			<From>kalaibao</From>
+			<To>2051078519</To>
+			<AgentCode>W06910012</AgentCode>
+			<SendTime>%s</SendTime>
+			<SellerId>kalaibao</SellerId>
+			<Status>100</Status>
+			<ErrorMessage></ErrorMessage>
+			<terminalTpye></terminalTpye>
+		</Header>
+		<Request>
+            <Order>
+				<TBOrderId>%s</TBOrderId>
+				<SubOrderList>
+					<SubOrder type='force'>
+						<TBOrderId>%s</TBOrderId>
+                        <ItemId>%s</ItemId>
+					</SubOrder>
+					<SubOrder type='biz'>
+						<TBOrderId>%s</TBOrderId>
+                        <ItemId>%s</ItemId>
+					</SubOrder>
+				</SubOrderList>
+			</Order>
+			<InputsList>
+				<Inputs type='insuredInfo'>
+					<input name='insuredIdNo'>%s</input>
+					<input name='insuredEmail'>%s</input>
+					<input name='insuredName'>%s</input>
+					<input name='insuredMobile'>%s</input>
+				</Inputs>
+				<Inputs type='applicantInfo'>
+					<input name='applicantEmail'>%s</input>
+					<input name='applicantIdNo'>%s</input>
+					<input name='applicantMobile'>%s</input>
+					<input name='applicantName'>%s</input>
+				</Inputs>
+				<Inputs type='ownerInfo'>
+					<input name='ownerName'>%s</input>
+					<input name='ownerMobile'>%s</input>
+					<input name='ownerIdNo'>%s</input>
+					<input name='ownerEmail'>%s</input>
+				</Inputs>
+				<Inputs type='deliverInfo'>
+					<input name='sendDate'></input>
+					<input name='addresseeName'>%s</input>
+					<input name='addresseeMobile'>%s</input>
+					<input name='addresseeProvince'>%s</input>
+					<input name='addresseeCity'>%s</input>
+					<input name='addresseeTown'>%s</input>
+					<input name='insuredaddresseeDetails'>%s</input>
+					<input name='addresseeDetails'>%s</input>
+				</Inputs>
+			</InputsList>
+		</Request>
+		<Sign><!--[SIGN]--></Sign>
+    </Package>
+</PackageList>

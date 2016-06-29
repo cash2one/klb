@@ -1,0 +1,46 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="{% static 'javascripts/jquery.min.js' %}"></script>
+    <script src="{% static 'javascripts/layer/layer.js' %}"></script>
+    <script src="{% static 'javascripts/jquery-heartbeat.js' %}"></script>
+    <script>
+        $(function () {
+            layer.open({
+                type: 1,
+                title: '信息提示',
+                shadeClose: false,
+                shade: 0.8,
+                area: ['380px', '250px'],
+                content: $('#loading')
+            });
+            $('body').everyTime('1s',function(){
+                $.post("/web/PayLoading/",{"orderNo":"{{ orderNo }}"},function(d){
+
+                    if(d.error=="1"){
+                        alert(d.msg);
+                        window.location.hraf='/';
+                    }else{
+                        window.location.hraf= d.url;
+                    }
+                },"json");
+            });
+        });
+    </script>
+    <style>
+        #loading {
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="loading" style="display: none;">
+    <h5>正在与保险公司核对您的信息，请耐心等待……<span id="retxt"></span></h5>
+    <img src="{% static 'images/aCar.gif' %}">
+</div>
+</body>
+</html>

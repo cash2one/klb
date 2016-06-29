@@ -1,0 +1,731 @@
+{% extends 'common/common.html' %}
+{% load staticfiles %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" media="all" href="{% static "stylesheets" %}/index-page.css"/>
+    <link rel="stylesheet" type="text/css" href="{% static "stylesheets" %}/progress.css">
+    <style>
+        .yuanxzt {
+            margin-top: -120px;
+        }
+
+        .yuanxzt span {
+            display: block;
+            height: 25px;
+        }
+
+        .yuanxzt_z1 {
+            font-size: 20px;
+        }
+
+        .yuanxzt_z2 {
+            font-size: 20px;
+            color: red;
+
+        }
+
+        #klb_tbuser ul li {
+            border: none !important;
+        }
+
+        .cxscroll {
+        }
+
+        .cxscroll .box {
+            overflow: hidden;
+            height: 30px;
+        }
+
+        .cxscroll .list {
+        }
+
+        .cxscroll .list li {
+            height: 30px;
+            border: none;
+        }
+
+        .cxscroll .prev {
+        }
+
+        .cxscroll .next {
+        }
+
+    </style>
+{% endblock %}
+{% block content %}
+    <!-- main slider -->
+    <section id="main-slider" class="no-margin">
+        <div class="carousel slide">
+            <ol class="carousel-indicators">
+                <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+                <li data-target="#main-slider" data-slide-to="1"></li>
+                <li data-target="#main-slider" data-slide-to="2"></li>
+                <!--<li data-target="#main-slider" data-slide-to="3"></li>
+                <li data-target="#main-slider" data-slide-to="4"></li>-->
+            </ol>
+            <!-- carousel inner -->
+            <div class="carousel-inner">
+                <div class="item active"
+                     style="background:#cc2f26 url({% static 'images' %}/banner1.jpg) center top no-repeat">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-md-5 carousel-content">
+                                <h1 class="animation animated-item-1">
+                                    <img src="{% static 'images' %}/banner-slogn.png">
+                                </h1>
+
+                                <h2 class="animation animated-item-2">
+                                   <b class="blue"> 卡来宝奖您：</b><br/>
+                                     <b class="blue"> 一重礼：购买车险最高补贴</b><b class="yellow">2000</b>元 <br/>
+                                     <b class="blue"> 二重礼：推荐好友购买车险成功奖励</b><b class="yellow">50</b>元。<br/>
+
+                                </h2>
+                                <!--<a class="btn-slide animation animated-item-3" href="#">点击进入<i
+                                        class="fa fa-angle-right"></i></a>-->
+                            </div>
+                            <div class="col-md-7 hidden-xs animation animated-item-4">
+                                <img src="{% static 'images' %}/daizi.png" class="img-responsive">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/.item-->
+                <div class="item" style="background:#ed5665">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-md-5 carousel-content">
+                                <h1 class="animation animated-item-1">
+                                    <img src="{% static 'images' %}/banner-slogn.png">
+                                </h1>
+
+
+
+                                <h2 class="animation animated-item-2">
+                                    汽车召回<br/>
+                                    注册会员免费汽车召回提醒啦！<br/>
+                                    <span>去年中国超过500万辆车被召回</span>
+                                </h2>
+                                <!--<a class="btn-slide animation animated-item-3" href="#">点击进入<i
+                                        class="fa fa-angle-right"></i></a>-->
+                            </div>
+                            <div class="col-md-7 hidden-xs animation animated-item-4">
+                                <img src="{% static 'images' %}/daizi.png" class="img-responsive">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/.item--><!--
+                <div class="item" style="background:#f28d07">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-md-5 carousel-content">
+                                <h1 class="animation animated-item-1">
+                                    <img src="{% static 'images' %}/banner-slogn.png">
+                                </h1>
+
+                                <h2 class="animation animated-item-2">
+                                   <!-- 来宝公益 绿色出行<br/>
+                                    穹顶之下，绿色出行，助力环保，登记有礼！<br/>
+                                    <span>每周一天不开车，来卡来宝登记，即可获得1元钱奖励！</span>
+                               <a class="btn-slide animation animated-item-3" href="#">点击进入<i
+                                        class="fa fa-angle-right"></i></a>
+                            </div>
+                            <div class="col-md-7 hidden-xs animation animated-item-4">
+                                <img src="{% static 'images' %}/daizi.png" class="img-responsive">
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                <!--/.item-->
+                <!--
+                <div class="item" style="background:#3b589c">
+                    <div class="container">
+                        <div class="row slide-margin">
+                            <div class="col-md-5 carousel-content">
+                                <h1 class="animation animated-item-1">
+                                    <img src="{% static 'images' %}images/banner-slogn.png">
+                                </h1>
+
+                                <h2 class="animation animated-item-2">
+                                  汽车召回<br/>
+                                    注册会员免费汽车召回提醒啦！<br/>
+                                    <span>去年中国超过500万辆车被召回</span>
+                                </h2>
+                               <a class="btn-slide animation animated-item-3" href="#">点击进入<i
+                                        class="fa fa-angle-right"></i></a>
+                            </div>
+                            <div class="col-md-7 hidden-xs animation animated-item-4">
+                                <img src="{% static 'images' %}images/daizi.png" class="img-responsive">
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                <!--/.item-->
+                <div class="item" style="background:#18c0e7">
+                    <div class="container" style="">
+                        <div class="row slide-margin">
+                            <div class="col-md-5 carousel-content ">
+                                <h1 class="animation animated-item-1 ">
+                                    <img src="{% static 'images' %}/banner-slogn.png" >
+                                </h1>
+
+                                <h2 class="animation animated-item-2">
+                                    靠谱的车险平台<br/>
+                                    贵就赔 年年省 <br/>
+                                    官网支付 保单验真
+                                </h2>
+                               <!-- <a class="btn-slide animation animated-item-3" href="#">点击进入<i
+                                        class="fa fa-angle-right"></i></a>-->
+                            </div>
+                            <div class="col-md-7 hidden-xs animation animated-item-4">
+                                <img src="{% static 'images' %}/daizi.png" class="img-responsive ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/.item-->
+            </div>
+            <!--/.carousel-inner-->
+        </div>
+        <!--/.carousel-->
+        <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+            <i class="fa fa-chevron-left"></i>
+        </a>
+        <a class="next hidden-xs" href="#main-slider" data-slide="next">
+            <i class="fa fa-chevron-right"></i>
+        </a>
+    </section>
+    <!--/#main-slider-->
+    <!-- comparative wrap for banner right -->
+
+    <div class="container comparative-wrap ">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-6 ">
+                <!-- comparative prices-->
+                <div class="comparative-prices ">
+                    <h4 class="tc">车险精准选优</h4>
+
+                    <form role="form" action="##" >
+                        <div class="form_bijia">
+                        <div class="form-group  " id="selectCity">
+                            <label for="drivCity">行驶城市：</label>
+                            <input type="text" class="form-control" id="drivCity" value="请选择投保城市"
+                                   onfocus="if(this.value=='请选择投保城市'){this.value=''}"
+                                   onblur="if(this.value==''){this.value='请选择投保城市'}"/>
+                            <span class="input-group-addon"><i class="fa fa-angle-down"></i></span>
+                            <!-- cityArea,maybe load from database-->
+                            <ul class="cityArea">
+                                <li><a href="#" rel="1">北京</a></li>
+                                <li><a href="#" rel="2">上海</a></li>
+                                <li><a href="#" rel="3">武汉</a></li>
+                                <li><a href="#" rel="4">广州</a></li>
+                            </ul>
+                        </div>
+                        <div class="form-group">
+                            <label for="carNum">车牌号码：</label>
+                            <input type="text" class="form-control" id="carNum" value="请输入车牌号"
+                                   onfocus="if(this.value=='请输入车牌号'){this.value='';}"
+                                   onblur="if(this.value==''){this.value='请输入车牌号';}">
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">手机号码：</label>
+                            <input type="text" class="form-control" id="mobile" value="用户接受报价信息"
+                                   onfocus="if(this.value=='用户接受报价信息'){this.value='';}"
+                                   onblur="if(this.value==''){this.value='用户接受报价信息';}">
+                        </div>
+                        <div class="form-group">
+
+                            <button type="submit" class="btn btn-warning btn-block btn-large  buten_bijia" >立即比价</button>
+                        </div>
+                     </div>
+                    </form>
+                </div>
+                <!-- /.comparative-prices-->
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- /comparative-wrap -->
+
+    <!-- partner pricing -->
+    <!--
+    <section id="partner-pricing" style="margin-top: 20px;">
+        <div class="container">
+            <div class="benefit-title">
+                <h3><i class="fa fa-gift"></i>&nbsp;&nbsp;投保有礼&nbsp;&nbsp;&nbsp;已有(<span id="show_num_hd"></span>)名会员领取豪礼!<!--<button type="button" class="btn btn-primary">立即领取车险礼包</button></h3>
+                <span style="display: block;width: 80px;height: 20px;float: right;margin-top: -40px;"><a
+                        href="javascript:void(0);">查看更多</a><i class="fa fa-chevron-circle-right"></i></span>
+            </div>
+            <div id="benefit-id" class="benefit-list">
+                <div class="box clearfix" style="padding: 10px;">
+                    <div class="col-md-3 text-center" id="indicatorContainer1">
+                        <div class="yuanxzt">
+                            <span class="yuanxzt_z1">普通会员</span>
+                            <span>投保福利高达</span>
+                            <span class="yuanxzt_z2">$1200</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center" id="indicatorContainer2">
+                        <div class="yuanxzt">
+                            <span class="yuanxzt_z1">黄金会员</span>
+                            <span>投保福利高达</span>
+                            <span class="yuanxzt_z2">$1600</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center" id="indicatorContainer3">
+                        <div class="yuanxzt">
+                            <span class="yuanxzt_z1">钻石会员</span>
+                            <span>投保福利高达</span>
+                            <span class="yuanxzt_z2">$2000</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center" id="indicatorContainer4">
+                        <div class="yuanxzt">
+                            <span class="yuanxzt_z1">柏金会员</span>
+                            <span>投保福利高达</span>
+                            <span class="yuanxzt_z2">$2000</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="cxscroll" id="klbusershow">
+                    <div class="box">
+                        <ul class="list" style="border: none;">
+                            <li>
+                                <i class="fa fa-jpy fa-1x fa-pull-left fa-border" style="color: red;"></i>
+                                恭喜北京张先生<img src="{% static 'images' %}/dengji/30.gif">,获得1200元投保大礼包！(<a href="javascript:void(0);">领取礼包</a>)
+                            </li>
+                            <li>
+                                <i class="fa fa-jpy fa-1x fa-pull-left fa-border" style="color: red;"></i>
+                                恭喜内蒙古王先生<img style="height: 20px;" src="{% static 'images' %}/dengji/11 (3).gif">,获得2000元投保大礼包！(<a href="javascript:void(0);">领取礼包</a>)
+                            </li>
+                            <li>
+                                <i class="fa fa-jpy fa-1x fa-pull-left fa-border" style="color: red;"></i>
+                                恭喜四川李小姐<img src="{% static 'images' %}/dengji/45.png">,获得2000元投保大礼包！(<a href="javascript:void(0);">领取礼包</a>)
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>-->
+
+
+
+
+     <section id="partner-pricing" class="margin-top">
+        <div class="container">
+            <div class="table-responsive">
+                <h3 class="titleOfPage">投保有礼
+                    <a href="#" class="moreOfPic">/更多</a>
+                </h3>
+                <table class="table table-bordered table-hover home-page-table">
+                    <thead>
+                        <tr>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>钻石会员</td>
+                            <td>黄金会员</td>
+                            <td>普通会员</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p>安盛天平</p>
+                                <span>AXA</span>
+                            </td>
+                            <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="10" style="width: 100%">
+                                        高达 10% <span class="sr-only">10%</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="7" aria-valuemin="0" aria-valuemax="7" style="width:70%">
+                                        高达 7% <span class="sr-only">7%</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="10" style="width:40%">
+                                        高达 4% <span class="sr-only">4%</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>阳光集团保险</p>
+                                <span>Sunshine Insurance Group</span>
+                            </td>
+                              <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="10" style="width: 100%">
+                                        高达 10% <span class="sr-only">10%</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="7" aria-valuemin="0" aria-valuemax="7" style="width:70%">
+                                        高达 7% <span class="sr-only">7%</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="10" style="width:40%">
+                                        高达 4% <span class="sr-only">4%</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>中华保险</p>
+                                <span>CHINA Insurance</span>
+                            </td>
+                             <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="10" style="width: 100%">
+                                        高达 10% <span class="sr-only">10%</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="7" aria-valuemin="0" aria-valuemax="7" style="width:70%">
+                                        高达 7% <span class="sr-only">7%</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="10" style="width:40%">
+                                        高达 4% <span class="sr-only">4%</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>中国太平保险公司</p>
+                                <span>CHIAN Taiping  </span>
+                            </td>
+                             <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="10" style="width: 100%">
+                                        高达 10% <span class="sr-only">10%</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="7" aria-valuemin="0" aria-valuemax="7" style="width:70%">
+                                        高达 7% <span class="sr-only">7%</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="10" style="width:40%">
+                                        高达 4% <span class="sr-only">4%</span>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <!--/ partner pricing -->
+    <!-- car recall -->
+     <section id="" class="margin-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="progress-bar-warning progress-bar-striped recall-form-Wrap">
+                        <h3 class="titleOfPage">
+                            <i class="fa fa-play fa-1"></i>
+                            汽车召回
+                       </h3>
+                        <!-- car recall form -->
+                        <form action="###" role="form" class="recall-form">
+                            <div class="form-group">
+                                <label for="car-frame">车架号:</label>
+                                <input type="text" class="form-control" id="car-frame">
+                            </div>
+                            <div class="form-group">
+                                <label for="car-owner">账号:</label>
+                                <input type="text" class="form-control" id="car-owner">
+                            </div>
+                            <div class="form-group">
+                                <label for="car-password">密码:</label>
+                                <input type="password" class="form-control" id="car-password">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-ar btn-danger">立即查询</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="benefit-title">
+                        <h3 class="titleOfPage shouyichezhu">受益车主
+                            <a href="#" class="moreOfPic">/更多</a>
+                        </h3>
+                    </div>
+                    <!-- benefit-wrap -->
+                    <div id="benefit_ok" class="benefit-list">
+                        <div class="box clearfix">
+                           <ul class="list">
+                                <li>
+                                    <div>广东深圳</div>
+                                    <div>李**女士</div>
+                                    <div>福克斯 科雷傲KOLEOS2.5L车</div>
+                                    <div>获卡来宝补贴300元</div>
+                                    <div>钻石会员</div>
+                                </li>
+                                <li>
+                                    <div>山东烟台</div>
+                                    <div>鲁**先生</div>
+                                    <div>东风日产 轩逸1.6XV CVT尊享版</div>
+                                    <div>获卡来宝补贴400元</div>
+                                    <div>黄金会员</div>
+                                </li>
+                                <li>
+                                    <div>辽宁大连</div>
+                                    <div>张**先生</div>
+                                    <div>上汽通用别克 英朗15N 自动精英型</div>
+                                    <div>获卡来宝补贴600元</div>
+                                    <div>钻石会员</div>
+                                </li>
+                                <li>
+                                    <div>河北邢台</div>
+                                    <div>刘**先生</div>
+                                    <div>上海大众 朗逸230TSI DSG 豪华版</div>
+                                    <div>获卡来宝补贴100元</div>
+                                    <div>普通会员</div>
+                                </li>
+                                <li>
+                                    <div>山西大同</div>
+                                    <div>孙**女士</div>
+                                    <div>北京现代 朗动1.6L 自动时尚型</div>
+                                    <div>获卡来宝补贴300元</div>
+                                    <div>钻石会员</div>
+                                </li>
+                                <li>
+                                    <div>北京朝阳</div>
+                                    <div>王**先生</div>
+                                    <div>东风 标致408 1.8L 自动豪华版</div>
+                                    <div>获卡来宝补贴200元</div>
+                                    <div>钻石会员</div>
+                                </li>
+                                <li>
+                                    <div>北京海淀</div>
+                                    <div>赵**先生</div>
+                                    <div>长城 哈弗H6 1.5T 自动两驱豪华型</div>
+                                    <div>获卡来宝补贴300元</div>
+                                    <div>黄金会员</div>
+                                </li>
+                                <li>
+                                    <div>天津</div>
+                                    <div>刘**先生</div>
+                                    <div>众泰 众泰T6001.5T 手动尊贵型</div>
+                                    <div>获卡来宝补贴200元</div>
+                                    <div>钻石会员</div>
+                                </li>
+                                <li>
+                                    <div>上海</div>
+                                    <div>田**先生</div>
+                                    <div>长安福特 福克斯三厢1.5L 自动旗舰型</div>
+                                    <div>获卡来宝补贴200元</div>
+                                    <div>普通会员</div>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <!-- /.benefit-lsit -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- / car recall -->
+
+    <!-- ad wrap -->
+    <section id="" class="margin-top">
+        <div class="container margin-top">
+            <div class="announce-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="{% static 'images' %}/v-pic.png" class="aligncenter">
+                    </div>
+                    <div class="col-md-6">
+                        <h2>邀请有礼，每成功邀请一位即得<b style="font-size: 30px;">50元现金奖励</b></h2>
+                        <h4></h4>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="margin-top">
+                            <a href="#" class="button button-border-primary btn-large">
+                                立即邀请
+                                <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i>
+                            </a>
+                        </p>
+
+                        <p>&nbsp;&nbsp;邀请越多&nbsp;奖励越多</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- /ad wrap -->
+    <!-- partners -->
+     <section id="" class="margin-top">
+        <div class="container">
+            <h3 class="titleOfPage no-margin hezuobaoxian">合作保险</h3>
+            <div id="par_ok" class="partners">
+                <div class="box">
+                    <ul class="list">
+                        <li>
+                            <img src="static/images/logo/logo-1.png">
+                        </li>
+                        <li>
+                            <img src="static/images/logo/logo-2.png">
+                        </li>
+                        <li>
+                            <img src="static/images/logo/logo-3.png">
+                        </li>
+                        <li>
+                            <img src="static/images/logo/logo-4.png">
+                        </li>
+                        <li>
+                            <img src="static/images/logo/logo-5.png">
+                        </li>
+                        <li>
+                            <img src="static/images/logo/logo-6.png">
+                        </li>
+                        <li>
+                            <img src="static/images/logo/logo-7.png">
+                        </li>
+
+                    </ul>
+                </div>
+                <a class="prev"></a>
+                <a class="next"></a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- / partners -->
+
+    <!-- footer -->
+    <footer class="margin-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>关于我们
+                        <br/>
+                        <span>About us </span>
+                    </h4>
+                    <p class="intro">
+                        <!--卡来宝：是一个返利型的车险比价平台，用户可以在平台上提交车辆投保所必须的资料信息，比较不同保险公司的精准的车险报价，自主选择保险公司购买，成功购买后，可以在规定期限，按照不同的保险公司的约定比例领取补贴。-->
+                        卡来宝（www.kalaibao.com)是一个创新型车险+汽车
+                        金融平台，在线免费为用户提供多家保险公司车险智
+                        能帮比服务。用户在线同时对多家车险比较，直达官
+                        网支付，从而确保保费双网同价。卡来宝践行让消费
+                        者从互联网+中获得红利。
+                        卡来宝平台专注汽车金融服务，产品由拥有超过20年
+                        世界500强消费经融丰富经验的金融业界大佬团队设计。
+
+                    </p>
+                    <!--
+                    <p class="follow">
+                        <a href="#"><i class="fa fa-weixin fa-square"></i></a>
+                        <a href="#"><i class="fa fa-qq fa-square"></i> </a>
+                        <a href="#"><i class="fa fa-weibo fa-square"></i></a>
+                    </p>-->
+                </div>
+                <!--<div class="col-md-4">
+                    <h4>最新文章
+                        <br/>
+                        <span>Latest posts </span>
+                    </h4>
+                    <div class="news-list">
+                        <ul>
+                            <li>
+                                <span>2014年8月</span>
+                                <p>与安盛天平保险公司签署合作协议;</p>
+                            </li>
+                            <li>
+                                <span>2014年8月</span>
+                                <p>与安盛天平保险公司签署合作协议;</p>
+                            </li>
+                            <li>
+                                <span>2014年8月</span>
+                                <p>与阳光财产保险公司、中国大地保险公司、太平洋保险在线服务公司签署合作协议；</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>-->
+                <div class="col-md-4">
+                    <h4>联系我们
+                        <br/>
+                        <span>Contact Us </span>
+                    </h4>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <i class="footerIcon email"></i>
+                        </div>
+                        <div class="col-md-10">
+                            电子邮箱：
+                            <br />
+                            <span>info@kalaibao.com</span>
+                            <br />
+                            <span>kalaibao@kalaibao.com</span>
+                        </div>
+                    </div>
+                    <hr style="margin-right:40px">
+
+                </div>
+                <div class="col-md-4 foot" >
+                    <div class="row">
+                        <div class="col-md-1">
+                            <i class="footerIcon tel"></i>
+                        </div>
+                        <div class="col-md-10">
+                            联系电话：
+                            <br />
+                            <span>010-84874127</span>
+                        </div>
+                    </div>
+                      <hr style="margin-right:40px; margin-top: 40px;" >
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+{% endblock %}
+
+{% block footerjs %}
+    <script src="{% static 'javascripts' %}/circle-progress.js"></script>
+    <script src="{% static 'javascripts' %}/jquery.cxscroll.min.js"></script>
+    <script src="{% static 'javascripts' %}/jquery.animateNumber.min.js"></script>
+    <script src="{% static 'javascripts' %}/index.js"></script>
+{% endblock %}

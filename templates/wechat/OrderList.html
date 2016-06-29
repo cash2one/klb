@@ -1,0 +1,137 @@
+{% load staticfiles %}
+{% load wechattag %}
+<div class="navbar theme-red">
+    <div class="navbar-inner wechat_bjcolor">
+        <div class="left"><a href="#" class="link back">返回</a></div>
+        <div class="center sliding">卡来宝.订单详情</div>
+        <div class="right"></div>
+    </div>
+</div>
+<div data-page="order-detail" class="page">
+    <div class="page-content theme-red">
+        <div class="list-block">
+            <ul>
+                {% ifequal bxgs 'yg' %}
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title">承保公司</div>
+                            <div class="item-after">阳光保险公司</div>
+                        </div>
+                    </li>
+                {% endifequal %}
+                {% ifequal bxgs 'as' %}
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title">承保公司</div>
+                            <div class="item-after">安盛天平保险公司</div>
+                        </div>
+                    </li>
+                {% endifequal %}
+                {% ifequal bxgs 'zh' %}
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title">承保公司</div>
+                            <div class="item-after">中华联合保险公司</div>
+                        </div>
+                    </li>
+                {% endifequal %}
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">订单状态</div>
+                        {% ifequal status '0' %}
+                            <div class="item-after">未支付</div>
+                        {% else %}
+                            <div class="item-after">已支付</div>
+                        {% endifequal %}
+                    </div>
+                </li>
+                <li class="item-content">
+
+                    <div class="item-inner">
+                        <div class="item-title">订单价格</div>
+                        <div class="item-after">{{ price }}</div>
+                    </div>
+                </li>
+                <li class="item-content">
+
+                    <div class="item-inner">
+                        <div class="item-title">订单编号</div>
+                        <div class="item-after">{{ orderid }}</div>
+                    </div>
+                </li>
+                <li class="item-content">
+
+                    <div class="item-inner">
+                        <div class="item-title">商业投保单号</div>
+                        <div class="item-after">{{ bizno }}</div>
+                    </div>
+                </li>
+                <li class="item-content">
+
+                    <div class="item-inner">
+                        <div class="item-title">交强投保单号</div>
+                        <div class="item-after">{{ forcno }}</div>
+                    </div>
+                </li>
+                <li class="item-divider">投保人信息</li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">姓名</div>
+                        <div class="item-after">{{ app_name }}</div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">电话</div>
+                        <div class="item-after">{{ app_tel }}</div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">身份证</div>
+                        <div class="item-after">{{ app_no }}</div>
+                    </div>
+                </li>
+                <li class="item-divider">被保人信息</li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">姓名</div>
+                        <div class="item-after">{{ insured_name }}</div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">电话</div>
+                        <div class="item-after">{{ insured_tel }}</div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">身份证</div>
+                        <div class="item-after">{{ insured_no }}</div>
+                    </div>
+                </li>
+
+                <li class="item-divider">配送信息</li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">姓名</div>
+                        <div class="item-after">{{ addressee_name }}</div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">手机</div>
+                        <div class="item-after">{{ addressee_tel }}</div>
+                    </div>
+                </li>
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">地址</div>
+                        <div class="item-after">{{ addressee_details }}</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

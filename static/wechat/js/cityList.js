@@ -1,0 +1,3239 @@
+﻿var impCitys = [{
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110100,
+    "name": "北京",
+    "pid": 733
+}, {
+    "cararealiense": "津",
+    "coding": "",
+    "entrytime": "",
+    "id": 120100,
+    "name": "天津",
+    "pid": 733
+}, {
+    "cararealiense": "辽A",
+    "coding": "",
+    "entrytime": "",
+    "id": 210100,
+    "name": "沈阳",
+    "pid": 210000
+}, {
+    "cararealiense": "辽B",
+    "coding": "",
+    "entrytime": "",
+    "id": 210200,
+    "name": "大连",
+    "pid": 210000
+}, {
+    "cararealiense": "沪",
+    "coding": "",
+    "entrytime": "",
+    "id": 310100,
+    "name": "上海",
+    "pid": 733
+}, {
+    "cararealiense": "苏A",
+    "coding": "",
+    "entrytime": "",
+    "id": 320100,
+    "name": "南京",
+    "pid": 320000
+}, {
+    "cararealiense": "浙A",
+    "coding": "",
+    "entrytime": "",
+    "id": 330100,
+    "name": "杭州",
+    "pid": 330000
+}, {
+    "cararealiense": "浙B",
+    "coding": "",
+    "entrytime": "",
+    "id": 330200,
+    "name": "宁波",
+    "pid": 330000
+}, {
+    "cararealiense": "鲁B",
+    "coding": "",
+    "entrytime": "",
+    "id": 370200,
+    "name": "青岛",
+    "pid": 370000
+}, {
+    "cararealiense": "粤A",
+    "coding": "",
+    "entrytime": "",
+    "id": 440100,
+    "name": "广州",
+    "pid": 440000
+}, {
+    "cararealiense": "粤B",
+    "coding": "",
+    "entrytime": "",
+    "id": 440300,
+    "name": "深圳",
+    "pid": 440000
+}, {
+    "cararealiense": "渝",
+    "coding": "",
+    "entrytime": "",
+    "id": 500100,
+    "name": "重庆",
+    "pid": 733
+}];
+var dfCitys = [{
+    "cararealiense": "冀A",
+    "coding": "",
+    "entrytime": "",
+    "id": 130100,
+    "name": "石家庄",
+    "pid": 130000
+}, {
+    "cararealiense": "冀B",
+    "coding": "",
+    "entrytime": "",
+    "id": 130200,
+    "name": "唐山",
+    "pid": 130000
+}, {
+    "cararealiense": "冀C",
+    "coding": "",
+    "entrytime": "",
+    "id": 130300,
+    "name": "秦皇岛",
+    "pid": 130000
+}, {
+    "cararealiense": "冀D",
+    "coding": "",
+    "entrytime": "",
+    "id": 130400,
+    "name": "邯郸",
+    "pid": 130000
+}, {
+    "cararealiense": "冀E",
+    "coding": "",
+    "entrytime": "",
+    "id": 130500,
+    "name": "邢台",
+    "pid": 130000
+}, {
+    "cararealiense": "冀F",
+    "coding": "",
+    "entrytime": "",
+    "id": 130600,
+    "name": "保定",
+    "pid": 130000
+}, {
+    "cararealiense": "冀G",
+    "coding": "",
+    "entrytime": "",
+    "id": 130700,
+    "name": "张家口",
+    "pid": 130000
+}, {
+    "cararealiense": "冀H",
+    "coding": "",
+    "entrytime": "",
+    "id": 130800,
+    "name": "承德",
+    "pid": 130000
+}, {
+    "cararealiense": "冀J",
+    "coding": "",
+    "entrytime": "",
+    "id": 130900,
+    "name": "沧州",
+    "pid": 130000
+}, {
+    "cararealiense": "冀R",
+    "coding": "",
+    "entrytime": "",
+    "id": 131000,
+    "name": "廊坊",
+    "pid": 130000
+}, {
+    "cararealiense": "冀T",
+    "coding": "",
+    "entrytime": "",
+    "id": 131100,
+    "name": "衡水",
+    "pid": 130000
+}];
+
+var provinces = [{
+    "cararealiense": "冀",
+    "coding": "",
+    "entrytime": "",
+    "id": 130000,
+    "name": "河北",
+    "pid": 733
+}, {
+    "cararealiense": "晋",
+    "coding": "",
+    "entrytime": "",
+    "id": 140000,
+    "name": "山西",
+    "pid": 733
+}, {
+    "cararealiense": "蒙",
+    "coding": "",
+    "entrytime": "",
+    "id": 150000,
+    "name": "内蒙古",
+    "pid": 733
+}, {
+    "cararealiense": "辽",
+    "coding": "",
+    "entrytime": "",
+    "id": 210000,
+    "name": "辽宁",
+    "pid": 733
+}, {
+    "cararealiense": "吉",
+    "coding": "",
+    "entrytime": "",
+    "id": 220000,
+    "name": "吉林",
+    "pid": 733
+}, {
+    "cararealiense": "黑",
+    "coding": "",
+    "entrytime": "",
+    "id": 230000,
+    "name": "黑龙江",
+    "pid": 733
+}, {
+    "cararealiense": "苏",
+    "coding": "",
+    "entrytime": "",
+    "id": 320000,
+    "name": "江苏",
+    "pid": 733
+}, {
+    "cararealiense": "浙",
+    "coding": "",
+    "entrytime": "",
+    "id": 330000,
+    "name": "浙江",
+    "pid": 733
+}, {
+    "cararealiense": "皖",
+    "coding": "",
+    "entrytime": "",
+    "id": 340000,
+    "name": "安徽",
+    "pid": 733
+}, {
+    "cararealiense": "闽",
+    "coding": "",
+    "entrytime": "",
+    "id": 350000,
+    "name": "福建",
+    "pid": 733
+}, {
+    "cararealiense": "赣",
+    "coding": "",
+    "entrytime": "",
+    "id": 360000,
+    "name": "江西",
+    "pid": 733
+}, {
+    "cararealiense": "鲁",
+    "coding": "",
+    "entrytime": "",
+    "id": 370000,
+    "name": "山东",
+    "pid": 733
+}, {
+    "cararealiense": "豫",
+    "coding": "",
+    "entrytime": "",
+    "id": 410000,
+    "name": "河南",
+    "pid": 733
+}, {
+    "cararealiense": "鄂",
+    "coding": "",
+    "entrytime": "",
+    "id": 420000,
+    "name": "湖北",
+    "pid": 733
+}, {
+    "cararealiense": "湘",
+    "coding": "",
+    "entrytime": "",
+    "id": 430000,
+    "name": "湖南",
+    "pid": 733
+}, {
+    "cararealiense": "粤",
+    "coding": "",
+    "entrytime": "",
+    "id": 440000,
+    "name": "广东",
+    "pid": 733
+}, {
+    "cararealiense": "桂",
+    "coding": "",
+    "entrytime": "",
+    "id": 450000,
+    "name": "广西",
+    "pid": 733
+}, {
+    "cararealiense": "琼",
+    "coding": "",
+    "entrytime": "",
+    "id": 460000,
+    "name": "海南",
+    "pid": 733
+}, {
+    "cararealiense": "川",
+    "coding": "",
+    "entrytime": "",
+    "id": 510000,
+    "name": "四川",
+    "pid": 733
+}, {
+    "cararealiense": "贵",
+    "coding": "",
+    "entrytime": "",
+    "id": 520000,
+    "name": "贵州",
+    "pid": 733
+}, {
+    "cararealiense": "云",
+    "coding": "",
+    "entrytime": "",
+    "id": 530000,
+    "name": "云南",
+    "pid": 733
+}, {
+    "cararealiense": "藏",
+    "coding": "",
+    "entrytime": "",
+    "id": 540000,
+    "name": "西藏",
+    "pid": 733
+}, {
+    "cararealiense": "陕",
+    "coding": "",
+    "entrytime": "",
+    "id": 610000,
+    "name": "陕西",
+    "pid": 733
+}, {
+    "cararealiense": "甘",
+    "coding": "",
+    "entrytime": "",
+    "id": 620000,
+    "name": "甘肃",
+    "pid": 733
+}, {
+    "cararealiense": "青",
+    "coding": "",
+    "entrytime": "",
+    "id": 630000,
+    "name": "青海",
+    "pid": 733
+}, {
+    "cararealiense": "宁",
+    "coding": "",
+    "entrytime": "",
+    "id": 640000,
+    "name": "宁夏",
+    "pid": 733
+}, {
+    "cararealiense": "新",
+    "coding": "",
+    "entrytime": "",
+    "id": 650000,
+    "name": "新疆",
+    "pid": 733
+}]
+var dictionary = [{
+    "cararealiense": "",
+    "coding": "sheng",
+    "entrytime": "",
+    "id": 733,
+    "name": "省",
+    "pid": 0
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110000,
+    "name": "北京",
+    "pid": 733
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110101,
+    "name": "东城区",
+    "pid": 110000
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110102,
+    "name": "西城区",
+    "pid": 110000
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110103,
+    "name": "崇文区",
+    "pid": 110000
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110104,
+    "name": "宣武区",
+    "pid": 110000
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110105,
+    "name": "朝阳区",
+    "pid": 110000
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110106,
+    "name": "丰台区",
+    "pid": 110000
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110107,
+    "name": "石景山区",
+    "pid": 110000
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110108,
+    "name": "海淀区",
+    "pid": 110000
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110109,
+    "name": "门头沟区",
+    "pid": 110000
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110111,
+    "name": "房山区",
+    "pid": 110000
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110112,
+    "name": "通州区",
+    "pid": 110000
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110113,
+    "name": "顺义区",
+    "pid": 110000
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110114,
+    "name": "昌平区",
+    "pid": 110000
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110115,
+    "name": "大兴区",
+    "pid": 110000
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110116,
+    "name": "怀柔区",
+    "pid": 110000
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110117,
+    "name": "平谷区",
+    "pid": 110000
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110228,
+    "name": "密云县",
+    "pid": 110000
+}, {
+    "cararealiense": "京",
+    "coding": "",
+    "entrytime": "",
+    "id": 110229,
+    "name": "延庆县",
+    "pid": 110000
+}, {
+    "cararealiense": "津",
+    "coding": "",
+    "entrytime": "",
+    "id": 120100,
+    "name": "天津",
+    "pid": 733
+}, {
+    "cararealiense": "冀",
+    "coding": "",
+    "entrytime": "",
+    "id": 130000,
+    "name": "河北",
+    "pid": 733
+}, {
+    "cararealiense": "冀A",
+    "coding": "",
+    "entrytime": "",
+    "id": 130100,
+    "name": "石家庄",
+    "pid": 130000
+}, {
+    "cararealiense": "冀B",
+    "coding": "",
+    "entrytime": "",
+    "id": 130200,
+    "name": "唐山",
+    "pid": 130000
+}, {
+    "cararealiense": "冀C",
+    "coding": "",
+    "entrytime": "",
+    "id": 130300,
+    "name": "秦皇岛",
+    "pid": 130000
+}, {
+    "cararealiense": "冀D",
+    "coding": "",
+    "entrytime": "",
+    "id": 130400,
+    "name": "邯郸",
+    "pid": 130000
+}, {
+    "cararealiense": "冀E",
+    "coding": "",
+    "entrytime": "",
+    "id": 130500,
+    "name": "邢台",
+    "pid": 130000
+}, {
+    "cararealiense": "冀F",
+    "coding": "",
+    "entrytime": "",
+    "id": 130600,
+    "name": "保定",
+    "pid": 130000
+}, {
+    "cararealiense": "冀G",
+    "coding": "",
+    "entrytime": "",
+    "id": 130700,
+    "name": "张家口",
+    "pid": 130000
+}, {
+    "cararealiense": "冀H",
+    "coding": "",
+    "entrytime": "",
+    "id": 130800,
+    "name": "承德",
+    "pid": 130000
+}, {
+    "cararealiense": "冀J",
+    "coding": "",
+    "entrytime": "",
+    "id": 130900,
+    "name": "沧州",
+    "pid": 130000
+}, {
+    "cararealiense": "冀R",
+    "coding": "",
+    "entrytime": "",
+    "id": 131000,
+    "name": "廊坊",
+    "pid": 130000
+}, {
+    "cararealiense": "冀T",
+    "coding": "",
+    "entrytime": "",
+    "id": 131100,
+    "name": "衡水",
+    "pid": 130000
+}, {
+    "cararealiense": "晋",
+    "coding": "",
+    "entrytime": "",
+    "id": 140000,
+    "name": "山西",
+    "pid": 733
+}, {
+    "cararealiense": "晋A",
+    "coding": "",
+    "entrytime": "",
+    "id": 140100,
+    "name": "太原",
+    "pid": 140000
+}, {
+    "cararealiense": "晋B",
+    "coding": "",
+    "entrytime": "",
+    "id": 140200,
+    "name": "大同",
+    "pid": 140000
+}, {
+    "cararealiense": "晋C",
+    "coding": "",
+    "entrytime": "",
+    "id": 140300,
+    "name": "阳泉",
+    "pid": 140000
+}, {
+    "cararealiense": "晋D",
+    "coding": "",
+    "entrytime": "",
+    "id": 140400,
+    "name": "长治",
+    "pid": 140000
+}, {
+    "cararealiense": "晋E",
+    "coding": "",
+    "entrytime": "",
+    "id": 140500,
+    "name": "晋城",
+    "pid": 140000
+}, {
+    "cararealiense": "晋F",
+    "coding": "",
+    "entrytime": "",
+    "id": 140600,
+    "name": "朔州",
+    "pid": 140000
+}, {
+    "cararealiense": "晋K",
+    "coding": "",
+    "entrytime": "",
+    "id": 140700,
+    "name": "晋中",
+    "pid": 140000
+}, {
+    "cararealiense": "晋M",
+    "coding": "",
+    "entrytime": "",
+    "id": 140800,
+    "name": "运城",
+    "pid": 140000
+}, {
+    "cararealiense": "晋H",
+    "coding": "",
+    "entrytime": "",
+    "id": 140900,
+    "name": "忻州",
+    "pid": 140000
+}, {
+    "cararealiense": "晋L",
+    "coding": "",
+    "entrytime": "",
+    "id": 141000,
+    "name": "临汾",
+    "pid": 140000
+}, {
+    "cararealiense": "晋J",
+    "coding": "",
+    "entrytime": "",
+    "id": 141100,
+    "name": "吕梁",
+    "pid": 140000
+}, {
+    "cararealiense": "蒙",
+    "coding": "",
+    "entrytime": "",
+    "id": 150000,
+    "name": "内蒙古",
+    "pid": 733
+}, {
+    "cararealiense": "蒙A",
+    "coding": "",
+    "entrytime": "",
+    "id": 150100,
+    "name": "呼和浩特",
+    "pid": 150000
+}, {
+    "cararealiense": "蒙B",
+    "coding": "",
+    "entrytime": "",
+    "id": 150200,
+    "name": "包头",
+    "pid": 150000
+}, {
+    "cararealiense": "蒙C",
+    "coding": "",
+    "entrytime": "",
+    "id": 150300,
+    "name": "乌海",
+    "pid": 150000
+}, {
+    "cararealiense": "蒙D",
+    "coding": "",
+    "entrytime": "",
+    "id": 150400,
+    "name": "赤峰",
+    "pid": 150000
+}, {
+    "cararealiense": "蒙G",
+    "coding": "",
+    "entrytime": "",
+    "id": 150500,
+    "name": "通辽",
+    "pid": 150000
+}, {
+    "cararealiense": "蒙K",
+    "coding": "",
+    "entrytime": "",
+    "id": 150600,
+    "name": "鄂尔多斯",
+    "pid": 150000
+}, {
+    "cararealiense": "蒙E",
+    "coding": "",
+    "entrytime": "",
+    "id": 150700,
+    "name": "呼伦贝尔",
+    "pid": 150000
+}, {
+    "cararealiense": "蒙L",
+    "coding": "",
+    "entrytime": "",
+    "id": 150800,
+    "name": "巴彦淖尔",
+    "pid": 150000
+}, {
+    "cararealiense": "蒙J",
+    "coding": "",
+    "entrytime": "",
+    "id": 150900,
+    "name": "乌兰察布",
+    "pid": 150000
+}, {
+    "cararealiense": "蒙F",
+    "coding": "",
+    "entrytime": "",
+    "id": 152200,
+    "name": "兴安盟",
+    "pid": 150000
+}, {
+    "cararealiense": "蒙H",
+    "coding": "",
+    "entrytime": "",
+    "id": 152500,
+    "name": "锡林郭勒盟",
+    "pid": 150000
+}, {
+    "cararealiense": "蒙M",
+    "coding": "",
+    "entrytime": "",
+    "id": 152900,
+    "name": "阿拉善盟",
+    "pid": 150000
+}, {
+    "cararealiense": "辽",
+    "coding": "",
+    "entrytime": "",
+    "id": 210000,
+    "name": "辽宁",
+    "pid": 733
+}, {
+    "cararealiense": "辽A",
+    "coding": "",
+    "entrytime": "",
+    "id": 210100,
+    "name": "沈阳",
+    "pid": 210000
+}, {
+    "cararealiense": "辽B",
+    "coding": "",
+    "entrytime": "",
+    "id": 210200,
+    "name": "大连",
+    "pid": 210000
+}, {
+    "cararealiense": "辽C",
+    "coding": "",
+    "entrytime": "",
+    "id": 210300,
+    "name": "鞍山",
+    "pid": 210000
+}, {
+    "cararealiense": "辽D",
+    "coding": "",
+    "entrytime": "",
+    "id": 210400,
+    "name": "抚顺",
+    "pid": 210000
+}, {
+    "cararealiense": "辽E",
+    "coding": "",
+    "entrytime": "",
+    "id": 210500,
+    "name": "本溪",
+    "pid": 210000
+}, {
+    "cararealiense": "辽F",
+    "coding": "",
+    "entrytime": "",
+    "id": 210600,
+    "name": "丹东",
+    "pid": 210000
+}, {
+    "cararealiense": "辽G",
+    "coding": "",
+    "entrytime": "",
+    "id": 210700,
+    "name": "锦州",
+    "pid": 210000
+}, {
+    "cararealiense": "辽H",
+    "coding": "",
+    "entrytime": "",
+    "id": 210800,
+    "name": "营口",
+    "pid": 210000
+}, {
+    "cararealiense": "辽J",
+    "coding": "",
+    "entrytime": "",
+    "id": 210900,
+    "name": "阜新",
+    "pid": 210000
+}, {
+    "cararealiense": "辽K",
+    "coding": "",
+    "entrytime": "",
+    "id": 211000,
+    "name": "辽阳",
+    "pid": 210000
+}, {
+    "cararealiense": "辽L",
+    "coding": "",
+    "entrytime": "",
+    "id": 211100,
+    "name": "盘锦",
+    "pid": 210000
+}, {
+    "cararealiense": "辽M",
+    "coding": "",
+    "entrytime": "",
+    "id": 211200,
+    "name": "铁岭",
+    "pid": 210000
+}, {
+    "cararealiense": "辽N",
+    "coding": "",
+    "entrytime": "",
+    "id": 211300,
+    "name": "朝阳",
+    "pid": 210000
+}, {
+    "cararealiense": "辽P",
+    "coding": "",
+    "entrytime": "",
+    "id": 211400,
+    "name": "葫芦岛",
+    "pid": 210000
+}, {
+    "cararealiense": "吉",
+    "coding": "",
+    "entrytime": "",
+    "id": 220000,
+    "name": "吉林",
+    "pid": 733
+}, {
+    "cararealiense": "吉A",
+    "coding": "",
+    "entrytime": "",
+    "id": 220100,
+    "name": "长春",
+    "pid": 220000
+}, {
+    "cararealiense": "吉B",
+    "coding": "",
+    "entrytime": "",
+    "id": 220200,
+    "name": "吉林",
+    "pid": 220000
+}, {
+    "cararealiense": "吉C",
+    "coding": "",
+    "entrytime": "",
+    "id": 220300,
+    "name": "四平",
+    "pid": 220000
+}, {
+    "cararealiense": "吉D",
+    "coding": "",
+    "entrytime": "",
+    "id": 220400,
+    "name": "辽源",
+    "pid": 220000
+}, {
+    "cararealiense": "吉E",
+    "coding": "",
+    "entrytime": "",
+    "id": 220500,
+    "name": "通化",
+    "pid": 220000
+}, {
+    "cararealiense": "吉F",
+    "coding": "",
+    "entrytime": "",
+    "id": 220600,
+    "name": "白山",
+    "pid": 220000
+}, {
+    "cararealiense": "吉J",
+    "coding": "",
+    "entrytime": "",
+    "id": 220700,
+    "name": "松原",
+    "pid": 220000
+}, {
+    "cararealiense": "吉G",
+    "coding": "",
+    "entrytime": "",
+    "id": 220800,
+    "name": "白城",
+    "pid": 220000
+}, {
+    "cararealiense": "吉H",
+    "coding": "",
+    "entrytime": "",
+    "id": 222400,
+    "name": "延边",
+    "pid": 220000
+}, {
+    "cararealiense": "黑",
+    "coding": "",
+    "entrytime": "",
+    "id": 230000,
+    "name": "黑龙江",
+    "pid": 733
+}, {
+    "cararealiense": "黑A",
+    "coding": "",
+    "entrytime": "",
+    "id": 230100,
+    "name": "哈尔滨",
+    "pid": 230000
+}, {
+    "cararealiense": "黑B",
+    "coding": "",
+    "entrytime": "",
+    "id": 230200,
+    "name": "齐齐哈尔",
+    "pid": 230000
+}, {
+    "cararealiense": "黑G",
+    "coding": "",
+    "entrytime": "",
+    "id": 230300,
+    "name": "鸡西 ",
+    "pid": 230000
+}, {
+    "cararealiense": "黑H",
+    "coding": "",
+    "entrytime": "",
+    "id": 230400,
+    "name": "鹤岗 ",
+    "pid": 230000
+}, {
+    "cararealiense": "黑J",
+    "coding": "",
+    "entrytime": "",
+    "id": 230500,
+    "name": "双鸭山",
+    "pid": 230000
+}, {
+    "cararealiense": "黑E",
+    "coding": "",
+    "entrytime": "",
+    "id": 230600,
+    "name": "大庆 ",
+    "pid": 230000
+}, {
+    "cararealiense": "黑F",
+    "coding": "",
+    "entrytime": "",
+    "id": 230700,
+    "name": "伊春 ",
+    "pid": 230000
+}, {
+    "cararealiense": "黑D",
+    "coding": "",
+    "entrytime": "",
+    "id": 230800,
+    "name": "佳木斯",
+    "pid": 230000
+}, {
+    "cararealiense": "黑K",
+    "coding": "",
+    "entrytime": "",
+    "id": 230900,
+    "name": "七台河",
+    "pid": 230000
+}, {
+    "cararealiense": "黑C",
+    "coding": "",
+    "entrytime": "",
+    "id": 231000,
+    "name": "牡丹江",
+    "pid": 230000
+}, {
+    "cararealiense": "黑N",
+    "coding": "",
+    "entrytime": "",
+    "id": 231100,
+    "name": "黑河 ",
+    "pid": 230000
+}, {
+    "cararealiense": "黑M",
+    "coding": "",
+    "entrytime": "",
+    "id": 231200,
+    "name": "绥化 ",
+    "pid": 230000
+}, {
+    "cararealiense": "黑P",
+    "coding": "",
+    "entrytime": "",
+    "id": 232700,
+    "name": "大兴安岭",
+    "pid": 230000
+}, {
+    "cararealiense": "沪",
+    "coding": "",
+    "entrytime": "",
+    "id": 310100,
+    "name": "上海",
+    "pid": 733
+}, {
+    "cararealiense": "苏",
+    "coding": "",
+    "entrytime": "",
+    "id": 320000,
+    "name": "江苏",
+    "pid": 733
+}, {
+    "cararealiense": "苏A",
+    "coding": "",
+    "entrytime": "",
+    "id": 320100,
+    "name": "南京",
+    "pid": 320000
+}, {
+    "cararealiense": "苏B",
+    "coding": "",
+    "entrytime": "",
+    "id": 320200,
+    "name": "无锡",
+    "pid": 320000
+}, {
+    "cararealiense": "苏C",
+    "coding": "",
+    "entrytime": "",
+    "id": 320300,
+    "name": "徐州",
+    "pid": 320000
+}, {
+    "cararealiense": "苏D",
+    "coding": "",
+    "entrytime": "",
+    "id": 320400,
+    "name": "常州",
+    "pid": 320000
+}, {
+    "cararealiense": "苏E",
+    "coding": "",
+    "entrytime": "",
+    "id": 320500,
+    "name": "苏州",
+    "pid": 320000
+}, {
+    "cararealiense": "苏F",
+    "coding": "",
+    "entrytime": "",
+    "id": 320600,
+    "name": "南通",
+    "pid": 320000
+}, {
+    "cararealiense": "苏G",
+    "coding": "",
+    "entrytime": "",
+    "id": 320700,
+    "name": "连云港",
+    "pid": 320000
+}, {
+    "cararealiense": "苏H",
+    "coding": "",
+    "entrytime": "",
+    "id": 320800,
+    "name": "淮安",
+    "pid": 320000
+}, {
+    "cararealiense": "苏J",
+    "coding": "",
+    "entrytime": "",
+    "id": 320900,
+    "name": "盐城",
+    "pid": 320000
+}, {
+    "cararealiense": "苏K",
+    "coding": "",
+    "entrytime": "",
+    "id": 321000,
+    "name": "扬州",
+    "pid": 320000
+}, {
+    "cararealiense": "苏L",
+    "coding": "",
+    "entrytime": "",
+    "id": 321100,
+    "name": "镇江",
+    "pid": 320000
+}, {
+    "cararealiense": "苏M",
+    "coding": "",
+    "entrytime": "",
+    "id": 321200,
+    "name": "泰州",
+    "pid": 320000
+}, {
+    "cararealiense": "苏N",
+    "coding": "",
+    "entrytime": "",
+    "id": 321300,
+    "name": "宿迁",
+    "pid": 320000
+}, {
+    "cararealiense": "浙",
+    "coding": "",
+    "entrytime": "",
+    "id": 330000,
+    "name": "浙江",
+    "pid": 733
+}, {
+    "cararealiense": "浙A",
+    "coding": "",
+    "entrytime": "",
+    "id": 330100,
+    "name": "杭州",
+    "pid": 330000
+}, {
+    "cararealiense": "浙B",
+    "coding": "",
+    "entrytime": "",
+    "id": 330200,
+    "name": "宁波",
+    "pid": 330000
+}, {
+    "cararealiense": "浙C",
+    "coding": "",
+    "entrytime": "",
+    "id": 330300,
+    "name": "温州",
+    "pid": 330000
+}, {
+    "cararealiense": "浙F",
+    "coding": "",
+    "entrytime": "",
+    "id": 330400,
+    "name": "嘉兴",
+    "pid": 330000
+}, {
+    "cararealiense": "浙E",
+    "coding": "",
+    "entrytime": "",
+    "id": 330500,
+    "name": "湖州",
+    "pid": 330000
+}, {
+    "cararealiense": "浙D",
+    "coding": "",
+    "entrytime": "",
+    "id": 330600,
+    "name": "绍兴",
+    "pid": 330000
+}, {
+    "cararealiense": "浙G",
+    "coding": "",
+    "entrytime": "",
+    "id": 330700,
+    "name": "金华",
+    "pid": 330000
+}, {
+    "cararealiense": "浙H",
+    "coding": "",
+    "entrytime": "",
+    "id": 330800,
+    "name": "衢州",
+    "pid": 330000
+}, {
+    "cararealiense": "浙L",
+    "coding": "",
+    "entrytime": "",
+    "id": 330900,
+    "name": "舟山",
+    "pid": 330000
+}, {
+    "cararealiense": "浙J",
+    "coding": "",
+    "entrytime": "",
+    "id": 331000,
+    "name": "台州",
+    "pid": 330000
+}, {
+    "cararealiense": "浙K",
+    "coding": "",
+    "entrytime": "",
+    "id": 331100,
+    "name": "丽水",
+    "pid": 330000
+}, {
+    "cararealiense": "皖",
+    "coding": "",
+    "entrytime": "",
+    "id": 340000,
+    "name": "安徽",
+    "pid": 733
+}, {
+    "cararealiense": "皖A",
+    "coding": "",
+    "entrytime": "",
+    "id": 340100,
+    "name": "合肥",
+    "pid": 340000
+}, {
+    "cararealiense": "皖B",
+    "coding": "",
+    "entrytime": "",
+    "id": 340200,
+    "name": "芜湖",
+    "pid": 340000
+}, {
+    "cararealiense": "皖C",
+    "coding": "",
+    "entrytime": "",
+    "id": 340300,
+    "name": "蚌埠",
+    "pid": 340000
+}, {
+    "cararealiense": "皖D",
+    "coding": "",
+    "entrytime": "",
+    "id": 340400,
+    "name": "淮南",
+    "pid": 340000
+}, {
+    "cararealiense": "皖E",
+    "coding": "",
+    "entrytime": "",
+    "id": 340500,
+    "name": "马鞍山",
+    "pid": 340000
+}, {
+    "cararealiense": "皖F",
+    "coding": "",
+    "entrytime": "",
+    "id": 340600,
+    "name": "淮北",
+    "pid": 340000
+}, {
+    "cararealiense": "皖G",
+    "coding": "",
+    "entrytime": "",
+    "id": 340700,
+    "name": "铜陵",
+    "pid": 340000
+}, {
+    "cararealiense": "皖H",
+    "coding": "",
+    "entrytime": "",
+    "id": 340800,
+    "name": "安庆",
+    "pid": 340000
+}, {
+    "cararealiense": "皖J",
+    "coding": "",
+    "entrytime": "",
+    "id": 341000,
+    "name": "黄山",
+    "pid": 340000
+}, {
+    "cararealiense": "皖M",
+    "coding": "",
+    "entrytime": "",
+    "id": 341100,
+    "name": "滁州",
+    "pid": 340000
+}, {
+    "cararealiense": "皖K",
+    "coding": "",
+    "entrytime": "",
+    "id": 341200,
+    "name": "阜阳",
+    "pid": 340000
+}, {
+    "cararealiense": "皖L",
+    "coding": "",
+    "entrytime": "",
+    "id": 341300,
+    "name": "宿州",
+    "pid": 340000
+}, {
+    "cararealiense": "皖Q",
+    "coding": "",
+    "entrytime": "",
+    "id": 341400,
+    "name": "巢湖",
+    "pid": 340000
+}, {
+    "cararealiense": "皖N",
+    "coding": "",
+    "entrytime": "",
+    "id": 341500,
+    "name": "六安",
+    "pid": 340000
+}, {
+    "cararealiense": "皖S",
+    "coding": "",
+    "entrytime": "",
+    "id": 341600,
+    "name": "亳州",
+    "pid": 340000
+}, {
+    "cararealiense": "皖R",
+    "coding": "",
+    "entrytime": "",
+    "id": 341700,
+    "name": "池州",
+    "pid": 340000
+}, {
+    "cararealiense": "皖P",
+    "coding": "",
+    "entrytime": "",
+    "id": 341800,
+    "name": "宣城",
+    "pid": 340000
+}, {
+    "cararealiense": "闽",
+    "coding": "",
+    "entrytime": "",
+    "id": 350000,
+    "name": "福建",
+    "pid": 733
+}, {
+    "cararealiense": "闽A",
+    "coding": "",
+    "entrytime": "",
+    "id": 350100,
+    "name": "福州",
+    "pid": 350000
+}, {
+    "cararealiense": "闽D",
+    "coding": "",
+    "entrytime": "",
+    "id": 350200,
+    "name": "厦门",
+    "pid": 350000
+}, {
+    "cararealiense": "闽B",
+    "coding": "",
+    "entrytime": "",
+    "id": 350300,
+    "name": "莆田",
+    "pid": 350000
+}, {
+    "cararealiense": "闽G",
+    "coding": "",
+    "entrytime": "",
+    "id": 350400,
+    "name": "三明",
+    "pid": 350000
+}, {
+    "cararealiense": "闽C",
+    "coding": "",
+    "entrytime": "",
+    "id": 350500,
+    "name": "泉州",
+    "pid": 350000
+}, {
+    "cararealiense": "闽E",
+    "coding": "",
+    "entrytime": "",
+    "id": 350600,
+    "name": "漳州",
+    "pid": 350000
+}, {
+    "cararealiense": "闽H",
+    "coding": "",
+    "entrytime": "",
+    "id": 350700,
+    "name": "南平",
+    "pid": 350000
+}, {
+    "cararealiense": "闽F",
+    "coding": "",
+    "entrytime": "",
+    "id": 350800,
+    "name": "龙岩",
+    "pid": 350000
+}, {
+    "cararealiense": "闽J",
+    "coding": "",
+    "entrytime": "",
+    "id": 350900,
+    "name": "宁德",
+    "pid": 350000
+}, {
+    "cararealiense": "赣",
+    "coding": "",
+    "entrytime": "",
+    "id": 360000,
+    "name": "江西",
+    "pid": 733
+}, {
+    "cararealiense": "赣A",
+    "coding": "",
+    "entrytime": "",
+    "id": 360100,
+    "name": "南昌",
+    "pid": 360000
+}, {
+    "cararealiense": "赣H",
+    "coding": "",
+    "entrytime": "",
+    "id": 360200,
+    "name": "景德镇",
+    "pid": 360000
+}, {
+    "cararealiense": "赣J",
+    "coding": "",
+    "entrytime": "",
+    "id": 360300,
+    "name": "萍乡",
+    "pid": 360000
+}, {
+    "cararealiense": "赣G",
+    "coding": "",
+    "entrytime": "",
+    "id": 360400,
+    "name": "九江",
+    "pid": 360000
+}, {
+    "cararealiense": "赣K",
+    "coding": "",
+    "entrytime": "",
+    "id": 360500,
+    "name": "新余",
+    "pid": 360000
+}, {
+    "cararealiense": "赣L",
+    "coding": "",
+    "entrytime": "",
+    "id": 360600,
+    "name": "鹰潭",
+    "pid": 360000
+}, {
+    "cararealiense": "赣B",
+    "coding": "",
+    "entrytime": "",
+    "id": 360700,
+    "name": "赣州",
+    "pid": 360000
+}, {
+    "cararealiense": "赣D",
+    "coding": "",
+    "entrytime": "",
+    "id": 360800,
+    "name": "吉安",
+    "pid": 360000
+}, {
+    "cararealiense": "赣C",
+    "coding": "",
+    "entrytime": "",
+    "id": 360900,
+    "name": "宜春",
+    "pid": 360000
+}, {
+    "cararealiense": "赣F",
+    "coding": "",
+    "entrytime": "",
+    "id": 361000,
+    "name": "抚州",
+    "pid": 360000
+}, {
+    "cararealiense": "赣E",
+    "coding": "",
+    "entrytime": "",
+    "id": 361100,
+    "name": "上饶",
+    "pid": 360000
+}, {
+    "cararealiense": "鲁",
+    "coding": "",
+    "entrytime": "",
+    "id": 370000,
+    "name": "山东",
+    "pid": 733
+}, {
+    "cararealiense": "鲁A",
+    "coding": "",
+    "entrytime": "",
+    "id": 370100,
+    "name": "济南",
+    "pid": 370000
+}, {
+    "cararealiense": "鲁B",
+    "coding": "",
+    "entrytime": "",
+    "id": 370200,
+    "name": "青岛",
+    "pid": 370000
+}, {
+    "cararealiense": "鲁C",
+    "coding": "",
+    "entrytime": "",
+    "id": 370300,
+    "name": "淄博",
+    "pid": 370000
+}, {
+    "cararealiense": "鲁D",
+    "coding": "",
+    "entrytime": "",
+    "id": 370400,
+    "name": "枣庄",
+    "pid": 370000
+}, {
+    "cararealiense": "鲁E",
+    "coding": "",
+    "entrytime": "",
+    "id": 370500,
+    "name": "东营",
+    "pid": 370000
+}, {
+    "cararealiense": "鲁F",
+    "coding": "",
+    "entrytime": "",
+    "id": 370600,
+    "name": "烟台",
+    "pid": 370000
+}, {
+    "cararealiense": "鲁G",
+    "coding": "",
+    "entrytime": "",
+    "id": 370700,
+    "name": "潍坊",
+    "pid": 370000
+}, {
+    "cararealiense": "鲁H",
+    "coding": "",
+    "entrytime": "",
+    "id": 370800,
+    "name": "济宁",
+    "pid": 370000
+}, {
+    "cararealiense": "鲁J",
+    "coding": "",
+    "entrytime": "",
+    "id": 370900,
+    "name": "泰安",
+    "pid": 370000
+}, {
+    "cararealiense": "鲁K",
+    "coding": "",
+    "entrytime": "",
+    "id": 371000,
+    "name": "威海",
+    "pid": 370000
+}, {
+    "cararealiense": "鲁L",
+    "coding": "",
+    "entrytime": "",
+    "id": 371100,
+    "name": "日照",
+    "pid": 370000
+}, {
+    "cararealiense": "鲁S",
+    "coding": "",
+    "entrytime": "",
+    "id": 371200,
+    "name": "莱芜",
+    "pid": 370000
+}, {
+    "cararealiense": "鲁Q",
+    "coding": "",
+    "entrytime": "",
+    "id": 371300,
+    "name": "临沂",
+    "pid": 370000
+}, {
+    "cararealiense": "鲁N",
+    "coding": "",
+    "entrytime": "",
+    "id": 371400,
+    "name": "德州",
+    "pid": 370000
+}, {
+    "cararealiense": "鲁P",
+    "coding": "",
+    "entrytime": "",
+    "id": 371500,
+    "name": "聊城",
+    "pid": 370000
+}, {
+    "cararealiense": "鲁M",
+    "coding": "",
+    "entrytime": "",
+    "id": 371600,
+    "name": "滨州",
+    "pid": 370000
+}, {
+    "cararealiense": "鲁R",
+    "coding": "",
+    "entrytime": "",
+    "id": 371700,
+    "name": "菏泽",
+    "pid": 370000
+}, {
+    "cararealiense": "豫",
+    "coding": "",
+    "entrytime": "",
+    "id": 410000,
+    "name": "河南",
+    "pid": 733
+}, {
+    "cararealiense": "豫A",
+    "coding": "",
+    "entrytime": "",
+    "id": 410100,
+    "name": "郑州",
+    "pid": 410000
+}, {
+    "cararealiense": "豫B",
+    "coding": "",
+    "entrytime": "",
+    "id": 410200,
+    "name": "开封",
+    "pid": 410000
+}, {
+    "cararealiense": "豫C",
+    "coding": "",
+    "entrytime": "",
+    "id": 410300,
+    "name": "洛阳",
+    "pid": 410000
+}, {
+    "cararealiense": "豫D",
+    "coding": "",
+    "entrytime": "",
+    "id": 410400,
+    "name": "平顶山",
+    "pid": 410000
+}, {
+    "cararealiense": "豫E",
+    "coding": "",
+    "entrytime": "",
+    "id": 410500,
+    "name": "安阳",
+    "pid": 410000
+}, {
+    "cararealiense": "豫F",
+    "coding": "",
+    "entrytime": "",
+    "id": 410600,
+    "name": "鹤壁",
+    "pid": 410000
+}, {
+    "cararealiense": "豫G",
+    "coding": "",
+    "entrytime": "",
+    "id": 410700,
+    "name": "新乡",
+    "pid": 410000
+}, {
+    "cararealiense": "豫H",
+    "coding": "",
+    "entrytime": "",
+    "id": 410800,
+    "name": "焦作",
+    "pid": 410000
+}, {
+    "cararealiense": "豫J",
+    "coding": "",
+    "entrytime": "",
+    "id": 410900,
+    "name": "濮阳",
+    "pid": 410000
+}, {
+    "cararealiense": "豫K",
+    "coding": "",
+    "entrytime": "",
+    "id": 411000,
+    "name": "许昌",
+    "pid": 410000
+}, {
+    "cararealiense": "豫L",
+    "coding": "",
+    "entrytime": "",
+    "id": 411100,
+    "name": "漯河",
+    "pid": 410000
+}, {
+    "cararealiense": "豫M",
+    "coding": "",
+    "entrytime": "",
+    "id": 411200,
+    "name": "三门峡",
+    "pid": 410000
+}, {
+    "cararealiense": "豫R",
+    "coding": "",
+    "entrytime": "",
+    "id": 411300,
+    "name": "南阳",
+    "pid": 410000
+}, {
+    "cararealiense": "豫N",
+    "coding": "",
+    "entrytime": "",
+    "id": 411400,
+    "name": "商丘",
+    "pid": 410000
+}, {
+    "cararealiense": "豫S",
+    "coding": "",
+    "entrytime": "",
+    "id": 411500,
+    "name": "信阳",
+    "pid": 410000
+}, {
+    "cararealiense": "豫P",
+    "coding": "",
+    "entrytime": "",
+    "id": 411600,
+    "name": "周口",
+    "pid": 410000
+}, {
+    "cararealiense": "豫Q",
+    "coding": "",
+    "entrytime": "",
+    "id": 411700,
+    "name": "驻马店",
+    "pid": 410000
+}, {
+    "cararealiense": "豫U",
+    "coding": "",
+    "entrytime": "",
+    "id": 419001,
+    "name": "济源",
+    "pid": 410000
+}, {
+    "cararealiense": "鄂",
+    "coding": "",
+    "entrytime": "",
+    "id": 420000,
+    "name": "湖北",
+    "pid": 733
+}, {
+    "cararealiense": "鄂A",
+    "coding": "",
+    "entrytime": "",
+    "id": 420100,
+    "name": "武汉",
+    "pid": 420000
+}, {
+    "cararealiense": "鄂B",
+    "coding": "",
+    "entrytime": "",
+    "id": 420200,
+    "name": "黄石",
+    "pid": 420000
+}, {
+    "cararealiense": "鄂C",
+    "coding": "",
+    "entrytime": "",
+    "id": 420300,
+    "name": "十堰",
+    "pid": 420000
+}, {
+    "cararealiense": "鄂E",
+    "coding": "",
+    "entrytime": "",
+    "id": 420500,
+    "name": "宜昌",
+    "pid": 420000
+}, {
+    "cararealiense": "鄂F",
+    "coding": "",
+    "entrytime": "",
+    "id": 420600,
+    "name": "襄阳",
+    "pid": 420000
+}, {
+    "cararealiense": "鄂G",
+    "coding": "",
+    "entrytime": "",
+    "id": 420700,
+    "name": "鄂州",
+    "pid": 420000
+}, {
+    "cararealiense": "鄂H",
+    "coding": "",
+    "entrytime": "",
+    "id": 420800,
+    "name": "荆门",
+    "pid": 420000
+}, {
+    "cararealiense": "鄂K",
+    "coding": "",
+    "entrytime": "",
+    "id": 420900,
+    "name": "孝感",
+    "pid": 420000
+}, {
+    "cararealiense": "鄂D",
+    "coding": "",
+    "entrytime": "",
+    "id": 421000,
+    "name": "荆州",
+    "pid": 420000
+}, {
+    "cararealiense": "鄂J",
+    "coding": "",
+    "entrytime": "",
+    "id": 421100,
+    "name": "黄冈",
+    "pid": 420000
+}, {
+    "cararealiense": "鄂L",
+    "coding": "",
+    "entrytime": "",
+    "id": 421200,
+    "name": "咸宁",
+    "pid": 420000
+}, {
+    "cararealiense": "鄂S",
+    "coding": "",
+    "entrytime": "",
+    "id": 421300,
+    "name": "随州",
+    "pid": 420000
+}, {
+    "cararealiense": "鄂Q",
+    "coding": "",
+    "entrytime": "",
+    "id": 422800,
+    "name": "恩施",
+    "pid": 420000
+}, {
+    "cararealiense": "鄂M",
+    "coding": "",
+    "entrytime": "",
+    "id": 429004,
+    "name": "仙桃",
+    "pid": 420000
+}, {
+    "cararealiense": "鄂N",
+    "coding": "",
+    "entrytime": "",
+    "id": 429005,
+    "name": "潜江",
+    "pid": 420000
+}, {
+    "cararealiense": "鄂R",
+    "coding": "",
+    "entrytime": "",
+    "id": 429006,
+    "name": "天门",
+    "pid": 420000
+}, {
+    "cararealiense": "鄂P",
+    "coding": "",
+    "entrytime": "",
+    "id": 429021,
+    "name": "神农架",
+    "pid": 420000
+}, {
+    "cararealiense": "湘",
+    "coding": "",
+    "entrytime": "",
+    "id": 430000,
+    "name": "湖南",
+    "pid": 733
+}, {
+    "cararealiense": "湘A",
+    "coding": "",
+    "entrytime": "",
+    "id": 430100,
+    "name": "长沙",
+    "pid": 430000
+}, {
+    "cararealiense": "湘B",
+    "coding": "",
+    "entrytime": "",
+    "id": 430200,
+    "name": "株洲",
+    "pid": 430000
+}, {
+    "cararealiense": "湘C",
+    "coding": "",
+    "entrytime": "",
+    "id": 430300,
+    "name": "湘潭",
+    "pid": 430000
+}, {
+    "cararealiense": "湘D",
+    "coding": "",
+    "entrytime": "",
+    "id": 430400,
+    "name": "衡阳",
+    "pid": 430000
+}, {
+    "cararealiense": "湘E",
+    "coding": "",
+    "entrytime": "",
+    "id": 430500,
+    "name": "邵阳",
+    "pid": 430000
+}, {
+    "cararealiense": "湘F",
+    "coding": "",
+    "entrytime": "",
+    "id": 430600,
+    "name": "岳阳",
+    "pid": 430000
+}, {
+    "cararealiense": "湘J",
+    "coding": "",
+    "entrytime": "",
+    "id": 430700,
+    "name": "常德",
+    "pid": 430000
+}, {
+    "cararealiense": "湘G",
+    "coding": "",
+    "entrytime": "",
+    "id": 430800,
+    "name": "张家界",
+    "pid": 430000
+}, {
+    "cararealiense": "湘H",
+    "coding": "",
+    "entrytime": "",
+    "id": 430900,
+    "name": "益阳",
+    "pid": 430000
+}, {
+    "cararealiense": "湘L",
+    "coding": "",
+    "entrytime": "",
+    "id": 431000,
+    "name": "郴州",
+    "pid": 430000
+}, {
+    "cararealiense": "湘M",
+    "coding": "",
+    "entrytime": "",
+    "id": 431100,
+    "name": "永州",
+    "pid": 430000
+}, {
+    "cararealiense": "湘N",
+    "coding": "",
+    "entrytime": "",
+    "id": 431200,
+    "name": "怀化",
+    "pid": 430000
+}, {
+    "cararealiense": "湘K",
+    "coding": "",
+    "entrytime": "",
+    "id": 431300,
+    "name": "娄底",
+    "pid": 430000
+}, {
+    "cararealiense": "湘U",
+    "coding": "",
+    "entrytime": "",
+    "id": 433100,
+    "name": "湘西",
+    "pid": 430000
+}, {
+    "cararealiense": "粤",
+    "coding": "",
+    "entrytime": "",
+    "id": 440000,
+    "name": "广东",
+    "pid": 733
+}, {
+    "cararealiense": "粤A",
+    "coding": "",
+    "entrytime": "",
+    "id": 440100,
+    "name": "广州",
+    "pid": 440000
+}, {
+    "cararealiense": "粤F",
+    "coding": "",
+    "entrytime": "",
+    "id": 440200,
+    "name": "韶关",
+    "pid": 440000
+}, {
+    "cararealiense": "粤B",
+    "coding": "",
+    "entrytime": "",
+    "id": 440300,
+    "name": "深圳",
+    "pid": 440000
+}, {
+    "cararealiense": "粤C",
+    "coding": "",
+    "entrytime": "",
+    "id": 440400,
+    "name": "珠海",
+    "pid": 440000
+}, {
+    "cararealiense": "粤D",
+    "coding": "",
+    "entrytime": "",
+    "id": 440500,
+    "name": "汕头",
+    "pid": 440000
+}, {
+    "cararealiense": "粤E",
+    "coding": "",
+    "entrytime": "",
+    "id": 440600,
+    "name": "佛山",
+    "pid": 440000
+}, {
+    "cararealiense": "粤J",
+    "coding": "",
+    "entrytime": "",
+    "id": 440700,
+    "name": "江门",
+    "pid": 440000
+}, {
+    "cararealiense": "粤G",
+    "coding": "",
+    "entrytime": "",
+    "id": 440800,
+    "name": "湛江",
+    "pid": 440000
+}, {
+    "cararealiense": "粤K",
+    "coding": "",
+    "entrytime": "",
+    "id": 440900,
+    "name": "茂名",
+    "pid": 440000
+}, {
+    "cararealiense": "粤H",
+    "coding": "",
+    "entrytime": "",
+    "id": 441200,
+    "name": "肇庆",
+    "pid": 440000
+}, {
+    "cararealiense": "粤L",
+    "coding": "",
+    "entrytime": "",
+    "id": 441300,
+    "name": "惠州",
+    "pid": 440000
+}, {
+    "cararealiense": "粤M",
+    "coding": "",
+    "entrytime": "",
+    "id": 441400,
+    "name": "梅州",
+    "pid": 440000
+}, {
+    "cararealiense": "粤N",
+    "coding": "",
+    "entrytime": "",
+    "id": 441500,
+    "name": "汕尾",
+    "pid": 440000
+}, {
+    "cararealiense": "粤P",
+    "coding": "",
+    "entrytime": "",
+    "id": 441600,
+    "name": "河源",
+    "pid": 440000
+}, {
+    "cararealiense": "粤Q",
+    "coding": "",
+    "entrytime": "",
+    "id": 441700,
+    "name": "阳江",
+    "pid": 440000
+}, {
+    "cararealiense": "粤R",
+    "coding": "",
+    "entrytime": "",
+    "id": 441800,
+    "name": "清远",
+    "pid": 440000
+}, {
+    "cararealiense": "粤S",
+    "coding": "",
+    "entrytime": "",
+    "id": 441900,
+    "name": "东莞",
+    "pid": 440000
+}, {
+    "cararealiense": "粤T",
+    "coding": "",
+    "entrytime": "",
+    "id": 442000,
+    "name": "中山",
+    "pid": 440000
+}, {
+    "cararealiense": "粤U",
+    "coding": "",
+    "entrytime": "",
+    "id": 445100,
+    "name": "潮州",
+    "pid": 440000
+}, {
+    "cararealiense": "粤V",
+    "coding": "",
+    "entrytime": "",
+    "id": 445200,
+    "name": "揭阳",
+    "pid": 440000
+}, {
+    "cararealiense": "粤W",
+    "coding": "",
+    "entrytime": "",
+    "id": 445300,
+    "name": "云浮",
+    "pid": 440000
+}, {
+    "cararealiense": "桂",
+    "coding": "",
+    "entrytime": "",
+    "id": 450000,
+    "name": "广西",
+    "pid": 733
+}, {
+    "cararealiense": "桂A",
+    "coding": "",
+    "entrytime": "",
+    "id": 450100,
+    "name": "南宁",
+    "pid": 450000
+}, {
+    "cararealiense": "桂B",
+    "coding": "",
+    "entrytime": "",
+    "id": 450200,
+    "name": "柳州",
+    "pid": 450000
+}, {
+    "cararealiense": "桂C",
+    "coding": "",
+    "entrytime": "",
+    "id": 450300,
+    "name": "桂林",
+    "pid": 450000
+}, {
+    "cararealiense": "桂D",
+    "coding": "",
+    "entrytime": "",
+    "id": 450400,
+    "name": "梧州",
+    "pid": 450000
+}, {
+    "cararealiense": "桂E",
+    "coding": "",
+    "entrytime": "",
+    "id": 450500,
+    "name": "北海",
+    "pid": 450000
+}, {
+    "cararealiense": "桂P",
+    "coding": "",
+    "entrytime": "",
+    "id": 450600,
+    "name": "防城港",
+    "pid": 450000
+}, {
+    "cararealiense": "桂N",
+    "coding": "",
+    "entrytime": "",
+    "id": 450700,
+    "name": "钦州",
+    "pid": 450000
+}, {
+    "cararealiense": "桂R",
+    "coding": "",
+    "entrytime": "",
+    "id": 450800,
+    "name": "贵港",
+    "pid": 450000
+}, {
+    "cararealiense": "桂K",
+    "coding": "",
+    "entrytime": "",
+    "id": 450900,
+    "name": "玉林",
+    "pid": 450000
+}, {
+    "cararealiense": "桂L",
+    "coding": "",
+    "entrytime": "",
+    "id": 451000,
+    "name": "百色",
+    "pid": 450000
+}, {
+    "cararealiense": "桂J",
+    "coding": "",
+    "entrytime": "",
+    "id": 451100,
+    "name": "贺州",
+    "pid": 450000
+}, {
+    "cararealiense": "桂M",
+    "coding": "",
+    "entrytime": "",
+    "id": 451200,
+    "name": "河池",
+    "pid": 450000
+}, {
+    "cararealiense": "桂G",
+    "coding": "",
+    "entrytime": "",
+    "id": 451300,
+    "name": "来宾",
+    "pid": 450000
+}, {
+    "cararealiense": "桂F",
+    "coding": "",
+    "entrytime": "",
+    "id": 451400,
+    "name": "崇左",
+    "pid": 450000
+}, {
+    "cararealiense": "琼",
+    "coding": "",
+    "entrytime": "",
+    "id": 460000,
+    "name": "海南",
+    "pid": 733
+}, {
+    "cararealiense": "琼A",
+    "coding": "",
+    "entrytime": "",
+    "id": 460100,
+    "name": "海口",
+    "pid": 460000
+}, {
+    "cararealiense": "琼B",
+    "coding": "",
+    "entrytime": "",
+    "id": 460200,
+    "name": "三亚",
+    "pid": 460000
+}, {
+    "cararealiense": "琼D",
+    "coding": "",
+    "entrytime": "",
+    "id": 469001,
+    "name": "五指山",
+    "pid": 460000
+}, {
+    "cararealiense": "琼C",
+    "coding": "",
+    "entrytime": "",
+    "id": 469002,
+    "name": "琼海",
+    "pid": 460000
+}, {
+    "cararealiense": "琼C",
+    "coding": "",
+    "entrytime": "",
+    "id": 469003,
+    "name": "儋州",
+    "pid": 460000
+}, {
+    "cararealiense": "琼C",
+    "coding": "",
+    "entrytime": "",
+    "id": 469005,
+    "name": "文昌",
+    "pid": 460000
+}, {
+    "cararealiense": "琼C",
+    "coding": "",
+    "entrytime": "",
+    "id": 469006,
+    "name": "万宁",
+    "pid": 460000
+}, {
+    "cararealiense": "琼D",
+    "coding": "",
+    "entrytime": "",
+    "id": 469007,
+    "name": "东方",
+    "pid": 460000
+}, {
+    "cararealiense": "琼C",
+    "coding": "",
+    "entrytime": "",
+    "id": 469021,
+    "name": "定安县",
+    "pid": 460000
+}, {
+    "cararealiense": "琼C",
+    "coding": "",
+    "entrytime": "",
+    "id": 469022,
+    "name": "屯昌县",
+    "pid": 460000
+}, {
+    "cararealiense": "琼C",
+    "coding": "",
+    "entrytime": "",
+    "id": 469023,
+    "name": "澄迈县",
+    "pid": 460000
+}, {
+    "cararealiense": "琼C",
+    "coding": "",
+    "entrytime": "",
+    "id": 469024,
+    "name": "临高县",
+    "pid": 460000
+}, {
+    "cararealiense": "琼D",
+    "coding": "",
+    "entrytime": "",
+    "id": 469025,
+    "name": "白沙",
+    "pid": 460000
+}, {
+    "cararealiense": "琼D",
+    "coding": "",
+    "entrytime": "",
+    "id": 469026,
+    "name": "昌江",
+    "pid": 460000
+}, {
+    "cararealiense": "琼D",
+    "coding": "",
+    "entrytime": "",
+    "id": 469027,
+    "name": "乐东",
+    "pid": 460000
+}, {
+    "cararealiense": "琼D",
+    "coding": "",
+    "entrytime": "",
+    "id": 469028,
+    "name": "陵水",
+    "pid": 460000
+}, {
+    "cararealiense": "琼D",
+    "coding": "",
+    "entrytime": "",
+    "id": 469029,
+    "name": "保亭",
+    "pid": 460000
+}, {
+    "cararealiense": "琼D",
+    "coding": "",
+    "entrytime": "",
+    "id": 469030,
+    "name": "琼中",
+    "pid": 460000
+}, {
+    "cararealiense": "渝",
+    "coding": "",
+    "entrytime": "",
+    "id": 500100,
+    "name": "重庆",
+    "pid": 733
+}, {
+    "cararealiense": "川",
+    "coding": "",
+    "entrytime": "",
+    "id": 510000,
+    "name": "四川",
+    "pid": 733
+}, {
+    "cararealiense": "川A",
+    "coding": "",
+    "entrytime": "",
+    "id": 510100,
+    "name": "成都",
+    "pid": 510000
+}, {
+    "cararealiense": "川C",
+    "coding": "",
+    "entrytime": "",
+    "id": 510300,
+    "name": "自贡",
+    "pid": 510000
+}, {
+    "cararealiense": "川D",
+    "coding": "",
+    "entrytime": "",
+    "id": 510400,
+    "name": "攀枝花",
+    "pid": 510000
+}, {
+    "cararealiense": "川E",
+    "coding": "",
+    "entrytime": "",
+    "id": 510500,
+    "name": "泸州",
+    "pid": 510000
+}, {
+    "cararealiense": "川F",
+    "coding": "",
+    "entrytime": "",
+    "id": 510600,
+    "name": "德阳",
+    "pid": 510000
+}, {
+    "cararealiense": "川B",
+    "coding": "",
+    "entrytime": "",
+    "id": 510700,
+    "name": "绵阳",
+    "pid": 510000
+}, {
+    "cararealiense": "川H",
+    "coding": "",
+    "entrytime": "",
+    "id": 510800,
+    "name": "广元",
+    "pid": 510000
+}, {
+    "cararealiense": "川J",
+    "coding": "",
+    "entrytime": "",
+    "id": 510900,
+    "name": "遂宁",
+    "pid": 510000
+}, {
+    "cararealiense": "川K",
+    "coding": "",
+    "entrytime": "",
+    "id": 511000,
+    "name": "内江",
+    "pid": 510000
+}, {
+    "cararealiense": "川L",
+    "coding": "",
+    "entrytime": "",
+    "id": 511100,
+    "name": "乐山",
+    "pid": 510000
+}, {
+    "cararealiense": "川R",
+    "coding": "",
+    "entrytime": "",
+    "id": 511300,
+    "name": "南充",
+    "pid": 510000
+}, {
+    "cararealiense": "川Z",
+    "coding": "",
+    "entrytime": "",
+    "id": 511400,
+    "name": "眉山",
+    "pid": 510000
+}, {
+    "cararealiense": "川Q",
+    "coding": "",
+    "entrytime": "",
+    "id": 511500,
+    "name": "宜宾",
+    "pid": 510000
+}, {
+    "cararealiense": "川X",
+    "coding": "",
+    "entrytime": "",
+    "id": 511600,
+    "name": "广安",
+    "pid": 510000
+}, {
+    "cararealiense": "川S",
+    "coding": "",
+    "entrytime": "",
+    "id": 511700,
+    "name": "达州",
+    "pid": 510000
+}, {
+    "cararealiense": "川T",
+    "coding": "",
+    "entrytime": "",
+    "id": 511800,
+    "name": "雅安",
+    "pid": 510000
+}, {
+    "cararealiense": "川Y",
+    "coding": "",
+    "entrytime": "",
+    "id": 511900,
+    "name": "巴中",
+    "pid": 510000
+}, {
+    "cararealiense": "川M",
+    "coding": "",
+    "entrytime": "",
+    "id": 512000,
+    "name": "资阳",
+    "pid": 510000
+}, {
+    "cararealiense": "川U",
+    "coding": "",
+    "entrytime": "",
+    "id": 513200,
+    "name": "阿坝",
+    "pid": 510000
+}, {
+    "cararealiense": "川V",
+    "coding": "",
+    "entrytime": "",
+    "id": 513300,
+    "name": "甘孜",
+    "pid": 510000
+}, {
+    "cararealiense": "川W",
+    "coding": "",
+    "entrytime": "",
+    "id": 513400,
+    "name": "凉山",
+    "pid": 510000
+}, {
+    "cararealiense": "贵",
+    "coding": "",
+    "entrytime": "",
+    "id": 520000,
+    "name": "贵州",
+    "pid": 733
+}, {
+    "cararealiense": "贵A",
+    "coding": "",
+    "entrytime": "",
+    "id": 520100,
+    "name": "贵阳",
+    "pid": 520000
+}, {
+    "cararealiense": "贵B",
+    "coding": "",
+    "entrytime": "",
+    "id": 520200,
+    "name": "六盘水",
+    "pid": 520000
+}, {
+    "cararealiense": "贵C",
+    "coding": "",
+    "entrytime": "",
+    "id": 520300,
+    "name": "遵义",
+    "pid": 520000
+}, {
+    "cararealiense": "贵G",
+    "coding": "",
+    "entrytime": "",
+    "id": 520400,
+    "name": "安顺",
+    "pid": 520000
+}, {
+    "cararealiense": "贵D",
+    "coding": "",
+    "entrytime": "",
+    "id": 522200,
+    "name": "铜仁地区",
+    "pid": 520000
+}, {
+    "cararealiense": "贵E",
+    "coding": "",
+    "entrytime": "",
+    "id": 522300,
+    "name": "黔西南",
+    "pid": 520000
+}, {
+    "cararealiense": "贵F",
+    "coding": "",
+    "entrytime": "",
+    "id": 522400,
+    "name": "毕节地区",
+    "pid": 520000
+}, {
+    "cararealiense": "贵H",
+    "coding": "",
+    "entrytime": "",
+    "id": 522600,
+    "name": "黔东南",
+    "pid": 520000
+}, {
+    "cararealiense": "贵J",
+    "coding": "",
+    "entrytime": "",
+    "id": 522700,
+    "name": "黔南",
+    "pid": 520000
+}, {
+    "cararealiense": "云",
+    "coding": "",
+    "entrytime": "",
+    "id": 530000,
+    "name": "云南",
+    "pid": 733
+}, {
+    "cararealiense": "云A",
+    "coding": "",
+    "entrytime": "",
+    "id": 530100,
+    "name": "昆明",
+    "pid": 530000
+}, {
+    "cararealiense": "云D",
+    "coding": "",
+    "entrytime": "",
+    "id": 530300,
+    "name": "曲靖",
+    "pid": 530000
+}, {
+    "cararealiense": "云F",
+    "coding": "",
+    "entrytime": "",
+    "id": 530400,
+    "name": "玉溪",
+    "pid": 530000
+}, {
+    "cararealiense": "云M",
+    "coding": "",
+    "entrytime": "",
+    "id": 530500,
+    "name": "保山",
+    "pid": 530000
+}, {
+    "cararealiense": "云C",
+    "coding": "",
+    "entrytime": "",
+    "id": 530600,
+    "name": "昭通",
+    "pid": 530000
+}, {
+    "cararealiense": "云P",
+    "coding": "",
+    "entrytime": "",
+    "id": 530700,
+    "name": "丽江",
+    "pid": 530000
+}, {
+    "cararealiense": "云J",
+    "coding": "",
+    "entrytime": "",
+    "id": 530800,
+    "name": "普洱",
+    "pid": 530000
+}, {
+    "cararealiense": "云S",
+    "coding": "",
+    "entrytime": "",
+    "id": 530900,
+    "name": "临沧",
+    "pid": 530000
+}, {
+    "cararealiense": "云E",
+    "coding": "",
+    "entrytime": "",
+    "id": 532300,
+    "name": "楚雄",
+    "pid": 530000
+}, {
+    "cararealiense": "云G",
+    "coding": "",
+    "entrytime": "",
+    "id": 532500,
+    "name": "红河",
+    "pid": 530000
+}, {
+    "cararealiense": "云H",
+    "coding": "",
+    "entrytime": "",
+    "id": 532600,
+    "name": "文山",
+    "pid": 530000
+}, {
+    "cararealiense": "云K",
+    "coding": "",
+    "entrytime": "",
+    "id": 532800,
+    "name": "西双版纳",
+    "pid": 530000
+}, {
+    "cararealiense": "云L",
+    "coding": "",
+    "entrytime": "",
+    "id": 532900,
+    "name": "大理",
+    "pid": 530000
+}, {
+    "cararealiense": "云N",
+    "coding": "",
+    "entrytime": "",
+    "id": 533100,
+    "name": "德宏",
+    "pid": 530000
+}, {
+    "cararealiense": "云Q",
+    "coding": "",
+    "entrytime": "",
+    "id": 533300,
+    "name": "怒江",
+    "pid": 530000
+}, {
+    "cararealiense": "云R",
+    "coding": "",
+    "entrytime": "",
+    "id": 533400,
+    "name": "迪庆",
+    "pid": 530000
+}, {
+    "cararealiense": "藏",
+    "coding": "",
+    "entrytime": "",
+    "id": 540000,
+    "name": "西藏",
+    "pid": 733
+}, {
+    "cararealiense": "藏A",
+    "coding": "",
+    "entrytime": "",
+    "id": 540100,
+    "name": "拉萨市",
+    "pid": 540000
+}, {
+    "cararealiense": "藏B",
+    "coding": "",
+    "entrytime": "",
+    "id": 542100,
+    "name": "昌都地区",
+    "pid": 540000
+}, {
+    "cararealiense": "藏C",
+    "coding": "",
+    "entrytime": "",
+    "id": 542200,
+    "name": "山南地区",
+    "pid": 540000
+}, {
+    "cararealiense": "藏D",
+    "coding": "",
+    "entrytime": "",
+    "id": 542300,
+    "name": "日喀则地区",
+    "pid": 540000
+}, {
+    "cararealiense": "藏E",
+    "coding": "",
+    "entrytime": "",
+    "id": 542400,
+    "name": "那曲地区",
+    "pid": 540000
+}, {
+    "cararealiense": "藏F",
+    "coding": "",
+    "entrytime": "",
+    "id": 542500,
+    "name": "阿里地区",
+    "pid": 540000
+}, {
+    "cararealiense": "藏G",
+    "coding": "",
+    "entrytime": "",
+    "id": 542600,
+    "name": "林芝地区",
+    "pid": 540000
+}, {
+    "cararealiense": "陕",
+    "coding": "",
+    "entrytime": "",
+    "id": 610000,
+    "name": "陕西",
+    "pid": 733
+}, {
+    "cararealiense": "陕A",
+    "coding": "",
+    "entrytime": "",
+    "id": 610100,
+    "name": "西安",
+    "pid": 610000
+}, {
+    "cararealiense": "陕B",
+    "coding": "",
+    "entrytime": "",
+    "id": 610200,
+    "name": "铜川",
+    "pid": 610000
+}, {
+    "cararealiense": "陕C",
+    "coding": "",
+    "entrytime": "",
+    "id": 610300,
+    "name": "宝鸡",
+    "pid": 610000
+}, {
+    "cararealiense": "陕D",
+    "coding": "",
+    "entrytime": "",
+    "id": 610400,
+    "name": "咸阳",
+    "pid": 610000
+}, {
+    "cararealiense": "陕E",
+    "coding": "",
+    "entrytime": "",
+    "id": 610500,
+    "name": "渭南",
+    "pid": 610000
+}, {
+    "cararealiense": "陕J",
+    "coding": "",
+    "entrytime": "",
+    "id": 610600,
+    "name": "延安",
+    "pid": 610000
+}, {
+    "cararealiense": "陕F",
+    "coding": "",
+    "entrytime": "",
+    "id": 610700,
+    "name": "汉中",
+    "pid": 610000
+}, {
+    "cararealiense": "陕K",
+    "coding": "",
+    "entrytime": "",
+    "id": 610800,
+    "name": "榆林",
+    "pid": 610000
+}, {
+    "cararealiense": "陕G",
+    "coding": "",
+    "entrytime": "",
+    "id": 610900,
+    "name": "安康",
+    "pid": 610000
+}, {
+    "cararealiense": "陕H",
+    "coding": "",
+    "entrytime": "",
+    "id": 611000,
+    "name": "商洛",
+    "pid": 610000
+}, {
+    "cararealiense": "甘",
+    "coding": "",
+    "entrytime": "",
+    "id": 620000,
+    "name": "甘肃",
+    "pid": 733
+}, {
+    "cararealiense": "甘A",
+    "coding": "",
+    "entrytime": "",
+    "id": 620100,
+    "name": "兰州",
+    "pid": 620000
+}, {
+    "cararealiense": "甘B",
+    "coding": "",
+    "entrytime": "",
+    "id": 620200,
+    "name": "嘉峪关",
+    "pid": 620000
+}, {
+    "cararealiense": "甘C",
+    "coding": "",
+    "entrytime": "",
+    "id": 620300,
+    "name": "金昌",
+    "pid": 620000
+}, {
+    "cararealiense": "甘D",
+    "coding": "",
+    "entrytime": "",
+    "id": 620400,
+    "name": "白银",
+    "pid": 620000
+}, {
+    "cararealiense": "甘E",
+    "coding": "",
+    "entrytime": "",
+    "id": 620500,
+    "name": "天水",
+    "pid": 620000
+}, {
+    "cararealiense": "甘H",
+    "coding": "",
+    "entrytime": "",
+    "id": 620600,
+    "name": "武威",
+    "pid": 620000
+}, {
+    "cararealiense": "甘G",
+    "coding": "",
+    "entrytime": "",
+    "id": 620700,
+    "name": "张掖",
+    "pid": 620000
+}, {
+    "cararealiense": "甘L",
+    "coding": "",
+    "entrytime": "",
+    "id": 620800,
+    "name": "平凉",
+    "pid": 620000
+}, {
+    "cararealiense": "甘F",
+    "coding": "",
+    "entrytime": "",
+    "id": 620900,
+    "name": "酒泉",
+    "pid": 620000
+}, {
+    "cararealiense": "甘M",
+    "coding": "",
+    "entrytime": "",
+    "id": 621000,
+    "name": "庆阳",
+    "pid": 620000
+}, {
+    "cararealiense": "甘J",
+    "coding": "",
+    "entrytime": "",
+    "id": 621100,
+    "name": "定西",
+    "pid": 620000
+}, {
+    "cararealiense": "甘K",
+    "coding": "",
+    "entrytime": "",
+    "id": 621200,
+    "name": "陇南市",
+    "pid": 620000
+}, {
+    "cararealiense": "甘N",
+    "coding": "",
+    "entrytime": "",
+    "id": 622900,
+    "name": "临夏",
+    "pid": 620000
+}, {
+    "cararealiense": "甘P",
+    "coding": "",
+    "entrytime": "",
+    "id": 623000,
+    "name": "甘南",
+    "pid": 620000
+}, {
+    "cararealiense": "青",
+    "coding": "",
+    "entrytime": "",
+    "id": 630000,
+    "name": "青海",
+    "pid": 733
+}, {
+    "cararealiense": "青A",
+    "coding": "",
+    "entrytime": "",
+    "id": 630100,
+    "name": "西宁",
+    "pid": 630000
+}, {
+    "cararealiense": "青B",
+    "coding": "",
+    "entrytime": "",
+    "id": 632100,
+    "name": "海东地区",
+    "pid": 630000
+}, {
+    "cararealiense": "青C",
+    "coding": "",
+    "entrytime": "",
+    "id": 632200,
+    "name": "海北",
+    "pid": 630000
+}, {
+    "cararealiense": "青D",
+    "coding": "",
+    "entrytime": "",
+    "id": 632300,
+    "name": "黄南",
+    "pid": 630000
+}, {
+    "cararealiense": "青E",
+    "coding": "",
+    "entrytime": "",
+    "id": 632500,
+    "name": "海南",
+    "pid": 630000
+}, {
+    "cararealiense": "青F",
+    "coding": "",
+    "entrytime": "",
+    "id": 632600,
+    "name": "果洛",
+    "pid": 630000
+}, {
+    "cararealiense": "青G",
+    "coding": "",
+    "entrytime": "",
+    "id": 632700,
+    "name": "玉树",
+    "pid": 630000
+}, {
+    "cararealiense": "青H",
+    "coding": "",
+    "entrytime": "",
+    "id": 632800,
+    "name": "海西",
+    "pid": 630000
+}, {
+    "cararealiense": "宁",
+    "coding": "",
+    "entrytime": "",
+    "id": 640000,
+    "name": "宁夏",
+    "pid": 733
+}, {
+    "cararealiense": "宁A",
+    "coding": "",
+    "entrytime": "",
+    "id": 640100,
+    "name": "银川",
+    "pid": 640000
+}, {
+    "cararealiense": "宁B",
+    "coding": "",
+    "entrytime": "",
+    "id": 640200,
+    "name": "石嘴山",
+    "pid": 640000
+}, {
+    "cararealiense": "宁C",
+    "coding": "",
+    "entrytime": "",
+    "id": 640300,
+    "name": "吴忠",
+    "pid": 640000
+}, {
+    "cararealiense": "宁D",
+    "coding": "",
+    "entrytime": "",
+    "id": 640400,
+    "name": "固原",
+    "pid": 640000
+}, {
+    "cararealiense": "宁E",
+    "coding": "",
+    "entrytime": "",
+    "id": 640500,
+    "name": "中卫",
+    "pid": 640000
+}, {
+    "cararealiense": "新",
+    "coding": "",
+    "entrytime": "",
+    "id": 650000,
+    "name": "新疆",
+    "pid": 733
+}, {
+    "cararealiense": "新A",
+    "coding": "",
+    "entrytime": "",
+    "id": 650100,
+    "name": "乌鲁木齐",
+    "pid": 650000
+}, {
+    "cararealiense": "新J",
+    "coding": "",
+    "entrytime": "",
+    "id": 650200,
+    "name": "克拉玛依",
+    "pid": 650000
+}, {
+    "cararealiense": "新K",
+    "coding": "",
+    "entrytime": "",
+    "id": 652100,
+    "name": "吐鲁番",
+    "pid": 650000
+}, {
+    "cararealiense": "新L",
+    "coding": "",
+    "entrytime": "",
+    "id": 652201,
+    "name": "哈密",
+    "pid": 650000
+}, {
+    "cararealiense": "新B",
+    "coding": "",
+    "entrytime": "",
+    "id": 652301,
+    "name": "昌吉",
+    "pid": 650000
+}, {
+    "cararealiense": "新B",
+    "coding": "",
+    "entrytime": "",
+    "id": 652302,
+    "name": "阜康",
+    "pid": 650000
+}, {
+    "cararealiense": "新E",
+    "coding": "",
+    "entrytime": "",
+    "id": 652701,
+    "name": "博乐",
+    "pid": 650000
+}, {
+    "cararealiense": "新M",
+    "coding": "",
+    "entrytime": "",
+    "id": 652801,
+    "name": "库尔勒",
+    "pid": 650000
+}, {
+    "cararealiense": "新N",
+    "coding": "",
+    "entrytime": "",
+    "id": 652901,
+    "name": "阿克苏",
+    "pid": 650000
+}, {
+    "cararealiense": "新P",
+    "coding": "",
+    "entrytime": "",
+    "id": 653001,
+    "name": "阿图什",
+    "pid": 650000
+}, {
+    "cararealiense": "新Q",
+    "coding": "",
+    "entrytime": "",
+    "id": 653101,
+    "name": "喀什",
+    "pid": 650000
+}, {
+    "cararealiense": "新R",
+    "coding": "",
+    "entrytime": "",
+    "id": 653201,
+    "name": "和田",
+    "pid": 650000
+}, {
+    "cararealiense": "新F",
+    "coding": "",
+    "entrytime": "",
+    "id": 654002,
+    "name": "伊宁",
+    "pid": 650000
+}, {
+    "cararealiense": "新D",
+    "coding": "",
+    "entrytime": "",
+    "id": 654003,
+    "name": "奎屯",
+    "pid": 650000
+}, {
+    "cararealiense": "新H",
+    "coding": "",
+    "entrytime": "",
+    "id": 654201,
+    "name": "塔城",
+    "pid": 650000
+}, {
+    "cararealiense": "新D",
+    "coding": "",
+    "entrytime": "",
+    "id": 654202,
+    "name": "乌苏",
+    "pid": 650000
+}, {
+    "cararealiense": "新H",
+    "coding": "",
+    "entrytime": "",
+    "id": 654301,
+    "name": "阿勒泰",
+    "pid": 650000
+}, {
+    "cararealiense": "新C",
+    "coding": "",
+    "entrytime": "",
+    "id": 659001,
+    "name": "石河子",
+    "pid": 650000
+}, {
+    "cararealiense": "新N",
+    "coding": "",
+    "entrytime": "",
+    "id": 659002,
+    "name": "阿拉尔",
+    "pid": 650000
+}, {
+    "cararealiense": "新Q",
+    "coding": "",
+    "entrytime": "",
+    "id": 659003,
+    "name": "图木舒克",
+    "pid": 650000
+}, {
+    "cararealiense": "新B",
+    "coding": "",
+    "entrytime": "",
+    "id": 659004,
+    "name": "五家渠",
+    "pid": 650000
+}, {
+    "cararealiense": "新A",
+    "coding": "",
+    "entrytime": "",
+    "id": 706,
+    "name": "米泉",
+    "pid": 650000
+}]

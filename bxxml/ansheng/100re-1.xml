@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="GBK"?>
+<PackageList>
+    <Package>
+        <Header>
+            <Version>2</Version>
+            <InsureType>100</InsureType>
+            <RequestType>110</RequestType>
+            <SellerId>2015061901</SellerId>
+            <SessionId>20151009175503977065050394473761</SessionId>
+            <SendTime>2015-10-09 17:55:28</SendTime>
+            <Status>100</Status>
+            <ErrorMessage></ErrorMessage>
+        </Header>
+        <Sign>
+            <![CDATA[EVArsz8Bqb9BXs_WgeIonJLCFqqtWVyJUiHUoJBdBLaX3yOUYmI4uwuP9FLDLLWJDxbjoHUewC-VFR4zPHD5akipTmjIwqxNBgEwnHQRpRIYQ-VKWLj-9FlhvGDzjYzfmnAC-gpmIc5CB2Za-7ObRz1mhR-3NZ04xZLdIkNh_WU]]></Sign>
+        <Response>
+            <TagsList>
+                <Tags type="optional">
+                    <Tag>
+                        <Definition name="type">radio</Definition>
+                        <Definition name="key">bizFlag</Definition>
+                        <Definition name="label">商业险</Definition>
+                        <Definition name="value">1</Definition>
+                        <Definition name="premium"></Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data"><![CDATA[不投保:0;投保:1]]></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                    <Tag>
+                        <Definition name="type">select</Definition>
+                        <Definition name="key">cov_200</Definition>
+                        <Definition name="label">车辆损失综合险(106800元)</Definition>
+                        <Definition name="value">1</Definition>
+                        <Definition name="premium">101130</Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data"><![CDATA[不投保:0;投保:1]]></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                    <Tag>
+                        <Definition name="type">select</Definition>
+                        <Definition name="key">cov_600</Definition>
+                        <Definition name="label">第三者责任险</Definition>
+                        <Definition name="value">50000</Definition>
+                        <Definition name="premium">33680</Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data">
+                            <![CDATA[不投保:0;5万:50000;10万:100000;15万:150000;20万:200000;30万:300000;50万:500000]]></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                    <Tag>
+                        <Definition name="type">select</Definition>
+                        <Definition name="key">cov_701</Definition>
+                        <Definition name="label">司机座位险</Definition>
+                        <Definition name="value">10000</Definition>
+                        <Definition name="premium">1531</Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data"><![CDATA[不投保:0;1万:10000;2万:20000;5万:50000;10万:100000]]></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                    <Tag>
+                        <Definition name="type">select</Definition>
+                        <Definition name="key">cov_702</Definition>
+                        <Definition name="label">乘客座位险</Definition>
+                        <Definition name="value">10000</Definition>
+                        <Definition name="premium">6124</Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data"><![CDATA[不投保:0;1万:10000;2万:20000;5万:50000;10万:100000]]></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                    <Tag>
+                        <Definition name="type">select</Definition>
+                        <Definition name="key">cov_500</Definition>
+                        <Definition name="label">全车盗抢险</Definition>
+                        <Definition name="value">0</Definition>
+                        <Definition name="premium">0</Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data"><![CDATA[不投保:0;投保:1]]></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                    <Tag>
+                        <Definition name="type">select</Definition>
+                        <Definition name="key">cov_231</Definition>
+                        <Definition name="label">玻璃单独破碎险</Definition>
+                        <Definition name="value">0</Definition>
+                        <Definition name="premium">0</Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data"><![CDATA[不投保:0;国产:1]]></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                    <Tag>
+                        <Definition name="type">select</Definition>
+                        <Definition name="key">cov_210</Definition>
+                        <Definition name="label">车身划痕损失险</Definition>
+                        <Definition name="value">0</Definition>
+                        <Definition name="premium">0</Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data"><![CDATA[不投保:0]]></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                    <Tag>
+                        <Definition name="type">select</Definition>
+                        <Definition name="key">cov_310</Definition>
+                        <Definition name="label">自燃责任免除特约条款</Definition>
+                        <Definition name="value">0</Definition>
+                        <Definition name="premium">-10294</Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data"><![CDATA[投保:1;不投保:0]]></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                    <Tag>
+                        <Definition name="type">select</Definition>
+                        <Definition name="key">cov_290</Definition>
+                        <Definition name="label">涉水行驶责任免除特约条款</Definition>
+                        <Definition name="value">0</Definition>
+                        <Definition name="premium">-5783</Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data"><![CDATA[投保:1;不投保:0]]></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                    <Tag>
+                        <Definition name="type">label</Definition>
+                        <Definition name="key">specialPromise</Definition>
+                        <Definition name="label">特别约定</Definition>
+                        <Definition name="value"></Definition>
+                        <Definition name="premium"></Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data">
+                            <![CDATA[兹经双方约定：1、本保单车辆损失险中不含自燃、涉水行驶责任。2、车辆发生事故后，请在事故现场及时报案，否则导致事故责任或损失原因无法认定的，保险公司不予赔付。3、投保次日起，您可通过本公司网页、客服电话、营业网点核实承保及理赔信息。若对查询结果有异议，请联系本公司。联系电话95550。4、本保险单承保非营运车辆，如用于营运运输或出租、租赁，并在此期间发生事故，保险人对事故损失不负赔偿责任。5、本保单车辆损失险、第三者责任险、车上人员责任险未设置事故责任免赔率，无需单独投保不计免赔险。]]></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                    <Tag>
+                        <Definition name="type">label</Definition>
+                        <Definition name="key">bizTotalPremium</Definition>
+                        <Definition name="label">商业险保费</Definition>
+                        <Definition name="value"></Definition>
+                        <Definition name="premium">126388</Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data"></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                    <Tag>
+                        <Definition name="type">label</Definition>
+                        <Definition name="key">totalPremium</Definition>
+                        <Definition name="label">实际保费</Definition>
+                        <Definition name="value"></Definition>
+                        <Definition name="premium">126388</Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data"></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                    <Tag>
+                        <Definition name="type">label</Definition>
+                        <Definition name="key">standardPremium</Definition>
+                        <Definition name="label">应缴总保费</Definition>
+                        <Definition name="value"></Definition>
+                        <Definition name="premium">148688</Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data"></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                    <Tag>
+                        <Definition name="type">radio</Definition>
+                        <Definition name="key">forceFlag</Definition>
+                        <Definition name="label">交强险</Definition>
+                        <Definition name="value">0</Definition>
+                        <Definition name="premium"></Definition>
+                        <Definition name="disable">1</Definition>
+                        <Definition name="data"><![CDATA[不投保:0;投保:1]]></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                </Tags>
+                <Tags type="force">
+                    <Tag>
+                        <Definition name="type">label</Definition>
+                        <Definition name="key">forcePremium</Definition>
+                        <Definition name="label">交强险保费</Definition>
+                        <Definition name="value"></Definition>
+                        <Definition name="premium">0</Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data"></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                    <Tag>
+                        <Definition name="type">label</Definition>
+                        <Definition name="key">vehicleTaxPremium</Definition>
+                        <Definition name="label">车船税</Definition>
+                        <Definition name="value"></Definition>
+                        <Definition name="premium">0</Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data"></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                    <Tag>
+                        <Definition name="type">label</Definition>
+                        <Definition name="key">forceTotalPremium</Definition>
+                        <Definition name="label">交强险总保费</Definition>
+                        <Definition name="value"></Definition>
+                        <Definition name="premium">0</Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data"></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                    <Tag>
+                        <Definition name="type">label</Definition>
+                        <Definition name="key">specialPromise</Definition>
+                        <Definition name="label">特别约定</Definition>
+                        <Definition name="value"></Definition>
+                        <Definition name="premium"></Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data"></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                </Tags>
+                <Tags type="deadline">
+                    <Tag>
+                        <Definition name="type">date</Definition>
+                        <Definition name="key">bizBeginDate</Definition>
+                        <Definition name="label">商业险保险起期</Definition>
+                        <Definition name="value">2015-10-10</Definition>
+                        <Definition name="premium"></Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data"></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                    <Tag>
+                        <Definition name="type">date</Definition>
+                        <Definition name="key">forceBeginDate</Definition>
+                        <Definition name="label">交强险保险起期</Definition>
+                        <Definition name="value">2015-10-10</Definition>
+                        <Definition name="premium"></Definition>
+                        <Definition name="disable">0</Definition>
+                        <Definition name="data"></Definition>
+                        <Definition name="dataUrl"><![CDATA[]]></Definition>
+                        <Definition name="check"></Definition>
+                        <Definition name="checkUrl"><![CDATA[]]></Definition>
+                    </Tag>
+                </Tags>
+            </TagsList>
+        </Response>
+    </Package>
+</PackageList>

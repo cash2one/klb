@@ -1,0 +1,507 @@
+{% load staticfiles %}
+{% load wechattag %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>卡来宝.用户中心</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    <link rel="stylesheet" href="{% static 'wechat/css/framework7.ios.min.css' %}">
+    <link rel="stylesheet" href="{% static 'wechat/css/framework7.ios.colors.min.css' %}">
+    <link rel="stylesheet" href="{% static 'wechat/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'wechat/css/wechat.css' %}?t={{ ''|GetTimeStr }}">
+
+    <style type="text/css">
+        .bomwm {
+            border-bottom: 1px solid #cccccc;
+        }
+    </style>
+</head>
+<body>
+<div class="views">
+    <div class="view view-main">
+        <div class="navbar">
+            <div class="navbar-inner wechat_bjcolor" data-page="user-center">
+                <div class="left"></div>
+                <div class="center sliding">卡来宝.用户中心</div>
+                <div class="right"></div>
+            </div>
+            <div class="navbar-inner cached wechat_bjcolor" data-page="order-list">
+                <div class="left sliding">
+                    <a href="#" class="link back">返回</a>
+                </div>
+                <div class="center">卡来宝车险.我的订单</div>
+            </div>
+            <div class="navbar-inner cached wechat_bjcolor" data-page="Recommend-list">
+                <div class="left sliding">
+                    <a href="#" class="link back">返回</a>
+                </div>
+                <div class="center">卡来宝车险.我的分享</div>
+            </div>
+            <div class="navbar-inner cached wechat_bjcolor" data-page="User-bind">
+                <div class="left sliding">
+                    <a href="#" class="link back">返回</a>
+                </div>
+                <div class="center">我的账号</div>
+            </div>
+        </div>
+
+        <div class="pages navbar-through toolbar-through">
+            <div data-page="user-center" class="page">
+                <div class="page-content">
+                    <div class="list-block media-list">
+                        <ul>
+                            <li>
+                                <a href="#User-bind" class="item-link item-content">
+                                    <div class="item-media"><img src="{{ WechatUserInfo.headimgurl }}" width="80"></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title" id="username_tag">
+                                                {% if UserInfo.real_name %}
+                                                    {{ UserInfo.real_name }}
+                                                {% else %}
+                                                    {{ WechatUserInfo.nickname }}
+                                                {% endif %}
+                                            </div>
+                                            <div class="item-after"></div>
+                                        </div>
+                                        <div class="item-subtitle">钻石会员</div>
+                                        <div class="item-text"></div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="list-block">
+                        <ul>
+                            <li>
+                                <a href="#order-list" class="item-link item-content">
+                                    <div class="item-media"><i class="fa fa-file-text"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">我的订单</div>
+                                        <div class="item-after"></div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/wechat/CarHistory/?openid={{ openid }}" class="item-link item-content">
+                                    <div class="item-media"><i class="fa fa-file-text"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">选优历史记录</div>
+                                        <div class="item-after"></div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#Recommend-list" class="item-link item-content">
+                                    <div class="item-media"><i class="fa fa-share-alt"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">分享给好友</div>
+                                        <div class="item-after"></div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-link item-content">
+                                    <div class="item-media"><i class="fa fa-commenting-o"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">关于卡来宝</div>
+                                        <div class="item-after"></div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-link item-content">
+                                    <div class="item-media"><i class="fa fa-question-circle"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title">使用帮助</div>
+                                        <div class="item-after"></div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="list-block-label"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="page cached theme-red" data-page="order-list">
+                <div class="page-content">
+                    <div class="content-block theme-red">
+                        <div class="buttons-row theme-red">
+                            <a href="#tab1" class="tab-link active button">已完成订单</a>
+                            <a href="#tab2" class="tab-link button">未完成订单</a>
+                        </div>
+                    </div>
+                    <div class="tabs theme-red">
+                        <div id="tab1" class="tab active theme-red">
+                            <div class="content-block theme-red">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="card-content-inner">暂无订单</div>
+                                    </div>
+                                </div>
+                            </div>
+                            {#                            <div class="list-block">#}
+                            {#                                <ul>#}
+                            {#                                    {% for i in OrderInfo %}#}
+                            {#                                    <li class="swipeout">#}
+                            {#                                        <div class="swipeout-content">#}
+                            {#                                            <a href="/wechat/OederDetail/?order={{ i.orderno }}&bxgs={{ i.bxgs }}"#}
+                            {#                                               class="item-link item-content">#}
+                            {#                                                {% ifequal i.bxgs 'zh' %}#}
+                            {#                                                <div class="item-media">#}
+                            {#                                                    <img src="{% static 'wechat/img/bxgs/60x60/logo-zhonghua.png' %}" width="34" height="34">#}
+                            {#                                                </div>#}
+                            {#                                                <div class="item-inner">#}
+                            {#                                                    <div class="item-title">订单号</div>#}
+                            {#                                                    <div class="item-after">{{ i.orderno }}</div>#}
+                            {#                                                </div>#}
+                            {#                                                {% endifequal %}#}
+                            {#                                                {% ifequal i.bxgs 'yg' %}#}
+                            {#                                                <div class="item-media">#}
+                            {#                                                    <img src="{% static 'wechat/img/bxgs/60x60/logo-yangguang.png' %}" width="34" height="34">#}
+                            {#                                                </div>#}
+                            {#                                                <div class="item-inner">#}
+                            {#                                                    <div class="item-title">订单号</div>#}
+                            {#                                                    <div class="item-after">{{ i.orderno }}</div>#}
+                            {#                                                </div>#}
+                            {#                                                {% endifequal %}#}
+                            {#                                                {% ifequal i.bxgs 'as' %}#}
+                            {#                                                <div class="item-media">#}
+                            {#                                                    <img src="{% static 'wechat/img/bxgs/60x60/logo-ansheng.png' %}" width="34" height="34">#}
+                            {#                                                </div>#}
+                            {#                                                <div class="item-inner">#}
+                            {#                                                    <div class="item-title">订单号</div>#}
+                            {#                                                    <div class="item-after">{{ i.orderno }}</div>#}
+                            {#                                                </div>#}
+                            {#                                                {% endifequal %}#}
+                            {#                                            </a>#}
+                            {#                                        </div>#}
+                            {#                                    </li>#}
+                            {#                                    {% endfor %}#}
+                            {#                                </ul>#}
+                            {#                            </div>#}
+                        </div>
+                        <div id="tab2" class="tab theme-red">
+                            <div class="content-block theme-red">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <div class="card-content-inner">暂无订单</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page cached theme-red" data-page="Recommend-list">
+                <div class="page-content">
+                    <div class="content-block theme-red">
+                        <div class="card">
+                            <div class="card-header">我的二维码</div>
+                            <div class="card-content">
+                                <div class="card-content-inner">
+                                    <img style="width: 100%;height: 100%;"
+                                         src="http://web.kalaibao.com/members/qrcode/?s={{ RecommendURL|WechatStrCode }}&a=encode">
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="link"></a>
+                                <a href="#" class="link">
+                                    {% if UserInfo.real_name %}
+                                        {{ UserInfo.real_name }}
+                                    {% else %}
+                                        {{ WechatUserInfo.nickname }}
+                                    {% endif %}
+                                </a>
+                                <a href="#" class="link"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-block theme-red">
+                        <div class="buttons-row">
+                            <a href="#Recommend_1" class="tab-link active button">已推荐</a>
+                            <a href="#Recommend_2" class="tab-link button">已购买</a>
+                        </div>
+                    </div>
+                    <div class="tabs">
+                        <div id="Recommend_1" class="tab active">
+                            <div class="list-block">
+                                <ul id="RecommendList">
+                                    {% for r in RecommendList %}
+                                        <li class="item-content">
+                                            <div class="item-media">
+                                                <img src="{{ r.fromopenid.headimgurl }}" width="30" height="30">
+                                            </div>
+                                            <div class="item-inner">
+                                                <div class="item-title">{{ r.fromopenid.nickname }}</div>
+                                                <div class="item-after">{{ r.addtime|date:'Y-m-d' }}</div>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="Recommend_2" class="tab">
+                            <div class="content-block">
+                                您的好友还未购买车险哦
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page cached theme-red" data-page="User-bind">
+                <div class="page-content">
+                    <div class="content-block-title">丰富您的个人资料</div>
+                    <form class="store-data list-block theme-red" id="bind-form">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">真实姓名</div>
+                                        <div class="item-input">
+                                            <input class="" placeholder="请输入您的姓名" id="username" name="username"
+                                                   type="text" value="{{ UserInfo.real_name }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-name"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">昵称</div>
+                                        <div class="item-input">
+                                            <input disabled value="{{ WechatUserInfo.nickname }}" placeholder="请输入昵称"
+                                                   id="nickname" name="nickname" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-email"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">E-mail</div>
+                                        <div class="item-input">
+                                            <input placeholder="邮件地址" name="email" type="email"
+                                                   value="{{ UserInfo.email }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-gender"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">性别</div>
+                                        <div class="item-input">
+
+                                            <select id="sex" name="sex" disabled="disabled">
+                                                <option value="1"
+                                                        {% ifequal WechatUserInfo.sex '1' %}selected="selected"{% endifequal %}>
+                                                    男
+                                                </option>
+                                                <option value="2"
+                                                        {% ifequal WechatUserInfo.sex '2' %}selected="selected"{% endifequal %}>
+                                                    女
+                                                </option>
+                                                <option value="0"
+                                                        {% ifequal WechatUserInfo.sex '0' %}selected="selected"{% endifequal %}>
+                                                    保密
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            {#                            <li>#}
+                            {#                                <div class="item-content">#}
+                            {#                                    <div class="item-media"><i class="icon icon-form-password"></i></div>#}
+                            {#                                    <div class="item-inner">#}
+                            {#                                        <div class="item-title label">密码</div>#}
+                            {#                                        <div class="item-input">#}
+                            {#                                            <input placeholder="请输入密码" name="password" type="password">#}
+                            {#                                        </div>#}
+                            {#                                    </div>#}
+                            {#                                </div>#}
+                            {#                            </li>#}
+                            {#                            <li>#}
+                            {#                                <div class="item-content">#}
+                            {#                                    <div class="item-media"><i class="icon icon-form-password"></i></div>#}
+                            {#                                    <div class="item-inner">#}
+                            {#                                        <div class="item-title label">确认密码</div>#}
+                            {#                                        <div class="item-input">#}
+                            {#                                            <input placeholder="再次输入密码" id="repassword" name="repassword"#}
+                            {#                                                   type="password">#}
+                            {#                                        </div>#}
+                            {#                                    </div>#}
+                            {#                                </div>#}
+                            {#                            </li>#}
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-tel"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">手机号码</div>
+                                        <div class="item-input">
+                                            <input placeholder="请输入手机号码" name="phone" id="phone" type="text"
+                                                   value="{{ UserInfo.phone }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-calendar"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">身份证号码</div>
+                                        <div class="item-input">
+                                            <input placeholder="请输入身份证号码" name="idcard" id="idcard" type="text"
+                                                   value="{{ UserInfo.idcard }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-media"><i class="icon icon-form-url"></i></div>
+                                    <div class="item-inner">
+                                        <div class="item-title label">通信地址</div>
+                                        <div class="item-input">
+                                            <input type="text" placeholder="请输入联系地址" name="addr" id="addr"
+                                                   value="{{ UserInfo.addr }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                        <input type="hidden" name="userid" id="userid" value="{{ WechatUserInfo.user.id }}">
+                    </form>
+                    <div class="list-block inset">
+                        <ul>
+                            <li><a href="#" class="list-button item-link color-red" id="bind-btn">提交</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript" src="{% static 'wechat/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'wechat/js/framework7.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'wechat/js/jquery.powertimer.js' %}"></script>
+<script type="text/javascript" src="{% static 'wechat/js/cityList.js' %}"></script>
+<script type="text/javascript" src="{% static 'wechat/js/user-center.js' %}?t={{ ''|GetTimeStr }}"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    wx.config({
+        debug: false,
+        appId: '{{ sign.appid }}',
+        timestamp: "{{ sign.timestamp }}",
+        nonceStr: "{{ sign.nonceStr }}",
+        signature: "{{ sign.signature }}",
+        jsApiList: [
+            'checkJsApi',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'onMenuShareQQ',
+            'onMenuShareWeibo',
+            'onMenuShareQZone',
+            'hideMenuItems',
+            'showMenuItems',
+            'hideAllNonBaseMenuItem',
+            'showAllNonBaseMenuItem',
+            'translateVoice',
+            'startRecord',
+            'stopRecord',
+            'onVoiceRecordEnd',
+            'playVoice',
+            'onVoicePlayEnd',
+            'pauseVoice',
+            'stopVoice',
+            'uploadVoice',
+            'downloadVoice',
+            'chooseImage',
+            'previewImage',
+            'uploadImage',
+            'downloadImage',
+            'getNetworkType',
+            'openLocation',
+            'getLocation',
+            'hideOptionMenu',
+            'showOptionMenu',
+            'closeWindow',
+            'scanQRCode',
+            'chooseWXPay',
+            'openProductSpecificView',
+            'addCard',
+            'chooseCard',
+            'openCard'
+        ]
+    });
+    wx.ready(function () {
+        wx.onMenuShareAppMessage({
+            title: '送!送!送!卡来宝车险平台送福利啦!!!!', // 分享标题
+            desc: '卡来宝车险，购买即享：线下折扣+15%网销折扣+最高10%补贴！推荐即得：每人50元现金！',
+            link: '{{ RecommendURL }}',
+            imgUrl: 'http://web.kalaibao.com{% static 'images/100X100.png' %}',
+            type: 'link',
+            dataUrl: '',
+            success: function () {
+
+            },
+            cancel: function () {
+
+            }
+        });
+        wx.onMenuShareTimeline({
+            title: '卡来宝车险，购买即享：线下折扣+15%网销折扣+最高10%补贴！推荐即得：每人50元现金！',
+            link: '{{ RecommendURL }}',
+            imgUrl: 'http://web.kalaibao.com{% static "images/100X100.png" %}',
+            success: function () {
+
+            },
+            cancel: function () {
+
+            }
+        });
+    });
+</script>
+<script>
+    $(function () {
+        $("#RecommendList").powerTimer({
+            interval: 1000,
+            func: function () {
+                GetRecommendList();
+            }
+        });
+    });
+    function GetRecommendList() {
+        $.getJSON("/wechat/GetRecommendList/", {"openid": '{{ openid|WechatStrDeCode }}'}, function (d) {
+            var ShowDiv = $("#RecommendList");
+            ShowDiv.empty();
+            for (var i = 0; i < d.length; i++) {
+                ShowDiv.append('<li class="item-content">' +
+                        '<div class="item-media">' +
+                        '<img src="' + d[i].headimgurl +
+                        '" width="30" height="30">' +
+                        '</div>' +
+                        '<div class="item-inner">' +
+                        '<div class="item-title">' + d[i].nickname + '</div>' +
+                        '<div class="item-after">' + d[i].addtime + '</div>' +
+                        '</div>' +
+                        '</li>');
+            }
+
+
+        });
+    }
+</script>
+</body>
+
+</html>

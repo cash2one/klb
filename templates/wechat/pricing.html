@@ -1,0 +1,258 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>卡来宝.车险选优</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    <link rel="stylesheet" href="{% static 'wechat/css/framework7.ios.min.css' %}">
+    <link rel="stylesheet" href="{% static 'wechat/css/framework7.ios.colors.min.css' %}">
+    <link rel="stylesheet" href="{% static 'wechat/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'wechat/css/wechat.css' %}?t={{ t }}">
+</head>
+<body>
+<div class="views">
+    <div class="view view-main">
+        <div class="navbar">
+            <div  class="navbar-inner wechat_bjcolor" data-page="home">
+                <div class="left"></div>
+                <div  class="center sliding">卡来宝车险</div>
+                <div class="right"></div>
+            </div>
+            <div class="navbar-inner cached wechat_bjcolor" data-page="carlist">
+                <div class="left sliding">
+                    <a href="#" class="link back">返回</a>
+                </div>
+                <div class="center">选择车辆型号</div>
+            </div>
+        </div>
+        <div class="pages navbar-through toolbar-through">
+            <div data-page="home" class="page">
+
+                <div class="page-content wechat-mt0-pt0">
+                    <div class="swiper-container swiper-1" data-speed="400">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" style="border:none;"><img style="width: 100%; height: 100%;"
+                                                           src="{% static 'wechat/img/bxgs/img3.jpg' %}"></div>
+                            <div class="swiper-slide" style="border:none;"><img style="width: 100%; height: 100%;"
+                                                           src="{% static 'wechat/img/bxgs/img4.jpg' %}"></div>
+                            <div class="swiper-slide" style="border:none;"><img style="width: 100%; height: 100%;"
+                                                           src="{% static 'wechat/img/bxgs/img5.jpg' %}"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    {#                    <div class="content-block-title">开始车险选优</div>#}
+                    <form id="my-form" class="list-block wechat-mt0-pt0">
+                        <ul>
+                            <li>
+                                <div class="item-content">
+
+                                    <div class="item-inner">
+                                        <div class="item-title label wechat_label"><i class="fa fa-user"></i></div>
+                                        <div class="item-input">
+                                            <input type="text" name="ownerName" id="ownerName" placeholder="车主姓名"
+                                                   value={{ CarInfo.ownername }}>
+                                        </div>
+                                        <span>
+                                            <a href="#" type="button" style="color:grey;" class="item-link smart-select  button " id="showguohu"
+                                               data-page-title="请选择"
+                                               data-back-text="确定" data-back-on-select="true" >
+                                                <select name="fruits" id="K1" class="wechat_bjcolor">
+                                                    <option value="2"  onclick="">未过户</option>
+                                                    <option value="1" onclick="">已过户</option>
+                                                </select>
+                                               <span id="guohu">是否过户？</span>
+                                            </a>
+                                            </span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label wechat_label"><i class="fa fa-car"></i></div>
+                                        <div class="item-input">
+                                            <input type="text" name="licenseNo" id="licenseNo"
+                                                   value={{ CarInfo.licenseno }}
+                                                           placeholder="车牌号"
+                                                   onkeyup="this.value = this.value.toUpperCase();">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+
+                            </li>
+                            <li style="display: none;" klb="hide">
+                                <div class="item-content">
+
+                                    <div class="item-inner">
+                                        <div class="item-title label wechat_label"><i
+                                                class="fa fa-sort-numeric-asc"></i></div>
+                                        <div class="item-input">
+                                            <input type="text" name="engine" id="engine" placeholder="发动机号码"
+                                                   value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li style="display: none;" klb="hide">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label wechat_label">
+                                            <i class="fa fa-sort-alpha-asc"></i>
+                                        </div>
+                                        <div class="item-input">
+                                            <input type="text" name="vin" id="vin" placeholder="车架号" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                    <div class="ontent-block inset">
+                            <div><strong>&nbsp;&nbsp;&nbsp;友情提示：</strong>（只支持三个月内保险到期车辆）
+                            </div>
+                        </div>
+                    <div class="content-block">
+                        <input type="hidden" value="" name="carkey" id="carkey">
+                        <input type="hidden" value="" name="vehiclefgwcode" id="vehiclefgwcode">
+                        <input type="hidden" value="" name="id" id="id">
+                        <input type="hidden" value="" name="value" id="value">
+                        <input type="hidden" value="" name="a" id="a">
+                        <input type="hidden" value="" name="HilicenseNo" id="HilicenseNo">
+                        <input type="hidden" value="" name="HiownerName" id="HiownerName">
+                        <input type="hidden" value="" name="HicityCode" id="HicityCode">
+                        <input type="hidden" value="{{ request.GET.openid }}" name="openid" id="openid">
+                        <a href="#" class="button wechat_bjcolor wechat_height40" id="GetVin">立即报价</a>
+                    </div>
+                </div>
+            </div>
+            <div class="page cached" data-page="carlist">
+                <div class="page-content">
+                    <div class="content-block">
+                        <div class="list-block" id="car_list_info">
+                            <ul>
+
+                                <li>
+                                    <a href="#" class="item-link item-content">
+
+                                        <div class="item-inner">
+                                            <div class="item-title wechat_font14"></div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--
+        <div class="toolbar tabbar tabbar-labels">
+            <div class="toolbar-inner">
+                <a href="/wechat/pricing/1/" class="tab-link active" id="menu-1">
+                    <i class="fa fa-car fa-x1-5"></i>
+                    <span class="tabbar-label">车险</span>
+                </a>
+                <a href="#tab2" class="tab-link">
+                    <i class="fa fa-hand-pointer-o fa-x1-5"></i>
+                    <span class="tabbar-label">保养</span>
+                </a>
+                <a href="#tab3" class="tab-link">
+                    <i class="fa fa-umbrella fa-x1-5"></i>
+                    <span class="tabbar-label">服务</span>
+                </a>
+                <a href="#tab4" class="tab-link">
+                    <i class="fa fa-user fa-x1-5"></i>
+                    <span class="tabbar-label">自己</span>
+                </a>
+            </div>
+        </div>
+        -->
+    </div>
+</div>
+
+<script type="text/javascript" src="{% static 'wechat/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'wechat/js/framework7.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'wechat/js/cityList.js' %}"></script>
+<script type="text/javascript" src="{% static 'wechat/js/wechat.js' %}"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+
+    wx.config({
+        debug: false,
+        appId: '{{ appId }}',
+        timestamp:{{ timestamp }},
+        nonceStr: '{{ nonceStr }}',
+        signature: '{{ signature }}',
+        jsApiList: [
+            'checkJsApi',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'onMenuShareQQ',
+            'onMenuShareWeibo',
+            'hideMenuItems',
+            'showMenuItems',
+            'hideAllNonBaseMenuItem',
+            'showAllNonBaseMenuItem',
+            'translateVoice',
+            'startRecord',
+            'stopRecord',
+            'onRecordEnd',
+            'playVoice',
+            'pauseVoice',
+            'stopVoice',
+            'uploadVoice',
+            'downloadVoice',
+            'chooseImage',
+            'previewImage',
+            'uploadImage',
+            'downloadImage',
+            'getNetworkType',
+            'openLocation',
+            'getLocation',
+            'hideOptionMenu',
+            'showOptionMenu',
+            'closeWindow',
+            'scanQRCode',
+            'chooseWXPay',
+            'openProductSpecificView',
+            'addCard',
+            'chooseCard',
+            'openCard'
+        ]
+    });
+    wx.ready(function () {
+        wx.onMenuShareAppMessage({
+            title: '送!送!送!卡来宝车险平台送福利啦!!!!', // 分享标题
+            desc: '卡来宝车险，购买即享：线下折扣+15%网销折扣+最高10%补贴！推荐即得：每人50元现金！',
+            link: '{{ RecommendURL }}',
+            imgUrl: 'http://web.kalaibao.com{% static 'images/100X100.png' %}',
+            type: 'link',
+            dataUrl: '',
+            success: function () {
+
+            },
+            cancel: function () {
+
+            }
+        });
+        wx.onMenuShareTimeline({
+            title: '我已在卡来宝.车险选优平台获得500元的车险礼包，赶快来领取礼包吧！！！',
+            link: '{{ RecommendURL }}',
+            imgUrl: 'http://web.kalaibao.com{% static "images/100X100.png" %}',
+            success: function () {
+
+            },
+            cancel: function () {
+
+            }
+        });
+    });
+</script>
+
+</body>
+
+</html>

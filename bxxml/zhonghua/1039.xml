@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<INSUREQRET>
+    <MAIN>
+        <SERIALDECIMAL>%s</SERIALDECIMAL>
+        <TRANSRDATE>%s</TRANSRDATE>
+        <RESULTCODE>%s</RESULTCODE>
+        <ERR_INFO>%s</ERR_INFO>
+        <BUSINESS_CODE>%s</BUSINESS_CODE>
+    </MAIN>
+</INSUREQRET>

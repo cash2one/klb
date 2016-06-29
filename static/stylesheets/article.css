@@ -1,0 +1,115 @@
+/* announce body */
+.announce-body {
+    /* background: #e14042 url("images/v-bg.png") center no-repeat; */
+
+    background-color: #d1d2d4;
+    margin: 0 auto;
+    text-align: center;
+}
+.content{line-height: 26px; font-size: 14px; padding: 15px; margin-bottom: 40px;}
+/* .content h3{margin-bottom: 20px} */
+.title-bg{
+  text-align: center;
+  color: #dd1010;
+  font-weight:bold;
+  font-size: 28px;
+  height: 50px;
+  line-height: 26px;
+  background: url("../images/title-bg.gif") center bottom no-repeat;
+}
+.article-info{
+  font-size: 12px;
+  text-align: center;
+  margin:5px 0 10px;
+}
+.article-info span{
+  margin-right: 20px;
+}
+
+/* sidebar */
+.sidebar-nav {
+  background-color: #f9f9f9;
+  border: solid 1px #eee;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  border-radius: 4px;
+  margin-bottom: 40px;
+}
+.sidebar-nav li {
+  padding: 0;
+  list-style: none;
+}
+.sidebar-nav li a > i {
+  margin: 2px 5px 0 0;
+  font-size: 1em;
+  color: #999;
+}
+.sidebar-nav li a {
+  display: block;
+  padding: 5px 15px 5px 15px;
+  line-height: 30px;
+  color: #333;
+  text-decoration: none;
+  border-left: solid 3px #E3393B;
+  background-color: #f3f3f3;
+}
+.sidebar-nav li >a{
+  border-bottom: 1px solid #e1e1e1;
+  font-size: 15px;
+  font-weight: bold;
+}
+/* .sidebar-nav > li > a:after {
+  font-family: 'FontAwesome';
+  content: "\f107";
+  font-size: 1.2em;
+  float: right;
+}
+.sidebar-nav > li > a.collapsed:after {
+  content: "\f105";
+}
+.sidebar-nav > li > a.no-collapsed:after {
+  content: "";
+  
+} */
+
+.sidebar-nav li a.collapsed,.sidebar-nav > li > a.no-collapsed {
+  background-color: transparent;
+  border-left: solid 3px #F9F9F9;
+}
+.sidebar-nav li a:hover,
+.sidebar-nav li a:focus,
+.sidebar-nav li a:active {
+  border-color: #E3393B;
+  background-color: #f3f3f3;
+  border-bottom: 1px solid #e1e1e1;
+}
+.menu-submenu {
+  list-style: none;
+  padding-left: 0;
+}
+.menu-submenu li a {
+  border-color: #ddd;
+  padding-left: 35px;
+  background-color: #fff;
+  font-weight: normal;
+  font-size: 14px;
+}
+.menu-submenu li.active a {
+  border-color: #333;
+  background-color: #f3f3f3;
+}
+.menu-submenu li:last-child a {
+  border-bottom: solid 1px #eee;
+}
+.sidebar-nav li.active > a {
+  border-left-color: #333;
+  background-color: #f3f3f3;
+}
+/* a.with_submenu{
+    font-size: 18px;
+    padding: 5px 15px;
+}
+.menu-submenu li.active a.with_submenu[data-toggle="collapse"]{
+    padding: 5px 15px;
+} */

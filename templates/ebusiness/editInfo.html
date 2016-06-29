@@ -1,0 +1,210 @@
+{% extends "ebusiness/common.html" %}
+{% load wechattag %}
+{% load staticfiles %}
+{% block style %}
+{% load EbusinessTag %}
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <h4>{{ request.GET.company|ReCompany }}</h4>
+            <!-- Default panel -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="pull-left">填写您的资料</span>
+                    <span class="pull-right">车牌号:{{ request.GET.car|ReLicenseno }}</span>
+                </div>
+                <div class="panel-body">
+                    <form role="form" class="form-horizontal" action="/ebusiness/ConfirmInsure/?car={{ request.GET.car }}&company={{ request.GET.company }}" method="post" target="_blank">
+                        {# 投保人和被保险人是同一人  #}
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for=""></label>
+
+                            <div class="col-sm-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" checked="checked" disabled>
+                                        投保人和被保险人相同
+                                    </label>
+                                </div>
+                                <p class="help-block">
+
+                                </p>
+                            </div>
+                        </div>
+                        {# 投保人姓名  #}
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="C_APP_NAME">{{ forms.C_APP_NAME.label }}</label>
+                            <div class="col-sm-4">
+                                {{ forms.C_APP_NAME  }}
+                                <p class="help-block">
+                                    {{ forms.C_APP_NAME.errors.as_text }}
+                                </p>
+                            </div>
+                        </div>
+                        {# 投保人身份证  #}
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="C_APP_IDENT_NO">{{ forms.C_APP_IDENT_NO.label }}</label>
+                            <div class="col-sm-4">
+                                {{ forms.C_APP_IDENT_NO }}
+                                <p class="help-block">
+                                    {{ forms.C_APP_IDENT_NO.errors.as_text }}
+                                </p>
+                            </div>
+                        </div>
+                        {# 投保人联系电话  #}
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="C_APP_TEL">{{ forms.C_APP_TEL.label }}</label>
+
+                            <div class="col-sm-4">
+                                {{ forms.C_APP_TEL }}
+                                <p class="help-block">
+                                    {{ forms.C_APP_TEL.errors.as_text }}
+                                </p>
+                            </div>
+                        </div>
+                        {# 投保人地址  #}
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="C_APP_ADDR">{{ forms.C_APP_ADDR.label }}</label>
+
+                            <div class="col-sm-4">
+                                    {{ forms.C_APP_ADDR }}
+                                <p class="help-block">
+                                    {{ forms.C_APP_ADDR.errors.as_text }}
+                                </p>
+                            </div>
+                        </div>
+                        {# 投保人邮箱  #}
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="C_APP_EMAIL">{{ forms.C_APP_EMAIL.label }}</label>
+
+                            <div class="col-sm-4">
+                                    {{ forms.C_APP_EMAIL }}
+                                <p class="help-block">
+                                    {{ forms.C_APP_EMAIL.errors.as_text }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        {# 收件人手机号  #}
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="C_CONTACT_TEL">{{ forms.C_CONTACT_TEL.label }}</label>
+
+                            <div class="col-sm-4">
+                                {{ forms.C_CONTACT_TEL }}
+                                <p class="help-block">
+                                    {{ forms.C_CONTACT_TEL.errors.as_text }}
+                                </p>
+                            </div>
+                        </div>
+                        {# 收件人  #}
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="C_CONTACT_NAME">{{ forms.C_CONTACT_NAME.label }}</label>
+
+                            <div class="col-sm-4">
+                                {{ forms.C_CONTACT_NAME }}
+                                <p class="help-block">
+                                {{ forms.C_CONTACT_NAME.errors.as_text }}
+                                </p>
+                            </div>
+                        </div>
+                        {# 详细收货地址  #}
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="C_ADDRESS">{{ forms.C_ADDRESS.label }}</label>
+
+                            <div class="col-sm-4">
+                                {{ forms.C_ADDRESS }}
+                                <p class="help-block">
+                                    {{ forms.C_ADDRESS.errors.as_text }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-gray btn-single" onclick="history.go(-1)">返回</button>
+                            <button type="submit" class="btn btn-info btn-single pull-right" data-loading-text="正在加载..." onclick="$('#modal-4').modal('show', {backdrop: 'static'});">提交</button>
+                        </div>
+                        <input type="hidden" id="id" name="id" value={{ id }}>
+                        <input name="company" value="{{ request.GET.company }}" id="company" type="hidden">
+                        <input name="ORDER_ID" id="ORDER_ID" value="{{ PayInfo.order_id|ENcode }}" type="hidden">
+                        <input name="Session_ID" id="Session_ID" value="{{ PayInfo.session_id|ENcode }}" type="hidden">
+                        <input name="bxgs_type" id="bxgs_type" value="{{ PayInfo.bxgs_type|ENcode }}" type="hidden">
+                        <input name="vin" id="vin" value="{{ vin }}" type="hidden">
+                        <input name="sn" id="sn" value="{{ sn }}" type="hidden">
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript" language="JavaScript">
+        $(function () {
+            $("#tb3 a").click();
+
+        });
+    </script>
+{% endblock %}
+{% block modal %}
+
+    <div class="modal fade" id="modal-4" data-backdrop="static">
+  <div class="modal-dialog">
+   <div class="modal-content">
+
+    <div class="modal-header">
+     <h4 class="modal-title">是否支付完成?</h4>
+    </div>
+
+    <div class="modal-body">
+
+     您是否已经支付完成？如果付款过程中遇见问题，请联系在线客服，我们会立刻处理!
+
+    </div>
+
+    <div class="modal-footer">
+                    <a href="/ebusiness/UserCenter/" type="button"  class="btn btn-info pull-left" >我已付款</a>
+     <button type="button" class="btn btn-info pull-right" data-dismiss="modal">付款遇见问题?</button>
+    </div>
+   </div>
+  </div>
+ </div>
+    {% ifequal yzm "1" %}
+        <script>
+            $(function () {
+                $('#modal-yzm').modal('show', {backdrop: 'fade'});
+            });
+        </script>
+        <div class="modal fade" id="modal-yzm">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form role="form" class="form-horizontal" action="/ebusiness/ConfirmInsure/" method="post">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">请输入手机验证码</h4>
+                        </div>
+
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="field-1">验证码:</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="yzm" name="yzm" placeholder="请输入验证码">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-info">下一步</button>
+                        </div>
+                        <input type="hidden" name="vin" id="vin" value="{{ vin }}">
+                        <input type="hidden" name="company" id="company" value="{{ company|ENcode }}">
+                        <input type="hidden" name="action" id="action" value="yzm">
+                        <input type="hidden" name="C_APP_NAME" id="C_APP_NAME" value={{ ownername|ENcode }}>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endifequal %}
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'common/member_common.html' %}
+{% load staticfiles %}
+{% block content_title %}召回信息{% endblock %}
+
+{% block content_detail %}
+    {% if MyCar %}
+        {% for M in MyCar %}
+            {% if M.recall_set.count%}
+                <div class="alert alert-warning alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <strong>注意!</strong> 您的车辆有召回信息!
+                    <ul>
+
+                        <li>{{ M.chepai }}</li>
+
+                    </ul>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <div class="panel panel-border">
+        <div class="panel-body">
+            <form class="myrecall-form" action="/members/recall/" method="post">
+
+                <label for="searchInput">年份：</label>
+                <select class="form-control" name="year">
+                  <option value="2015">2015</option>
+                  <option value="2014">2014</option>
+                </select>
+                <label for="searchInput">请输入车架号：</label>
+                <input class="form-control" type="text" name="vin" id="recall_vin">
+                <button type="submit" class="btn btn-danger btn-small"> 查 询</button>
+            </form>
+        </div>
+    </div>
+    {% if ReCall %}
+    <div class="panel panel-border">
+        <div class="panel-body">
+            <form class="myrecall-form">
+                <div class="alert alert-warning alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <strong>注意!</strong> 您查询的VIN有召回信息!
+                </div>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <td>召回时间</td>
+                        <td>厂家</td>
+                        <td>车型</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for C in ReCall %}
+                        <tr>
+                            <td>{{ C.recall_time }}</td>
+                            <td>{{ C.factory }}</td>
+                            <td>{{ C.cartype }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+    <h4 class="bottom-line">查询历史记录</h4>
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <td>查询时间</td>
+            <td>车架号(VIN)</td>
+            <td>是否有召回</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% if Log %}
+            {% for L in Log %}
+            <tr>
+                <td>{{ L.addtime|date:"Y-m-d" }}</td>
+                <td>{{ L.vin }}</td>
+                <td>
+
+                    {% if L.recall_set.count %}
+                        <form action="/members/recall/" method="post">
+                            <input type="hidden" name="vin" value="{{ L.vin }}">
+                            <input type="hidden" name="year" value="2015">
+                            <input value="有" type="submit" class="btn btn-danger">
+                        </form>
+
+                    {% else %}
+                        <input value="无" type="button" class="btn btn-primary" disabled="disabled">
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td></td>
+                <td>没有数据</td>
+                <td></td>
+            </tr>
+        {% endif %}
+
+        </tbody>
+    </table>
+    <br>
+{% endblock %}

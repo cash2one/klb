@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<head>
+    <title>卡来宝 -- 让车生活更美好！</title>
+    <meta charset="utf-8">
+    <!--  SEO META TAGS -->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="ghostrin"/>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+    <!-- Mobile Specific Meta -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'stylesheets/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'stylesheets/awesome/css/font-awesome.min.css' %}"/>
+    <style>
+        .bg {
+            background-image:url("{% static 'images/h5/background.png' %}");
+            background-attachment:fixed;background-repeat:no-repeat;background-size:cover;-moz-background-size:cover;-webkit-background-size:cover;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="bg" id="bg_img">
+{#        <img src="{% static 'images/h5/background.png' %}" >#}
+    </div>
+</body>
+<!-- ============= JavaScript ============= -->
+<script src="{% static 'javascripts/jquery.min.js' %}"></script>
+<script src="{% static 'javascripts/bootstrap.min.js' %}"></script>
+<script>
+    $("#bg_img").css({
+        "width":$(document).width()+"px",
+        "height":"1000px"
+    });
+</script>
+
+</html>

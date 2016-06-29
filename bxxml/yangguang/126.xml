@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="GBK" standalone="yes"?>
+<PackageList>
+	<Package>
+		<Header>
+			<Version>2</Version>
+			<RequestType>126</RequestType>
+			<InsureType>100</InsureType>
+			<SessionId>%s</SessionId>
+            <From>kalaibao</From>
+			<To>2051078519</To>
+			<AgentCode>W06910012</AgentCode>
+			<SellerId>kalaibao</SellerId>
+			<Status>100</Status>
+			<ErrorMessage></ErrorMessage>
+			<SendTime>%s</SendTime>
+		</Header>
+		<Request>
+		</Request>
+        <Sign><!--[SIGN]--></Sign>
+	</Package>
+</PackageList>

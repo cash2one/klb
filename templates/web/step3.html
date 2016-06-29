@@ -1,0 +1,1101 @@
+{% extends 'common/common.html' %}
+{% load staticfiles %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'stylesheets' %}/steps-page.css"/>
+{% endblock %}
+{% block content %}
+        {% for foo in vin %}
+               {{ foo.car_info_zh.chexin }}
+        {% endfor %}
+
+
+    <div class="container margin-top margin-bottom white-bg pricing-wrap">
+        <div class="steps-title">
+            <div class="progress">
+                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="25" aria-valuemin="0"
+                     aria-valuemax="100" style="width: 25%"></div>
+            </div>
+            <a href="javascript:void(0);" class="active">01.输入信息</a>
+            <a href="javascript:void(0);">02.精准报价</a>
+            <a href="javascript:void(0);">03.官网支付</a>
+        </div>
+        <hr class="color dashed">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#base" data-toggle="tab" aria-expanded="true">基本保障套餐</a>
+
+                <p>适合车价15万以下的车主选择</p>
+                <i class="fa fa-caret-down fa-2x"></i>
+            </li>
+            <li>
+                <a href="#advance" data-toggle="tab" aria-expanded="false">全面保障套餐</a>
+
+                <p>适合车价在15-40万的车主选择</p>
+                <i class="fa fa-caret-down fa-2x"></i>
+            </li>
+            <li>
+                <a href="#default" data-toggle="tab" aria-expanded="false">自定义</a>
+
+                <p>自己选择定制自己的投保方案</p>
+                <i class="fa fa-caret-down fa-2x"></i>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <!-- 基本保套餐 begin -->
+            <div class="tab-pane active" id="base">
+                <!-- / .tab-pane-head begin -->
+                <div class="row tab-pane-head">
+                    <div class="col-md-6">
+                        <h3 class="lateral-padding">基本保障套餐
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </h3>
+                        <ul>
+                            <li>适合车价15万以下的车主选择，平均省585.13元！！</li>
+                            <li>省钱招数一：车上人员责任险保障您驾乘无忧，价格便宜更实惠</li>
+                            <li>省钱招数二：舍弃性价比较低的划痕险、发动机涉水险</li>
+                            <li>省钱招数三：有固定停车位可不投保盗抢险，车龄不超过3年可不投保自燃险</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 tc">
+                        <img src="{% static 'images/pricing/car1.jpg' %}">
+                    </div>
+                </div>
+                <!-- / .tab-pane-head end -->
+
+                <!-- 基本保障 表单 begin-->
+                <div class="row">
+                    <!-- 左侧 -->
+                    <div class="col-md-6 insurance-form">
+                        <h4>主险</h4>
+                        <ul class="form-box form-box-l">
+                            <li class="form-group" data-submenu-id="submenu-01">
+                                <label for="car-L-01">车辆损失险：</label>
+                                <select name="car-L-01" id="car-L-01" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="1">投保</option>
+                                </select>
+
+                                <div id="submenu-01" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>车辆损失险</h4>
+                                        <span class="chart" data-percent="86" id='chart01'>
+                                           <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart01'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-02">
+                                <label for="car-L-02">第三者责任险：</label>
+                                <select name="car-L-02" id="car-L-02" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="50000">5万</option>
+                                    <option value="100000">10万</option>
+                                    <option value="200000">20万</option>
+                                    <option value="300000">30万</option>
+                                    <option value="500000">50万</option>
+                                    <option value="1000000">100万</option>
+                                </select>
+
+                                <div id="submenu-02" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>第三者责任险</h4>
+                                        <span class="chart" data-percent="86" id='chart02'>
+                                  <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart02'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-03">
+                                <label for="car-L-03">全车盗抢险：</label>
+                                <select name="car-L-03" id="car-L-03" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="1">投保</option>
+                                </select>
+
+                                <div id="submenu-03" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>全车盗抢险</h4>
+                                        <span class="chart" data-percent="86" id='chart03'>
+                                  <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart03'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-04">
+                                <label for="car-L-04">车上人员责任险（司机）：</label>
+                                <select name="car-L-04" id="car-L-04" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="10000">1万</option>
+                                    <option value="20000">2万</option>
+                                    <option value="30000">3万</option>
+                                    <option value="40000">4万</option>
+                                    <option value="50000">5万</option>
+                                    <option value="100000">10万</option>
+                                    <option value="200000">20万</option>
+                                </select>
+
+                                <div id="submenu-04" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>车上人员责任险（司机）</h4>
+                                        <span class="chart" data-percent="86" id='chart04'>
+                                  <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart04'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-05">
+                                <label for="car-L-05">车上人员责任险（乘客）：</label>
+                                <select name="car-L-05" id="car-L-05" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="10000">1万</option>
+                                    <option value="20000">2万</option>
+                                    <option value="30000">3万</option>
+                                    <option value="40000">4万</option>
+                                    <option value="50000">5万</option>
+                                    <option value="100000">10万</option>
+                                    <option value="200000">20万</option>
+                                </select>
+
+                                <div id="submenu-05" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>车上人员责任险（乘客）</h4>
+                                        <span class="chart" data-percent="86" id='chart05'>
+                                  <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart05'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 右侧 -->
+                    <div class="col-md-6 insurance-form insurance-form-R">
+                        <h4>附加险</h4>
+                        <ul class="form-box form-box-r">
+                            <li class="form-group" data-submenu-id="submenu-11">
+                                <label for="car-R-01">玻璃单独破碎险：</label>
+                                <select name="car-R-01" id="car-R-01" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="1">国产</option>
+                                    <option value="2">进口</option>
+                                </select>
+
+                                <div id="submenu-11" class="popover">
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                    <div class="chart-pie">
+                                        <h4>玻璃单独破碎险</h4>
+                                        <span class="chart" data-percent="86" id='chart11'>
+                                  <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart11'>刷新数据</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-12">
+                                <label for="car-R-02">车身划痕险：</label>
+                                <select name="car-R-02" id="car-R-02" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="2000">2000元</option>
+                                    <option value="5000">5000元</option>
+                                </select>
+
+                                <div id="submenu-12" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>车身划痕险</h4>
+                                        <span class="chart" data-percent="86" id='chart12'>
+                                    <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart12'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-13">
+                                <label for="car-R-03">自燃损失险：</label>
+                                <select name="car-R-03" id="car-R-03" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="1">投保</option>
+                                </select>
+
+                                <div id="submenu-13" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>自燃损失险</h4>
+                                        <span class="chart" data-percent="86" id='chart13'>
+                                    <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart13'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-14">
+                                <label for="car-R-04">发动机涉水险：</label>
+                                <select name="car-R-04" id="car-R-04" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="1">投保</option>
+                                </select>
+
+                                <div id="submenu-14" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>自燃损失险</h4>
+                                        <span class="chart" data-percent="86" id='chart14'>
+                                    <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart14'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-15">
+                                <label>不计免赔：</label>&nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="car-R-11" id="car-R-11" value="1" class=""/> 车损&nbsp;
+                                <input type="checkbox" name="car-R-12" id="car-R-12" value="1" class=""/> 三者&nbsp;
+                                <input type="checkbox" name="car-R-13" id="car-R-13" value="1" class=""/> 盗抢&nbsp;
+                                <input type="checkbox" name="car-R-14" id="car-R-14" value="1" class=""/> 司机&nbsp;
+                                <input type="checkbox" name="car-R-15" id="car-R-15" value="1" class=""/> 乘客&nbsp;
+                                <input type="checkbox" name="car-R-16" id="car-R-16" value="1" class=""/> 附加险
+
+                                <div id="submenu-15" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>不计免赔</h4>
+                                        <span class="chart" data-percent="86" id='chart15'>
+                                    <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart15'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 交强险 begin -->
+                <div class="row">
+                    <div class="col-md-6 insurance-form">
+                        <h4>交强险</h4>
+
+                        <div class="form-group" style="border-bottom:none">
+                            <p><code>(国家强制保险，不购买会导致双倍罚款)</code></p>
+                            <input type="checkbox" checked="checked" name="car-D-01" id="car-D-01" value="1"/>
+                            同时投保交强限并且代缴纳车船使用税
+                        </div>
+                    </div>
+                    <div class="col-md-6 insurance-form tc">
+                        <a href="step2.html" class="btn btn-ar btn-danger btn-large margin-top">下一步</a>
+                    </div>
+                </div>
+                <!-- 交强险 end -->
+            </div>
+            <!-- 基本保障 表单 end -->
+
+            <!-- 全面保障套餐 begin -->
+            <div class="tab-pane" id="advance">
+                <!-- / .tab-pane-head begin -->
+                <div class="row tab-pane-head">
+                    <div class="col-md-6">
+                        <h3 class="lateral-padding">全面保障套餐
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </h3>
+                        <ul>
+                            <li>适合车价15万以下的车主选择，平均省585.13元！！</li>
+                            <li>省钱招数一：车上人员责任险保障您驾乘无忧，价格便宜更实惠</li>
+                            <li>省钱招数二：舍弃性价比较低的划痕险、发动机涉水险</li>
+                            <li>省钱招数三：有固定停车位可不投保盗抢险，车龄不超过3年可不投保自燃险</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 tc">
+                        <img src="{% static 'images/pricing/car2.jpg' %}">
+                    </div>
+                </div>
+                <!-- / .tab-pane-head end -->
+
+                <!-- 基本保障 表单 begin-->
+                <div class="row">
+                    <!-- 左侧 -->
+                    <div class="col-md-6 insurance-form">
+                        <h4>主险</h4>
+                        <ul class="form-box form-box-l">
+                            <li class="form-group" data-submenu-id="submenu-21">
+                                <label for="car-L-01">车辆损失险：</label>
+                                <select name="car-L-01" id="car-L-01" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="1">投保</option>
+                                </select>
+
+                                <div id="submenu-21" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>车辆损失险</h4>
+                                        <span class="chart" data-percent="86" id='chart01'>
+                                            <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart01'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-22">
+                                <label for="car-L-02">第三者责任险：</label>
+                                <select name="car-L-02" id="car-L-02" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="50000">5万</option>
+                                    <option value="100000">10万</option>
+                                    <option value="200000">20万</option>
+                                    <option value="300000">30万</option>
+                                    <option value="500000">50万</option>
+                                    <option value="1000000">100万</option>
+                                </select>
+
+                                <div id="submenu-22" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>第三者责任险</h4>
+                                        <span class="chart" data-percent="86" id='chart02'>
+                                  <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart02'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-33">
+                                <label for="car-L-03">全车盗抢险：</label>
+                                <select name="car-L-03" id="car-L-03" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="1">投保</option>
+                                </select>
+
+                                <div id="submenu-33" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>全车盗抢险</h4>
+                                        <span class="chart" data-percent="86" id='chart03'>
+                                            <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart03'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-34">
+                                <label for="car-L-04">车上人员责任险（司机）：</label>
+                                <select name="car-L-04" id="car-L-04" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="10000">1万</option>
+                                    <option value="20000">2万</option>
+                                    <option value="30000">3万</option>
+                                    <option value="40000">4万</option>
+                                    <option value="50000">5万</option>
+                                    <option value="100000">10万</option>
+                                    <option value="200000">20万</option>
+                                </select>
+
+                                <div id="submenu-34" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>车上人员责任险（司机）</h4>
+                                        <span class="chart" data-percent="86" id='chart04'>
+                                  <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart04'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-35">
+                                <label for="car-L-05">车上人员责任险（乘客）：</label>
+                                <select name="car-L-05" id="car-L-05" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="10000">1万</option>
+                                    <option value="20000">2万</option>
+                                    <option value="30000">3万</option>
+                                    <option value="40000">4万</option>
+                                    <option value="50000">5万</option>
+                                    <option value="100000">10万</option>
+                                    <option value="200000">20万</option>
+                                </select>
+
+                                <div id="submenu-35" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>车上人员责任险（乘客）</h4>
+                                        <span class="chart" data-percent="86" id='chart05'>
+                                  <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart05'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 右侧 -->
+                    <div class="col-md-6 insurance-form insurance-form-R">
+                        <h4>附加险</h4>
+                        <ul class="form-box form-box-r">
+                            <li class="form-group" data-submenu-id="submenu-41">
+                                <label for="car-R-01">玻璃单独破碎险：</label>
+                                <select name="car-R-01" id="car-R-01" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="1">国产</option>
+                                    <option value="2">进口</option>
+                                </select>
+
+                                <div id="submenu-41" class="popover">
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                    <div class="chart-pie">
+                                        <h4>玻璃单独破碎险</h4>
+                                        <span class="chart" data-percent="86" id='chart11'>
+                                  <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart11'>刷新数据</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-42">
+                                <label for="car-R-02">车身划痕险：</label>
+                                <select name="car-R-02" id="car-R-02" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="2000">2000元</option>
+                                    <option value="5000">5000元</option>
+                                </select>
+
+                                <div id="submenu-42" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>车身划痕险</h4>
+                                        <span class="chart" data-percent="86" id='chart12'>
+                                    <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart12'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-43">
+                                <label for="car-R-03">自燃损失险：</label>
+                                <select name="car-R-03" id="car-R-03" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="1">投保</option>
+                                </select>
+
+                                <div id="submenu-43" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>自燃损失险</h4>
+                                        <span class="chart" data-percent="86" id='chart13'>
+                                    <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart13'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-44">
+                                <label for="car-R-04">发动机涉水险：</label>
+                                <select name="car-R-04" id="car-R-04" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="1">投保</option>
+                                </select>
+
+                                <div id="submenu-44" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>自燃损失险</h4>
+                                        <span class="chart" data-percent="86" id='chart14'>
+                                    <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart14'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-45">
+                                <label>不计免赔：</label>&nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="car-R-11" id="car-R-11" value="1" class=""/> 车损&nbsp;
+                                <input type="checkbox" name="car-R-12" id="car-R-12" value="1" class=""/> 三者&nbsp;
+                                <input type="checkbox" name="car-R-13" id="car-R-13" value="1" class=""/> 盗抢&nbsp;
+                                <input type="checkbox" name="car-R-14" id="car-R-14" value="1" class=""/> 司机&nbsp;
+                                <input type="checkbox" name="car-R-15" id="car-R-15" value="1" class=""/> 乘客&nbsp;
+                                <input type="checkbox" name="car-R-16" id="car-R-16" value="1" class=""/> 附加险
+                                <div id="submenu-45" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>不计免赔</h4>
+                                        <span class="chart" data-percent="86" id='chart15'>
+                                    <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart15'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 交强险 begin -->
+                <div class="row">
+                    <div class="col-md-6 insurance-form">
+                        <h4>交强险</h4>
+
+                        <div class="form-group" style="border-bottom:none">
+                            <p><code>(国家强制保险，不购买会导致双倍罚款)</code></p>
+                            <input type="checkbox" checked="checked" name="car-D-01" id="car-D-01" value="1"/>
+                            同时投保交强限并且代缴纳车船使用税
+                        </div>
+                    </div>
+                    <div class="col-md-6 insurance-form tc">
+                        <a href="step2.html" class="btn btn-ar btn-danger btn-large margin-top">下一步</a>
+                    </div>
+                </div>
+                <!-- 交强险 end -->
+            </div>
+            <!-- 全面保障套餐 end-->
+
+            <!-- 自定义 begin -->
+            <div class="tab-pane" id="default">
+                <div class="row tab-pane-head">
+                    <div class="col-md-6">
+                        <h3 class="lateral-padding">自定义
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </h3>
+                        <ul>
+                            <li>适合车价15万以下的车主选择，平均省585.13元！！</li>
+                            <li>省钱招数一：车上人员责任险保障您驾乘无忧，价格便宜更实惠</li>
+                            <li>省钱招数二：舍弃性价比较低的划痕险、发动机涉水险</li>
+                            <li>省钱招数三：有固定停车位可不投保盗抢险，车龄不超过3年可不投保自燃险</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 tc">
+                        <img src="{% static 'images/pricing/car3.jpg' %}">
+                    </div>
+                </div>
+
+                <!-- 基本保障 表单 begin-->
+                <div class="row">
+                    <!-- 左侧 -->
+                    <div class="col-md-6 insurance-form">
+                        <h4>主险</h4>
+                        <ul class="form-box form-box-l">
+                            <li class="form-group" data-submenu-id="submenu-51">
+                                <label for="car-L-01">车辆损失险：</label>
+                                <select name="car-L-01" id="car-L-01" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="1">投保</option>
+                                </select>
+
+                                <div id="submenu-51" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>车辆损失险</h4>
+                                        <span class="chart" data-percent="86" id='chart01'>
+                                            <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart01'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-52">
+                                <label for="car-L-02">第三者责任险：</label>
+                                <select name="car-L-02" id="car-L-02" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="50000">5万</option>
+                                    <option value="100000">10万</option>
+                                    <option value="200000">20万</option>
+                                    <option value="300000">30万</option>
+                                    <option value="500000">50万</option>
+                                    <option value="1000000">100万</option>
+                                </select>
+
+                                <div id="submenu-52" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>第三者责任险</h4>
+                                        <span class="chart" data-percent="86" id='chart02'>
+                                  <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart02'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-53">
+                                <label for="car-L-03">全车盗抢险：</label>
+                                <select name="car-L-03" id="car-L-03" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="1">投保</option>
+                                </select>
+
+                                <div id="submenu-53" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>全车盗抢险</h4>
+                                        <span class="chart" data-percent="86" id='chart03'>
+                                  <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart03'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-54">
+                                <label for="car-L-04">车上人员责任险（司机）：</label>
+                                <select name="car-L-04" id="car-L-04" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="10000">1万</option>
+                                    <option value="20000">2万</option>
+                                    <option value="30000">3万</option>
+                                    <option value="40000">4万</option>
+                                    <option value="50000">5万</option>
+                                    <option value="100000">10万</option>
+                                    <option value="200000">20万</option>
+                                </select>
+
+                                <div id="submenu-54" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>车上人员责任险（司机）</h4>
+                                        <span class="chart" data-percent="86" id='chart04'>
+                                  <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart04'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-55">
+                                <label for="car-L-05">车上人员责任险（乘客）：</label>
+                                <select name="car-L-05" id="car-L-05" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="10000">1万</option>
+                                    <option value="20000">2万</option>
+                                    <option value="30000">3万</option>
+                                    <option value="40000">4万</option>
+                                    <option value="50000">5万</option>
+                                    <option value="100000">10万</option>
+                                    <option value="200000">20万</option>
+                                </select>
+
+                                <div id="submenu-55" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>车上人员责任险（乘客）</h4>
+                                        <span class="chart" data-percent="86" id='chart05'>
+                                  <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart05'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 右侧 -->
+                    <div class="col-md-6 insurance-form insurance-form-R">
+                        <h4>附加险</h4>
+                        <ul class="form-box form-box-r">
+                            <li class="form-group" data-submenu-id="submenu-61">
+                                <label for="car-R-01">玻璃单独破碎险：</label>
+                                <select name="car-R-01" id="car-R-01" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="1">国产</option>
+                                    <option value="2">进口</option>
+                                </select>
+
+                                <div id="submenu-61" class="popover">
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                    <div class="chart-pie">
+                                        <h4>玻璃单独破碎险</h4>
+                                        <span class="chart" data-percent="86" id='chart11'>
+                                  <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart11'>刷新数据</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-62">
+                                <label for="car-R-02">车身划痕险：</label>
+                                <select name="car-R-02" id="car-R-02" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="2000">2000元</option>
+                                    <option value="5000">5000元</option>
+                                </select>
+
+                                <div id="submenu-62" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>车身划痕险</h4>
+                                        <span class="chart" data-percent="86" id='chart12'>
+                                    <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart12'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-63">
+                                <label for="car-R-03">自燃损失险：</label>
+                                <select name="car-R-03" id="car-R-03" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="1">投保</option>
+                                </select>
+
+                                <div id="submenu-63" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>自燃损失险</h4>
+                                        <span class="chart" data-percent="86" id='chart13'>
+                                    <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart13'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-64">
+                                <label for="car-R-04">发动机涉水险：</label>
+                                <select name="car-R-04" id="car-R-04" class="form-control">
+                                    <option value="-1">不投保</option>
+                                    <option value="1">投保</option>
+                                </select>
+
+                                <div id="submenu-64" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>自燃损失险</h4>
+                                        <span class="chart" data-percent="86" id='chart14'>
+                                    <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart14'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="form-group" data-submenu-id="submenu-65">
+                                <label>不计免赔：</label>&nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" name="car-R-11" id="car-R-11" value="1" class=""/> 车损&nbsp;
+                                <input type="checkbox" name="car-R-12" id="car-R-12" value="1" class=""/> 三者&nbsp;
+                                <input type="checkbox" name="car-R-13" id="car-R-13" value="1" class=""/> 盗抢&nbsp;
+                                <input type="checkbox" name="car-R-14" id="car-R-14" value="1" class=""/> 司机&nbsp;
+                                <input type="checkbox" name="car-R-15" id="car-R-15" value="1" class=""/> 乘客&nbsp;
+                                <input type="checkbox" name="car-R-16" id="car-R-16" value="1" class=""/> 附加险
+                                <div id="submenu-65" class="popover">
+                                    <div class="chart-pie">
+                                        <h4>不计免赔</h4>
+                                        <span class="chart" data-percent="86" id='chart15'>
+                                    <span class="percent"></span>
+                                        </span>
+                                        <button class="btn btn-ar btn-danger pie_update" id='up-chart15'>刷新数据</button>
+                                    </div>
+                                    <div class="intro">
+                                        <h4>险种介绍</h4>
+
+                                        <p>车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。</p>
+                                        <hr class="dotted"/>
+                                        <h4>保险大数据分析</h4>
+
+                                        <p>
+                                            保险事故中车损事故占比达到96.27%，出险概率极高。该险种平均保费为1306元，但案均赔款金额却达到2025.9元，一旦发生事故，经济损失较大，专家建议您选择投保。</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 交强险 begin -->
+                <div class="row">
+                    <div class="col-md-6 insurance-form">
+                        <h4>交强险</h4>
+
+                        <div class="form-group" style="border-bottom:none">
+                            <p><code>(国家强制保险，不购买会导致双倍罚款)</code></p>
+                            <input type="checkbox" checked="checked" name="car-D-01" id="car-D-01" value="1"/>
+                            同时投保交强限并且代缴纳车船使用税
+                        </div>
+                    </div>
+                    <div class="col-md-6 insurance-form tc">
+                        <a href="javascript:void(0);" class="btn btn-ar btn-danger btn-large margin-top">下一步</a>
+                    </div>
+                </div>
+                <!-- 交强险 end -->
+            </div>
+            <!-- 自定义 end-->
+        </div>
+    </div>
+{% endblock %}
+
+{% block footerjs %}
+    <script src="{% static 'javascripts/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'javascripts/hoverMenu.min.js' %}"></script>
+    <script src="{% static 'javascripts/jquery.easypiechart.min.js' %}"></script>
+    <script src="{% static 'javascripts/steps.js' %}"></script>
+{% endblock %}

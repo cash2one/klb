@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="GBK" standalone="yes"?>
+<PackageList>
+    <Package>
+        <Header>
+            <Version>2</Version>
+            <RequestType>105</RequestType>
+            <InsureType>100</InsureType>
+            <SessionId>%s</SessionId>
+            <SendTime>%s</SendTime>
+            <Status>100</Status>
+            <ErrorMessage></ErrorMessage>
+            <SellerId>2015061901</SellerId>
+        </Header>
+        <Request>
+            <InputsList>
+                <Inputs type="vehicleInfo">
+                    <Input name="vehicleId">%s</Input>
+                    <Input name="engineNo">%s</Input>
+                    <Input name="vehicleFrameNo">%s</Input>
+                    <Input name="firstRegisterDate">%s</Input>
+                    <Input name="vehicleModelName">%s</Input>
+                    <Input name="specialCarFlag">0</Input>
+                    <Input name="bizBeginDate">%s</Input>
+                    <Input name="forceBeginDate">%s</Input>
+                    <Input name="specialCarDate">0</Input>
+                    <Input name="averageMile">1</Input>
+                    <Input name="fuelType">A</Input>
+                </Inputs>
+                <Inputs type="ownerInfo">
+                    <Input name="ownerName">%s</Input>
+                </Inputs>
+            </InputsList>
+        </Request>
+        <Sign><!--[SIGN]--></Sign>
+    </Package>
+</PackageList>

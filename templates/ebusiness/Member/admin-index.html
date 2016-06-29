@@ -1,0 +1,228 @@
+{% extends 'ebusiness/Member/admin-common.html' %}
+{% load staticfiles %}
+{% load EbusinessTag %}
+{% block content %}
+    <section class="profile-env">
+
+        <div class="row">
+
+            <div class="col-sm-3">
+
+                <!-- 用户基本资料 -->
+                <div class="user-info-sidebar">
+
+                    <a href="#" class="user-img">
+                        <img src="{% static 'ebusiness/images/user-4.png' %}" class="img-cirlce img-responsive img-thumbnail"/>
+                    </a>
+
+                    <a href="#" class="user-name">
+                        {{ request.session.ebusiness_username }}
+                        <span class="user-status is-online"></span>
+                    </a>
+
+							<span class="user-title">
+								登录时间:{{ request.session.reqtime|Retime }}<br>
+                                登录IP&nbsp;:
+                                {% if request.META.HTTP_X_FORWARDED_FOR %}
+                                    {{ request.META.HTTP_X_FORWARDED_FOR }}
+                                {% else %}
+                                    {{ request.META.REMOTE_ADDR }}
+                                {% endif %}
+							</span>
+
+                    <hr/>
+
+                    <ul class="list-unstyled user-info-list">
+                        <li>
+                            <i class="fa-home"></i>
+                            <a href="#">渠道设置</a>
+                        </li>
+                        <li>
+                            <i class="fa-briefcase"></i>
+                            <a href="#">渠道钱包</a>
+                        </li>
+{#                        <li>#}
+{#                            <i class="fa-graduation-cap"></i>#}
+{#                            <a href="#">渠道钱包</a>#}
+{#                        </li>#}
+                    </ul>
+
+                    <hr/>
+
+{#                    <ul class="list-unstyled user-friends-count">#}
+{#                        <li>#}
+{#                            <span>643</span>#}
+{#                            followers#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <span>108</span>#}
+{#                            following#}
+{#                        </li>#}
+{#                    </ul>#}
+
+                    <a href="/webadmin/Logout/" class="btn btn-success btn-block text-center">
+                        退出登录
+                        <i class="fa-check pull-right"></i>
+                    </a>
+                </div>
+                <h4><i class="fa fa-qrcode"></i>&nbsp;&nbsp;渠道二维码</h4>
+                <a href="{{ request.session.ebusiness_user_id|GetQrcode }}&d=download" class="thumbnail">
+                    <img src="{{ request.session.ebusiness_user_id|GetQrcode }}" alt="">
+                </a>
+
+            </div>
+
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-md-12">
+
+					<blockquote class="blockquote blockquote-default">
+						<p>
+							<strong>您的渠道链接</strong>
+						</p>
+						<p>
+							<small>{{ request.session.ebusiness_user_id|CreateShareChildren:'Blink' }}</small>
+                            <small>您可以复制上面的地址，整合于其它应用里面，也可以直接发送至朋友</small>
+						</p>
+					</blockquote>
+
+				</div>
+                    <div class="col-sm-4">
+                        <div class="xe-widget xe-counter-block" data-count=".num" data-from="0" data-to="99.9"
+                             data-duration="2">
+                            <div class="xe-upper">
+                                <div class="xe-icon">
+                                    <i class="linecons-cloud"></i>
+                                </div>
+                                <div class="xe-label">
+                                    <strong class="num">{{ Count }}</strong>
+                                    <span class="font-size－14">渠道访问总人数</span>
+                                </div>
+
+                            </div>
+                            <div class="xe-lower">
+                                <div class="border"></div>
+                                <span class="font-size－12">今日访问</span>
+                                <strong class="font-size－12">20 人</strong>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-4">
+
+                        <div class="xe-widget xe-counter-block xe-counter-block-purple" data-count=".num" data-from="0"
+                             data-to="512" data-duration="3">
+                            <div class="xe-upper">
+
+                                <div class="xe-icon">
+                                    <i class="linecons-camera"></i>
+                                </div>
+                                <div class="xe-label">
+                                    <strong class="num">512</strong>
+                                    <span class="font-size－14">渠道购买总人数</span>
+                                </div>
+
+                            </div>
+                            <div class="xe-lower">
+                                <div class="border"></div>
+
+                                <span class="font-size－12">今日购买</span>
+                                <strong class="font-size－12">20 人</strong>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-4">
+
+                        <div class="xe-widget xe-counter-block xe-counter-block-orange" data-suffix="k" data-count=".num"
+                             data-from="0" data-to="310" data-duration="4" data-easing="false">
+                            <div class="xe-upper">
+
+                                <div class="xe-icon">
+                                    <i class="linecons-user"></i>
+                                </div>
+                                <div class="xe-label">
+                                    <strong class="num">300</strong>
+                                    <span class="font-size－14">我的下线</span>
+                                </div>
+
+                            </div>
+                            <div class="xe-lower">
+                                <div class="border"></div>
+
+                                <span class="font-size－12">今日新增</span>
+                                <strong class="font-size－12">20 人</strong>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-12">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">数据统计</h3>
+
+                                <div class="panel-options">
+                                    <a href="#" data-toggle="panel">
+                                        <span class="collapse-icon">–</span>
+                                        <span class="expand-icon">+</span>
+                                    </a>
+                                    <a href="#" data-toggle="remove">
+                                        ×
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <script type="text/javascript">
+                                    jQuery(document).ready(function ($) {
+                                        var dataSource = [
+                                            {state: "11.1", oil: 4.95, gas: 2.85},
+                                            {state: "11.2", oil: 12.94, gas: 17.66},
+                                            {state: "11.3", oil: 8.51, gas: 19.87},
+                                            {state: "11.4", oil: 5.3, gas: 4.39},
+                                            {state: "11.5", oil: 4.08, gas: 5.4},
+                                            {state: "11.6", oil: 12.03, gas: 0},
+                                            {state: "11.7", oil: 3.86, gas: 0}
+                                        ];
+
+                                        var Mychart = $("#bar-2").dxChart({
+                                            equalBarWidth: true,
+                                            dataSource: dataSource,
+                                            commonSeriesSettings: {
+                                                argumentField: "state",
+                                                type: "bar"
+                                            },
+                                            series: [
+                                                {valueField: "oil", name: "访问人数", color: "#0e62c7"},
+                                                {valueField: "gas", name: "购买人数", color: "#2c2e2f"}
+                                            ],
+                                            legend: {
+                                                verticalAlignment: "bottom",
+                                                horizontalAlignment: "center"
+                                            }
+                                        });
+                                    });
+                                </script>
+                                <div class="dx-visibility-change-handler" id="bar-2" style="height: 400px; width: 100%;">
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+{% endblock %}
+{% block js %}
+    <!-- Imported scripts on this page -->
+    <script src="{% static 'ebusiness/js/devexpress-web-14.1/js/globalize.min.js' %}"></script>
+    <script src="{% static 'ebusiness/js/devexpress-web-14.1/js/dx.chartjs.js' %}"></script>
+    <script>
+        $()
+    </script>
+{% endblock %}

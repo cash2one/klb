@@ -1,0 +1,255 @@
+.wechat_bjcolor {
+    background-color: #c91623;
+    color: #fff;
+    border-bottom:none;
+}
+
+.item-divider{
+
+    font-size: 16px;
+}
+
+.wechat_bjcolor a {
+    color: #fff!important;
+}
+
+.theme-red .button.active:not(.button-fill){
+    background-color: #c91623!important;
+
+}
+.modal-button {
+    color:#666;
+}
+
+.modal-button-bold {
+    color:#c91623;
+}
+
+.back,.center,.icon {
+    color: #fff!important;
+}
+
+.button-big{
+    border-color: #c91623!important;
+}
+
+.tab-link {
+    border-color: #c91623!important;
+    border-radius: inherit;
+    height: 30px;
+
+}
+
+.list-group-title {
+    font-size: 16px;
+    background-color: #000;
+}
+.group_title_color {
+    color:#000
+}
+
+.item_title_color {
+    color: #6d6d72;
+}
+
+.wechat_height60 {
+    height: 60px !important;
+}
+
+.wechat_height40 {
+    height: 40px !important;
+    line-height: 40px;
+    border: none;
+}
+
+.wechat_min_height60 {
+    min-height: 60px !important;
+}
+
+.wechat_bj {
+    background-color: #fff !important;
+}
+
+.wechat_login_ul {
+    position: none !important;
+}
+
+.wechat_label {
+    width: 10% !important;
+}
+
+.fa-x1-5 {
+    font-size: 1.5em;
+}
+
+.wechat_font14 {
+    font-size: 14px !important;
+}
+
+.wechat_font12 {
+    text-indent: 5px;
+    font-size: 12px !important;
+}
+
+.wechat-font12 {
+    font-size: 12px !important;
+}
+.wechat-font14 {
+    font-size: 14px !important;
+}
+.wechat-font16 {
+    font-size: 16px !important;
+}
+.wechat-font18 {
+    font-size: 18px !important;
+}
+.wechat-font20 {
+    font-size: 20px !important;
+}
+
+.wechat_item-media img {
+    border: solid 1px #999;
+}
+
+.wechat-opacity50 {
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+}
+.wechat-opacity70 {
+    filter: alpha(opacity=30);
+    -moz-opacity: 0.3;
+    -khtml-opacity: 0.3;
+    opacity: 0.3;
+    text-decoration:line-through;
+}
+.wechat-block40{
+    display: block!important;
+    width: 40px!important;
+    float: left!important;
+}
+
+.wechat-block60{
+    display: block!important;
+    width: 60px!important;
+    float: left!important;
+}
+
+.wechat-block120-h20{
+    display: block!important;
+    width: 120px!important;
+    float: left!important;
+    height: 20px!important;
+}
+.wechat-block120-h30{
+    display: block!important;
+    width: 120px!important;
+    float: left!important;
+    height: 30px!important;
+}
+.wechat-h20-mt30{
+    height: 30px!important;
+    font-size: 12px!important;
+    margin-left: 30px!important;
+    min-width: 60px!important;
+}
+
+.wechat-block110-h20{
+    display: block!important;
+    width: 110px!important;
+    float: left!important;
+    height: 20px!important;
+}
+.wechat-block110-h30{
+    display: block!important;
+    width: 110px!important;
+    float: left!important;
+    height: 30px!important;
+}
+.wechat-btn-noborder{
+    border: none!important;
+}
+.wechat-bxgs-loading{
+    position: absolute;
+    z-index: 999;
+    left:25px;
+    top:20px;
+}
+.wechat-font-color-fff{
+    color: #666!important;
+}
+.wechat-pay-user-info li{
+    font-size: 12px!important;
+}
+.wechat-mt0-pt0{
+    margin-top: 0!important;
+    padding-top: 0!important;
+}
+.swiper-slide {
+  background: #fff;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+.swiper-slide span {
+  text-align:center;
+  display:block;
+  margin: 20px;
+  font-size:21px;
+}
+.swiper-container {
+  height: 140px;
+  margin: 35px 0;
+}
+.facebook-name {
+  margin-left: 44px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.facebook-date {
+  margin-left: 44px;
+  font-size: 13px;
+  color: #8e8e93;
+}
+.facebook-avatar {
+  float: left;
+}
+.wechat-share-left{
+    float: left;
+    width: 20%;
+    height: 60px;
+    text-align: center;
+}
+.wechat-share-right{
+    float: left;
+    width: 70%;
+    height: 40px;
+}
+.wechat-share-h200{
+    min-height: 50px;
+}
+.wechat-share-r1{
+    height: 30px!important;font-size: 22px!important;text-height: 30px;
+}
+.wechat-share-p15{
+    margin-top: 15px!important;
+    margin-bottom: 0px!important;
+}
+.wechat-history-list{
+    float: left;
+    min-width: 80px;
+    height: 20px;
+    margin-left: 5px;
+
+}
+.wechat-history-list-title{
+    float: left;
+    text-align: center;
+    min-width: 40px;
+
+}
+.wechat-history-list-content{
+    float: left;
+    text-align: left;
+    min-width: 40px;
+}

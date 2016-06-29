@@ -1,0 +1,137 @@
+{% extends "ebusiness/common.html" %}
+{% load staticfiles %}
+{% load EbusinessTag %}
+{% block content %}
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="profile-env">
+                <!-- User Info Sidebar -->
+                <div class="user-info-sidebar">
+
+                    <a href="#" class="user-img">
+                        <img src="{% static 'ebusiness/images/cdq.jpg' %}" alt="user-img"
+                             class="img-cirlce img-responsive img-thumbnail"
+                             style="max-width: 120px;max-height: 120px;">
+                    </a>
+                    <a href="#" class="user-name">
+                        陈殿强
+                        <span class="user-status is-online"></span>
+                    </a>
+
+							<span class="user-title">
+								来自 <strong>微信会员</strong>
+							</span>
+
+                    <hr>
+
+                    <ul class="list-unstyled user-info-list">
+                        <li>
+                            <i class="fa-home"></i>
+                            黄金会员
+                        </li>
+                        <li>
+                            <i class="fa-briefcase"></i>
+                            <a href="#">13826785645</a>
+                        </li>
+                        <li>
+                            <i class="fa-graduation-cap"></i>
+                            北京市朝阳区大屯
+                        </li>
+                    </ul>
+
+                    <hr>
+
+                    <ul class="list-unstyled user-friends-count">
+                        <li>
+                            <span>643</span>
+                            followers
+                        </li>
+                        <li>
+                            <span>108</span>
+                            following
+                        </li>
+                    </ul>
+
+                    <button type="button" class="btn btn-success btn-block text-center">
+                        退出系统
+                        <i class="fa-check pull-right"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa-list-ul"></i>&nbsp;&nbsp;我的订单
+                </div>
+
+                <div class="panel-body">
+
+                    <div class="table-wrapper">
+
+                        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk"
+                             data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th id="idf29fe1e-col-0">编号</th>
+                                    <th data-priority="1" id="idf29fe1e-col-1-clone">订单号</th>
+                                    <th data-priority="3" id="idf29fe1e-col-2-clone">保险公司</th>
+                                    <th data-priority="1" id="idf29fe1e-col-3-clone">保单号</th>
+                                    <th data-priority="3" id="idf29fe1e-col-4-clone">状态</th>
+                                    <th data-priority="3" id="idf29fe1e-col-5-clone">时间</th>
+                                    <th data-priority="6" id="idf29fe1e-col-6-clone">保单验真</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th colspan="1" data-columns="idf29fe1e-col-0">klb-1</span></th>
+                                    <td data-priority="1" colspan="1" data-columns="idf29fe1e-col-1">123456789</td>
+                                    <td data-priority="3" colspan="1" data-columns="idf29fe1e-col-2">中华联合</td>
+                                    <td data-priority="1" colspan="1" data-columns="idf29fe1e-col-3">56435267845</td>
+                                    <td data-priority="3" colspan="1" data-columns="idf29fe1e-col-4">已支付</td>
+                                    <td data-priority="3" colspan="1" data-columns="idf29fe1e-col-5">2015-10-12</td>
+                                    <td data-priority="6" colspan="1" data-columns="idf29fe1e-col-6"><a href="http://query.cic.cn/autoclaim/epiq/index.jsp" class="btn btn-blue btn-xs" target="_blank">验真</a></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" data-columns="idf29fe1e-col-0">klb-1</span></th>
+                                    <td data-priority="1" colspan="1" data-columns="idf29fe1e-col-1">123456789</td>
+                                    <td data-priority="3" colspan="1" data-columns="idf29fe1e-col-2">中华联合</td>
+                                    <td data-priority="1" colspan="1" data-columns="idf29fe1e-col-3">56435267845</td>
+                                    <td data-priority="3" colspan="1" data-columns="idf29fe1e-col-4">已支付</td>
+                                    <td data-priority="3" colspan="1" data-columns="idf29fe1e-col-5">2015-10-12</td>
+                                    <td data-priority="6" colspan="1" data-columns="idf29fe1e-col-6"><a href="http://query.cic.cn/autoclaim/epiq/index.jsp" class="btn btn-blue btn-xs" target="_blank">验真</a></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="1" data-columns="idf29fe1e-col-0">klb-1</span></th>
+                                    <td data-priority="1" colspan="1" data-columns="idf29fe1e-col-1">123456789</td>
+                                    <td data-priority="3" colspan="1" data-columns="idf29fe1e-col-2">中华联合</td>
+                                    <td data-priority="1" colspan="1" data-columns="idf29fe1e-col-3">56435267845</td>
+                                    <td data-priority="3" colspan="1" data-columns="idf29fe1e-col-4">已支付</td>
+                                    <td data-priority="3" colspan="1" data-columns="idf29fe1e-col-5">2015-10-12</td>
+                                    <td data-priority="6" colspan="1" data-columns="idf29fe1e-col-6"><a href="http://query.cic.cn/autoclaim/epiq/index.jsp" class="btn btn-blue btn-xs" target="_blank">验真</a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'ebusiness/css/xenon-components.css' %}">
+    <link rel="stylesheet" href="{% static 'ebusiness/css/xenon-skins.css' %}">
+    <link rel="stylesheet" href="{% static 'ebusiness/css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'ebusiness/css/fonts/elusive/css/elusive.css' %}">
+{% endblock %}
+{% block script %}
+
+{% endblock %}
+{% block modal %}
+
+{% endblock %}

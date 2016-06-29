@@ -1,0 +1,98 @@
+{% extends 'common/member_common.html' %}
+{% load staticfiles %}
+{% block content_title %}我的资料{% endblock %}
+
+{% block content_detail %}
+
+    <form action="/members/setting/info/" class="row form-horizontal margin-bottom" method="post">
+        <div class="form-group">
+            <label for="userName" class="col-sm-2 control-label">用户名：</label>
+
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="username" name="username" value="{{ request.user.username }}" disabled>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">真实姓名：</label>
+
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="real_name" name="real_name" value="{{ request.user.real_name }}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">性别：</label>
+
+            <div class="col-sm-4 radio">
+                <label>
+                    <input type="radio" name="sex" value="1" {% ifequal request.user.sex 1 %}checked{% endifequal %}> 男
+                </label>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <label>
+                    <input type="radio" name="sex" value="2" {% ifequal request.user.sex 2 %}checked{% endifequal %}> 女
+                </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>
+                    <input type="radio" name="sex" value="0" {% ifequal request.user.sex 0 %}checked{% endifequal %}> 保密
+                </label>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">电子邮箱：</label>
+
+            <div class="col-sm-4">
+                <input type="email" class="form-control" id="email" name="email" value="{{ request.user.email }}" {% if request.user.email %}disabled{% endif %}>
+            </div>
+            {% if not request.user.email %}
+            <div class="col-sm-4">
+                <button class="btn btn-disabled" name="send_sms" id="send_sms" type="button">发送验证邮件</button>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label for="idcard" class="col-sm-2 control-label">身份证号码：</label>
+
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="idcard" name="idcard" value="{{ request.user.idcard }}">
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label for="phone" class="col-sm-2 control-label">手机号码：</label>
+
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="phone" name="phone" {% if request.user.phone %}disabled{% endif %}>
+            </div>
+            <div class="col-sm-4">
+                <button class="btn btn-default" name="send_sms" id="send_sms" type="button">立即验证</button>
+            </div>
+        </div>
+        {% if not request.user.phone %}
+        <div class="form-group">
+            <label for="ver_code" class="col-sm-2 control-label">收到的验证码：</label>
+
+            <div class="col-sm-2">
+                <input type="text" class="form-control" id="ver_code" name="ver_code">
+            </div>
+        </div>
+        {% endif %}
+        <div class="form-group">
+            <label for="addr" class="col-sm-2 control-label">通讯地址：</label>
+
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="addr" name="addr" value="{{ request.user.addr }}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-2">
+                <button type="submit" class="btn btn-danger" name="set_user_info_btn" id="set_user_info_btn"> 完成修改</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

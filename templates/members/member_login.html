@@ -1,0 +1,208 @@
+{% extends 'common/common.html' %}
+{% load staticfiles %}
+{% block content %}
+    <input type="hidden" value="{{ request.GET.next }}" id="href_next">
+    <section class="login-wrap margin-bottom">
+        <div class="container margin-top margin-bottom">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-7">
+                    <!-- comparative prices -->
+                    <div class="login-form">
+                        <h4>用户登录
+                            <a href="/members/reg/" class="free-sign-in"><i class="fa fa-sign-in"></i>免费注册</a>
+                        </h4>
+
+                        <ul class="nav nav-tabs nav-tabs-bg">
+                            <li class="active"><a href="#QQ-login" data-toggle="tab" aria-expanded="true">快速登陆</a>
+                            </li>
+                            <li><a href="#email-login" data-toggle="tab" aria-expanded="false" id="klblogin_tab">卡来宝账号登陆</a></li>
+                        </ul>
+
+                        <div class="tab-content login-pane">
+                            <!-- 微信登录 -->
+                            <!--  re:http://wiki.open.qq.com/wiki/website/JS_SDK%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E -->
+{#                            <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js"#}
+{#                                    data-appid="101205955" data-redirecturi="http://www.kalaibao.com"#}
+{#                                    charset="utf-8"></script>#}
+
+                            <div class="tab-pane tc active" id="QQ-login" style="padding: 30px;">
+
+                                <div class="btn-group" role="group" style="margin-bottom: 10px;">
+                                    <button type="button" class="btn btn-default">
+                                        <i class="fa fa-weixin fa-lg"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-primary" style="width: 150px;" id="wechat_tab">微信登录</button>
+                                </div>
+
+                               <div class="clear"></div>
+                                <div class="btn-group" role="group" style="margin-bottom: 10px;">
+                                    <button type="button" class="btn btn-default">
+                                        <i class="fa fa-qq fa-lg"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-primary" style="width: 150px;" id="qqok">QQ登录</button>
+                                </div>
+                                <div>
+                                    <span id="ok"  style="width: 150px;" ></span>
+                                </div>
+                                <div class="clear"></div>
+
+                                <div class="btn-group" role="group" style="margin-bottom: 10px;">
+                                    <button type="button" class="btn btn-default">
+                                        <i class="fa fa-weibo fa-lg"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-primary" style="width: 150px;" id="weibo">微博登录</button>
+                                </div>
+
+
+
+                            </div>
+
+
+
+                            <!-- 邮箱登录 -->
+                            <div class="tab-pane" id="email-login">
+                                <form role="form" action="#">
+                                    <div class="form-group">
+                                        <div class="input-group login-input">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            <input type="text" class="form-control" value="手机号/邮箱"
+                                                   onfocus="if(this.value=='手机号/邮箱'){this.value='';this.style.color='#555'}"
+                                                   onblur="if(this.value==''){this.value='手机号/邮箱';this.style.color='#f00'}" id="username_login">
+                                        </div>
+                                        <br>
+
+                                        <div class="input-group login-input">
+                                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                            <input type="password" class="form-control" value="请输入密码"
+                                                   onfocus="if(this.value=='请输入密码'){this.value='';this.style.color='#555'}"
+                                                   onblur="if(this.value==''){this.value='请输入密码';this.style.color='#f00'}" id="password_login">
+
+                                        </div>
+
+                                        <!--<div class="checkbox">
+                                             <label>
+                                                <input type="checkbox">记住用户名和密码
+                                            </label> endcomment
+                                        </div>-->
+                                        <button id="login_email" type="button" class="btn btn-ar btn-primary btn-block">登 录</button>
+                                    </div>
+                                    <!-- <div class="follow">
+                                        <h6>合作网站登录</h6>
+                                        <a href="#" title="微信"><i class="fa fa-weixin fa-square"></i></a>
+                                        <a href="#" title="QQ"><i class="fa fa-qq fa-square"></i> </a>
+                                        <a href="#" title="微博"><i class="fa fa-weibo fa-square"></i></a>
+                                    </div> -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.comparative-prices -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="wechat_login" style="height:180px;height: 200px; display: none;">
+                               <script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+                                <script>
+                                    var obj = new WxLogin({
+                                        id: "wechat_login",
+                                        appid: "wxc7eadf63b02d39bd",
+                                        scope: "snsapi_login",
+                                        redirect_uri: encodeURIComponent("http://www.kalaibao.com/members/login/wechat/"),
+                                        state: "",
+                                        style: "",
+                                        href: ""
+                                    });
+
+                                </script>
+
+                            </div>
+
+{% endblock %}
+
+{% block footerjs %}
+
+
+    <script type="text/javascript">
+
+        $(function(){
+            $("#qq").click(function() {
+                    alert("暂时不支持");
+                //调用QC.Login方法，指定btnId参数将按钮绑定在容器节点中
+                        //QC.Login({
+                   //btnId：插入按钮的节点id，必选
+                   //btnId:"ok",
+                   //用户需要确认的scope授权项，可选，默认all
+                   scope:"all",
+                   //按钮尺寸，可用值[A_XL| A_L| A_M| A_S|  B_M| B_S| C_S]，可选，默认B_S
+                   //size: "A_L"
+              // }, function(reqData, opts){//登录成功
+                   //根据返回数据，更换按钮显示状态方法
+                   //alert("qqww");
+                   //alert(reqDate);
+                   //var dom = document.getElementById(opts['btnId']),
+                   //_logoutTemplate=[
+                        //头像
+                        //'<span><img src="{figureurl}" class="{size_key}"/></span>',
+                        //昵称
+                       // '<span>{nickname}</span>',
+                        //退出
+                       // '<span><a href="javascript:QC.Login.signOut();">退出</a></span>'
+                   //].join("");
+                   //dom && (dom.innerHTML = QC.String.format(_logoutTemplate, {
+                     //  nickname : QC.String.escHTML(reqData.nickname), //做xss过滤
+                       //figureurl : reqData.figureurl
+                   //}));
+               //}, function(opts){//注销成功
+                    // alert('QQ登录 注销成功');
+               //}
+           // );
+
+
+            })
+
+        })
+
+    </script>
+        <!--QQ登录    -->
+    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js"  data-appid="101205955" data-redirecturi="http://www.kalaibao.com/pages/SysKlbIndex/index.htm" charset="utf-8"></script>
+    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" charset="utf-8" data-callback="true"></script>
+
+
+
+
+    <script>
+        $(function(){
+            $("#wechat_tab").click(function(){
+
+                layer.open({
+                    type: 1,
+                    title: false,
+                    closeBtn: true,
+                    area: ['300px', '420px'],
+                    shadeClose: false,
+                    content: $('#wechat_login'),
+                    cancel: function(index){
+{#                        $("#klblogin_tab").click();#}
+                    }
+                });
+            });
+        });
+
+
+
+    </script>
+    <script>
+    $(function(){
+            $("#weibo").click(function() {
+                    alert("微博暂时不支持");
+            })
+        });
+     $(function(){
+            $("#qqok").click(function() {
+                    alert("QQ暂时不支持");
+            })
+        })
+
+    </script>
+{% endblock %}

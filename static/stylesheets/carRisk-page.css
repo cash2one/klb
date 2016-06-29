@@ -1,0 +1,51 @@
+.bannerImg {
+    width: 100%
+}
+.bgGray {
+    padding: 30px 20px;
+    background-color: #fafafa;
+    border: 1px solid #e6e6e6
+}
+.input-md {
+    width: 67%;
+}
+.share {
+    width: 48px;
+    height: 40px;
+    background: url("../images/recommend/share.png") no-repeat;
+    float: left;
+}
+.shareWord {
+    margin-top: 11px
+}
+.recordTable thead>tr>td{
+	border-bottom: none;
+	font-weight: bold;
+}
+.padding-right-70 {
+    padding-right: 70px
+}
+
+.gongyishuoming {
+    margin: 0 0 15px 0
+}
+.award{
+	line-height:1.8;
+}
+.buttomImg {
+    width: 100%;
+    margin-top: 40px
+}
+
+/* .carousel-inner{height: 350px !important} */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+}
+.carousel-control.left {
+    background-image: none;
+}
+.carousel-control.right {
+    background-image: none;
+}

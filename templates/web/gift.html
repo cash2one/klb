@@ -1,0 +1,60 @@
+{% extends 'common/common.html' %}
+{% load staticfiles %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'stylesheets' %}/gift.css"/>
+{% endblock %}
+{% block content %}
+<!-- =================== INCLUDE ABOVE TO YOUR WEBSITE ========================= -->
+    <section class="container margin-top">
+        <div class="row declare">
+            <div class="col-md-6 ">
+                <h1 class="animation animated-item-1">
+                    <img src="{% static 'images/' %}gift/banner.png">
+                </h1>
+                <h2 class="animation animated-item-2">
+                     <span class="inviteWord">邀请更多，奖励越多，快来参加吧</span>
+                    <span class="margin-top-20 smallWord-12"></span>
+                </h2>
+
+                <button type="button" class="btn btn-warning">
+                    我要推荐 <i class="fa fa-play margin-left-10"></i>
+                </button>
+            </div>
+            <div class="col-md-6">
+                <img src="{% static 'images/' %}gift/person.png">
+            </div>
+        </div>
+    </section>
+
+    <!-- car recall -->
+    <section id="" class="margin-top container">
+        <div class="row border-1 padding-20 no-margin">
+            <div class="col-md-2 cocompany co1"></div>
+            <div class="col-md-2 cocompany co2"></div>
+            <div class="col-md-2 cocompany co3"></div>
+        </div>
+        <div class="border-1 padding-10 row noborder-top no-margin">
+            <p>所推荐的好友购买以上保险公司的车险，您会获得卡来宝提供的每人50元的现金奖励。
+                <button type="button" class="btn btn-danger" onclick="window.location.href='/web/gift/recommend/'">推荐好友参加</button>
+            </p>
+        </div>
+    </section>
+    <!-- / car recall -->
+
+    <section class="margin-top container">
+        <div>
+            <h4>推荐好友规则</h4>
+            <div>
+                <p>1、推广途径：推荐可以通过在微信、微博、QQ或其他社交平台，发送卡来宝推广链接、我的推荐码等方式，邀请好友来注册卡来宝。</p>
+                <p>2、推荐所得： a)每推荐一名好友注册，可以得到500卡豆，当卡豆达到4800个，可申请提升一个会员等级，享受更高级别的会员福利。（会员每升一个等级，将同时将扣除4800卡豆） b)每推荐1名好友购买车险，可以得到50元钱的现金奖励（目前仅限：安盛天平、阳光保险）。
+                </p>
+                <p>3、奖励查询： a)推荐好友购买车险得到的现金奖励，可以在“个人中心”中的“我的钱包”中查询； b)推荐好友注册卡来宝得到的卡豆，可以在“个人中心”中的“我的卡豆”中查询。
+                </p>
+                <p>4、奖励到帐：考虑到退货周期，推荐好友购买车险的奖励，在推荐成功的45个工作日之后，发放到您的账户。</p>
+                <p>5、推荐成功：指被推荐人购买参与推荐有礼活动的保险公司的车险，并支付成功，且没有发生退保的情况。如有退保，则推荐不成功，不能发放现金奖励。被推荐人购买没有参加活动的保险公司车险的，不能得到推荐奖励。</p>
+                <p>6、会员推荐级别： a)钻石会员推荐的会员为黄金会员； 黄金会员推荐会员为普通会员。
+                </p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

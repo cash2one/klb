@@ -1,0 +1,164 @@
+{% extends 'ebusiness/common.html' %}
+{% load staticfiles %}
+{% load EbusinessTag %}
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    车辆基本信息
+                </div>
+                <div class="panel-body" id="sub-body">
+                    <form role="form" id="sub-form" class="form-horizontal" action="{{ request.get_full_path }}"
+                          method="post">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="licenseNo">{{ forms.licenseNo.label }}</label>
+
+                            <div class="col-sm-10">
+
+                                <div class="input-group">
+                                    {{ forms.licenseNo }}
+                                            <span class="input-group-btn">
+
+												<button type="button" class="btn btn-info dropdown-toggle"
+                                                        data-toggle="dropdown">
+                                                    <span id="show-guohu">过户车辆?&nbsp;&nbsp;&nbsp;</span><span
+                                                        class="caret"></span>
+                                                </button>
+
+												<ul class="dropdown-menu dropdown-gray no-spacing">
+                                                    <li><a href="javascript:void(0);" onclick="ShowVinInput();">是过户车</a>
+                                                    </li>
+                                                    <li><a href="javascript:void(0);"
+                                                           onclick="$('#show-guohu').text('非过户车');">不是过户车</a></li>
+                                                </ul>
+											</span>
+
+                                    <p class="help-block">
+                                        {% if licenseNo_error %}
+                                            {{ licenseNo_error }}
+                                        {% endif %}
+                                        {{ forms.licenseNo.errors.as_text }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="ownerName">{{ forms.ownerName.label }}</label>
+
+                            <div class="col-sm-10">
+                                {{ forms.ownerName }}
+                                <p class="help-block">{{ forms.ownerName.errors.as_text }}</p>
+                            </div>
+                        </div>
+                        <div class="form-group" id="form-vin">
+                            <label class="col-sm-2 control-label" for="vin">{{ forms.vin.label }}</label>
+
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    {{ forms.vin }}
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-info" type="button" onclick="GetVin();"
+                                                id="auto-vin-btn">自动获取信息
+                                        </button>
+									</span>
+                                </div>
+                                <p class="help-block">
+                                    {{ forms.vin.errors.as_text }}
+                                    {% if vin_error %}
+                                        {{ vin_error }}
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group" id="form-engine">
+                            <label class="col-sm-2 control-label" for="engine">{{ forms.engine.label }}</label>
+
+                            <div class="col-sm-10">
+                                {{ forms.engine }}
+                                <p class="help-block">{{ forms.engine.errors.as_text }}</p>
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <div class="col-sm-2">
+
+                            </div>
+
+                            <div class="col-sm-10">
+
+                                <input type="hidden" value="0" id="issetvin">
+                                <button type="submit" data-loading-text="正在加载..."
+                                        class="btn pull-right btn-red" name="submit"
+                                        id="sub-btn">
+                                    下一步
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="alert alert-white">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">关闭</span>
+        </button>
+        <strong>用户信息安全保护声明：</strong> 您提供的个人信息仅供本次报价及投保使用，我们不会泄露给任何第三方或作其他用途。
+    </div>
+{% endblock %}
+{% block modal %}
+    <div class="modal fade" id="modal" data-backdrop="static" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">正在自动回填信息</h4>
+                </div>
+
+                <div class="modal-body" style="text-align: center;">
+
+                    <img src="{% static 'ebusiness/images/loading2.gif' %}" style="margin: auto;"><br><br>
+                    正在与保险公司通信，请等待......
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block msg %}
+    <div class="alert alert-white">
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">×</span>
+            <span class="sr-only">关闭</span>
+        </button>
+        <strong>只支持三个月内保险到期的车辆</strong>
+    </div>
+{% endblock %}
+{% block script %}
+    <script src="{% static 'ebusiness/js/app.js' %}"></script>
+    {% ifequal request.GET.auto '1' %}
+        <script>
+
+            $(function () {
+
+                $.getJSON("/ebusiness/auto/", function (d) {
+                    $("#licenseNo").val(d.data.licenseNo);
+                    $("#engine").val(d.data.engine);
+                    $("#ownerName").val(d.data.ownerName);
+                    $("#vin").val(d.data.vin);
+                });
+
+
+            });
+
+        </script>
+    {% endifequal %}
+
+{% endblock %}

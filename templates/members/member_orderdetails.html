@@ -1,0 +1,72 @@
+{% extends 'common/member_common.html' %}
+{% load staticfiles %}
+{% block content_title %}我的订单{% endblock %}
+{% block content_detail %}
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <td>订单信息</td>
+            <td class="tc">订单金额</td>
+            <td class="tc">订单日期</td>
+            <td class="tc">
+                <select  class="form-control">
+                    <option value="0">订单状态</option>
+                    <option value="0">全部</option>
+                    <option value="0">已支付</option>
+                    <option value="0">未支付</option>
+                </select>
+            </td>
+            <td class="tc">操 作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td class="tc">无数据</td>
+            <td class="tc">无数据</td>
+            <td class="tc">无数据</td>
+            <td class="tc">无数据</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <!-- 上面的table中没有数据时，显示下面这句 -->
+    <!--<p>你还没有在卡来宝投保车险，快去 <a href="#" class="btn btn-ar btn-danger btn-small">投 保</a> 吧</p>-->
+
+{#    <div>#}
+{#        <ul class="pagination pull-right">#}
+{#            <li class="disabled"><a href="#">«</a></li>#}
+{#            <li class="active"><a href="#">1</a></li>#}
+{#            <li><a href="#">2</a></li>#}
+{#            <li><a href="#">3</a></li>#}
+{#            <li><a href="#">4</a></li>#}
+{#            <li><a href="#">5</a></li>#}
+{#            <li><a href="#">»</a></li>#}
+{#        </ul>#}
+{#    </div>#}
+{% endblock %}
+{% block content_title_detail %}
+    <span class="pull-right more-group">我的订单：
+                        <a href="paid.html"><i class="fa fa-cart-plus"></i> 已支付</a>
+                        <a href="non-payment.html"><i class="fa fa-paypal"></i> 未支付</a>
+                   </span>
+{% endblock %}
+
+
+{% block footer %}
+    <!--view Content Modal -->
+    <div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    来点新的
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/.Modal -->
+{% endblock %}

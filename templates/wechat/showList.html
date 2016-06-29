@@ -1,0 +1,474 @@
+{% load staticfiles %}
+<div class="navbar">
+    <div class="navbar-inner wechat_bjcolor">
+        <div class="left"><a href="#" class="link back">返回</a></div>
+        <div class="center sliding">卡来宝车险</div>
+    </div>
+</div>
+
+<div data-page="bx-list" class="page no-toolbar">
+    <div class="page-content theme-red">
+        <div class="content-block theme-red" style="margin: 15px 0;">
+            <!-- tabs控制面板 -->
+            <div class="buttons-row theme-red">
+                <!-- 关联到第一个tab, 默认激活 -->
+                <a href="#tab1" class="tab-link active button">卡来宝推荐</a>
+                <!-- 关联到第二个tab -->
+                <a href="#tab2" class="tab-link button">自定义方案</a>
+            </div>
+        </div>
+        <div class="tabs theme-red">
+            <!--<div class="content-block-title">卡来宝.推荐方案</div>-->
+            <div id="beizhu" style="font-size:12px; height: 31px;display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注：“*”号表示该保险公司不支持某些险种投保</div>
+            <div id="tab1" class="tab active">
+                <div class="list-block media-list theme-red wechat-mt0-pt0">
+                    <ul>
+                        <li id="yg_list">
+                            <a href="#" class="item-link item-content" id="yg_url">
+                                <div class="item-media wechat_item-media">
+                                    <img id="yg_logoimg" class="wechat-opacity70" src="{% static 'wechat/img/bxgs/60x60/logo-yangguang.png' %}" width="60">
+
+                                    <div class="col-25 wechat-bxgs-loading" id="yg_imgloading">
+                                        <span style="width:42px; height:42px" class="preloader"></span>
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">阳光保险</div>
+                                        <div class="item-after wechat-font16 preloader" id="yg_bxzj"></div>
+                                    </div>
+                                    <div class="item-text wechat-font12" id="yg_msg">黄金会员每1200赠100
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li id="as_list">
+                            <a href="#" class="item-link item-content" id="as_url">
+                                <div class="item-media wechat_item-media">
+                                    <img id="as_logoimg" class="wechat-opacity70"
+                                         src="{% static 'wechat/img/bxgs/60x60/logo-ansheng.png' %}" width="60">
+
+                                    <div class="col-25 wechat-bxgs-loading" id="as_imgloading">
+                                        <span style="width:42px; height:42px" class="preloader"></span>
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">安盛天平保险</div>
+                                        <div class="item-after wechat-font16 preloader" id="as_bxzj"></div>
+                                    </div>
+
+                                    <div class="item-text wechat-font12" id="as_msg">黄金会员每1200赠100
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li id="zh_list">
+                            <a href="#" class="item-link item-content" id="zh_url">
+                                <div class="item-media wechat_item-media">
+                                    <img id="zh_logoimg" class="wechat-opacity70"
+                                         src="{% static 'wechat/img/bxgs/60x60/logo-zhonghua.png' %}" width="60">
+
+                                    <div class="col-25 wechat-bxgs-loading" id="zh_imgloading">
+                                        <span style="width:42px; height:42px" class="preloader"></span>
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">中华保险</div>
+                                        <div class="item-after wechat-font16 preloader" id="zh_bxzj"></div>
+                                    </div>
+
+                                    <div class="item-text wechat-font12" id="zh_msg">黄金会员每1200赠100
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="item-content">
+                                <div class="item-media wechat_item-media">
+                                    <img class="wechat-opacity70"
+                                         src="{% static 'wechat/img/bxgs/60x60/logo-taipingyang.png' %}"
+                                         width="60">
+                                    {#                            <div class="col-25 wechat-bxgs-loading">#}
+                                    {#                                <span style="width:42px; height:42px" class="preloader"></span>#}
+                                    {#                            </div>#}
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title wechat-font-color-fff">太平洋保险</div>
+                                        <div class="item-after wechat-font16">即将推出</div>
+                                    </div>
+                                    <div class="item-text wechat-font12">会员最高返还8%-15%<br>送100元加油卡
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="item-content">
+                                <div class="item-media wechat_item-media">
+                                    <img class="wechat-opacity70"
+                                         src="{% static 'wechat/img/bxgs/60x60/logo-dadi.png' %}"
+                                         width="60">
+                                    {#                            <div class="col-25 wechat-bxgs-loading">#}
+                                    {#                                <span style="width:42px; height:42px" class="preloader"></span>#}
+                                    {#                            </div>#}
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title wechat-font-color-fff">大地保险</div>
+                                        <div class="item-after wechat-font16">即将推出</div>
+                                    </div>
+                                    <div class="item-text wechat-font12">会员最高返还8%-15%<br>送100元加油卡
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="item-content">
+                                <div class="item-media wechat_item-media">
+                                    <img class="wechat-opacity70"
+                                         src="{% static 'wechat/img/bxgs/60x60/logo-taiping.png' %}"
+                                         width="60">
+                                    {#                            <div class="col-25 wechat-bxgs-loading">#}
+                                    {#                                <span style="width:42px; height:42px" class="preloader"></span>#}
+                                    {#                            </div>#}
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title wechat-font-color-fff">太平保险</div>
+                                        <div class="item-after wechat-font16">即将推出</div>
+                                    </div>
+                                    <div class="item-text wechat-font12">会员最高返还8%-15%<br>送100元加油卡
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="tab2" class="tab">
+                <div class="list-block wechat-mt0-pt0">
+                    <!--主险-->
+                    <div class="list-group">
+                        <ul>
+                            <li class="list-group-title"><span class="group_title_color">主险</span></li>
+                            <li>
+                                <a href="#" class="item-link smart-select" data-back-on-select="true"
+                                   data-navbar-theme="red" data-form-theme="red" data-back-text="返回">
+                                    <select name="CHESHUN" id="CHESHUN">
+                                        <option value="1" selected>投保</option>
+                                        <option value="0">不投保</option>
+                                    </select>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title wechat-font14"><span class="item_title_color">车辆损失险</span></div>
+                                            <div class="wechat-font14 item-after"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-link smart-select" data-back-on-select="true"
+                                   data-navbar-theme="red" data-form-theme="red" data-back-text="返回">
+                                    <select name="SANZHE" id="SANZHE">
+                                        <option value="0">不投保</option>
+                                        <option value="50000" selected>5万</option>
+                                        <option value="100000">10万</option>
+                                        <option value="200000">20万</option>
+                                        <option value="300000">30万</option>
+                                        <option value="500000">50万</option>
+                                        <option value="1000000">100万</option>
+                                    </select>
+
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title wechat-font14"><span class="item_title_color">第三者责任险</span></div>
+                                            <div class="wechat-font14 item-after"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-link smart-select" data-back-on-select="true"
+                                   data-navbar-theme="red" data-form-theme="red" data-back-text="返回">
+                                    <select name="DAOQIANG" id="DAOQIANG" fc="CHESHUN">
+                                        <option value="0" selected>不投保</option>
+                                        <option value="1" >投保</option>
+                                    </select>
+
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title wechat-font14"><span class="item_title_color">全车盗抢险</span></div>
+                                            <div class="wechat-font14 item-after"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-link smart-select" data-back-on-select="true"
+                                   data-navbar-theme="red" data-form-theme="red" data-back-text="返回">
+                                    <select name="SHIJI" id="SHIJI">
+                                        <option value="0">不投保</option>
+                                        <option value="10000" selected>1万</option>
+                                        <option value="20000">2万</option>
+                                        <option value="30000">3万</option>
+                                        <option value="50000">5万</option>
+                                        <option value="100000">10万</option>
+                                        <option value="200000">20万</option>
+                                    </select>
+
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title wechat-font14"><span class="item_title_color">车上人员责任险（司机）</span></div>
+                                            <div class="wechat-font14 item-after"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-link smart-select" data-back-on-select="true"
+                                   data-navbar-theme="red" data-form-theme="red" data-back-text="返回">
+                                    <select name="CHENGKE" id="CHENGKE">
+                                        <option value="0">不投保</option>
+                                        <option value="10000" selected>1万</option>
+                                        <option value="20000">2万</option>
+                                        <option value="30000">3万</option>
+                                        <option value="50000">5万</option>
+                                        <option value="100000">10万</option>
+                                        <option value="200000">20万</option>
+                                    </select>
+
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title wechat-font14"><span class="item_title_color">车上人员责任险（乘客）</span></div>
+                                            <div class="wechat-font14 item-after"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                    <!--附加险-->
+                    <div class="list-group">
+                        <ul id="FUJIAXIAN_UL">
+                            <li class="list-group-title"><span class="group_title_color">附加险</span></li>
+
+                            <li>
+                                <a href="#" class="item-link smart-select" data-back-on-select="true"
+                                   data-navbar-theme="red" data-form-theme="red" data-back-text="返回">
+                                    <select name="BOLI" id="BOLI">
+                                        <option value="0" selected>不投保</option>
+                                        <option value="1">国产</option>
+                                        <option value="2">进口</option>
+                                    </select>
+
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title wechat-font14"><span class="item_title_color">玻璃单独破碎险</span></div>
+                                            <div class="wechat-font14 item-after"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-link smart-select" data-back-on-select="true"
+                                   data-navbar-theme="red" data-form-theme="red" data-back-text="返回">
+                                    <select name="HUAHEN" id="HUAHEN">
+                                        <option value="0" selected>不投保</option>
+                                        <option value="2000">2000元</option>
+                                        <option value="5000">5000元</option>
+                                    </select>
+
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title wechat-font14"><span class="item_title_color">车身划痕险</span></div>
+                                            <div class="wechat-font14 item-after"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-link smart-select" data-back-on-select="true"
+                                   data-navbar-theme="red" data-form-theme="red" data-back-text="返回">
+                                    <select name="ZIRAN" id="ZIRAN">
+                                        <option value="0" selected>不投保</option>
+                                        <option value="1">投保</option>
+                                    </select>
+
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title wechat-font14"><span class="item_title_color">自燃损失险</span></div>
+                                            <div class="wechat-font14 item-after"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-link smart-select" data-back-on-select="true"
+                                   data-navbar-theme="red" data-form-theme="red" data-back-text="返回">
+                                    <select name="SHESHUI" id="SHESHUI">
+                                        <option value="0" selected>不投保</option>
+                                        <option value="1">投保</option>
+                                    </select>
+
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title wechat-font14"><span class="item_title_color">发动机涉水险</span></div>
+                                            <div class="wechat-font14 item-after"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="list-group">
+                        <ul>
+                            <li class="list-group-title"><span class="group_title_color">不计免赔</span></li>
+
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label wechat-font14"><span class="item_title_color">车损不计免赔</span></div>
+                                        <div class="item-after">
+                                            <label class="label-switch">
+                                                <input type="checkbox" name="CHESHUN_BJ" id="CHESHUN_BJ"
+                                                       value="">
+
+                                                <div class="checkbox"></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label wechat-font14"><span class="item_title_color">三者不计免赔</span></div>
+                                        <div class="item-after">
+                                            <label class="label-switch">
+                                                <input type="checkbox" name="SANZHE_BJ" fc="SANZHE"
+                                                       id="SANZHE_BJ" value="">
+
+                                                <div class="checkbox"></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label wechat-font14"><span class="item_title_color">盗抢不计免赔</span></div>
+                                        <div class="item-after">
+                                            <label class="label-switch">
+                                                <input type="checkbox" name="DAOQIANG_BJ" fc="DAOQIANG"
+                                                       id="DAOQIANG_BJ" value="">
+
+                                                <div class="checkbox"></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label wechat-font14"><span class="item_title_color">司机不计免赔</span></div>
+                                        <div class="item-after">
+                                            <label class="label-switch">
+                                                <input type="checkbox" name="SHIJI_BJ" id="SHIJI_BJ" value="">
+
+                                                <div class="checkbox"></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label wechat-font14"><span class="item_title_color">乘客不计免赔</span></div>
+                                        <div class="item-after">
+                                            <label class="label-switch">
+                                                <input type="checkbox" name="CHENGKE_BJ" id="CHENGKE_BJ"
+                                                       value="">
+
+                                                <div class="checkbox"></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label wechat-font14"><span class="item_title_color">附加险不计免赔</span></div>
+                                        <div class="item-after">
+                                            <label class="label-switch">
+                                                <input type="checkbox" name="FUJIA_BJ" id="FUJIA_BJ" value="">
+
+                                                <div class="checkbox"></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="list-group">
+                        <ul>
+                            <li class="list-group-title"><span class="group_title_color">交强险和车船税</span></li>
+                            <li>
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label wechat-font14"><span class="item_title_color">交强险＋车船税</span></div>
+                                        <div class="item-after">
+                                            <label class="label-switch">
+                                                <input type="checkbox" checked="checked" name="JIAOQIANG"
+                                                       id="JIAOQIANG" value="1">
+
+                                                <div class="checkbox"></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-block" style="margin-top: 20px; color:#c91623; border-radius:5px; margin: 0 auto;width: 75%; margin-bottom: 3%"  >
+                    <a href="#" class="button button-big  active"
+                       onclick="changTB_btn();">更改投保方案</a>
+                </div>
+
+            </div>
+        </div>
+        <!--
+        <div class="list-block accordion-list">
+            <ul>
+
+                <li class="accordion-item">
+                    <a href="#" class="item-content item-link">
+                        <div class="item-media">
+                            <i class="fa fa-jpy"></i>
+                        </div>
+                        <div class="item-inner">
+                            <div class="item-title">会员补贴比例</div>
+                        </div>
+                    </a>
+
+                    <div class="accordion-item-content">
+                        <div class="list-block">
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        -->
+    </div>
+</div>

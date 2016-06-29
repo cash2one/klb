@@ -1,0 +1,158 @@
+{% load staticfiles %}
+{% load EbusinessTag %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="北京卡来宝信息科技有限公司"/>
+    <meta name="author" content=""/>
+
+    <title>北京卡来宝信息科技有限公司-渠道管理系统</title>
+
+{#    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">#}
+    <link rel="stylesheet" href="{% static 'ebusiness/css/fonts/linecons/css/linecons.css' %}">
+    <link rel="stylesheet" href="{% static 'ebusiness/css/fonts/fontawesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ebusiness/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'ebusiness/css/xenon-core.css' %}">
+    <link rel="stylesheet" href="{% static 'ebusiness/css/xenon-forms.css' %}">
+    <link rel="stylesheet" href="{% static 'ebusiness/css/xenon-components.css' %}">
+    <link rel="stylesheet" href="{% static 'ebusiness/css/xenon-skins.css' %}">
+    <link rel="stylesheet" href="{% static 'ebusiness/css/custom.css' %}">
+    <script src="{% static 'ebusiness/js/jquery-1.11.1.min.js' %}"></script>
+    <!--[if lt IE 9]>
+		<script src="{% static 'ebusiness/js/html5shiv.min.js' %}"></script>
+		<script src="{% static 'ebusiness/js/respond.min.js' %}"></script>
+	<![endif]-->
+
+    <style>
+        .navbar-brand span{
+            font-size: 20px!important;
+        }
+        .navbar-nav li span{
+            font-size: 16px!important;
+        }
+        .font-size－14{
+            font-size: 14px!important;
+        }
+        .font-size－12{
+            font-size: 12px!important;
+        }
+        {% block css %}
+
+        {% endblock %}
+    </style>
+</head>
+<body class="page-body">
+<nav class="navbar horizontal-menu navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="navbar-brand">
+            <a href="javascript:void(0);" class="logo">
+                <img src="{% static 'images/32x32.png' %}" alt="" class="hidden-xs"/>
+                <img src="{% static 'images/32x32.png' %}" alt="" class="visible-xs">
+            </a>
+            <span class="hidden-xs" style="line-height: 85px;">卡来宝渠道管理系统</span>
+            <span class="visible-xs" style="line-height: 40px;">卡来宝渠道管理</span>
+        </div>
+        <div class="nav navbar-mobile" style="margin-top:10px;">
+
+            <div class="mobile-menu-toggle">
+
+
+                <a href="#" data-toggle="mobile-menu-horizontal">
+                    <i class="fa-bars"></i>
+                </a>
+            </div>
+
+        </div>
+        <div class="navbar-mobile-clear"></div>
+        <!--顶部菜单-->
+        <ul class="navbar-nav">
+            <li>
+                <a href="/webadmin/">
+                    <i class="fa fa-home"></i>
+                    <span class="title">管理首页</span>
+                </a>
+
+            </li>
+            <li>
+                <a href="/webadmin/Analytics/?page=1&action=flow">
+                    <i class="fa fa-area-chart"></i>
+                    <span class="title">访问管理</span>
+                </a>
+
+            </li>
+            <li>
+                <a href="/webadmin/Analytics/?page=1&action=buy">
+                    <i class="fa fa-cart-plus"></i>
+                    <span class="title">购买查询</span>
+                </a>
+
+            </li>
+            {% ifequal request.session.ebusiness_user_id|IsAutho:'ischildren' 1 %}
+            <li>
+                <a href="/webadmin/Share/">
+                    <i class="linecons-note"></i>
+                    <span class="title">推广中心</span>
+                </a>
+            </li>
+            {% endifequal %}
+            <li>
+                <a href="javascript:void(0);">
+                    <i class="fa fa-cogs"></i>
+                    <span class="title">渠道设置</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+<div class="page-container">
+    <div class="main-content">
+        {% block content %}
+
+        {% endblock %}
+        <footer class="main-footer sticky footer-type-1">
+
+            <div class="footer-inner">
+
+                <div class="footer-text">
+                    &copy; 2015
+                    <strong>北京卡来宝信息科技有限公司</strong>
+
+                </div>
+
+
+                <div class="go-up">
+
+                    <a href="#" rel="go-top">
+                        <i class="fa-angle-up"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </footer>
+    </div>
+</div>
+<script src="{% static 'ebusiness/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'ebusiness/js/TweenMax.min.js' %}"></script>
+<script src="{% static 'ebusiness/js/resizeable.js' %}"></script>
+<script src="{% static 'ebusiness/js/joinable.js' %}"></script>
+<script src="{% static 'ebusiness/js/xenon-api.js' %}"></script>
+<script src="{% static 'ebusiness/js/xenon-toggles.js' %}"></script>
+<script src="{% static 'javascripts/layer/layer.js' %}"></script>
+<!-- JavaScripts initializations and stuff -->
+<script src="{% static 'ebusiness/js/xenon-custom.js' %}"></script>
+{% block js %}
+
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+/*  pricing page */
+.pricing-page{
+   background-color: #f1f1f1;
+}
+
+/* comparative prices */
+.comparative-prices {
+	padding: 20px 40px;
+}
+.comparative-prices h4 {
+	margin-top: 0;
+    margin-bottom: 40px;
+    padding-bottom: 7px;
+    border-bottom:1px solid #ddd;
+}
+.comparative-prices .form-group {
+    clear: both;
+    height: 45px;
+    margin-top: 10px;
+    padding: 0 20px;
+}
+.comparative-prices label {
+    float: left;
+    margin: 5px 10px 5px 80px;
+}
+.comparative-prices input {
+    float: left;
+    width: 400px;
+}
+.comparative-prices .input-group-addon {
+    background: none;
+    color: #555;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: -40px;
+}
+.comparative-prices .form-group .btn {
+    padding: 6px 25px;
+    margin: 10px 0 0 160px;
+    font-size: 18px;
+}
+
+/* select city */
+#selectCity {
+    position: relative;
+}
+.cityArea {
+    width: 450px;
+    background-color: #ffeeed;
+    border: 1px solid #e88e88;
+    position: absolute;
+    top: 31px;
+    right: 53px;
+    display: none; 
+    list-style: none;
+    padding: 5px 10px;
+    margin: 0;
+}
+.cityArea li {
+    width: 80px;
+    height: 28px;
+    line-height: 28px;
+    float: left;
+}
+.cityArea .second-city{
+	clear: both;
+	border-top: 1px dotted #b90404;
+	list-style: none;
+	padding: 0;
+}

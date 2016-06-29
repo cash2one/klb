@@ -1,0 +1,14 @@
+.bgGray{padding: 30px 20px;background-color: #fafafa;border:1px solid #e6e6e6 }
+.titleOfRecall{  width: 232px; height: 30px; color: #000}
+.lishijilu{background-position: 0 -56px}
+.zhaohuidongtai{background-position: 0 -117px}
+.awardUl{margin: 0;padding: 0}
+.awardUl li{list-style-type: none;margin: 10px 0;padding: 0}
+.border-l{border-right: 1px solid #ddd;padding-right: 15px;}
+.fontS-50{font-size: 50px;margin:0;  height: 50px;  line-height: 50px;}
+.float-l{float: left;}
+.margin-l-15{margin-left: 90px;padding-right: 15px}
+.margin-t-15{margin-top: 15px;}
+.aboutImg{width: 255px;height: 225px;display: inline-block;margin-right: 20px;float: left;display: inline;}
+.aboutWords{display: inline;}
+.inputStyle{width: 60%}

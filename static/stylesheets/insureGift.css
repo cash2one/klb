@@ -1,0 +1,57 @@
+.baojia {
+    padding: 40px 20px 0 20px;
+    background-size: 100%;
+    margin: 0
+}
+.progress-bar-yellow {
+    background-color: #f4eb53
+}
+.words {
+    color: #9b700d
+}
+.info-list {
+    margin-top: 10px;
+}
+.info-list li {
+    margin-bottom: 5px;
+    line-height: 1.8
+}
+.table-responsive h3 {
+    margin-bottom: -35px;
+    margin-top: 0;
+}
+.table-bordered.home-page-table {
+    border-top: none;
+    margin-bottom: 0;
+}
+.home-page-table>thead>tr>td {
+    border-bottom: none;
+    font-size: 16px;
+}
+.home-page-table thead tr {
+    text-align: center;
+    font-size: 20px;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
+}
+.home-page-table td p {
+    margin-bottom: 0;
+    font-size: 16px;
+    margin-left: 40px;
+}
+.home-page-table td span {
+    font-size: 12px;
+    margin-left: 40px;
+    vertical-align: top;
+}
+.home-page-table > tbody > tr:hover {
+    background-color: #fffed7;
+}
+.home-page-table > tbody > tr:hover >td:first-child,
+.home-page-table > tbody > tr.active >td:first-child {
+    background: url(../images/home-page-table-bg.png) left 0 repeat-y
+}
+.home-page-table .progress {
+    margin-top: 10px;
+    margin-bottom: 0;
+}

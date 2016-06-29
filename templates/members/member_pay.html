@@ -1,0 +1,78 @@
+{% extends 'common/member_common.html' %}
+{% load staticfiles %}
+{% block content_title %}支付{% endblock %}
+{% block style %}
+    <style>
+        #bank_show ul {
+            display: inline;
+            list-style: none;
+        }
+
+        #bank_show ul li {
+            display: block;
+            width: 205px;
+            height: 70px;
+            padding: 5px;
+            border: 1px #999999 solid;
+            line-height: 60px;
+            float: left;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        #bank_show ul li img {
+            margin-left: 5px;
+        }
+    </style>
+{% endblock %}
+{% block content_detail %}
+    <form class="form-horizontal" id="payform" action="https://www.95epay.cn/sslpayment" method="post" target="_blank">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">充值金额:</label>
+
+            <div class="col-sm-2">
+                <input type="text" name="Amount" id="Amount" class="form-control" placeholder="填写金额">
+            </div>
+             <label class="col-sm-1 control-label" style="text-align: left;">元</label>
+            <div class="col-sm-2">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">选择银行</label>
+
+            <div class="col-sm-10" id="bank_show">
+                <ul>
+                    {% for b in bank %}
+                        <li>
+                            <input type="radio" value="{{ b }}" name="PaymentType" {% ifequal forloop.counter 1 %}checked="checked"{% endifequal %}/>
+                            <a href="javascript:void(0);">
+                                <img src="{% static 'images/pay_bank/' %}{{ b }}.png">
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label"></label>
+
+            <div class="col-sm-2">
+                <button type="button" style="margin-top: 20px; margin-left: 10px;" class="btn btn-ar btn-danger" id="pay_go" onclick="">下一步
+                </button>
+            </div>
+        </div>
+        {# 隐藏表单 #}
+        <input type="hidden" name="MerNo" value="{{ MerNo }}">
+        <input type="hidden" name="ReturnURL" value="{{ ReturnURL }}">
+        <input type="hidden" name="BillNo" value="{{ BillNo }}" id="BillNo">
+        <input type="hidden" name="MD5info" value="" id="MD5info">
+        <input type="hidden" name="NotifyURL" value="{{ NotifyURL }}">
+        <input type="hidden" name="PayType" value="CSPAY">
+        <input type="hidden" name="products" value="会员充值">
+        <input type="hidden" name="MerRemark" value="充值">
+    </form>
+{% endblock %}

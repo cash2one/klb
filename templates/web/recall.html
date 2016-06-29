@@ -1,0 +1,175 @@
+{% extends 'common/common.html' %}
+{% load staticfiles %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'stylesheets' %}/recall.css"/>
+{% endblock %}
+{% block content %}
+    <!-- =================== INCLUDE ABOVE TO YOUR WEBSITE ========================= -->
+
+    <section class="container">
+        <div class="row  ">
+
+            <div class="col-md-6">
+                <h3 class="titleOfRecall">
+                    汽车召回
+                </h3>
+
+                <div class="bgGray">
+                    <form action="/web/recall/?next=/web/recall/" method="post">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">请选择年份</label>
+
+                            <select class="form-control" name="year" id="year">
+                                <option value="2015">2015年</option>
+                                <option value="2014">2014年</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">请输入车架号</label>
+                            <input type="text" class="form-control" id="vin" name="vin" placeholder="车架号">
+                        </div>
+                        <button type="submit" class="btn btn-default">查询</button>
+                    </form>
+
+
+                </div>
+                <br>
+                {% if request.user.id %}
+                <ul class="awardUl">
+                    <li>
+                        1)卡来宝为您提供免费的汽车召回精准查询服务。请在空白框内输入您车辆的17位车架号（即VIN码）。
+                    </li>
+                    <li>
+                        2)钻石会员与黄金会员，卡来宝会免费定期为您提供比对推送信息。请在个人中心留意相关信息。
+                    </li>
+                </ul>
+                {% endif %}
+            </div>
+        {% if request.user.id %}
+            <div class="col-md-5  col-md-offset-1">
+
+                <h3 class="titleOfRecall">查询历史记录</h3>
+
+                <table class="table table-striped table-hover recordTable">
+                    <thead>
+                    <tr>
+                        <td>查询时间</td>
+                        <td>车架号(VIN)</td>
+                        <td>是否有召回</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for L in Log %}
+                    <tr>
+                        <td>{{ L.addtime|date:"Y-m-d" }}</td>
+                        <td>{{ L.vin }}</td>
+                        <td>
+                            {% if L.recall_set.count %}
+                                <form action="/members/recall/" method="post">
+                                    <input type="hidden" name="vin" value="{{ L.vin }}">
+                                    <input type="hidden" name="year" value="2015">
+                                    <input value="有" type="submit" class="btn btn-danger">
+                                </form>
+
+                            {% else %}
+                                <input value="无" type="button" class="btn btn-primary" disabled="disabled">
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="col-md-5  col-md-offset-1">
+                <h3 class="titleOfRecall">查询说明</h3>
+                <ul class="awardUl">
+                    <li>
+                        1)卡来宝为您提供免费的汽车召回精准查询服务。请在空白框内输入您车辆的17位车架号（即VIN码）。
+                    </li>
+                    <li>
+                        2)钻石会员与黄金会员，卡来宝会免费定期为您提供比对推送信息。请在个人中心留意相关信息。
+                    </li>
+                </ul>
+
+
+            </div>
+        {% endif %}
+        </div>
+        <h3 class="titleOfRecall zhaohuidongtai">
+            最新召回动态<a href="#" class="moreOfPic">/更多</a>
+        </h3>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="border-l float-l">
+                    <p class="fontS-50">20</p>
+                    <span>2015.03</span>
+                </div>
+                <div class="margin-l-15">
+                    <strong>随车行李险知道少？</strong><br>
+                    <span>近年来被盗的案件层出不穷，由于没有相应的保险保障，很多车主对此都束手无策。</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="border-l float-l">
+                    <p class="fontS-50">20</p>
+                    <span>2015.03</span>
+                </div>
+                <div class="margin-l-15">
+                    <strong>随车行李险知道少？</strong><br>
+                    <span>近年来被盗的案件层出不穷，由于没有相应的保险保障，很多车主对此都束手无策。</span>
+                </div>
+            </div>
+        </div>
+        <div class="row margin-t-15">
+            <div class="col-md-6">
+                <div class="border-l float-l">
+                    <p class="fontS-50">20</p>
+                    <span>2015.03</span>
+                </div>
+                <div class="margin-l-15">
+                    <strong>随车行李险知道少？</strong><br>
+                    <span>近年来被盗的案件层出不穷，由于没有相应的保险保障，很多车主对此都束手无策。</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="border-l float-l">
+                    <p class="fontS-50">20</p>
+                    <span>2015.03</span>
+                </div>
+                <div class="margin-l-15">
+                    <strong>随车行李险知道少？</strong><br>
+                    <span>近年来被盗的案件层出不穷，由于没有相应的保险保障，很多车主对此都束手无策。</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <br>
+    <section class="container marginB6">
+        <h3 class="titleOfRecall zhaohuidongtai">
+            关于汽车召回<a href="#" class="moreOfPic"></a>
+        </h3>
+        <hr>
+    </section>
+
+    <section class="container">
+        <img src="{% static 'images' %}/recall.png" class="aboutImg">
+
+        <p class="aboutWords">
+
+        <p>
+            召回是从英文单词Recall翻译过来的，就是指已经投放市场的汽车由于设计、制造、标识等原因导致的在同一批次、型号或者类别的汽车产品中普遍存在的不能保障人身、财产安全的缺陷，必须由汽车生产厂家将其召回，对车辆进行改造，以消除事故隐患。</p>
+        <br>
+
+        <p>
+            根据国家《缺陷汽车产品召回管理条例》规定，召回“是指汽车产品生产者对其已售出的汽车产品采取措施消除缺陷的活动”。“实施召回的缺陷汽车产品，生产者应当及时采取修正或者补充标识、修理、更换、退货等措施消除缺陷。”“生产者应当承担消除缺陷的费用和必要的运送缺陷汽车产品的费用。”</p>
+        <br>
+
+        <p>
+            据不完全统计，仅缺陷汽车召回就为我国消费者挽回直接经济损失超过200亿元，极大地维护了我国消费者的合法权益。</p>
+        </p>
+    </section>
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends 'common/common.html' %}
+{% load staticfiles %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'stylesheets' %}/recommend.css"/>
+{% endblock %}
+{% block content %}
+  <section class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>我的推荐码</h3>
+                <div class="bgGray">
+                    <form action="##">
+                        <input type="text" class="inputStyle">
+                        <button type="submit" class="btn btn-danger">自定义推荐码</button>
+                    </form>
+                     <p class="margin-10">
+                        好友在注册时会输入您的推荐码，以便有效记录您的推荐成果。DIY推荐码 应基于便于记忆的原则，可以是字母、数字或其组合，不得少于6位
+                    </p>
+                </div>
+
+                <h3>发送链接</h3>
+                <form action="##">
+                    <input type="text" class="inputStyle">
+                    <button type="sumbit" class="btn btn-danger">复制链接</button>
+                </form>
+            </div>
+            <div class="col-md-5  col-md-offset-1">
+                <h3>发奖说明</h3>
+                <table class="table table-striped table-hover recordTable">
+                    <thead>
+                        <tr>
+                            <td>保险公司</td>
+                            <td>每成功注册卡来宝获卡豆</td>
+                            <td>每成功购买车险现金奖励</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>安盛天平</td>
+                            <td>5000</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>阳光保险</td>
+                            <td>500</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>太平保险</td>
+                            <td>500</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>太平洋保险</td>
+                            <td>500</td>
+                            <td>50</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3>扫描二维码分享</h3>
+                <div class="QR-code tc">
+                    <img src="{% static 'images' %}/qr.png" class="img-thumbnail">
+                    <h6>扫二维码分享到微信朋友圈</h6>
+                </div>
+
+            </div>
+
+            <div class="col-md-5  col-md-offset-1">
+                <h3>推荐分享到</h3>
+                <!-- <div class="row paddingTB10">
+                 <div class="col-md-4"><div class="share weibo"></div><div class="shareWord">新浪微博</div> </div>
+                 <div class="col-md-4"><div class="share QQ"></div><div class="shareWord">QQ</div></div>
+                 <div class="col-md-4"><div class="share QQz"></div><div class="shareWord"></div> </div>
+             </div> -->
+                <div class="bdsharebuttonbox" data-tag="share_1">
+                    <!-- 此处添加展示按钮 -->
+                    <div class="bdsharebuttonbox" data-tag="share_1" class="">
+                        <a class="bds_qzone" data-cmd="qzone" href="#">QQ空间</a>
+                        <a class="bds_tsina" data-cmd="tsina">新浪微博</a>
+                        <a class="bds_tqq" data-cmd="tqq"> QQ</a>
+                    </div>
+                </div>
+                <textarea class="introductShare">亲、我通过卡莱宝购买车险并直达官网支付，保费与官网价格一致，另外还获得了卡来宝提供的商业保费的A%的现金补贴。您也可以试试！扫描下面的二维码您可以成为XX会员，推荐好友还可以有50元的现金奖励哦！通过PC端注册，输入我的推荐码：XXX才可以成为XX会员。扫描直接关注卡来宝微信直接成为XX会员。两个都可以尝试哦！
+                </textarea>
+            </div>
+        </div>
+        <hr>
+    </section>
+
+    <!-- 推荐好友列表 -->
+    <section class="container">
+        <h3>推荐好友列表</h3>
+        <table class="table table-striped table-hover recordTable">
+            <thead>
+                <tr>
+                    <td>日期</td>
+                    <td>好友名称</td>
+                    <td>成功注册</td>
+                    <td>是否购买车险</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>无数据</td>
+                    <td>无数据</td>
+                    <td>无数据</td>
+                    <td>无数据</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

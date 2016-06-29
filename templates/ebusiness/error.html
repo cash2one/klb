@@ -1,0 +1,58 @@
+{% extends "ebusiness/common.html" %}
+{% load staticfiles %}
+{% block style %}
+
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+
+            <!-- Default panel -->
+            <div class="panel panel-default">
+                <div style="text-align: center;font-size: 20px;color: red">
+                    支付失败
+
+                </div>
+                <div class="panel-body">
+                    <form role="form" class="form-horizontal" action="/ebusiness/" method='post' >
+                        <div class="form-group">
+                            可能原因如下：<br>
+                            <div class="col-sm-4">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td>1.提交信息有误</td><br>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td>2.保险公司不予承保</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <button type="button" class="btn btn-gray btn-single" onclick="history.go(-1)">返回</button>
+                            <button type="submit" class="btn btn-info btn-single pull-right">继续比价</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        $(function () {
+            $("#tb3 a").click();
+
+        });
+    </script>
+{% endblock %}

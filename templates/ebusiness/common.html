@@ -1,0 +1,209 @@
+{% load staticfiles %}
+{% load EbusinessTag %}
+{% if request %}
+    {{ request|Analytics }}
+{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"/>
+    <meta name="description" content="卡来宝车险"/>
+    <meta name="author" content=""/>
+    <title>卡来宝车险</title>
+    <link rel="stylesheet" href="{% static 'ebusiness/css/fonts/linecons/css/linecons.css' %}">
+    <link rel="stylesheet" href="{% static 'ebusiness/css/fonts/fontawesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ebusiness/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'ebusiness/css/xenon-core.css' %}">
+    <link rel="stylesheet" href="{% static 'ebusiness/css/xenon-forms.css' %}">
+    {#    <link rel="stylesheet" href="{% static 'ebusiness/css/xenon-components.css' %}">#}
+    {#    <link rel="stylesheet" href="{% static 'ebusiness/css/xenon-skins.css' %}">#}
+    {#    <link rel="stylesheet" href="{% static 'ebusiness/css/custom.css' %}">#}
+    <style>
+        body {
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+        }
+
+        body, a, h1, h2, h3, h4, h5, span, div, ul, label {
+            font-family: "Microsoft YaHei", "微软雅黑" !important;
+        }
+
+        .main-content {
+            padding: 10px 10px 10px 10px !important;
+        }
+
+        .alert-white {
+            background-color: #FFF;
+            border-color: #EEE;
+            color: #333;
+        }
+    </style>
+    {% block style %}
+
+    {% endblock %}
+    <script src="{% static 'ebusiness/js/jquery-1.11.1.min.js' %}"></script>
+    <!--[if lt IE 9]>
+		<script src="{% static 'ebusiness/js/html5shiv.min.js' %}"></script>
+		<script src="{% static 'ebusiness/js/respond.min.js' %}"></script>
+	<![endif]-->
+</head>
+<body class="page-body {{ request.GET.style|ShowStyle }}">
+
+<div class="page-loading-overlay">
+    <div class="loader-2"></div>
+</div>
+<div class="page-container">
+    <div class="main-content">
+        {# 是否展示Banner  参数 ShowBanner=1 #}
+        {% ifequal request.GET.ShowBanner '1' %}
+            <div class="carousel slide hidden-xs" data-ride="carousel" id="klblunbo">
+                <ol class="carousel-indicators">
+                    <li data-target="#klblunbo" data-slide-to="0" class="active"></li>
+                    <li data-target="#klblunbo" data-slide-to="1"></li>
+                    <li data-target="#klblunbo" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active" style="overflow: hidden;height: 200px;">
+                        <img src="{% static 'ebusiness/images/carousel/1pc.jpg' %}" style="width: 100%;height: 100%">
+
+                        <div class="carousel-caption">
+                        </div>
+                    </div>
+                    <div class="item" style="overflow: hidden;height: 200px;">
+                        <img src="{% static 'ebusiness/images/carousel/2pc.jpg' %}" style="width: 100%;height: 100%">
+
+                        <div class="carousel-caption">
+                        </div>
+                    </div>
+                    <div class="item" style="overflow: hidden;height: 200px;">
+                        <img src="{% static 'ebusiness/images/carousel/3pc.jpg' %}" style="width: 100%;height: 100%">
+
+                        <div class="carousel-caption">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel slide visible-xs" data-ride="carousel" id="klblunbo1">
+                <ol class="carousel-indicators">
+                    <li data-target="#klblunbo1" data-slide-to="0" class="active"></li>
+                    <li data-target="#klblunbo1" data-slide-to="1"></li>
+                    <li data-target="#klblunbo1" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active" style="overflow: hidden;height: 150px;">
+                        <img src="{% static 'ebusiness/images/carousel/imgbanner1.jpg' %}"
+                             style="width: 100%;height: 100%">
+
+                        <div class="carousel-caption">
+                        </div>
+                    </div>
+                    <div class="item" style="overflow: hidden;height: 150px;">
+                        <img src="{% static 'ebusiness/images/carousel/imgbanner2.jpg' %}"
+                             style="width: 100%;height: 100%">
+
+                        <div class="carousel-caption">
+                        </div>
+                    </div>
+                    <div class="item" style="overflow: hidden;height: 150px;">
+                        <img src="{% static 'ebusiness/images/carousel/imgbanner3.jpg' %}"
+                             style="width: 100%;height: 100%">
+
+                        <div class="carousel-caption">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endifequal %}
+        {% ifnotequal request.GET.HideWizard '1' %}
+        <div id="rootwizard" class="form-wizard">
+            {% block msg %}
+            {% endblock %}
+            <ul class="tabs">
+                <li class="active ms-hover" id="tb1">
+                    <a href="#fwv-1" data-toggle="tab">
+                        1.填写信息
+                    </a>
+                </li>
+                <li class="ms-hover" id="tb2">
+                    <a href="#fwv-2" data-toggle="tab">
+                        2.保费计算
+                    </a>
+                </li>
+                <li id="tb3">
+                    <a href="#fwv-3" data-toggle="tab">
+                        3.保单提交
+                    </a>
+                </li>
+                <li id="tb4">
+                    <a href="#fwv-4" data-toggle="tab">
+                        4.在线支付
+                    </a>
+                </li>
+
+            </ul>
+            <div class="progress-indicator">
+                <span></span>
+            </div>
+
+        </div>
+        <br>
+        {% endifnotequal %}
+
+        {% block content %}
+
+        {% endblock %}
+        <footer class="main-footer" style="margin-right: 0!important;margin-left: 0!important;">
+
+            <div class="footer-inner">
+
+                <div class="footer-text">
+                    &copy; 2015
+                    <strong><a href="http://www.kalaibao.com" target="_blank">本服务由北京卡来宝信息科技有限公司提供</a></strong>
+                </div>
+
+
+                <div class="go-up">
+                    <a href="#" rel="go-top">
+                        <i class="fa-angle-up"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </footer>
+    </div>
+
+
+</div>
+{% block modal %}
+
+{% endblock %}
+
+<!-- Bottom Scripts -->
+<script src="{% static 'ebusiness/js/bootstrap.min.js' %}"></script>
+{#<script src="{% static 'ebusiness/js/TweenMax.min.js' %}"></script>#}
+<script src="{% static 'ebusiness/js/resizeable.js' %}"></script>
+{#<script src="{% static 'ebusiness/js/joinable.js' %}"></script>#}
+{#<script src="{% static 'ebusiness/js/xenon-api.js' %}"></script>#}
+<script src="{% static 'ebusiness/js/xenon-toggles.js' %}"></script>
+<script src="{% static 'ebusiness/js/xenon-custom.js' %}"></script>
+
+{#<script src="{% static 'ebusiness/js/jquery-validate/jquery.validate.min.js' %}"></script>#}
+{#<script src="{% static 'ebusiness/js/inputmask/jquery.inputmask.bundle.js' %}"></script>#}
+{# 控制步数动画 #}
+<script src="{% static 'ebusiness/js/formwizard/jquery.bootstrap.wizard.min.js' %}"></script>
+{#<script src="{% static 'ebusiness/js/datepicker/bootstrap-datepicker.js' %}"></script>#}
+{#<script src="{% static 'ebusiness/js/multiselect/js/jquery.multi-select.js' %}"></script>#}
+{#<script src="{% static 'ebusiness/js/jquery-ui/jquery-ui.min.js' %}"></script>#}
+{#<script src="{% static 'ebusiness/js/selectboxit/jquery.selectBoxIt.min.js' %}"></script>#}
+
+{% block script %}
+
+{% endblock %}
+
+</body>
+</html>

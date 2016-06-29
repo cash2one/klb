@@ -1,0 +1,108 @@
+{% extends 'ebusiness/Member/admin-common.html' %}
+{% load staticfiles %}
+{% load EbusinessTag %}
+{% block content %}
+
+    <div class="col-md-12">
+
+
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#flow-tab" data-toggle="tab">
+                    <span class="visible-xs"><i class="fa fa-line-chart"></i></span>
+                    <span class="hidden-xs">访问详情</span>
+                </a>
+            </li>
+            <li>
+                <a href="/webadmin/Analytics/?page=1&action=buy">
+                    <span class="visible-xs"><i class="fa fa-shopping-cart"></i></span>
+                    <span class="hidden-xs">购买详情</span>
+                </a>
+            </li>
+
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="flow-tab">
+                {% if not DATA %}
+                    <div class="alert alert-danger">
+                        <strong>亲!</strong> 暂时还未有用户访问过.
+                    </div>
+                {% else %}
+                    <div class="panel panel-default" style="margin: 0;padding: 0;">
+                        <div class="panel-body">
+                            <div class="dataTables_wrapper form-inline dt-bootstrap">
+
+                                <table id="" class="table table-striped table-bordered dataTable" style="width: 100%;">
+                                    <thead>
+                                    <tr>
+                                        <th>IP</th>
+                                        <th>os</th>
+                                        <th>次数</th>
+                                        <th>时间</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    {% for f in DATA %}
+                                        <tr class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
+                                            <td>{{ f.ip }}</td>
+                                            <td>{{ f.os }}</td>
+                                            <td>{{ f.num }}</td>
+                                            <td>{{ f.endtime|date:'Y-m-d H:i:s' }}</td>
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ul class="pagination pagination-sm">
+
+                                            {% if DATA.has_previous %}
+                                                <li>
+                                                    <a href="?page={{ DATA.previous_page_number }}&action=flow">
+                                                        <i class="fa-angle-left"></i>
+                                                    </a>
+                                                </li>
+
+                                            {% endif %}
+                                            {% for p in page_range %}
+                                                <li {% ifequal p DATA.number %}class="active" {% endifequal %}>
+                                                    {% ifequal p DATA.number %}
+                                                        <a href="javascript:void(0);">{{ p }}</a>
+                                                    {% else %}
+                                                        <a href="?page={{ p }}&action=flow">{{ p }}</a>
+                                                    {% endifequal %}
+
+                                                </li>
+                                            {% endfor %}
+                                            {% if DATA.has_next %}
+                                                <li>
+                                                    <a href="?page={{ DATA.next_page_number }}&action=flow">
+                                                        <i class="fa-angle-right"></i>
+                                                    </a>
+                                                </li>
+                                            {% endif %}
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+        </div>
+
+
+    </div>
+{% endblock %}
+{% block css %}
+
+    .main-footer {
+    border-top: none!important;
+    }
+{% endblock %}

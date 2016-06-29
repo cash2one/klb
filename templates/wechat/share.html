@@ -1,0 +1,140 @@
+{% load staticfiles %}
+{% load wechattag %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>卡来宝.买车险更方便</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    <link rel="stylesheet" href="{% static 'wechat/css/framework7.ios.min.css' %}">
+    <link rel="stylesheet" href="{% static 'wechat/css/framework7.ios.colors.min.css' %}">
+    <link rel="stylesheet" href="{% static 'wechat/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'wechat/css/wechat.css' %}?t={{ t }}">
+</head>
+<body>
+<div class="views">
+    <div class="view view-main">
+        <div class="navbar">
+            <div class="navbar-inner wechat_bjcolor" data-page="share">
+                <div class="left"></div>
+                <div class="center sliding">卡来宝.买车险更方便</div>
+                <div class="right"></div>
+            </div>
+        </div>
+        <div class="pages navbar-through toolbar-through">
+            <div data-page="share" class="page">
+                <div class="page-content">
+                    {#                    <i class="fa fa-hourglass-start"></i>#}
+                    <div class="content-block inset theme-red wechat-share-p15">
+                        <div class="content-block-inner wechat-share-h200"
+                             style="background-color: #f66557;color:#fff;">
+                            <div class="wechat-share-left">
+                                <i class="fa fa-th-large fa-3x"></i>
+                            </div>
+                            <div class="wechat-share-right open-popover" data-popover=".popover-youhuiduo">
+                                <div class="wechat-share-r1">优惠多</div>
+                                <div>线下折扣基础上，再优惠15%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-block inset theme-red wechat-share-p15">
+                        <div class="content-block-inner wechat-share-h200"
+                             style="background-color: #5ac8fa;color:#fff;">
+                            <div class="wechat-share-left">
+                                <i class="fa fa-hourglass-start fa-3x"></i>
+                            </div>
+                            <div class="wechat-share-right open-popover" data-popover=".popover-bijiakuai">
+                                <div class="wechat-share-r1">比价快</div>
+                                <div>只需一分钟，精准比对多家报价</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-block inset theme-red wechat-share-p15">
+                        <div class="content-block-inner wechat-share-h200"
+                             style="background-color: #37d8a5;color:#fff;">
+                            <div class="wechat-share-left">
+                                <i class="fa fa-gift fa-3x"></i>
+                            </div>
+                            <div class="wechat-share-right open-popover" data-popover=".popover-fuliduo">
+                                <div class="wechat-share-r1">福利多</div>
+                                <div>推荐好友购买，即可得50元奖励</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-block inset theme-red wechat-share-p15">
+                        <div class="content-block-inner wechat-share-h200"
+                             style="background-color: #37c848;color:#fff;">
+                            <div class="wechat-share-left">
+                                <i class="fa fa-jpy fa-3x"></i>
+                            </div>
+                            <div class="wechat-share-right open-popover" data-popover=".popover-fanligao">
+                                <div class="wechat-share-r1">返利高</div>
+                                <div>车险补贴最高可达10%，上不封顶</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="toolbar" style="height: 150px;background-color: #383a37;">
+            <input type="hidden" value="{{ QrecodeURL }}" id="QrecodeURL">
+
+            <div style="width: 60%;height: 150px;background-color:#fff; float: left;background: url('/static/wechat/img/xiantaio.png') no-repeat center right;">
+                <div style="width: 100%;height: 70px;text-align: center;margin-top: 10px;" class="open-slider-modal">
+                    <img src="{% static 'wechat/img/share-weixin.png' %}" style="max-width: 90%;max-height: 90%">
+                </div>
+                <div style="width: 100%;height: 70px;text-align: center;">
+                    <a href="http://web.kalaibao.com/wechat/WechatLogin/?action=Pricing" class="external">
+                        <img src="{% static 'wechat/img/share-kalaibao.png' %}" style="max-width: 90%;max-height: 90%">
+                    </a>
+                </div>
+            </div>
+            <div style="width: 40%;float: left;height: 145px;display:table-cell;text-align:center;vertical-align:middle;">
+                <a href="http://web.kalaibao.com/wechat/WechatLogin/?action=Pricing" class="external">
+                    <img id="gokalaibao" src="{% static 'wechat/img/share-kalaibao-logo.png' %}"
+                         style="max-width: 90%;max-height: 90%;margin-top: 55px;">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="popover popover-youhuiduo">
+    <div class="popover-angle"></div>
+    <div class="popover-inner">
+        <div class="content-block">
+            <p>卡来宝车险选优，在线下传统渠道（保险代理、4S店、维修厂等）车险折扣的基础上，再多优惠15%，即：通过卡来宝购买车险，可享受折后再85折。</p>
+        </div>
+    </div>
+</div>
+<div class="popover popover-bijiakuai">
+    <div class="popover-angle"></div>
+    <div class="popover-inner">
+        <div class="content-block">
+            <p>卡来宝车险选优，只需填写一次信息，即可精准比对多家保险公司的官方报价，供您参考与选择！官网支付安全可靠，个人隐私绝无泄露 ！</p>
+        </div>
+    </div>
+</div>
+<div class="popover popover-fuliduo">
+    <div class="popover-angle"></div>
+    <div class="popover-inner">
+        <div class="content-block">
+            <p>只要成功推荐好友通过卡来宝购买车险，即可获得每推荐一人，即得50元现金的奖励。推荐越多，奖励越多，快去推荐吧！</p>
+        </div>
+    </div>
+</div>
+<div class="popover popover-fanligao">
+    <div class="popover-angle"></div>
+    <div class="popover-inner">
+        <div class="content-block">
+            <p>卡来宝车险补贴，将根据您购买的车险保费金额、您的会员等级，按照比例以油卡的形式返还给您，补贴最高可达保费金额（不含车船税）的10%，上不封顶!</p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="{% static 'wechat/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'wechat/js/framework7.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'wechat/js/jquery.powertimer.js' %}"></script>
+<script type="text/javascript" src="{% static 'wechat/js/cityList.js' %}"></script>
+<script type="text/javascript" src="{% static 'wechat/js/share.js' %}?t={{ ''|GetTimeStr }}"></script>
+</body>
+</html>

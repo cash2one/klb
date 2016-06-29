@@ -1,0 +1,356 @@
+{% extends 'common/member_common.html' %}
+{% load staticfiles %}
+{% load memberstag %}
+{% block content_title %}基本信息{% endblock %}
+{% block content_title_detail %}
+
+{% endblock %}
+
+
+{% block content_detail %}
+    <table class="table table-bordered" style="margin-bottom: 20px;">
+    <colgroup>
+        <col class="col-xs-2">
+        <col class="col-xs-7">
+      </colgroup>
+        <tbody>
+        <tr>
+            <th style="text-align: right;">会员名</th>
+            <th>{{ request.user.username }}</th>
+        </tr>
+        <tr>
+            <td style="text-align: right;">会员等级</td>
+            <td>普通会员</td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">账户余额</td>
+            <td>100元</td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">账户卡豆</td>
+            <td>300卡豆</td>
+        </tr>
+        </tbody>
+      </table>
+{#    <table class="table table-striped table-hover">#}
+{#        <thead>#}
+{#        <tr>#}
+{#            <td>订单信息</td>#}
+{#            <td class="tc">订单金额</td>#}
+{#            <td class="tc">订单日期</td>#}
+{#            <td class="tc">订单状态</td>#}
+{#            <td class="tc">操 作</td>#}
+{#        </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#        <tr>#}
+{#            <td>XXXX保险公司车险</td>#}
+{#            <td class="tc">￥1234.50</td>#}
+{#            <td class="tc">2015-01-10</td>#}
+{#            <td class="tc">已完成</td>#}
+{#            <td class="tc"><a href="javascript:void(0);" data-toggle="modal" data-target="#view">查 看</a> | <a#}
+{#                    href="javascript:void(0);"#}
+{#                    data-toggle="modal"#}
+{#                    data-target="#comment-view">评#}
+{#                价</a></td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>XXXX保险公司车险</td>#}
+{#            <td class="tc">￥1234.50</td>#}
+{#            <td class="tc">2015-01-10</td>#}
+{#            <td class="tc">已完成</td>#}
+{#            <td class="tc"><a href="javascript:void(0);" data-toggle="modal" data-target="#view">查 看</a> | <a#}
+{#                    href="javascript:void(0);">评 价</a>#}
+{#            </td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>XXXX保险公司车险</td>#}
+{#            <td class="tc">￥1234.50</td>#}
+{#            <td class="tc">2015-01-10</td>#}
+{#            <td class="tc">已完成</td>#}
+{#            <td class="tc"><a href="javascript:void(0);" data-toggle="modal" data-target="#view">查 看</a> | <a#}
+{#                    href="javascript:void(0);">评 价</a>#}
+{#            </td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>XXXX保险公司车险</td>#}
+{#            <td class="tc">￥1234.50</td>#}
+{#            <td class="tc">2015-01-10</td>#}
+{#            <td class="tc">已完成</td>#}
+{#            <td class="tc"><a href="javascript:void(0);" data-toggle="modal" data-target="#view">查 看</a> | <a#}
+{#                    href="javascript:void(0);">评 价</a>#}
+{#            </td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>XXXX保险公司车险</td>#}
+{#            <td class="tc">￥1234.50</td>#}
+{#            <td class="tc">2015-01-10</td>#}
+{#            <td class="tc">已完成</td>#}
+{#            <td class="tc"><a href="javascript:void(0);" data-toggle="modal" data-target="#view">查 看</a> | <a#}
+{#                    href="javascript:void(0);">评 价</a>#}
+{#            </td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>XXXX保险公司车险</td>#}
+{#            <td class="tc">￥1234.50</td>#}
+{#            <td class="tc">2015-01-10</td>#}
+{#            <td class="tc">已完成</td>#}
+{#            <td class="tc"><a href="javascript:void(0);" data-toggle="modal" data-target="#view">查 看</a> | <a#}
+{#                    href="javascript:void(0);">评 价</a>#}
+{#            </td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <td>XXXX保险公司车险</td>#}
+{#            <td class="tc">￥1234.50</td>#}
+{#            <td class="tc">2015-01-10</td>#}
+{#            <td class="tc">已完成</td>#}
+{#            <td class="tc"><a href="javascript:void(0);" data-toggle="modal" data-target="#view">查 看</a> | <a#}
+{#                    href="javascript:void(0);">评 价</a>#}
+{#            </td>#}
+{#        </tr>#}
+{#        </tbody>#}
+{#    </table>#}
+
+    <!-- 上面的table中没有数据时，显示下面这句 -->
+{#    <p>你还没有在卡来宝投保车险，快去 <a href="javascript:void(0);" class="btn btn-ar btn-danger btn-small">投 保</a> 吧</p>#}
+
+    <!-- 翻页 -->
+{#    <div class="clearfix">#}
+{#        <ul class="pagination pull-right">#}
+{#            <li class="disabled"><a href="javascript:void(0);">«</a></li>#}
+{#            <li class="active"><a href="javascript:void(0);">1</a></li>#}
+{#            <li><a href="javascript:void(0);">2</a></li>#}
+{#            <li><a href="javascript:void(0);">3</a></li>#}
+{#            <li><a href="javascript:void(0);">4</a></li>#}
+{#            <li><a href="javascript:void(0);">5</a></li>#}
+{#            <li><a href="javascript:void(0);">»</a></li>#}
+{#        </ul>#}
+{#    </div>#}
+
+    <!-- 第二栏  推荐好友 -->
+    <h3 class="bottom-line no-margin-top">
+        <span class="bottom-line-red">推荐好友</span>
+    </h3>
+
+    <div class="row">
+        <!-- 左列 -->
+        <div class="col-md-12">
+            <h3>我的推荐码</h3>
+
+            <form action="##">
+                <input type="text" class="form-control form-control-md" value="{{ request.user.id|GetTuijianCode }}" id="tuijian_code">
+                <button hidden="hidden" type="button" class="btn btn-danger" id="set_tuijian_btn">自定义推荐码</button>
+            </form>
+            <p class="margin-10">
+                好友在注册时会输入您的推荐码，以便有效记录您的推荐成果。DIY推荐码 应基于便于记忆的原则，可以是字母、数字或其组合，不得少于6位
+            </p>
+
+            <h3>发送链接</h3>
+
+            <form action="#">
+                <input readonly type="text" class="form-control form-control-md" id="copytxtinput" value="{{ request.user.id|TuiJianLink:request.get_host }}">
+                <button type="button" class="btn btn-danger" id="copytxtbtn">复制链接</button>
+            </form>
+        </div>
+
+        <!-- 右列 -->
+{#        <div class="col-md-6 lateral-padding">#}
+{#            <h3>发奖说明</h3>#}
+{#            <table class="table table-striped table-hover recordTable">#}
+{#                <thead>#}
+{#                <tr>#}
+{#                    <td>保险公司</td>#}
+{#                    <td>成功注册获卡来宝卡豆</td>#}
+{#                    <td>成功购买奖励车险现金</td>#}
+{#                </tr>#}
+{#                </thead>#}
+{#                <tbody>#}
+{#                <tr>#}
+{#                    <td>安盛天平</td>#}
+{#                    <td class="tc">5000</td>#}
+{#                    <td class="tc">50</td>#}
+{#                </tr>#}
+{#                <tr>#}
+{#                    <td>阳光保险</td>#}
+{#                    <td class="tc">500</td>#}
+{#                    <td class="tc">50</td>#}
+{#                </tr>#}
+{#                <tr>#}
+{#                    <td>太平保险</td>#}
+{#                    <td class="tc">500</td>#}
+{#                    <td class="tc">50</td>#}
+{#                </tr>#}
+{#                <tr>#}
+{#                    <td>太平洋保险</td>#}
+{#                    <td class="tc">500</td>#}
+{#                    <td class="tc">50</td>#}
+{#                </tr>#}
+{#                </tbody>#}
+{#            </table>#}
+{#        </div>#}
+    </div>
+
+    <hr/>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="no-margin-top">扫描二维码分享</h3>
+
+            <div class="QR-code tc">
+                <img id="qr_image" style="height: 150px;width: 150px;" src="{% static 'images/qr.png' %}" class="img-thumbnail">
+                <h6>扫二维码分享到微信朋友圈</h6>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3 class="no-margin-top">推荐分享到</h3>
+
+            <div class="bdsharebuttonbox" data-tag="share_1">
+                <div class="bdsharebuttonbox" data-tag="share_1" class="">
+                    <a class="bds_qzone" data-cmd="qzone" href="javascript:void(0);">QQ空间</a>
+                    <a class="bds_tsina" data-cmd="tsina">新浪微博</a>
+                    <a class="bds_tqq" data-cmd="tqq"> QQ</a>
+                </div>
+            </div>
+                        <textarea class="introductShare">亲、我通过卡莱宝购买车险并直达官网支付，保费与官网价格一致，另外还获得了卡来宝提供的商业保费的A%的现金补贴。您也可以试试！扫描下面的二维码您可以成为XX会员，推荐好友还可以有50元的现金奖励哦！通过PC端注册，输入我的推荐码：XXX才可以成为XX会员。扫描直接关注卡来宝微信直接成为XX会员。两个都可以尝试哦！
+                        </textarea>
+        </div>
+    </div>
+    <div class="margin-bottom"></div>
+{% endblock %}
+
+
+{% block footer %}
+<!-- 评星 -->
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'stylesheets/members/jquery.raty.css' %}" />
+    <!-- 图片上传 -->
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'stylesheets/members/jquery.fileupload.css' %}" />
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'stylesheets/members/jquery.fileupload-ui.css' %}" />
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'stylesheets/members/demo-ie8.css' %}" />
+    <!--comment view Modal -->
+    <div class="modal fade" id="comment-view" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                     <h4 class="modal-title" id="myModalLabel">服务点评</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="gray-bg">
+                        这里有一大段文字，这里有一大段文字，这里有一大段文字，这里有一大段文字，这里有一大段文字，这里有一大段文字，这里有一大段文字，这里有一大段文字，
+                        <h5 style="margin-bottom:0">这里有一大段文字，这里有一大段文字，</h5>
+                    </div>
+
+                    <div class="raty-area">
+                       <label>评分：</label>
+                       <span class="raty" data-score="1"></span>
+                    </div>
+
+                    <form action="#" class="">
+                        <div class="tag-area">
+                           <label>标签：</label>
+                           <input id="tags_1" type="text" class="tags" value="价格优惠,服务好,流程简单,送单快,理赔快" />
+                        </div>
+
+                        <label>点评：</label>
+                        <textarea class="form-control comment-textarea" cols="10"></textarea>
+
+                        <label>图片：</label>
+                        <!-- <input type="file" class="imageUpload" id="imageUpload"> -->
+                        <input id="imageUpload" type="file" class="imageUpload" name="files[]" data-url="server/jsp/" multiple>
+
+                        <div class="clearfix">
+                            <label>图片：</label>
+                            <input class="" type="checkbox" checked="ture">  匿名评价
+                        </div>
+                        <p class="tc"><button class="btn btn-danger">提交点评</button></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+
+    <script src="{% static 'javascripts/members/jquery.raty.js' %}"></script>
+    <script src="{% static 'javascripts/members/jquery.tagsinput.js' %}"></script>
+     <!-- file upload -->
+    <script src="{% static 'javascripts/members/jquery.ui.widget.js' %}"></script>
+    <script src="{% static 'javascripts/members/jquery.fileupload.js' %}"></script>
+    <!-- The File Upload processing plugin -->
+    <script src="{% static 'javascripts/members/jquery.fileupload-process.js' %}"></script>
+    <!-- The File Upload image preview & resize plugin -->
+    <script src="{% static 'javascripts/members/jquery.fileupload-image.js' %}"></script>
+
+    <script type="text/javascript">
+    // raty
+    $('.raty').raty({
+      score: function() {
+        return $(this).attr('data-score');
+      }
+    });
+
+    // tag
+    $('#tags_1').tagsInput({width:'auto'});
+
+    // image upload
+    $('#imageUpload').fileupload({
+        url: '//kailaibao.com/',
+        dataType: 'json',
+        // Enable image resizing, except for Android and Opera,
+        // which actually support image resizing, but fail to
+        // send Blob objects via XHR requests:
+        disableImageResize: /Android(?!.*Chrome)|Opera/
+            .test(window.navigator && navigator.userAgent),
+        imageMaxWidth: 800,
+        imageMaxHeight: 800,
+        imageCrop: true, // Force cropped images
+        progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $('#progress .bar').css(
+                'width',
+                progress + '%'
+            );
+        },
+        add: function (e, data) {
+            data.context = $('<p/>').text('上传中...').appendTo(document.body);
+            data.submit();
+        },
+        done: function (e, data) {
+            data.context.text('上传完成.');
+        }
+    });
+    </script>
+   <!-- 分享 -->
+    <script type="text/javascript">
+    window._bd_share_config = {
+        common: {
+            bdText: '自定义分享内容',
+            bdDesc: '自定义分享摘要',
+            bdUrl: '自定义分享url地址',
+            bdPic: '自定义分享图片'
+        },
+        share: [{
+            "bdSize": 18
+        }],
+        slide: [{
+            bdImg: 0,
+            bdPos: "right",
+            bdTop: 100
+        }],
+        image: [{
+            viewType: 'list',
+            viewPos: 'top',
+            viewColor: 'black',
+            viewSize: '24',
+            viewList: ['qzone', 'tsina', 'huaban', 'tqq', 'renren']
+        }],
+        selectShare: [{
+            "bdselectMiniList": ['qzone', 'tqq', 'kaixin001', 'bdxc', 'tqf']
+        }]
+    }
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+

@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>卡来宝 -- 让车生活更美好！</title>
+    <!--  SEO META TAGS -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="ghostrin" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <!-- Mobile Specific Meta -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--Core CSS -->
+    <link rel="stylesheet" type="text/css" media="all" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="../css/main.css" />
+    <!--page CSS -->
+    <link rel="stylesheet" type="text/css" media="all" href="css/user-center.css" />
+    <style type="text/css">
+     #comment-view .modal-dialog,#view .modal-dialog{
+        margin: 80px auto 0;
+     }
+    </style>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+</head>
+
+<body class="user-center">
+    <!-- Top-bar BEGIN-->
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-xs-4">
+                    <p>
+                        <a href="javascript:window.external.AddFavorite('http://www.kalaibao.com','卡来宝')">收藏卡来宝</a></li> |
+                        <a href="http://www.weibo.com/client=XXXX">关注卡来宝</a>
+                    </p>
+                </div>
+                <div class="col-sm-6 col-xs-8">
+                    <ul>
+                        <li class="login"><a href="#" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user"></i>登 录</a></li>
+                        <li class="sign-in"><a href="#"><i class="fa fa-tint"></i>注册 </a></li>
+                        <li class="order"><a href="#"><i class="fa fa-shopping-cart"></i>订单查询</a></li>
+                        <li class="user-center"><a href="#"><i class="fa fa-group"></i>用户中心</a></li>
+                        <li class="help"><a href="#"><i class="fa fa-question"></i>帮助</a></li>
+                        <!-- search form, maybe you like -->
+                        <li class="search"><a href="#"><i class="fa fa-search"></i></a>
+                            <ul class="search-items radius-bottom">
+                                <li class="search-form">
+                                    <form method="get" id="searchform" action="action">
+                                        <div>
+                                            <input class="radius" type="text" size="" name="s" id="s" value="请输入关键字" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
+                                            <input type="submit" id="searchsubmit" value="Search" />
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/.top-bar END-->
+
+    <!-- Header BEGIN-->
+    <header id="header">
+        <nav class="navbar navbar-inverse" role="navigation">
+            <div id="sticky_navigation">
+                <div class="container">
+
+                    <!--JUST FOR MOBILE-->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">点击展开</span>
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <h1 class="logo">
+                            <a href="#" title="卡来宝" class="navbar-brand"><img src="../images/logo.png"></a>
+                            <i class="fa fa-slogn"></i>
+                        </h1>
+                    </div>
+
+                    <!-- navbar-header END-->
+                    <div class="collapse navbar-collapse navbar-right">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="../index.html">首 页</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">车 险 <i class="fa fa-angle-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">来宝好车险</a></li>
+                                    <li><a href="#">保单验真</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">汽车召回</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">福 利 <i class="fa fa-angle-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">投保有礼</a></li>
+                                    <li><a href="#">推荐有礼</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">公 益 <i class="fa fa-angle-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">公益新闻</a></li>
+                                    <li><a href="#">公益图片</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="contact-us.html">联系我们</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!--/.container-->
+            </div>
+            <!--/#sticky_navigation-->
+        </nav>
+        <!--/nav-->
+    </header>
+    <!--/header-->
+    <!-- =================== INCLUDE ABOVE TO YOUR WEBSITE ========================= -->
+    <div class="container margin-top">
+        <div class="row">
+            <!-- left side bar -->
+            <aside class="col-md-3">
+
+                <!-- 用户基本资料 -->
+                <div class="user-info">
+                    <div class="user-info-detail clearfix">
+                        <img src="../images/user_portrait.jpg" class="img-thumbnail">
+                        <h6 id="userName">ghostrin</h6>
+                        <h6 id="userLevel">普通管理员</h6>
+                    </div>                    
+                    <ul class="user-info-status">
+                        <li class="with-tips">
+                            <i class="fa fa-users"></i>
+                            <div class="tips">
+                                <i class="fa fa-caret-up fa-2x"></i>
+                                <p>您已完成实名认证</p>
+                            </div>
+                        </li>
+                        <li class="with-tips">
+                            <i class="fa fa-calculator"></i>
+                            <div class="tips">
+                                <i class="fa fa-caret-up fa-2x"></i>
+                                <p>您已绑定手机号131****5366</p>
+                            </div>
+                        </li>
+                        <li class="with-tips">
+                            <i class="fa fa-envelope-o"></i>
+                            <div class="tips">
+                                <i class="fa fa-caret-up fa-2x"></i>
+                                <p>您已完成邮箱验证 <a href='#' style='color:rgb(20,104,236)'>点击修改</a></p>
+                            </div>
+                        </li>
+                        <li class="with-tips">
+                            <i class="fa fa-lock"></i>
+                            <div class="tips">
+                                <i class="fa fa-caret-up fa-2x"></i>
+                                <p>您已设置支付密码 <a href='#' style='color:rgb(20,104,236)'>点击修改</a></p>
+                            </div>
+                        </li>
+                        <li class="with-tips">
+                            <i class="fa fa-edit"></i>
+                            <div class="tips">
+                                <i class="fa fa-caret-up fa-2x"></i>
+                                <p>修改个人资料信息 <a href='#' style='color:rgb(20,104,236)'>点击修改</a></p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
+                    </div>
+                    <div class="status-no">您还有认证未完成</div>
+                    <!-- <div class="status-yes">恭喜您完成所有认证</div>  根据完成的状态，显示不同 -->
+                    <div class="status-txt">
+                        安全等级：<b class="red">中</b>
+                        <a href="#" class="pull-right">提升>></a>
+                    </div>
+                </div>
+
+                <!-- 左侧导航 -->
+                <ul class="sidebar-nav">
+                    <li>
+                        <a data-toggle="collapse" href="#payment" class="collapsed"><i class="fa fa-credit-card"></i> 我的订单</a>
+                        <ul id="payment" class="menu-submenu list-unstyled collapse">
+                            <li><a href="paid.html"><i class="fa fa-cart-plus"></i> 已支付</a></li>
+                            <li><a href="non-payment.html"><i class="fa fa-paypal"></i>  未支付</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="my-recall.html" class="no-collapsed"><i class="fa fa-retweet"></i> 我的召回</a></li>
+                    <li><a href="my-car.html" class="no-collapsed"><i class="fa fa-car"></i> 我的爱车</a></li>
+                    <li><a href="my-wallet.html" class="no-collapsed"><i class="fa fa-money"></i> 我的钱包</a></li>
+                    <li><a href="my-beans.html" class="no-collapsed"><i class="fa fa-gift"></i> 我的卡豆</a></li>
+                    <li><a href="diffuse-center.html" class="no-collapsed"><i class="fa fa-paw"></i> 推广中心</a></li>
+                    <li><a href="updateto-vip.html" class="no-collapsed"><i class="fa fa-paper-plane-o"></i> 会员升级</a></li>
+                    <li>
+                        <a data-toggle="collapse" href="#account" class="collapsed"><i class="fa fa-list-alt"></i> 管理账户</a>
+                        <ul id="account" class="menu-submenu list-unstyled collapse">
+                            <li><a href="about-me.html"><i class="fa fa-arrow-circle-right"></i> 个人资料</a></li>
+                            <li><a href="security-setting.html"><i class="fa fa-arrow-circle-right"></i> 安全设置</a></li>
+                            <li><a href="manage-info.html"><i class="fa fa-arrow-circle-right"></i> 消息管理</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- main content -->
+            <div class="col-md-9">
+                <!-- 消息提示区域 -->
+                <div class="alert alert-primary">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">知道了</button>
+                    <div class="badge-primary">提 醒</div><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;&nbsp;交易提醒：
+                    <a href="pending-pay.html">待处理订单（0）</a> &nbsp;&nbsp;&nbsp;&nbsp;消息提醒：
+                    <a href="sys-info.html">系统消息（2）</a>
+                </div>
+
+                <!-- 账号信息 -->
+                <div class="account-center clearfix">
+                    <!-- 我的余额 -->
+                    <div class="balance-box">
+                        <div class="box-title">
+                            <i class="fa fa-balance"></i>
+                            <h5>
+                                可用余额 <br/>
+                                <b class="red">450元</b>
+                             </h5>
+                        </div>
+                        <p>
+                            <a href="withdraw.html" class="btn btn-ar btn-danger btn-small">提现</a>
+                            <a href="recharge.html" class="btn btn-ar btn-danger btn-small">充值</a>
+                            <a href="manage-money.html" class="btn btn-ar btn-danger btn-small disabled">理财</a>
+                            <a href="buy-card.html" class="btn btn-ar btn-danger btn-small">购买会员卡</a>
+                        </p>
+                    </div>
+                    <!-- 即将到账 -->
+                    <div class="account-box">
+                        <div class="box-title">
+                            <i class="fa fa-account"></i>
+                            <h5>
+                                即将到账 <br/>
+                                <b class="red">450元</b>
+                             </h5>
+                        </div>
+                        <p>预计2天后到账</p>
+                    </div>
+                    <!-- 我的卡豆 -->
+                    <div class="goldenBean-box">
+                        <div class="box-title">
+                            <i class="fa fa-goldenBean"></i>
+                            <h5>
+                                 我的卡豆<br/>
+                                <b class="red">4500</b>
+                             </h5>
+                        </div>
+                        <p>
+                            <a href="#" class="btn btn-ar btn-danger">购买会员卡</a>
+                            <a href="#" class="btn btn-ar btn-danger disabled">兑换商品</a>
+                        </p>
+                    </div>
+                </div>
+
+               <!-- 主体区域  推荐好友 -->
+                <h3 class="bottom-line">
+                    <span class="bottom-line-red">推荐好友</span>                    
+                </h3> 
+                
+                <div class="row">
+                    <!-- 左列 -->
+                    <div class="col-md-6">
+                        <h3>我的推荐码</h3>                            
+                        <form action="##">
+                            <input type="text" class="form-control form-control-md">
+                            <button type="submit" class="btn btn-danger">自定义推荐码</button>
+                        </form>
+                        <p class="margin-10">
+                            好友在注册时会输入您的推荐码，以便有效记录您的推荐成果。DIY推荐码 应基于便于记忆的原则，可以是字母、数字或其组合，不得少于6位
+                        </p>                                         
+
+                        <h3>发送链接</h3>
+                        <form action="##">
+                            <input type="text" class="form-control form-control-md">
+                            <button type="sumbit" class="btn btn-danger">复制链接</button>
+                        </form>
+                        
+                    </div>
+
+                    <!-- 右列 -->
+                    <div class="col-md-6 lateral-padding">
+                    <h3>发奖说明</h3>
+                        <table class="table table-striped table-hover recordTable">
+                            <thead>
+                                <tr>
+                                    <td>保险公司</td>
+                                    <td>成功注册获卡来宝卡豆</td>
+                                    <td>成功购买奖励车险现金</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>安盛天平</td>
+                                    <td class="tc">5000</td>
+                                    <td class="tc">50</td>
+                                </tr>
+                                <tr>
+                                    <td>阳光保险</td>
+                                    <td class="tc">500</td>
+                                    <td class="tc">50</td>
+                                </tr>
+                                <tr>
+                                    <td>太平保险</td>
+                                    <td class="tc">500</td>
+                                    <td class="tc">50</td>
+                                </tr>
+                                <tr>
+                                    <td>太平洋保险</td>
+                                    <td class="tc">500</td>
+                                    <td class="tc">50</td>
+                                </tr>
+                            </tbody>
+                        </table>                        
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="no-margin-top">扫描二维码分享</h3>
+                        <div class="QR-code tc">
+                            <img src="../images/qr.png" class="img-thumbnail">  
+                            <h6>扫二维码分享到微信朋友圈</h6>                         
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="no-margin-top">推荐分享到</h3>               
+                        <div class="bdsharebuttonbox" data-tag="share_1">
+                            <div class="bdsharebuttonbox" data-tag="share_1" class="">
+                                <a class="bds_qzone" data-cmd="qzone" href="#">QQ空间</a>
+                                <a class="bds_tsina" data-cmd="tsina">新浪微博</a>
+                                <a class="bds_tqq" data-cmd="tqq"> QQ</a>
+                            </div>
+                        </div>
+                        <textarea class="introductShare">亲、我通过卡莱宝购买车险并直达官网支付，保费与官网价格一致，另外还获得了卡来宝提供的商业保费的A%的现金补贴。您也可以试试！扫描下面的二维码您可以成为XX会员，推荐好友还可以有50元的现金奖励哦！通过PC端注册，输入我的推荐码：XXX才可以成为XX会员。扫描直接关注卡来宝微信直接成为XX会员。两个都可以尝试哦！
+                        </textarea> 
+                    </div>
+                </div>
+
+                <h3 class="bottom-line no-margin-top">
+                    <span class="bottom-line-red">推荐好友列表</span>                    
+                </h3>
+                <div class="row margin-bottom">
+                   <div class="col-md-12">
+                        <table class="table table-striped table-hover recordTable">
+                            <thead>
+                                <tr>
+                                    <td>日期</td>
+                                    <td>好友名称</td>
+                                    <td>成功注册</td>
+                                    <td>是否购买车险</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2015/03/22</td>
+                                    <td>女子花</td>
+                                    <td>成功注册</td>
+                                    <td>已购车险</td>
+                                </tr>
+                                <tr>
+                                    <td>2015/03/22</td>
+                                    <td>女子花</td>
+                                    <td>成功注册</td>
+                                    <td>已购车险</td>
+                                </tr>
+                                <tr>
+                                    <td>2015/03/22</td>
+                                    <td>女子花</td>
+                                    <td>成功注册</td>
+                                    <td>已购车险</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright -->
+    <div class="footer">
+        <p>Copyright © 2003-2015 kalaibao.net, All Rights Reserved　</p>
+    </div>
+    <!-- / Copyright -->
+    <!-- back top -->
+    <div id="back-top" style="display: block;">
+        <a href="#header"><i class="fa fa-chevron-up"></i></a>
+    </div>
+    <!-- /.back top -->
+
+    <!--login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">会员登录</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group clearfix">
+                            <div class="input-group login-input">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input type="text" class="form-control" value="用户名" onfocus="if(this.value=='用户名'){this.value='';this.style.color='#555'}" onblur="if(this.value==''){this.value='用户名';this.style.color='#f00'}">
+                            </div>
+                            <br>
+                            <div class="input-group login-input">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox">记住用户名和密码
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-ar btn-primary pull-right">用户登录</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/.Modal -->
+
+
+    <!--view Content Modal -->
+    <div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> 
+                    <h4 class="modal-title" id="myModalLabel">订单详情</h4>      
+                </div>
+                <div class="modal-body">
+                    <!-- 保单详情 -->
+                <table class="table table-borderedb">
+                    <caption style="border-bottom:1px solid #ddd">
+                     <h6>订单价格：<span class="red">12134.01元</span></h6>
+                        订单编号：124212197951
+                    </caption>                    
+                </table>
+
+                <table class="table table-bordered table-hover margin-20">
+                    <caption>
+                        <a data-toggle="collapse" href="#collapse-01" class="collapsed" >投保人信息</a>
+                    </caption>
+                    <tbody class="collapse" id="collapse-01">
+                        <tr>
+                            <td width="50%">姓名：刘德华</td>
+                            <td width="50%">手机：13801234567</td>
+                        </tr>
+                        <tr>
+                            <td>身份证：111111111111111</td>
+                            <td>电子邮箱：</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered table-hover margin-20">
+                    <caption>
+                       <a data-toggle="collapse" href="#collapse-02" class="collapsed" >被保人信息</a>
+                    </caption>
+                    <tbody class="collapse" id="collapse-02">
+                        <tr>
+                            <td width="50%">姓名：刘德华</td>
+                            <td width="50%">手机：13801234567</td>
+                        </tr>
+                        <tr>
+                            <td>身份证：111111111111111</td>
+                            <td>电子邮箱：</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered table-hover margin-20">
+                    <caption>                    
+                        <a data-toggle="collapse" href="#collapse-03" class="collapsed" >配送信息</a>
+                    </caption>
+                    <tbody class="collapse" id="collapse-03">
+                        <tr>
+                            <td width="50%">姓名：刘德华</td>
+                            <td width="50%">手机：13801234567</td>
+                        </tr>
+                        <tr>
+                            <td>身份证：111111111111111</td>
+                            <td>电子邮箱：</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered table-hover margin-20">
+                    <caption>                    
+                        <a data-toggle="collapse" href="#collapse-04" class="collapsed" >车辆信息</a>
+                    </caption>
+                    <tbody class="collapse" id="collapse-04">
+                        <tr>
+                            <td width="50%">车牌号：京LH5083</td>
+                            <td width="50%">车主：刘德华</td>
+                        </tr>
+                        <tr>
+                            <td>车主证件号：1212412412</td>
+                            <td>厂牌型号：上海大众</td>
+                        </tr>
+                        <tr>
+                            <td>车架号：LFV3A23C773031694</td>
+                            <td>发动机号：053938</td>
+                        </tr>
+                        <tr>
+                            <td>初次登记日期：2007年1月10日</td>
+                            <td>是否过户车：否</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered table-hover margin-20">
+                    <caption>                    
+                     <a data-toggle="collapse" href="#collapse-05" class="collapsed" >商业险投保明细</a>
+                    </caption>
+                    <thead>
+                        <tr class="warning">
+                            <td width="33%">承保险种</td>
+                            <td width="33%">保额（元）</td>
+                            <td width="33%">保费（元）</td>
+                        </tr>
+                    </thead>
+                    <tbody class="collapse" id="collapse-05">
+                        <tr>
+                            <td>车辆损失险</td>
+                            <td>投保</td>
+                            <td>￥1236.0</td>
+                        </tr>
+                        <tr>
+                            <td>第三者责任险</td>
+                            <td>￥1236.0</td>
+                            <td>￥1236.0</td>
+                        </tr>
+                        <tr>
+                            <td>全车盗抢险</td>
+                            <td>投保</td>
+                            <td>￥1236.0</td>
+                        </tr>
+                        <tr>
+                            <td>车上人员责任险（司机）</td>
+                            <td>￥100000</td>
+                            <td>￥1236.0</td>
+                        </tr>
+                        <tr>
+                            <td>车上人员责任险（乘客）</td>
+                            <td>￥100000</td>
+                            <td>￥1236.0</td>
+                        </tr>
+                        <tr>
+                            <td>玻璃单独破损险</td>
+                            <td>国产</td>
+                            <td>￥1236.0</td>
+                        </tr>
+                        <tr>
+                            <td>不计免赔（车损）</td>
+                            <td>投保</td>
+                            <td>￥1236.0</td>
+                        </tr>
+                        <tr>
+                            <td>不计免赔（三者）</td>
+                            <td>投保</td>
+                            <td>￥1236.0</td>
+                        </tr>
+                        <tr>
+                            <td>不计免赔（盗抢）</td>
+                            <td>投保</td>
+                            <td>￥1236.0</td>
+                        </tr>
+                        <tr>
+                            <td>不计免赔（司机）</td>
+                            <td>投保</td>
+                            <td>￥1236.0</td>
+                        </tr>
+                        <tr>
+                            <td>不计免赔（乘客）</td>
+                            <td>投保</td>
+                            <td>￥1236.0</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered table-hover margin-20">
+                    <caption>保险期限（请仔细确认你的保险起止时间，以免造成保险退保）</caption>
+                    <tbody>
+                        <tr>
+                            <td width="34%">商业险保险期限：</td>
+                            <td width="76%" class="red">2015年10月1日 00时00分00秒--2016年9月30日 23时59分59秒</td>
+                        </tr>
+                        <tr>
+                            <td>交强险保险期限：刘德华</td>
+                            <td class="red">2015年10月1日 00时00分00秒--2016年9月30日 23时59分59秒</td>
+                        </tr>                        
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered table-hover margin-20">
+                    <caption>保费合计（交强险+车船险+商业险）</caption>
+                    <tbody>
+                        <tr>
+                            <td width="25%">交强险</td>
+                            <td width="25%">车船险</td>
+                            <td width="25%">商业险</td>
+                            <td width="25%">合  计</td>                           
+                        </tr>
+                        <tr>
+                            <td>￥950.00</td>
+                            <td>￥950.00</td>
+                            <td>￥950.00</td>
+                            <td><b class="red">￥950.00</b></td>                            
+                        </tr>
+                        <tr>
+                           <td colspan="4" align="right">市场价：￥1200.00元</td>
+                        </tr>                       
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/.Modal -->
+
+   <!-- 评星 -->
+    <link rel="stylesheet" type="text/css" media="all" href="css/jquery.raty.css" /> 
+    <!-- 图片上传 -->
+    <link rel="stylesheet" type="text/css" media="all" href="css/jquery.fileupload.css" /> 
+    <link rel="stylesheet" type="text/css" media="all" href="css/jquery.fileupload-ui.css" /> 
+    <link rel="stylesheet" type="text/css" media="all" href="css/demo-ie8.css" /> 
+    <!--comment view Modal -->
+    <div class="modal fade" id="comment-view" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                     <h4 class="modal-title" id="myModalLabel">服务点评</h4>   
+                </div>
+                <div class="modal-body">                    
+                    <div class="gray-bg">
+                        这里有一大段文字，这里有一大段文字，这里有一大段文字，这里有一大段文字，这里有一大段文字，这里有一大段文字，这里有一大段文字，这里有一大段文字，
+                        <h5 style="margin-bottom:0">这里有一大段文字，这里有一大段文字，</h5>
+                    </div>
+
+                    <div class="raty-area">
+                       <label>评分：</label>
+                       <span class="raty" data-score="1"></span>
+                    </div>                   
+
+                    <form action="#" class="">
+                        <div class="tag-area">
+                           <label>标签：</label>
+                           <input id="tags_1" type="text" class="tags" value="价格优惠,服务好,流程简单,送单快,理赔快" />
+                        </div>
+
+                        <label>点评：</label>
+                        <textarea class="form-control comment-textarea" cols="10"></textarea>
+
+                        <label>图片：</label>
+                        <!-- <input type="file" class="imageUpload" id="imageUpload"> -->
+                        <input id="imageUpload" type="file" class="imageUpload" name="files[]" data-url="server/jsp/" multiple>
+
+                        <div class="clearfix">
+                            <label>图片：</label>
+                            <input class="" type="checkbox" checked="ture">  匿名评价
+                        </div>
+                        <p class="tc"><button class="btn btn-danger">提交点评</button></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============= JavaScript ============= -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../member/js/user-center.js"></script>
+    <script src="../member/js/jquery.raty.js"></script>
+    <script src="../member/js/jquery.tagsinput.js"></script>
+     <!-- file upload -->
+    <script src="../member/js/jquery.ui.widget.js"></script>
+    <script src="../member/js/jquery.fileupload.js"></script>
+    <!-- The File Upload processing plugin -->
+    <script src="../member/js/jquery.fileupload-process.js"></script>
+    <!-- The File Upload image preview & resize plugin -->
+    <script src="../member/js/jquery.fileupload-image.js"></script>
+
+    <script type="text/javascript">
+    // raty
+    $('.raty').raty({
+      score: function() {
+        return $(this).attr('data-score');
+      }
+    });
+
+    // tag 
+    $('#tags_1').tagsInput({width:'auto'});
+
+    // image upload
+    $('#imageUpload').fileupload({
+        url: '//kailaibao.com/',
+        dataType: 'json',
+        // Enable image resizing, except for Android and Opera,
+        // which actually support image resizing, but fail to
+        // send Blob objects via XHR requests:
+        disableImageResize: /Android(?!.*Chrome)|Opera/
+            .test(window.navigator && navigator.userAgent),
+        imageMaxWidth: 800,
+        imageMaxHeight: 800,
+        imageCrop: true, // Force cropped images
+        progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $('#progress .bar').css(
+                'width',
+                progress + '%'
+            );
+        },
+        add: function (e, data) {
+            data.context = $('<p/>').text('上传中...').appendTo(document.body);
+            data.submit();
+        },
+        done: function (e, data) {
+            data.context.text('上传完成.');
+        }
+    });
+    </script>
+   <!-- 分享 -->
+    <script type="text/javascript">
+    window._bd_share_config = {
+        common: {
+            bdText: '自定义分享内容',
+            bdDesc: '自定义分享摘要',
+            bdUrl: '自定义分享url地址',
+            bdPic: '自定义分享图片'
+        },
+        share: [{
+            "bdSize": 18
+        }],
+        slide: [{
+            bdImg: 0,
+            bdPos: "right",
+            bdTop: 100
+        }],
+        image: [{
+            viewType: 'list',
+            viewPos: 'top',
+            viewColor: 'black',
+            viewSize: '24',
+            viewList: ['qzone', 'tsina', 'huaban', 'tqq', 'renren']
+        }],
+        selectShare: [{
+            "bdselectMiniList": ['qzone', 'tqq', 'kaixin001', 'bdxc', 'tqf']
+        }]
+    }
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+
+    <!-- ============= Statistics Script ============= -->
+    <!-- BAIDU  statistics -->
+    <!--<script type="text/javascript">
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fxxxxxxxxxxxxxxxx' type='text/javascript'%3E%3C/script%3E"));
+    </script>-->
+    <!-- 51la  Statistics -->
+    <!--<script language="javascript" type="text/javascript" src="http://js.users.51.la/yyyyy.js"></script>
+    <noscript><a href="http://www.51.la/?yyyyyy" target="_blank"><img alt="卡来宝统计" src="http://img.users.51.la/yyyyyy.asp" style="border:none" /></a></noscript>-->
+</body>
+
+</html>

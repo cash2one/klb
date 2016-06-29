@@ -1,0 +1,1608 @@
+{% extends "ebusiness/common.html" %}
+{% load staticfiles %}
+{% load EbusinessTag %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'ebusiness/css/xenon-components.css' %}">
+    <style>
+        .super-large {
+            font-size: 40px !important;
+        }
+
+        .text-medium {
+            font-size: 14px !important;
+        }
+
+        .div-m-b-5 {
+            margin-bottom: 5px !important;
+        }
+
+        .div-m-t-5 {
+            margin-top: 5px !important;
+        }
+
+        .div-m-t-0 {
+            margin-top: 0 !important;
+        }
+
+        .div-m-t-10 {
+            margin-top: 10px !important;
+        }
+
+        .pay-go {
+            float: right !important;
+            margin-bottom: 0 !important;
+        }
+
+        .font-size-14 {
+            font-size: 14px !important;
+        }
+
+        .div-mp-l0-r0 {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+
+        }
+
+        .badge-red {
+            background-color: #d5080f !important;
+        }
+
+        .list-p10 {
+            padding: 15px 20px !important;
+        }
+
+        .list-w150-h25 {
+            color: #333 !important;
+            float: left !important;
+            min-width: 100px !important;
+            height: 25px !important;
+            line-height: 25px !important;
+            margin-right: 5px !important;
+            margin-bottom: 5px !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            box-shadow: 0px 0px 0px 1px #dddddd !important;
+            font-size: 75% !important;
+            text-align: center !important;
+            overflow: hidden;
+            white-space: nowrap !important;
+
+        }
+
+
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <input id="zh_error" value="1" type="hidden">
+        <input id="as_error" value="1" type="hidden">
+        <input id="yg_error" value="1" type="hidden">
+        <input id="listnum" value="0" type="hidden">
+        <input id="oknum" value="0" type="hidden">
+        <input id="errnum" value="0" type="hidden">
+
+        <div class="col-sm-12" id="loading">
+            <div class="alert alert-white">
+                <div id="loading_show" style="height: 100px; margin-top:10px;margin-bottom: 10px;"
+                     class="dx-visibility-change-handler">
+                </div>
+                <div class="text-center" style="display: none;" id="loading-text">
+                    <img src="{% static 'ebusiness/images/bxgs/loading.gif' %}"><br>
+                    <strong id="loading-msg">正在初始化应用，请稍后</strong>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-12 bxgs-hide" style="display: none;">
+            <div class="alert alert-white">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">×</span>
+                    <span class="sr-only">Close</span>
+                </button>
+
+                一共找到<strong id="num-gs">0</strong> 家保险公司报价。
+            </div>
+        </div>
+        <div class="col-md-12 bxgs-hide" style="display: none;">
+            <div id="zh_panel" class="panel panel-default">
+                <div class="panel-heading">
+                    <img src="{% static 'wechat/img/bxgs/60x60/logo-zhonghua.png' %}" style="width: 30px;height: 30px;">
+                    中华联合保险
+                    {#                    <a class="btn btn-red btn-icon btn-icon-standalone pay-go" href="javascript:void(0);"><i#}
+                    {#                            class="fa-shopping-cart"></i><span>立即购买</span></a>#}
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+
+                        <div class="col-sm-5 font-size-14" style="line-height: 25px;">
+                            <div class="col-sm-12" style="text-align: center;" id="zh_loading">
+                                <img src="{% static 'ebusiness/images/loading2.gif' %}" style="margin: auto;">
+                                正在为您报价，请稍后......
+                            </div>
+
+                            <div class="col-sm-12 super-large text-secondary zh_show" style="margin-bottom: 15px;"
+                                 id="zh_TotalPremium"></div>
+
+                            <div class="label label-white zh_show"><span>车损：</span><span id="zh_VehicleLoss"></span>
+                            </div>
+                            <div class="label label-white zh_show"><span>三者：</span><span id="zh_SanZhe"></span></div>
+                            <div class="label label-white zh_show"><span>盗抢：</span><span id="zh_DaoQiang"></span></div>
+                            <div class="label label-white zh_show"><span>司机：</span><span id="zh_ZeRenSJ"></span></div>
+                            <div class="label label-white zh_show"><span>乘客：</span><span id="zh_ZeRenCK"></span></div>
+                            <div class="label label-white zh_show"><span>玻璃：</span><span id="zh_BoLiPS"></span></div>
+                            <div class="label label-white zh_show"><span>划痕：</span><span id="zh_HuaHen"></span></div>
+                            <div class="label label-white zh_show"><span>自燃：</span><span id="zh_ZiRan"></span></div>
+                            <div class="label label-white zh_show"><span>不计免赔：</span><span id="zh_BuJiMPZJ"></span>
+                            </div>
+                            <div class="label label-white zh_show"><span>交强险/车船税：</span><span
+                                    id="zh_forcePremium"></span></div>
+
+                        </div>
+                        <div align="center" class="col-sm-3" style="text-align: center!important;">
+                            <img src="{% static 'ebusiness/images/bxgs/logo-1-zhonghua.png' %}"
+                                 style="display:block; margin:0 auto!important;">
+
+                        </div>
+                        <div class="col-sm-4 font-size-14">
+                            <p style="text-indent:40px;">
+                                中华联合财产保险股份有限公司是经中国保监会批准，于2006年12月由中华联合保险控股股份有限公司发起设立的全国性财产保险公司。其前身是由国家财政部、农业部专项拨款，新疆生产建设兵团组建成立的新疆兵团保险公司，成立于1986年7月15日，是我国第二家具有独立法人资格的国有独资保险公司。
+                            </p>
+                        </div>
+                        <div class="col-sm-12 div-m-t-10 changtb zh_show" style="display: none;">
+                            <input type="hidden" value="0" id="zh-changtb-action">
+                            <a class="btn btn-blue btn-icon btn-icon-standalone pull-left chang-list-btn">
+                                <i class="fa-cog"></i>
+                                <span>更改</span>
+                            </a>
+                            {% if request.user.id %}
+                                <a class="btn btn-red btn-icon btn-icon-standalone pull-right"
+                                   href="/ebusiness/editInfo/?car={{ id|ENcode }}&company={{ 'zh'|ENcode }}&style={{ style }}&sn={{ sn }}"><i
+                                        class="fa-shopping-cart"></i><span>立即购买</span></a>
+                            {% else %}
+                                {# 微信 #}
+                                {% ifequal request.META.HTTP_USER_AGENT|GetBrowser 'wechat' %}
+                                    <a class="btn btn-red btn-icon btn-icon-standalone pull-right"
+                                       href="/wechat/WechatLogin/?action=ebusiness&car={{ id|ENcode }}&company={{ 'zh'|ENcode }}&style={{ style }}&sn={{ sn }}"><i
+                                            class="fa-shopping-cart"></i><span>立即购买</span></a>
+                                {% endifequal %}
+                                {# 安卓 #}
+                                {% ifequal request.META.HTTP_USER_AGENT|GetBrowser 'Android' %}
+                                    <a class="btn btn-red btn-icon btn-icon-standalone pull-right"
+                                       href="/ebusiness/editInfo/?car={{ id|ENcode }}&company={{ 'zh'|ENcode }}&style={{ style }}&sn={{ sn }}"><i
+                                            class="fa-shopping-cart"></i><span>立即购买</span></a>
+                                {% endifequal %}
+                                {# 苹果 #}
+                                {% ifequal request.META.HTTP_USER_AGENT|GetBrowser 'iOS' %}
+                                        <a class="btn btn-red btn-icon btn-icon-standalone pull-right"
+                                       href="/ebusiness/editInfo/?car={{ id|ENcode }}&company={{ 'zh'|ENcode }}&style={{ style }}&sn={{ sn }}"><i
+                                            class="fa-shopping-cart"></i><span>立即购买</span></a>
+                                {% endifequal %}
+                                {# pc #}
+                                {% ifequal request.META.HTTP_USER_AGENT|GetBrowser 'pc' %}
+                                    <a class="btn btn-red btn-icon btn-icon-standalone pull-right buy-btn-go" href="#"
+                                       data-bxgs="{{ 'zh'|ENcode }}" data-car="{{ id|ENcode }}" data-style="{{ style }}"
+                                       data-sn="{{ sn }}" data-action="{{ 'ebusiness'|ENcode }}"><i
+                                            class="fa-shopping-cart"></i><span>立即购买</span></a>
+                                {% endifequal %}
+                            {% endif %}
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="yg_panel" class="panel panel-default">
+                <div class="panel-heading">
+                    <img src="{% static 'wechat/img/bxgs/60x60/logo-yangguang.png' %}"
+                         style="width: 30px;height: 30px;">
+                    阳光保险集团
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-sm-5 font-size-14" style="line-height: 25px;">
+                            <div class="col-sm-12" style="text-align: center;" id="yg_loading">
+                                <img src="{% static 'ebusiness/images/loading2.gif' %}" style="margin: auto;">
+                                正在为您报价，请稍后......
+                            </div>
+
+                            <div class="col-sm-12 super-large text-secondary yg_show" style="margin-bottom: 15px;"
+                                 id="yg_TotalPremium"></div>
+
+                            <div class="label label-white yg_show"><span>车损：</span><span id="yg_VehicleLoss"></span>
+                            </div>
+                            <div class="label label-white yg_show"><span>三者：</span><span id="yg_SanZhe"></span></div>
+                            <div class="label label-white yg_show"><span>盗抢：</span><span id="yg_DaoQiang"></span></div>
+                            <div class="label label-white yg_show"><span>司机：</span><span id="yg_ZeRenSJ"></span></div>
+                            <div class="label label-white yg_show"><span>乘客：</span><span id="yg_ZeRenCK"></span></div>
+                            <div class="label label-white yg_show"><span>玻璃：</span><span id="yg_BoLiPS"></span></div>
+                            <div class="label label-white yg_show"><span>划痕：</span><span id="yg_HuaHen"></span></div>
+                            <div class="label label-white yg_show"><span>自燃：</span><span id="yg_ZiRan"></span></div>
+                            <div class="label label-white yg_show"><span>不计免赔：</span><span id="yg_BuJiMPZJ"></span>
+                            </div>
+                            <div class="label label-white yg_show"><span>交强险/车船税：</span><span
+                                    id="yg_forcePremium"></span></div>
+
+
+                        </div>
+                        <div align="center" class="col-sm-3" style="text-align: center!important;">
+                            <img src="{% static 'ebusiness/images/bxgs/logo-1-yangguang.png' %}"
+                                 style="display:block; margin:0 auto!important;">
+
+                        </div>
+                        <div class="col-sm-4 font-size-14">
+                            <p style="text-indent:40px;">
+                                阳光保险于2005年7月成立，现在是国内七大保险集团之一。阳光自创建以来始终坚持把品质、市场能力、盈利能力、可持续发展能力、客户满意作为一切工作的指南。现已发展36家分公司开业运营，三四级分支机构1500余家，服务网络实现全国覆盖，并连续多年刷新国内新设保险公司年度保费规模的历史纪录，实现了又好又快的发展。
+                            </p>
+                        </div>
+                        <div class="col-sm-12 div-m-t-10 changtb yg_show" style="display: none;">
+                            <input type="hidden" value="0" id="yg-changtb-action">
+                            <a class="btn btn-blue btn-icon btn-icon-standalone pull-left chang-list-btn">
+                                <i class="fa-cog"></i>
+                                <span>更改</span>
+                            </a>
+
+                            {% if request.user.id %}
+                                <a class="btn btn-red btn-icon btn-icon-standalone pull-right"
+                                   href="/ebusiness/editInfo/?car={{ id|ENcode }}&company={{ 'yg'|ENcode }}&style={{ style }}&sn={{ sn }}"><i
+                                        class="fa-shopping-cart"></i><span>立即购买</span></a>
+                            {% else %}
+                                {% ifequal request.META.HTTP_USER_AGENT|GetBrowser 'wechat' %}
+                                    <a class="btn btn-red btn-icon btn-icon-standalone pull-right"
+                                       href="/wechat/WechatLogin/?action=ebusiness&car={{ id|ENcode }}&company={{ 'yg'|ENcode }}&style={{ style }}&sn={{ sn }}"><i
+                                            class="fa-shopping-cart"></i><span>立即购买</span></a>
+                                {% endifequal%}
+                                {# pc #}
+                                {% ifequal request.META.HTTP_USER_AGENT|GetBrowser 'pc' %}
+                                    <a class="btn btn-red btn-icon btn-icon-standalone pull-right buy-btn-go" href="#"
+                                       data-bxgs="{{ 'yg'|ENcode }}" data-car="{{ id|ENcode }}" data-style="{{ style }}"
+                                       data-sn="{{ sn }}" data-action="{{ 'ebusiness'|ENcode }}"><i
+                                            class="fa-shopping-cart"></i><span>立即购买</span></a>
+                                {% endifequal %}
+                                {# 苹果 #}
+                                {% ifequal request.META.HTTP_USER_AGENT|GetBrowser 'iOS' %}
+                                    <a class="btn btn-red btn-icon btn-icon-standalone pull-right"
+                                       href="/ebusiness/editInfo/?car={{ id|ENcode }}&company={{ 'yg'|ENcode }}&style={{ style }}&sn={{ sn }}"><i
+                                            class="fa-shopping-cart"></i><span>立即购买</span></a>
+                                {% endifequal %}
+                                {# 安卓 #}
+                                {% ifequal request.META.HTTP_USER_AGENT|GetBrowser 'Android' %}
+                                    <a class="btn btn-red btn-icon btn-icon-standalone pull-right"
+                                       href="/ebusiness/editInfo/?car={{ id|ENcode }}&company={{ 'yg'|ENcode }}&style={{ style }}&sn={{ sn }}"><i
+                                            class="fa-shopping-cart"></i><span>立即购买</span></a>
+                                {% endifequal %}
+                            {% endif %}
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="as_panel" class="panel panel-default">
+                <div class="panel-heading">
+                    <img src="{% static 'wechat/img/bxgs/60x60/logo-ansheng.png' %}" style="width: 30px;height: 30px;">
+                    安盛天平保险
+                    {#                    <a class="btn btn-red btn-icon btn-icon-standalone pay-go" href="javascript:void(0);"><i#}
+                    {#                            class="fa-shopping-cart"></i><span>立即购买</span></a>#}
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-sm-5 font-size-14" style="line-height: 25px;">
+                            <div class="col-sm-12" style="text-align: center;" id="as_loading">
+                                <img src="{% static 'ebusiness/images/loading2.gif' %}" style="margin: auto;">
+                                正在为您报价，请稍后......
+                            </div>
+
+                            <div class="col-sm-12 super-large text-secondary as_show" style="margin-bottom: 15px;"
+                                 id="as_TotalPremium"></div>
+
+                            <div class="label label-white as_show"><span>车损：</span><span id="as_VehicleLoss"></span>
+                            </div>
+                            <div class="label label-white as_show"><span>三者：</span><span id="as_SanZhe"></span></div>
+                            <div class="label label-white as_show"><span>盗抢：</span><span id="as_DaoQiang"></span></div>
+                            <div class="label label-white as_show"><span>司机：</span><span id="as_ZeRenSJ"></span></div>
+                            <div class="label label-white as_show"><span>乘客：</span><span id="as_ZeRenCK"></span></div>
+                            <div class="label label-white as_show"><span>玻璃：</span><span id="as_BoLiPS"></span></div>
+                            <div class="label label-white as_show"><span>划痕：</span><span id="as_HuaHen"></span></div>
+                            <div class="label label-white as_show"><span>自燃：</span><span id="as_ZiRan"></span></div>
+                            <div class="label label-white as_show"><span>不计免赔：</span><span id="as_BuJiMPZJ"></span>
+                            </div>
+                            <div class="label label-white as_show"><span>交强险/车船税：</span><span
+                                    id="as_forcePremium"></span></div>
+
+
+                        </div>
+                        <div align="center" class="col-sm-3" style="text-align: center!important;">
+                            <img src="{% static 'ebusiness/images/bxgs/logo-1-ansheng.png' %}"
+                                 style="display:block; margin:0 auto!important;">
+
+                        </div>
+                        <div class="col-sm-4 font-size-14">
+                            <p style="text-indent:40px;">
+                                安盛天平财产保险股份有限公司，是中国市场上最大的外资财险公司，立志于成为国内互联网保险领导品牌。2014年2月由安盛保险入股天平汽车保险而成，总部设立在上海浦东陆家嘴金融区。安盛天平保险主要经营机动车交通事故责任强制保险、机动车商业保险和企业财产险、家财险、货运险、责任险、短期意外险、健康险等业务。
+                            </p>
+                        </div>
+                        <div class="col-sm-12 div-m-t-10 changtb as_show" style="display: none;">
+                            <input type="hidden" value="0" id="as-changtb-action">
+                            <a class="btn btn-blue btn-icon btn-icon-standalone pull-left chang-list-btn">
+                                <i class="fa-cog"></i>
+                                <span>更改</span>
+                            </a>
+                            {% if request.user.id %}
+                                <a class="btn btn-red btn-icon btn-icon-standalone pull-right"
+                                   href="/ebusiness/editInfo/?car={{ id|ENcode }}&company={{ 'as'|ENcode }}&style={{ style }}&sn={{ sn }}"><i
+                                        class="fa-shopping-cart"></i><span>立即购买</span></a>
+                            {% else %}
+                                {# 微信 #}
+                                {% ifequal request.META.HTTP_USER_AGENT|GetBrowser 'wechat' %}
+                                    <a class="btn btn-red btn-icon btn-icon-standalone pull-right"
+                                       href="/wechat/WechatLogin/?action=ebusiness&car={{ id|ENcode }}&company={{ 'as'|ENcode }}&style={{ style }}&sn={{ sn }}"><i
+                                            class="fa-shopping-cart"></i><span>立即购买</span></a>
+                                {% endifequal %}
+                                {# pc #}
+                                {% ifequal request.META.HTTP_USER_AGENT|GetBrowser 'pc' %}
+                                    <a class="btn btn-red btn-icon btn-icon-standalone pull-right buy-btn-go" href="#"
+                                       data-bxgs="{{ 'as'|ENcode }}" data-car="{{ id|ENcode }}" data-style="{{ style }}"
+                                       data-sn="{{ sn }}" data-action="{{ 'ebusiness'|ENcode }}"><i
+                                            class="fa-shopping-cart"></i><span>立即购买</span></a>
+                                {% endifequal %}
+                                {# 苹果 #}
+                                {% ifequal request.META.HTTP_USER_AGENT|GetBrowser 'iOS' %}
+                                    <a class="btn btn-red btn-icon btn-icon-standalone pull-right"
+                                   href="/ebusiness/editInfo/?car={{ id|ENcode }}&company={{ 'as'|ENcode }}&style={{ style }}&sn={{ sn }}"><i
+                                        class="fa-shopping-cart"></i><span>立即购买</span></a>
+                                {% endifequal %}
+                                {# 安卓 #}
+                                {% ifequal request.META.HTTP_USER_AGENT|GetBrowser 'Android' %}
+                                    <a class="btn btn-red btn-icon btn-icon-standalone pull-right"
+                                   href="/ebusiness/editInfo/?car={{ id|ENcode }}&company={{ 'as'|ENcode }}&style={{ style }}&sn={{ sn }}"><i
+                                        class="fa-shopping-cart"></i><span>立即购买</span></a>
+                                {% endifequal %}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12" id="bxgs-error-all" style="display: none;">
+
+            <!-- Default panel -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-exclamation-triangle"></i>&nbsp;本次核保失败了!
+                    <a href="javascript:window.history.go(-1);" class="btn btn-default pull-right">更换车辆</a>
+                </div>
+
+                <div class="panel-body">
+                    <h4>您的核保失败可能由以下原因造成：</h4>
+                    <ul class="list-group list-group-minimal">
+                        <li class="list-group-item">
+                            1.您所投保的城市，保险公司网销暂不支持
+                        </li>
+                        <li class="list-group-item">
+                            2.上年出险次数超过3次
+                        </li>
+                        <li class="list-group-item">
+                            3.上年理赔金额超过万元
+                        </li>
+                        <li class="list-group-item">
+                            4.车龄过长、车损险及其附加险不支持投保
+                        </li>
+                        <li class="list-group-item">
+                            5.车型为跑车、稀有车型或保险公司网销禁保车型
+                        </li>
+                        <li class="list-group-item">
+                            6.车价过高，车损险及其附加险不支持投保
+                        </li>
+                        <li class="list-group-item">
+                            7.跨省、跨地市投保
+                        </li>
+                        <li class="list-group-item">
+                            8.车辆未到投保期限（三个月内到期可进行投保）
+                        </li>
+                        <li class="list-group-item">
+                            9.某些保险公司禁保某些险种或保额
+                        </li>
+                        <li class="list-group-item">
+                            10.其他原因，如网络不稳定等
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+{% block modal %}
+    <div class="modal fade" id="modal-login" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content" style="min-height: 550px;padding-bottom: 10px;padding-top: 10px;">
+
+                <div class="modal-body" style="margin-bottom: 0;padding-bottom: 0;">
+
+                    <div class="panel-group panel-group-joined" id="accordion-test">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion-test" href="#collapseOne"
+                                       class="collapsed">
+                                        <i class="fa fa-weixin"></i> 微信登录
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                                <div class="panel-body" id="wechat_login" style="text-align: center;">
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade custom-width" id="modal-changtb" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog" style="width: 96%">
+            <div class="modal-content" style="padding: 15px 15px 15px 15px;">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <i class="fa-close"></i>
+                    </button>
+                    <h4 class="modal-title">更改</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="col-md-12 div-mp-l0-r0">
+                        <form role="form" class="form-horizontal">
+                            <div class="panel-group" id="accordion-chang">
+                                {# 车损 #}
+                                <div class="panel div-mp-l0-r0 panel-default list-p10 chang-ul">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion-chang"
+                                               href="#collapse-cheshun" class="collapsed">
+                                                <div class="label label-red">主险</div>
+                                                &nbsp;机动车损失保险
+                                                <span class="label label-secondary pull-right div-m-t-0 tb-text">投保</span>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse-cheshun" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12">
+
+                                                <table class="table table-model-2 table-hover">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td width="150">
+                                                            是否投保：
+                                                        </td>
+                                                        <td>
+                                                            <input name="CHESHUN" id="CHESHUN" type="checkbox"
+                                                                   class="iswitch iswitch-secondary iswitch-lg tb-checked"
+                                                                   checked="checked" tb="cs">
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>车损不计免赔：</td>
+                                                        <td>
+                                                            <input name="CHESHUN_BJ" id="CHESHUN_BJ" type="checkbox"
+                                                                   class="iswitch  iswitch-secondary iswitch-lg tb-bj-checked"
+                                                                   mp="cs">
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <h4>保障范围：</h4>
+
+                                                            <p class="font-size-14">
+                                                                车辆因碰撞、倾覆、火灾、爆炸、自然灾害、外界物体坠落或倒塌等发生的损失，保险公司按照条款规定进行赔偿。
+                                                            </p>
+                                                            <h4>案例：</h4>
+
+                                                            <p class="font-size-14">
+                                                                小A2万元入手一辆二手小面，并投保了车损险，保额2万元。兴奋劲还没有消退，duang，一次意外事故，大修花去了13332元。由于保了车损险及不计免赔，小A拿到了13332元的理赔款。
+                                                            </p>
+                                                        </td>
+
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {# 三者 #}
+                                <div class="panel div-mp-l0-r0 panel-default list-p10 chang-ul">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion-chang"
+                                               href="#collapse-sanzhe" class="collapsed">
+                                                <div class="label label-red">主险</div>
+                                                &nbsp;第三者责任保险
+                                                <span class="label label-secondary pull-right div-m-t-0 tb-text1">5万</span>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse-sanzhe" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12">
+
+                                                <table class="table table-model-2 table-hover">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td width="150">
+                                                            是否投保：
+                                                        </td>
+                                                        <td>
+                                                            <script type="text/javascript">
+                                                                jQuery(document).ready(function ($) {
+                                                                    $("#SANZHE").selectBoxIt().on('open', function () {
+                                                                        $(this).data('selectBoxSelectBoxIt').list.perfectScrollbar();
+                                                                    });
+                                                                });
+                                                            </script>
+                                                            <select class="form-control tb-select" id="SANZHE" stb="sz">
+                                                                <option value="0">不投保</option>
+                                                                <option value="50000" selected>5万</option>
+                                                                <option value="100000">10万</option>
+                                                                <option value="200000">20万</option>
+                                                                <option value="300000">30万</option>
+                                                                <option value="500000">50万</option>
+                                                                <option value="1000000">100万</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>三者不计免赔：</td>
+                                                        <td>
+                                                            <input name="SANZHE_BJ" id="SANZHE_BJ" type="checkbox"
+                                                                   class="iswitch  iswitch-secondary iswitch-lg tb-bj-checked1"
+                                                                   mp="sz">
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <h4>保障范围：</h4>
+
+                                                            <p class="font-size-14">
+                                                                保险事故发生后，赔偿除本车及本车车上人员之外的损失。如果您不小心撞坏别人的车或者您不小心撞到别人造成人身伤亡，保险公司将按照条款规定进行赔偿。
+                                                            </p>
+                                                            <h4>案例：</h4>
+
+                                                            <p class="font-size-14">
+                                                                一辆雅阁撞了劳斯莱斯，此事故雅阁为全责。根维修费最终为35万元，由于雅阁没有投保足额的三者及不计免赔，保险公司只赔付20万元。
+                                                            </p>
+                                                        </td>
+
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {# 全车盗抢保险 #}
+                                <div class="panel div-mp-l0-r0 panel-default list-p10 chang-ul">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion-chang"
+                                               href="#collapse-daoqiang" class="collapsed">
+                                                <div class="label label-red">主险</div>
+                                                &nbsp;全车盗抢保险
+                                                <span class="label label-white pull-right div-m-t-0 tb-text">未投保</span>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse-daoqiang" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12">
+
+                                                <table class="table table-model-2 table-hover">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td width="150">
+                                                            是否投保：
+                                                        </td>
+                                                        <td>
+                                                            <input name="DAOQIANG" id="DAOQIANG" type="checkbox"
+                                                                   class="iswitch iswitch-secondary iswitch-lg tb-checked"
+                                                                   tb="dq">
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>盗抢不计免赔：</td>
+                                                        <td>
+                                                            <input name="DAOQIANG_BJ" id="DAOQIANG_BJ" type="checkbox"
+                                                                   class="iswitch  iswitch-secondary iswitch-lg tb-bj-checked"
+                                                                   mp="dq">
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <h4>保障范围：</h4>
+
+                                                            <p class="font-size-14">
+                                                                如果整车发生被偷被盗，保险公司将按照条款进行赔偿。
+                                                            </p>
+                                                            <h4>案例：</h4>
+
+                                                            <p class="font-size-14">
+                                                                小A外出自驾游将车停在公共停车场，2日后回来发现车辆已丢；报案，车辆至今仍未找到，由于未投保盗抢险，造成的济损失由自己承担。
+                                                            </p>
+                                                        </td>
+
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {# 车上人员责任险（司机） #}
+                                <div class="panel div-mp-l0-r0 panel-default list-p10 chang-ul">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion-chang"
+                                               href="#collapse-siji" class="collapsed">
+                                                <div class="label label-red">主险</div>
+                                                &nbsp;车上人员责任险司机
+                                                <span class="label label-secondary pull-right div-m-t-0 tb-text1">1万</span>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse-siji" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12">
+
+                                                <table class="table table-model-2 table-hover">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td width="150">
+                                                            是否投保：
+                                                        </td>
+                                                        <td>
+                                                            <script type="text/javascript">
+                                                                jQuery(document).ready(function ($) {
+                                                                    $("#SHIJI").selectBoxIt().on('open', function () {
+                                                                        $(this).data('selectBoxSelectBoxIt').list.perfectScrollbar();
+                                                                    });
+                                                                });
+                                                            </script>
+                                                            <select class="form-control tb-select" id="SHIJI" stb="sj">
+                                                                <option value="0">不投保</option>
+                                                                <option value="10000" selected>1万</option>
+                                                                <option value="20000">2万</option>
+                                                                <option value="30000">3万</option>
+                                                                <option value="50000">5万</option>
+                                                                <option value="100000">10万</option>
+                                                                <option value="200000">20万</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>司机不计免赔：</td>
+                                                        <td>
+                                                            <input name="SHIJI_BJ" id="SHIJI_BJ" type="checkbox"
+                                                                   class="iswitch  iswitch-secondary iswitch-lg tb-bj-checked1"
+                                                                   mp="sj">
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <h4>保障范围：</h4>
+
+                                                            <p class="font-size-14">
+                                                                发生意外事故，造成本车驾驶员的人身伤亡，保险公司将按照条款进行赔偿。
+                                                            </p>
+                                                            <h4>案例：</h4>
+
+                                                            <p class="font-size-14">
+                                                                小A一家外出旅游，发生了意外事故，自己和妻子受伤，由于投保了司机座位责任险及乘客座位责任险各10000元，在获得维修赔偿费的同时，还获得司机车上人员责任险赔偿4564元。
+                                                            </p>
+                                                        </td>
+
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {# 车上人员责任险（乘客） #}
+                                <div class="panel div-mp-l0-r0 panel-default list-p10 chang-ul">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion-chang"
+                                               href="#collapse-chengke" class="collapsed">
+                                                <div class="label label-red">主险</div>
+                                                &nbsp;车上人员责任险乘客
+                                                <span class="label label-secondary pull-right div-m-t-0 tb-text1">1万</span>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse-chengke" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12">
+
+                                                <table class="table table-model-2 table-hover">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td width="150">
+                                                            是否投保：
+                                                        </td>
+                                                        <td>
+                                                            <script type="text/javascript">
+                                                                jQuery(document).ready(function ($) {
+                                                                    $("#CHENGKE").selectBoxIt().on('open', function () {
+                                                                        $(this).data('selectBoxSelectBoxIt').list.perfectScrollbar();
+                                                                    });
+                                                                });
+                                                            </script>
+                                                            <select class="form-control tb-select" id="CHENGKE"
+                                                                    stb="ck">
+                                                                <option value="0">不投保</option>
+                                                                <option value="10000" selected>1万</option>
+                                                                <option value="20000">2万</option>
+                                                                <option value="30000">3万</option>
+                                                                <option value="50000">5万</option>
+                                                                <option value="100000">10万</option>
+                                                                <option value="200000">20万</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>乘客不计免赔：</td>
+                                                        <td>
+                                                            <input name="CHENGKE_BJ" id="CHENGKE_BJ" type="checkbox"
+                                                                   class="iswitch  iswitch-secondary iswitch-lg tb-bj-checked1"
+                                                                   mp="ck">
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <h4>保障范围：</h4>
+
+                                                            <p class="font-size-14">
+                                                                发生意外事故，造成本车乘客的人身伤亡，保险公司将按照条款进行赔偿。
+                                                            </p>
+                                                            <h4>案例：</h4>
+
+                                                            <p class="font-size-14">
+                                                                小A一家外出旅游，发生了意外事故，自己和妻子受伤，由于投保了司机座位责任险及乘客座位责任险各10000元，在获得维修赔偿费的同时，还获得司机车上人员责任险赔偿4564元。
+                                                            </p>
+                                                        </td>
+
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {# 玻璃单独破碎险 #}
+                                <div class="panel div-mp-l0-r0 panel-default list-p10 chang-ul">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion-chang"
+                                               href="#collapse-boli" class="collapsed">
+                                                <div class="label label-info">附加</div>
+                                                &nbsp;玻璃单独破碎险
+                                                <span class="label label-white pull-right div-m-t-0 tb-text1 null-cs">未投保</span>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse-boli" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12">
+
+                                                <table class="table table-model-2 table-hover">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td width="150">
+                                                            是否投保：
+                                                        </td>
+                                                        <td>
+                                                            <script type="text/javascript">
+                                                                jQuery(document).ready(function ($) {
+                                                                    $("#BOLI").selectBoxIt().on('open', function () {
+                                                                        $(this).data('selectBoxSelectBoxIt').list.perfectScrollbar();
+                                                                    });
+                                                                });
+                                                            </script>
+                                                            <select class="form-control tb-select" id="BOLI">
+                                                                <option value="0" selected>不投保</option>
+                                                                <option value="1">国产</option>
+                                                                <option value="2">进口</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+
+
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <h4>保障范围：</h4>
+
+                                                            <p class="font-size-14">
+                                                                如果发生车窗、挡风玻璃的单独破碎，比如高速上行驶被飞石击碎挡风玻璃或车辆停放被高空坠物砸坏车窗，投保该种险保险公司将按照实际损失进行赔偿。
+                                                            </p>
+                                                            <h4>案例：</h4>
+
+                                                            <p class="font-size-14">
+                                                                小A在高速公路行驶过程中被不明飞行物打碎了车窗挡风玻璃。由于投保了玻璃单独破碎险，因此获得了保险公司玻璃单独破碎险赔偿1250元。
+                                                            </p>
+                                                        </td>
+
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {# 车身划痕损失险 #}
+                                <div class="panel div-mp-l0-r0 panel-default list-p10 chang-ul">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion-chang"
+                                               href="#collapse-huahen" class="collapsed">
+                                                <div class="label label-info">附加</div>
+                                                &nbsp;车身划痕损失险
+                                                <span class="label label-white pull-right div-m-t-0 tb-text1 null-cs">未投保</span>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse-huahen" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12">
+
+                                                <table class="table table-model-2 table-hover">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td width="150">
+                                                            是否投保：
+                                                        </td>
+                                                        <td>
+                                                            <script type="text/javascript">
+                                                                jQuery(document).ready(function ($) {
+                                                                    $("#HUAHEN").selectBoxIt().on('open', function () {
+                                                                        $(this).data('selectBoxSelectBoxIt').list.perfectScrollbar();
+                                                                    });
+                                                                });
+                                                            </script>
+                                                            <select class="form-control tb-select" id="HUAHEN">
+                                                                <option value="0" selected>不投保</option>
+                                                                <option value="2000">2000元</option>
+                                                                <option value="5000">5000元</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <h4>保障范围：</h4>
+
+                                                            <p class="font-size-14">
+                                                                无碰撞痕迹的车身表面油漆单独划伤，保险公司负责赔偿。例如您的车停放期间，被人用钥匙、小刀等尖锐物划伤了，保险公司按条款负责赔偿您维修的费用。
+                                                            </p>
+                                                            <h4>案例：</h4>
+
+                                                            <p class="font-size-14">
+                                                                小A为刚买不久的爱车立即购买了2000元保额的划痕险，一次停车过程中，车子脸面被不明物划伤毁容。由于小A立即购买了划痕险，因此给爱车美容花的1364元在理赔中得到全部赔偿。
+                                                            </p>
+                                                        </td>
+
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {# 自燃损失险 #}
+                                <div class="panel div-mp-l0-r0 panel-default list-p10 chang-ul">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion-chang"
+                                               href="#collapse-ziran" class="collapsed">
+                                                <div class="label label-info">附加</div>
+                                                &nbsp;自燃损失险
+                                                <span class="label label-white pull-right div-m-t-0 tb-text null-cs">未投保</span>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse-ziran" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12">
+
+                                                <table class="table table-model-2 table-hover">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td width="150">
+                                                            是否投保：
+                                                        </td>
+                                                        <td>
+                                                            <input name="ZIRAN" id="ZIRAN" type="checkbox"
+                                                                   class="iswitch  iswitch-secondary iswitch-lg tb-checked">
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <h4>保障范围：</h4>
+
+                                                            <p class="font-size-14">
+                                                                因本车电器、线路、油路、供油系统、供气系统、车载货物自身发生问题、车辆运转摩擦引起火灾，造成您车辆自身的损失，保险公司按条款规定赔偿
+                                                            </p>
+                                                            <h4>案例：</h4>
+
+                                                            <p class="font-size-14">
+                                                                小A在行驶过程中，汽车引擎盖下突然起火，最终导致整车被烧毁。查明自燃是车辆自身原因。由于没有投保自燃险，因此不在保险公司的赔偿范围之内。
+                                                            </p>
+                                                        </td>
+
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {# 发动机涉水险 #}
+                                <div class="panel div-mp-l0-r0 panel-default list-p10 chang-ul">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion-chang"
+                                               href="#collapse-sheshui" class="collapsed">
+                                                <div class="label label-info">附加</div>
+                                                &nbsp;发动机涉水险
+                                                <span class="label label-white pull-right div-m-t-0 tb-text null-cs">未投保</span>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse-sheshui" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12">
+
+                                                <table class="table table-model-2 table-hover">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td width="150">
+                                                            是否投保：
+                                                        </td>
+                                                        <td>
+                                                            <input name="SHESHUI" id="SHESHUI" type="checkbox"
+                                                                   class="iswitch  iswitch-secondary iswitch-lg tb-checked">
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <h4>保障范围：</h4>
+
+                                                            <p class="font-size-14">
+                                                                负责赔偿车辆因遭水淹或因涉水行驶赔偿车辆因遭水淹或因涉水行驶损失险赔偿限额以保险公司在出险当时的保险车辆实际价值范围内负责赔偿发动机的修复费用，但最高以车辆损失险的保险金额为限。
+                                                            </p>
+                                                            <h4>案例：</h4>
+
+                                                            <p class="font-size-14">
+                                                                小A在行驶中由于车辆涉水过深导致发动机熄火无法启动，定损发现汽车发动机内部进了水。由于没有投保涉水险，因此不在保险公司理赔范围之内。
+                                                            </p>
+                                                        </td>
+
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {# 不计免赔率险 #}
+                                <div class="panel div-mp-l0-r0 panel-default list-p10 chang-ul">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion-chang"
+                                               href="#collapse-buji" class="collapsed">
+                                                <div class="label label-info">其它</div>
+                                                &nbsp;不计免赔
+                                                <div class="label label-white pull-right" id="buji-weitoubao"></div>
+
+                                                <div class="label label-red pull-right"
+                                                     style="margin-right: 5px; display: none;" id="label-bj-cs">车损
+                                                </div>
+                                                <div class="label label-red pull-right"
+                                                     style="margin-right: 5px;display: none;" id="label-bj-sz">三者
+                                                </div>
+                                                <div class="label label-red pull-right"
+                                                     style="margin-right: 5px;display: none;" id="label-bj-dq">盗抢
+                                                </div>
+                                                <div class="label label-red pull-right"
+                                                     style="margin-right: 5px;display: none;" id="label-bj-sj">司机
+                                                </div>
+                                                <div class="label label-red pull-right"
+                                                     style="margin-right: 5px;display: none;" id="label-bj-ck">乘客
+                                                </div>
+                                                <div class="label label-red pull-right"
+                                                     style="margin-right: 5px;display: none;" id="label-bj-fj">附加
+                                                </div>
+
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse-buji" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12">
+
+                                                <table class="table table-model-2 table-hover">
+                                                    <tbody>
+
+                                                    <tr>
+                                                        <td width="150">
+                                                            附加不计免赔：
+                                                        </td>
+                                                        <td>
+                                                            <input name="FUJIA_BJ_1" id="FUJIA_BJ_1" type="checkbox"
+                                                                   class="iswitch  iswitch-secondary iswitch-lg buji-checkbox"
+                                                                   fc="fj">
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <h4>保障范围：</h4>
+
+                                                            <p class="font-size-14">
+                                                                保险事故发生后，按照对应投保的险种约定的免赔率计算的、应当由被保险人自行承担的免赔金额部分，保险人负责赔偿。
+                                                            </p>
+                                                            <h4>案例：</h4>
+
+                                                            <p class="font-size-14">
+                                                                小A由于工作需要经常出差，为了安全他投了全保，还立即购买了不计免赔。一次他的爱车被撞得面目全非，维修花费24850元，由于小王立即购买了不计免赔，因此在赔偿过程中获得24850元全部赔偿。
+                                                            </p>
+                                                        </td>
+
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {# 交强险和车船税（强制） #}
+                                <div class="panel div-mp-l0-r0 panel-default list-p10 chang-ul">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion-chang"
+                                               href="#collapse-jiaoqiang" class="collapsed">
+                                                <div class="label label-warning">强制</div>
+                                                &nbsp;交强险和车船税
+                                                <span class="label label-secondary pull-right div-m-t-0 tb-text">投保</span>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse-jiaoqiang" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="col-sm-12">
+
+                                                <table class="table table-model-2 table-hover">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td width="150">
+                                                            是否投保：
+                                                        </td>
+                                                        <td>
+                                                            <input name="JIAOQIANG" id="JIAOQIANG" type="checkbox"
+                                                                   class="iswitch  iswitch-secondary iswitch-lg tb-checked"
+                                                                   checked="checked">
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <h4>交强险为国家强制立即购买保险，未立即购买会导致双倍罚款</h4>
+                                                        </td>
+
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal" id="closemod">关闭</button>
+                    <button type="button" class="btn btn-info" id="rebtn">重新算价</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script src="{% static 'ebusiness/js/joinable.js' %}"></script>
+    <script src="{% static 'ebusiness/js/jquery-ui/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'ebusiness/js/selectboxit/jquery.selectBoxIt.min.js' %}"></script>
+    <script src="{% static 'ebusiness/js/toastr/toastr.min.js' %}"></script>
+    <script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+    <script src="{% static 'ebusiness/js/devexpress-web-14.1/js/globalize.min.js' %}"></script>
+    <script src="{% static 'ebusiness/js/devexpress-web-14.1/js/dx.chartjs.js' %}"></script>
+
+    <script>
+        var vtime = 0;
+        var Ptime = 60;
+        var intervalId;
+        var gauge;
+
+        function AddListDB(imgDiv, bxgs, d, gauge) {
+            var listnum = parseInt($("#listnum").val());
+            var oknum = parseInt($("#oknum").val());
+            var errnum = parseInt($("#errnum").val());
+            $("#" + bxgs + "_error").val("1");
+            imgDiv.empty();
+            $("." + bxgs + "_caption").show();
+            $("#" + bxgs + "-changtb-action").val("1");
+            if (d.data.error == "1") {
+                ShowLoadingMsg(bxgs, 1, 0);
+                errnum = errnum + 1;
+                $("#errnum").val(errnum);
+                $("#" + bxgs + "_panel").hide();
+                $("#" + bxgs + "_loading").html('<div class="alert alert-default" style="margin-top: 20px;"><strong>平台提示!</strong>' + d.data.msg + '</div>');
+            } else {
+                $(".bxgs-hide").show();
+                $("#" + bxgs + "_error").val("0");
+                $("#" + bxgs + "_panel").show();
+                $("#" + bxgs + "_TotalPremium").show().text(d.data.TotalPremium + "元");//保险合计
+                $("#" + bxgs + "_VehicleLoss").text(d.data.VehicleLoss);//车辆损失险
+                $("#" + bxgs + "_SanZhe").text(d.data.SanZhe);//三者
+                $("#" + bxgs + "_DaoQiang").text(d.data.DaoQiang);//盗抢险
+                $("#" + bxgs + "_ZeRenSJ").text(d.data.ZeRenSJ);//责任险（司机）
+                $("#" + bxgs + "_ZeRenCK").text(d.data.ZeRenCK);//（乘客）
+                $("#" + bxgs + "_BoLiPS").text(d.data.BoLiPS);//玻璃破险
+                $("#" + bxgs + "_HuaHen").text(d.data.HuaHen);//划痕险
+                $("#" + bxgs + "_ZiRan").text(d.data.ZiRan);//自燃险
+                $("#" + bxgs + "_SheShui").text(d.data.SheShui);//涉水险
+                $("#" + bxgs + "_BuJiMPZJ").text(d.data.BuJiMPZJ);//不计免赔总计
+                $("#" + bxgs + "_forcePremium").text(d.data.forcePremium);//交强总计
+                $("." + bxgs + "_show").show();
+                ShowLoadingMsg(bxgs, 0, 0);
+                oknum = oknum + 1;
+                $("#oknum").val(oknum);
+            }
+
+            listnum = listnum + 1;
+            $("#listnum").val(listnum);
+
+            switch (listnum) {
+                case 1:
+                    vtime = 60;
+                    gauge.value(60);
+                    break;
+                case 2:
+                    gauge.value(80);
+                    break;
+                case 3:
+                    Ptime = 60;
+                    gauge.value(100);
+                    break;
+                default :
+                    gauge.value(100);
+            }
+            $("#num-gs").text(oknum);
+            if (listnum == 3) {
+                Ptime = 60;
+                $("#loading").hide();
+            }
+            if (errnum == 3) {
+                $("#bxgs-error-all").show();
+            }
+        }
+        //loading消息
+        function ShowLoadingMsg(bxgs, err, t) {
+            var vstr = "";
+            switch (bxgs) {
+                case 'as':
+                    vstr = "安盛天平";
+                    break;
+                case 'yg':
+                    vstr = "阳光车险";
+                    break;
+                case 'zh':
+                    vstr = "中华保险";
+                    break;
+                default :
+                    vstr = bxgs;
+
+            }
+            if (t == 0) {
+                if (err == 1) {
+                    vstr = vstr + "暂时不支持该车投保!<br>正在为您查询其它保险公司报价";
+                } else {
+                    vstr = "完成" + vstr + "报价<br>正在为您查询其它保险公司报价";
+                }
+            }
+            if (t == 1) {
+                vstr = "正在为您获取保险公司报价,请稍等<span id='showtimes'>60</span>秒";
+            }
+
+            $("#loading-msg").html(vstr);
+        }
+        function setNumVal() {
+            $("#listnum").val("0");
+            $("#oknum").val("0");
+            $("#errnum").val("0");
+        }
+        function GetList(bxgs, div, gauge) {
+            ShowLoadingMsg(bxgs, 0, 1);
+            $("#" + bxgs + "-changtb-action").val("0");
+            var imgDiv = $(div);
+            $("." + bxgs + "_show").hide();
+            imgDiv.empty().append('<img src="{% static 'ebusiness/images/loading2.gif' %}" style="margin: auto;"><br>正在为您报价，请稍后......');
+
+            var id = "{{ id }}";
+
+            var data = {
+                "company": bxgs,
+                "id": id,
+                "time": String((new Date()).valueOf())
+            };
+            $.ajax({
+                url: '/bxservice/PriceList/',
+                type: "POST",
+                contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                data: data,
+                dataType: "json", success: function (d) {
+
+                    AddListDB(imgDiv, bxgs, d, gauge);
+                },
+                error: function () {
+                    var listnum = parseInt($("#listnum").val());
+                    var errnum = parseInt($("#errnum").val());
+                    $("#listnum").val(listnum + 1);
+                    $("#errnum").val(errnum + 1);
+                    $("#" + bxgs + "-changtb-action").val("1");
+                    $("#" + bxgs + "_loading").html('<div class="alert alert-default" style="margin-top: 20px;"><strong>平台提示!</strong>系统繁忙，请稍后再试!</div>');
+                }
+
+            });
+
+        }
+        function ChangAction(bxgs, div, gauge) {
+            ShowLoadingMsg(bxgs, 0, 1);
+            $("#" + bxgs + "-changtb-action").val("0");
+            $("#closemod").click();
+            var imgDiv = $(div);
+            $("." + bxgs + "_show").hide();
+            imgDiv.empty().append('<img src="{% static 'ebusiness/images/loading2.gif' %}" style="margin: auto;"><br>正在为您报价，请稍后......');
+
+            var id = "{{ id }}";
+            var CHESHUN = $("#CHESHUN").is(':checked') ? 1 : 0;
+            var SANZHE = $("#SANZHE").val();
+            var DAOQIANG = $("#DAOQIANG").is(':checked') ? 1 : 0;
+            var SHIJI = $("#SHIJI").val();
+            var CHENGKE = $("#CHENGKE").val();
+
+            var BOLI = $("#BOLI").val();
+            var HUAHEN = $("#HUAHEN").val();
+            var ZIRAN = $("#ZIRAN").is(':checked') ? 1 : 0;
+            var SHESHUI = $("#SHESHUI").is(':checked') ? 1 : 0;
+
+            var CHESHUN_BJ = $("#CHESHUN_BJ").is(':checked') ? 1 : 0;
+            var SANZHE_BJ = $("#SANZHE_BJ").is(':checked') ? 1 : 0;
+            var DAOQIANG_BJ = $("#DAOQIANG_BJ").is(':checked') ? 1 : 0;
+            var SHIJI_BJ = $("#SHIJI_BJ").is(':checked') ? 1 : 0;
+            var CHENGKE_BJ = $("#CHENGKE_BJ").is(':checked') ? 1 : 0;
+            var FUJIA_BJ = $("#FUJIA_BJ").is(':checked') ? 1 : 0;
+            var JIAOQIANG = $("#JIAOQIANG").is(':checked') ? 1 : 0;
+
+            var sendval = {
+                "CHESHUN": CHESHUN,
+                "SANZHE": SANZHE,
+                "DAOQIANG": DAOQIANG,
+                'SHIJI': SHIJI,
+                "CHENGKE": CHENGKE,
+                "BOLI": BOLI,
+                "HUAHEN": HUAHEN,
+                "ZIRAN": ZIRAN,
+                "SHESHUI": SHESHUI,
+                "CHESHUN_BJ": CHESHUN_BJ,
+                "SANZHE_BJ": SANZHE_BJ,
+                "DAOQIANG_BJ": DAOQIANG_BJ,
+                "SHIJI_BJ": SHIJI_BJ,
+                "CHENGKE_BJ": CHENGKE_BJ,
+                "FUJIA_BJ": FUJIA_BJ,
+                "JIAOQIANG": JIAOQIANG,
+                "company": bxgs,
+                "id": id,
+                "time": String((new Date()).valueOf()),
+                "chang": "1"
+
+            };
+            $.post('/bxservice/PriceList/', sendval, function (e) {
+
+                AddListDB(imgDiv, bxgs, e, gauge);
+            }, "json").error(function () {
+                var listnum = parseInt($("#listnum").val());
+                var errnum = parseInt($("#errnum").val());
+                $("#listnum").val(listnum + 1);
+                $("#errnum").val(errnum + 1);
+            });
+
+
+        }
+
+        function gaugeAction() {
+            if (vtime < 60) {
+                gauge.value(vtime);
+                vtime++;
+            } else {
+                clearInterval(intervalId);
+            }
+
+            $('#showtimes').html(Math.ceil(Ptime));
+            if (Ptime > 1) {
+                Ptime = Ptime - 0.5;
+            }
+
+
+        }
+        function gangeTime() {
+            intervalId = setInterval(gaugeAction, 500);
+        }
+
+        function ShowTBtext(t) {
+            $(".chang-ul").each(function (i) {
+                var ul = $(this);
+
+                if (t == 1) {
+                    var ischecked = ul.find(".tb-checked").is(':checked') ? 1 : 0;
+                    var tb = ul.find(".tb-checked").attr("tb");
+                    if (ischecked == 1) {
+                        ul.find(".tb-text").removeClass("label-white").addClass("label-secondary").html("投保");
+
+                        ul.find(".tb-bj-checked").attr("checked", 'true');
+                        if ($("input[mp='cs']").is(':checked')) {
+                            $("#label-bj-cs").show();
+                        } else {
+                            $("#label-bj-cs").hide();
+                        }
+
+                    } else {
+                        ul.find(".tb-bj-checked").removeAttr("checked");
+                        ul.find(".tb-text").removeClass("label-secondary").addClass("label-white").html("不投保");
+
+                    }
+                }
+                if (t == 2) {
+                    var isselect = ul.find(".tb-select").val();
+                    var stb = ul.find(".tb-select").attr("stb");
+                    if (isselect == "0") {
+                        $("input[mp=" + stb + "]").attr("disabled", true).removeAttr("checked");
+                        ul.find(".tb-text1").removeClass("label-secondary").addClass("label-white").html("不投保");
+                    } else {
+                        $("input[mp=" + stb + "]").attr("disabled", false);
+                        var isselect_text = ul.find(".tb-select").find("option:selected").text();
+                        ul.find(".tb-text1").removeClass("label-white").addClass("label-secondary").text(isselect_text);
+                    }
+                }
+                var BOLI = $("#BOLI").val();
+                var HUAHEN = $("#HUAHEN").val();
+                var ZIRAN = $("#ZIRAN").is(':checked') ? 1 : 0;
+                var SHESHUI = $("#SHESHUI").is(':checked') ? 1 : 0;
+
+                if (BOLI == "0" && HUAHEN == "0" && ZIRAN == 0 && SHESHUI == 0) {
+                    $("input[fc='fj']").attr("disabled", true).removeAttr("checked");
+                    $("#label-bj-fj").hide();
+                } else {
+                    $("input[fc='fj']").attr("disabled", false);
+                }
+
+            });
+            var isselect_cs = $("#CHESHUN").is(':checked') ? 1 : 0;
+            if (isselect_cs == 0) {
+                $(".null-cs").removeClass("label-secondary").addClass("label-white").html("不投保");
+                $("#BOLI,#HUAHEN").val("0").attr("disabled", true);
+                $("#ZIRAN,#SHESHUI").attr("disabled", true).removeAttr("checked");
+            } else {
+                $("#BOLI,#HUAHEN").attr("disabled", false);
+                $("#ZIRAN,#SHESHUI").attr("disabled", false);
+            }
+
+        }
+        $(function () {
+            $("#bxgs-error-all").hide();
+            $(".bxgs-hide").hide();
+            $("#zh_panel,#yg_panel,#as_panel").hide();
+            vtime = 0;
+            Ptime = 60;
+            gauge = $('#loading_show').dxCircularGauge({
+                geometry: {
+                    startAngle: 180, endAngle: 0
+                },
+                scale: {
+                    startValue: 0, endValue: 100,
+                    majorTick: {
+                        tickInterval: 10
+                    },
+                    label: {
+                        customizeText: function (arg) {
+                            return arg.valueText + ' %';
+                        }
+                    }
+                },
+                value: 15,
+                valueIndicator: {
+                    type: 'rangebar',
+                    color: '#68b828'
+                }
+            }).dxCircularGauge('instance');
+            $("#loading-text").show();
+            setNumVal();
+            //添加loading动画
+
+            gangeTime();
+
+            $("#tb2 a").click();
+            $(".chang-list-btn").click(function () {
+                var zh_action = $("#zh-changtb-action").val();
+                var yg_action = $("#yg-changtb-action").val();
+                var as_action = $("#as-changtb-action").val();
+                if (zh_action == "1" && yg_action == "1" && as_action == "1") {
+                    $('#modal-changtb').modal('show');
+                } else {
+                    toastr.info('<i class=fa-info></i>所有保险公司报价完成后才能更改方案!');
+                }
+
+            });
+            //发送异步请求
+            GetList("zh", "#zh_loading", gauge);
+            GetList("yg", "#yg_loading", gauge);
+            GetList("as", "#as_loading", gauge);
+
+            //更改投保选项
+            $("input").change(function () {
+                ShowTBtext(1);
+            });
+            $("select").change(function () {
+                ShowTBtext(2);
+            });
+            $(".tb-checked").change(function () {
+                var ischecked = $(this).is(':checked') ? 1 : 0;
+                var tb = $(this).attr("tb");
+                if (ischecked == 0) {
+                    $("#label-bj-" + tb).hide();
+                    $("input[fc=" + tb + "]").removeAttr("checked");
+                }
+            });
+            $(".tb-select").change(function () {
+                var ischecked = ($(this).val() == "0") ? 0 : 1;
+                var stb = $(this).attr("stb");
+                if (ischecked == 0) {
+                    $("#label-bj-" + stb).hide();
+                    $("input[fc=" + stb + "]").removeAttr("checked");
+                }
+            });
+
+            $(".tb-bj-checked").change(function () {
+                var ischecked = $(this).is(':checked') ? 1 : 0;
+                var mp = $(this).attr("mp");
+                if (ischecked == 1) {
+                    $("#buji-weitoubao").hide();
+                    $("#label-bj-" + mp).show();
+                    $("input[fc=" + mp + "]").attr("checked", 'true');
+                } else {
+                    $("#label-bj-" + mp).hide();
+                    $("input[fc=" + mp + "]").removeAttr("checked");
+                }
+            });
+            $(".tb-bj-checked1").change(function () {
+                var ischecked = $(this).is(':checked') ? 1 : 0;
+                var mp = $(this).attr("mp");
+                if ($("input[stb=" + mp + "]").val() != "0") {
+                    if (ischecked == 1) {
+                        $("#buji-weitoubao").hide();
+                        $("#label-bj-" + mp).show();
+                        $("input[fc=" + mp + "]").attr("checked", 'true');
+                    } else {
+                        $("#label-bj-" + mp).hide();
+                        $("input[fc=" + mp + "]").removeAttr("checked");
+                    }
+
+                } else {
+                    $(this).removeAttr("checked");
+                    $("#label-bj-" + mp).hide();
+                    $("input[fc=" + mp + "]").removeAttr("checked");
+                }
+
+            });
+            $("input[fc='fj']").change(function () {
+                var ischecked = $(this).is(':checked') ? 1 : 0;
+                if (ischecked == 1) {
+                    $("#label-bj-fj").show();
+                } else {
+                    $("#label-bj-fj").hide();
+                }
+            });
+            $("#rebtn").click(function () {
+                $("#loading").show();
+                setNumVal();
+                gauge.value(10);
+                vtime = 0;
+                Ptime = 60;
+                gangeTime();
+                $(".bxgs-hide").hide();
+                $("#zh_panel,#yg_panel,#as_panel").hide();
+                ChangAction("zh", "#zh_loading", gauge);
+                ChangAction("yg", "#yg_loading", gauge);
+                ChangAction("as", "#as_loading", gauge);
+            });
+
+            $(".buy-btn-go").click(function () {
+
+                var bxgs = $(this).attr("data-bxgs");
+                var car = $(this).attr("data-car");
+                var style = $(this).attr("data-style");
+                var sn = $(this).attr("data-sn");
+                var action = $(this).attr("data-action");
+                var obj = new WxLogin({
+                    id: "wechat_login",
+                    appid: "wxc7eadf63b02d39bd",
+                    scope: "snsapi_login",
+                    redirect_uri: encodeURIComponent("http://www.kalaibao.com/members/login/wechat/?company=" + bxgs + "&car=" + car + "&style=" + style + "&sn=" + sn + "&a=" + action),
+                    state: "",
+                    style: "",
+                    href: encodeURIComponent("http://web.kalaibao.com/static/ebusiness/css/wechat.css")
+                });
+
+                $('#modal-login').modal('show', {backdrop: 'fade'});
+            });
+
+
+        });
+        function between(randNumMin, randNumMax) {
+            var randInt = Math.floor((Math.random() * ((randNumMax + 1) - randNumMin)) + randNumMin);
+
+            return randInt;
+        }
+
+    </script>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% load staticfiles %}
+{% load ClientAdmintag %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>{{ Login_Title }}</title>
+    <meta name="description"
+          content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" href="{% static 'ClientAdmin/assets/animate.css/animate.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'ClientAdmin/assets/font-awesome/css/font-awesome.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'ClientAdmin/jquery/waves/dist/waves.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'ClientAdmin/styles/material-design-icons.css' %}" type="text/css"/>
+
+    <link rel="stylesheet" href="{% static 'ClientAdmin/jquery/bootstrap/dist/css/bootstrap.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'ClientAdmin/styles/font.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'ClientAdmin/styles/app.css' %}" type="text/css"/>
+
+</head>
+<body>
+<div class="app">
+    <div class="center-block w-xxl w-auto-xs p-v-md">
+        <div class="navbar">
+            <div class="navbar-brand m-t-lg text-center">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" style="
+                width: 24px; height: 24px;">
+          <path d="M 50 0 L 100 14 L 92 80 Z" fill="rgba(139, 195, 74, 0.5)"></path>
+          <path d="M 92 80 L 50 0 L 50 100 Z" fill="rgba(139, 195, 74, 0.8)"></path>
+          <path d="M 8 80 L 50 0 L 50 100 Z" fill="#fff"></path>
+          <path d="M 50 0 L 8 80 L 0 14 Z" fill="rgba(255, 255, 255, 0.6)"></path>
+        </svg>
+                <span class="m-l inline">卡来宝</span>
+            </div>
+        </div>
+
+        <div class="p-lg panel md-whiteframe-z1 text-color m">
+            {% if error %}
+                <div class="alert alert-warning" role="alert" id="msg">
+                    {{ error }}
+                </div>
+            {% endif %}
+            <div class="m-b text-sm">
+                请输入用户名和密码登录
+            </div>
+            <form name="form" action="/ClientAdmin/Login/" method="post">
+                <div class="md-form-group float-label">
+                    {{ forms.username }}
+                    <label>{{ forms.username.label }}</label>
+                    {% if forms.username.errors %}
+                        <span class="help-block m-b-none">{{ forms.username.errors.as_text|NoAsterisk }}</span>
+                    {% endif %}
+                </div>
+                <div class="md-form-group float-label">
+                    {{ forms.password }}
+                    <label>{{ forms.password.label }}</label>
+                    {% if forms.password.errors %}
+                        <span class="help-block m-b-none">{{ forms.password.errors.as_text|NoAsterisk }}</span>
+                    {% endif %}
+                </div>
+                <input type="hidden" id="Next" name="Next" value="{{ Next }}">
+                <button md-ink-ripple type="submit" class="md-btn md-raised pink btn-block p-h-md">登录
+                </button>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+
+<script src="{% static 'ClientAdmin/jquery/jquery/dist/jquery.js' %}"></script>
+<script src="{% static 'ClientAdmin/jquery/bootstrap/dist/js/bootstrap.js' %}"></script>
+<script src="{% static 'ClientAdmin/jquery/waves/dist/waves.js' %}"></script>
+<script src="{% static 'javascripts/layer/layer.js' %}"></script>
+<script src="{% static 'ClientAdmin/scripts/ui-load.js' %}"></script>
+<script src="{% static 'ClientAdmin/scripts/ui-jp.config.js' %}"></script>
+<script src="{% static 'ClientAdmin/scripts/ui-jp.js' %}"></script>
+<script src="{% static 'ClientAdmin/scripts/ui-nav.js' %}"></script>
+<script src="{% static 'ClientAdmin/scripts/ui-toggle.js' %}"></script>
+<script src="{% static 'ClientAdmin/scripts/ui-form.js' %}"></script>
+<script src="{% static 'ClientAdmin/scripts/ui-waves.js' %}"></script>
+<script src="{% static 'ClientAdmin/scripts/ui-client.js' %}"></script>
+<script>
+    $(function(){
+        {% if forms.username.errors %}
+        $("#password,#username").val("");
+        {% endif %}
+        {% if forms.password.errors %}
+        $("#password,#username").val("");
+        {% endif %}
+        {% if error %}
+        $("#password,#username").val("");
+        {% endif %}
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,669 @@
+{% extends 'common/common.html' %}
+{% load staticfiles %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'stylesheets' %}/steps-page.css"/>
+    <style type="text/css">
+        .close {
+            float: right;
+            font-size: 30px;
+            font-weight: normal;
+            line-height: 1;
+            color: #000;
+            text-shadow: 0 1px 0 #fff;
+            filter: alpha(opacity=20);
+            opacity: .2;
+        }
+
+        .modal-header .close {
+            margin: -20px -10px 0 0;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="container margin-top margin-bottom white-bg pricing-wrap">
+        <div class="row lateral-padding">
+            <div class="steps-title">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50"
+                         aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
+                </div>
+                <a href="javascript:void(0);" class="active">01.输入信息</a>
+                <a href="javascript:void(0);" class="active">02.精准报价</a>
+                <a href="javascript:void(0);">03.官网支付</a>
+            </div>
+
+            <hr class="color dashed">
+
+            <h3 class="bottom-line">精准比价结果
+               <span class="pull-right more-group">
+                   <a href="#" class="btn btn-danger btn-small" style="color:#fff;" action="changbx"
+                      onclick="changbx();">更改投保方案</a>
+               </span>
+            </h3>
+
+            <ol class="pricing-bj-info">
+                <li>亲，报价只是作为是否购买的因素之一，请您综合各因子做出购买评判。</li>
+                <li>以下报价均为合作保险公司精准报价，卡来宝对报价结果的准确性负责，并确保报价与保险公司官网报价相同，贵就赔！</li>
+                <li>所有支付均在保险公司官网进行，卡来宝不会也不会委托任何个人和机构向用户以任何方式收取任何费用。</li>
+            </ol>
+
+
+            <div class="row lateral-padding">
+                <table class="table table-bordered table-hover pricing-table-full">
+                    <tbody>
+                    <tr>
+                        <td width="16%" class="text-right">保险公司</td>
+                        <td width="14%"
+                            style="background-image: url({% static 'images/bxgs/logo-1.png' %});height: 100px;"></td>
+                        <td width="14%" style="background-image: url({% static 'images/bxgs/logo-3.png' %})"></td>
+                        <td width="14%" style="background-image: url({% static 'images/bxgs/logo-2.png' %})"></td>
+                        <td width="14%" style="background-image: url({% static 'images/bxgs/logo-4.png' %})"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">保费合计</td>
+                        <td style="text-align: center;" id="zh_TotalPremium"><img style="max-width: 90px;"
+                                                                                  src="{% static 'images/pricing/loading.gif' %}">
+                        </td>
+                        <td style="text-align: center;" id="as_TotalPremium"><img style="max-width: 90px;"
+                                                                                  src="{% static 'images/pricing/loading.gif' %}">
+                        </td>
+                        <td style="text-align: center;" id="yg_TotalPremium"><img style="max-width: 90px;"
+                                                                                  src="{% static 'images/pricing/loading.gif' %}">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">商业险总计</td>
+                        <td class="text-center" id="zh_BizPremium">保险公司验证您的信息</td>
+                        <td class="text-center" id="as_BizPremium">保险公司验证您的信息</td>
+                        <td class="text-center" id="yg_BizPremium">保险公司验证您的信息</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">交强险总计</td>
+                        <td class="text-center" id="zh_ForePremium">请等待......</td>
+                        <td class="text-center" id="as_ForePremium">请等待......</td>
+                        <td class="text-center" id="yg_ForePremium">请等待......</td>
+                        <td></td>
+                    </tr>
+                    <tr class="success">
+                        <td class="text-right">官网购买</td>
+                        <td class="text-center"><a href="/web/pricing/5/?bx=zh&key={{ vin }}" fc="zh_zxzf"
+                                                   class="btn btn-danger btn-small disabled">在线支付</a></td>
+                        <td class="text-center"><a href="/web/pricing/5/?bx=as&key={{ vin }}" fc="as_zxzf"
+                                                   class="btn btn-danger btn-small disabled">在线支付</a></td>
+                        <td class="text-center"><a href="/web/pricing/5/?bx=yg&key={{ vin }}" fc="yg_zxzf"
+                                                   class="btn btn-danger btn-small disabled">在线支付</a></td>
+                        <td class="text-center"><a href="#" class="btn btn-default btn-small disabled">即将开通</a></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">保险公司礼品</td>
+                        <td class="text-center" id="zh_InsuranceGift"></td>
+                        <td class="text-center" id="as_InsuranceGift"></td>
+                        <td class="text-center" id="yg_InsuranceGift"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">卡来宝礼品</td>
+                        <td class="text-center" id="zh_klbGift"></td>
+                        <td class="text-center" id="as_klbGift"></td>
+                        <td class="text-center" id="yg_klbGift"></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <h5>险种明细</h5>
+                <table class="table table-bordered table-hover pricing-table-full">
+                    <tbody>
+                    <tr>
+                        <td width="16%" class="text-right">商业险总计</td>
+                        <td width="14%" class="text-center" id="zh_bizPremium"></td>
+                        <td width="14%" class="text-center" id="as_bizPremium"></td>
+                        <td width="14%" class="text-center" id="yg_bizPremium"></td>
+                        <td width="14%"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">车辆损失险</td>
+                        <td width="14%" class="text-center" id="zh_VehicleLoss"></td>
+                        <td width="14%" class="text-center" id="as_VehicleLoss"></td>
+                        <td width="14%" class="text-center" id="yg_VehicleLoss"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">第三者责任</td>
+                        <td width="14%" class="text-center" id="zh_SanZhe"></td>
+                        <td width="14%" class="text-center" id="as_SanZhe"></td>
+                        <td width="14%" class="text-center" id="yg_SanZhe"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">全车盗抢险</td>
+                        <td width="14%" class="text-center" id="zh_DaoQiang"></td>
+                        <td width="14%" class="text-center" id="as_DaoQiang"></td>
+                        <td width="14%" class="text-center" id="yg_DaoQiang"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">车上人员责任险（司机）</td>
+                        <td width="14%" class="text-center" id="zh_ZeRenSJ"></td>
+                        <td width="14%" class="text-center" id="as_ZeRenSJ"></td>
+                        <td width="14%" class="text-center" id="yg_ZeRenSJ"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">车上人员责任险（乘客）</td>
+                        <td width="14%" class="text-center" id="zh_ZeRenCK"></td>
+                        <td width="14%" class="text-center" id="as_ZeRenCK"></td>
+                        <td width="14%" class="text-center" id="yg_ZeRenCK"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">玻璃单独破碎险</td>
+                        <td width="14%" class="text-center" id="zh_BoLiPS"></td>
+                        <td width="14%" class="text-center" id="as_BoLiPS"></td>
+                        <td width="14%" class="text-center" id="yg_BoLiPS"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">划痕险</td>
+                        <td width="14%" class="text-center" id="zh_HuaHen"></td>
+                        <td width="14%" class="text-center" id="as_HuaHen"></td>
+                        <td width="14%" class="text-center" id="yg_HuaHen"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">自燃险</td>
+                        <td width="14%" class="text-center" id="zh_ZiRan"></td>
+                        <td width="14%" class="text-center" id="as_ZiRan"></td>
+                        <td width="14%" class="text-center" id="yg_ZiRan"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">发动机涉水险</td>
+                        <td width="14%" class="text-center" id="zh_SheShui"></td>
+                        <td width="14%" class="text-center" id="as_SheShui"></td>
+                        <td width="14%" class="text-center" id="yg_SheShui"></td>
+                        <td></td>
+                    </tr>
+                    <tr class="info">
+                        <td class="text-right">不计免赔总计</td>
+                        <td width="14%" class="text-center" id="zh_BuJiMPZJ"></td>
+                        <td width="14%" class="text-center" id="as_BuJiMPZJ"></td>
+                        <td width="14%" class="text-center" id="yg_BuJiMPZJ"></td>
+                        <td></td>
+                    </tr>
+                    <tr class="success">
+                        <td class="text-right">不计免赔（车损）</td>
+                        <td width="14%" class="text-center" id="zh_BUJiCS"></td>
+                        <td width="14%" class="text-center" id="as_BUJiCS"></td>
+                        <td width="14%" class="text-center" id="yg_BUJiCS"></td>
+                        <td></td>
+                    </tr>
+                    <tr class="success">
+                        <td class="text-right">不计免赔（三者）</td>
+                        <td width="14%" class="text-center" id="zh_BuJiSZ"></td>
+                        <td width="14%" class="text-center" id="as_BuJiSZ"></td>
+                        <td width="14%" class="text-center" id="yg_BuJiSZ"></td>
+                        <td></td>
+                    </tr>
+                    <tr class="success">
+                        <td class="text-right">不计免赔（盗抢）</td>
+                        <td width="14%" class="text-center" id="zh_BuJiDQ"></td>
+                        <td width="14%" class="text-center" id="as_BuJiDQ"></td>
+                        <td width="14%" class="text-center" id="yg_BuJiDQ"></td>
+                        <td></td>
+                    </tr>
+                    <tr class="success">
+                        <td class="text-right">不计免赔（司机）</td>
+                        <td width="14%" class="text-center" id="zh_BuJiSJ"></td>
+                        <td width="14%" class="text-center" id="as_BuJiSJ"></td>
+                        <td width="14%" class="text-center" id="yg_BuJiSJ"></td>
+                        <td></td>
+                    </tr>
+                    <tr class="success">
+                        <td class="text-right">不计免赔（乘客）</td>
+                        <td width="14%" class="text-center" id="zh_BuJiCK"></td>
+                        <td width="14%" class="text-center" id="as_BuJiCK"></td>
+                        <td width="14%" class="text-center" id="yg_BuJiCK"></td>
+                        <td></td>
+                    </tr>
+
+                    <tr class="danger">
+                        <td class="text-right">交强险+车船税总计</td>
+                        <td width="14%" class="text-center" id="zh_forcePremium"></td>
+                        <td width="14%" class="text-center" id="as_forcePremium"></td>
+                        <td width="14%" class="text-center" id="yg_forcePremium"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">交强险</td>
+                        <td width="14%" class="text-center" id="zh_forcePre"></td>
+                        <td width="14%" class="text-center" id="as_forcePre"></td>
+                        <td width="14%" class="text-center" id="yg_forcePre"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right">车船税</td>
+                        <td width="14%" class="text-center" id="zh_VehTaxPremium"></td>
+                        <td width="14%" class="text-center" id="as_VehTaxPremium"></td>
+                        <td width="14%" class="text-center" id="yg_VehTaxPremium"></td>
+                        <td></td>
+                    </tr>
+
+                    <tr class="danger">
+                        <td class="text-right">保费合计</td>
+                        <td width="14%" class="text-center" id="zh_totalPremium"></td>
+                        <td width="14%" class="text-center" id="as_totalPremium"></td>
+                        <td width="14%" class="text-center" id="yg_totalPremium"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"></td>
+                        <td width="14%" class="text-center">
+                            <a href="#" class="btn btn-success btn-small" action="changbx" onclick="changbx()">更改方案</a>
+                            <a href="/web/pricing/5/?bx=zh&key={{ vin }}" fc="zh_zxzf" class="btn btn-danger btn-small disabled">在线支付</a>
+                        </td>
+                        <td width="14%" class="text-center">
+                            <a href="#" class="btn btn-success btn-small" action="changbx" onclick="changbx()">更改方案</a>
+                            <a href="/web/pricing/5/?bx=as&key={{ vin }}" fc="as_zxzf" class="btn btn-danger btn-small disabled">在线支付</a>
+                            </td>
+                        <td width="14%" class="text-center">
+                            <a href="#" class="btn btn-success btn-small" action="changbx" onclick="changbx()">更改方案</a>
+                            <a href="/web/pricing/5/?bx=yg&key={{ vin }}" fc="yg_zxzf" class="btn btn-danger btn-small disabled">在线支付</a>
+                        </td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+
+    </div>
+    <!-- 自定义 begin -->
+    <div style="display: none; padding: 10px;margin: 0; width: 1000px;" id="bxlist">
+
+
+        <!-- 基本保障 表单 begin-->
+        <div class="row">
+            <!-- 左侧 -->
+            <div class="col-md-6 insurance-form">
+                <h4>主险</h4>
+                <ul class="form-box form-box-l">
+                    <li class="form-group" data-submenu-id="submenu-51">
+                        <label for="CHESHUN">车辆损失险：</label>
+                        <select class="form-control" name="CHESHUN" id="CHESHUN">
+                            <option value="0">不投保</option>
+                            <option value="1" selected="selected">投保</option>
+                        </select>
+                    </li>
+                    <li class="form-group" data-submenu-id="submenu-52">
+                        <label for="car-L-02">第三者责任险：</label>
+                        <select name="SANZHE" id="SANZHE" class="form-control">
+                            <option value="0">不投保</option>
+                            <option value="50000">5万</option>
+                            <option value="100000">10万</option>
+                            <option value="200000">20万</option>
+                            <option value="300000" selected="selected">30万</option>
+                            <option value="500000">50万</option>
+                            <option value="1000000">100万</option>
+                        </select>
+
+                    </li>
+                    <li class="form-group" data-submenu-id="submenu-53">
+                        <label for="car-L-03">全车盗抢险：</label>
+                        <select name="DAOQIANG" id="DAOQIANG" class="form-control" fc="CHESHUN">
+                            <option value="0">不投保</option>
+                            <option value="1" selected="selected">投保</option>
+                        </select>
+
+                    </li>
+                    <li class="form-group" data-submenu-id="submenu-54">
+                        <label for="car-L-04">车上人员责任险（司机）：</label>
+                        <select name="SHIJI" id="SHIJI" class="form-control">
+                            <option value="0">不投保</option>
+                            <option value="10000" selected="selected">1万</option>
+                            <option value="20000">2万</option>
+                            <option value="30000">3万</option>
+                            <option value="50000">5万</option>
+                            <option value="100000">10万</option>
+                            <option value="200000">20万</option>
+                        </select>
+                    </li>
+                    <li class="form-group" data-submenu-id="submenu-55">
+                        <label for="car-L-05">车上人员责任险（乘客）：</label>
+                        <select name="CHENGKE" id="CHENGKE" class="form-control">
+                            <option value="0">不投保</option>
+                            <option value="10000" selected="selected">1万</option>
+                            <option value="20000">2万</option>
+                            <option value="30000">3万</option>
+                            <option value="50000">5万</option>
+                            <option value="100000">10万</option>
+                            <option value="200000">20万</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 右侧 -->
+            <div class="col-md-6 insurance-form insurance-form-R">
+                <h4>附加险</h4>
+                <ul class="form-box form-box-r" id="FUJIAXIAN_UL">
+                    <li class="form-group" data-submenu-id="submenu-61">
+                        <label for="BOLI">玻璃单独破碎险：</label>
+                        <select name="BOLI" id="BOLI" class="form-control">
+                            <option value="0">不投保</option>
+                            <option value="1">国产</option>
+                            <option value="2">进口</option>
+                        </select>
+                    </li>
+                    <li class="form-group" data-submenu-id="submenu-62">
+                        <label for="HUAHEN">车身划痕险：</label>
+                        <select name="HUAHEN" id="HUAHEN" class="form-control">
+                            <option value="0">不投保</option>
+                            <option value="2000">2000元</option>
+                            <option value="5000">5000元</option>
+                        </select>
+                    </li>
+                    <li class="form-group" data-submenu-id="submenu-63">
+                        <label for="ZIRAN">自燃损失险：</label>
+                        <select name="ZIRAN" id="ZIRAN" class="form-control">
+                            <option value="0">不投保</option>
+                            <option value="1">投保</option>
+                        </select>
+                    </li>
+                    <li class="form-group" data-submenu-id="submenu-64">
+                        <label for="SHESHUI">发动机涉水险：</label>
+                        <select name="SHESHUI" id="SHESHUI" class="form-control">
+                            <option value="0">不投保</option>
+                            <option value="1">投保</option>
+                        </select>
+
+
+                    </li>
+                    <li class="form-group" data-submenu-id="submenu-65" style="height: 100px;" fc="bjmp_input">
+                        <label>不计免赔：</label>&nbsp;
+                        <input type="checkbox" name="CHESHUN_BJ" id="CHESHUN_BJ" value="1" class=""/> 车损&nbsp;
+                        <input type="checkbox" name="SANZHE_BJ" fc="SANZHE" id="SANZHE_BJ" value="1" class=""/> 三者&nbsp;
+                        <input type="checkbox" name="DAOQIANG_BJ" fc="DAOQIANG" id="DAOQIANG_BJ" value="1" class=""/> 盗抢&nbsp;
+                        <input type="checkbox" name="SHIJI_BJ" id="SHIJI_BJ" value="1" class=""/> 司机&nbsp;
+                        <input type="checkbox" name="CHENGKE_BJ" id="CHENGKE_BJ" value="1" class=""/> 乘客&nbsp;
+                        <input type="checkbox" name="FUJIA_BJ" id="FUJIA_BJ" value="1" class=""/> 附加险&nbsp;
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 交强险 begin -->
+        <div class="row">
+            <div class="col-md-6 insurance-form">
+                <h4>交强险</h4>
+
+                <div class="form-group" style="border-bottom:none">
+                    <p><code>(国家强制保险，不购买会导致双倍罚款)</code></p>
+                    <input type="checkbox" checked="checked" name="car-D-01" id="JIAOQIANG" value="1"/>
+                    同时投保交强限并且代缴纳车船使用税
+                </div>
+            </div>
+            <div class="col-md-6 insurance-form tc">
+                <a href="javascript:void(0);" id="changtbfa"
+                   class="btn btn-ar btn-danger btn-large margin-top">更改投保方案</a>
+            </div>
+        </div>
+        <!-- 交强险 end -->
+    </div>
+    <!-- 自定义 end-->
+{% endblock %}
+{% block footerjs %}
+    <script type="text/javascript">
+        //更改投保方案
+        function changbx() {
+            var index = layer.open({
+                type: 1,
+                title: '更改投保方案',
+                content: $('#bxlist'),
+                scrollbar: false,
+                area: ['1020px', '550px']
+            });
+        }
+        function AddListDB(imgDiv, bxgs, d) {
+
+            imgDiv.empty();
+            if (d.data.error == "1") {
+                $("#" + bxgs + "_TotalPremium").html("<span style='color:red;'>"+d.data.msg+"</span>");
+            } else {
+                $("#" + bxgs + "_TotalPremium").text(d.data.TotalPremium);//保险合计
+                $("#" + bxgs + "_BizPremium").text(d.data.BizPremium);//商险合计
+                $("#" + bxgs + "_ForePremium").text(d.data.ForePremium);//交强险合计
+                $("#" + bxgs + "_InsuranceGift").text(d.data.InsuranceGift);//保险公司礼品
+                $("#" + bxgs + "_klbGift").text(d.data.klbGift);//卡来宝礼品
+                $("#" + bxgs + "_bizPremium").text(d.data.bizPremium);//商业险总计
+                $("#" + bxgs + "_VehicleLoss").text(d.data.VehicleLoss);//车辆损失险
+                $("#" + bxgs + "_SanZhe").text(d.data.SanZhe);//车辆损失险
+                $("#" + bxgs + "_DaoQiang").text(d.data.DaoQiang);//盗抢险
+                $("#" + bxgs + "_ZeRenSJ").text(d.data.ZeRenSJ);//责任险（司机）
+                $("#" + bxgs + "_ZeRenCK").text(d.data.ZeRenCK);//（乘客）
+                $("#" + bxgs + "_BoLiPS").text(d.data.BoLiPS);//玻璃破险
+                $("#" + bxgs + "_HuaHen").text(d.data.HuaHen);//划痕险
+                $("#" + bxgs + "_ZiRan").text(d.data.ZiRan);//自燃险
+                $("#" + bxgs + "_SheShui").text(d.data.SheShui);//涉水险
+                $("#" + bxgs + "_BuJiMPZJ").text(d.data.BuJiMPZJ);//不计免赔总计
+                $("#" + bxgs + "_BUJiCS").text(d.data.BUJiCS);//不计车损
+                $("#" + bxgs + "_BuJiSZ").text(d.data.BuJiSZ);//不计三者
+                $("#" + bxgs + "_BuJiDQ").text(d.data.BuJiDQ);//不计盗抢险
+                $("#" + bxgs + "_BuJiSJ").text(d.data.BuJiSJ);//不计司机
+                $("#" + bxgs + "_BuJiCK").text(d.data.BuJiCK);//不计乘客
+                $("#" + bxgs + "_forcePremium").text(d.data.forcePremium);//交强总计
+                $("#" + bxgs + "_forcePre").text(d.data.forcePre);//交强险
+                $("#" + bxgs + "_VehTaxPremium").text(d.data.VehTaxPremium);// 车船税
+                $("#" + bxgs + "_totalPremium").text(d.data.TotalPremium);// 保险总计
+
+                $('a[fc="' + bxgs + '_zxzf"]').removeClass("disabled");
+            }
+
+        }
+        function GetList(bxgs, div) {
+            var imgDiv = $(div);
+            $('td[id*="' + bxgs + '_"]').text("");
+            imgDiv.empty().append('<img style="max-width: 90px;" src="{% static 'images/pricing/loading.gif' %}">');
+            var licenseNo = "{{ request.GET.licenseno }}";
+            var ownerName = "{{ request.GET.ownername }}";
+            var cityCode = "{{ request.GET.citycode }}";
+            var vin = "{{ request.GET.vin }}";
+            var engine = "{{ request.GET.engine }}";
+            var a = "{{ request.GET.a }}";
+            var key = "{{ request.GET.key }}";
+            var vehicleFgwCode = "{{ request.GET.vehiclefgwcode }}";
+            var value = "{{ request.GET.value }}";
+            var id = "{{ request.GET.id }}";
+            var drivCity="{{ request.GET.drivCity  }}"
+
+            var data = {
+                "licenseno": licenseNo,
+                "ownername": ownerName,
+                "citycode": cityCode,
+                "vin": vin,
+                "engine": engine,
+                "a": a,
+                "carkey": key,
+                "vehiclefgwcode": vehicleFgwCode,
+                "value": value,
+                "company": bxgs,
+                "drivCity":drivCity,
+                "id": id,
+                "time": String((new Date()).valueOf())
+            };
+            $.ajax({
+                url: '/bxservice/PriceList/',
+                type: "POST",
+                contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                data: data,
+                dataType: "json", success: function (d) {
+
+                    AddListDB(imgDiv, bxgs, d);
+                },
+                error:function(){
+                    $("#" + bxgs + "_TotalPremium").html("<span style='color:red;'>"+"对不起！网络繁忙！请稍后再试！"+"</span>");
+                }
+
+
+            });
+
+        }
+        function IsSetSelect() {
+            var CHESHUN = $("#CHESHUN").val();
+            var SANZHE = $("#SANZHE").val();
+            var DAOQIANG = $("#DAOQIANG").val();
+            var SHIJI = $("#SHIJI").val();
+            var CHENGKE = $("#CHENGKE").val();
+
+            var BOLI = $("#BOLI").val();
+            var HUAHEN = $("#HUAHEN").val();
+            var ZIRAN = $("#ZIRAN").val();
+            var SHESHUI = $("#SHESHUI").val();
+
+            var CHESHUN_BJ = $("#CHESHUN_BJ").is(':checked') ? 1 : 0;
+            var SANZHE_BJ = $("#SANZHE_BJ").is(':checked') ? 1 : 0;
+            var DAOQIANG_BJ = $("#DAOQIANG_BJ").is(':checked') ? 1 : 0;
+            var SHIJI_BJ = $("#SHIJI_BJ").is(':checked') ? 1 : 0;
+            var CHENGKE_BJ = $("#CHENGKE_BJ").is(':checked') ? 1 : 0;
+            var FUJIA_BJ = $("#FUJIA_BJ").is(':checked') ? 1 : 0;
+
+            //车损
+            if (CHESHUN == "0") {
+                $("#FUJIAXIAN_UL,[fc=\"CHESHUN\"]").find("select").val("0").attr("disabled", true);
+                $("#CHESHUN_BJ,#DAOQIANG_BJ").attr("checked", false).attr("disabled", true);
+                $('[fc="CHESHUN"]').val("0").attr("disabled", true);
+            } else if (CHESHUN == "1") {
+                $("#FUJIAXIAN_UL").find("select,input").attr("disabled", false);
+                $("#CHESHUN_BJ,#DAOQIANG_BJ").attr("disabled", false);
+                $('[fc="CHESHUN"]').attr("disabled", false);
+            }
+            //司机
+            if (SHIJI == "0") {
+                $("#SHIJI_BJ").attr("checked", false).attr("disabled", true);
+            } else {
+                $("#SHIJI_BJ").attr("disabled", false);
+            }
+            //乘客
+            if (CHENGKE == "0") {
+                $("#CHENGKE_BJ").attr("checked", false).attr("disabled", true);
+            } else {
+                $("#CHENGKE_BJ").attr("disabled", false);
+            }
+            //三者
+            if (SANZHE == "0") {
+                $('[fc="SANZHE"]').attr("checked", false).attr("disabled", true);
+            } else {
+                $('[fc="SANZHE"]').attr("disabled", false);
+            }
+            //盗抢
+            if (DAOQIANG == "0") {
+                $('[fc="DAOQIANG"]').attr("checked", false).attr("disabled", true);
+            } else {
+                $('[fc="DAOQIANG"]').attr("disabled", false);
+            }
+            //附加不计免赔判断
+            if (BOLI == 0 && HUAHEN == 0 && ZIRAN == 0 && SHESHUI == 0) {
+                $('#FUJIA_BJ').attr("checked", false).attr("disabled", true);
+            } else {
+                $('#FUJIA_BJ').attr("disabled", false);
+            }
+
+        }
+
+        function ChangAction(bxgs, div) {
+            layer.closeAll();
+            var imgDiv = $(div);
+            $('td[id*="' + bxgs + '_"]').text("");
+            imgDiv.empty().append('<img style="max-width: 90px;" src="{% static 'images/pricing/loading.gif' %}">');
+
+            var CHESHUN = $("#CHESHUN").val();
+            var SANZHE = $("#SANZHE").val();
+            var DAOQIANG = $("#DAOQIANG").val();
+            var SHIJI = $("#SHIJI").val();
+            var CHENGKE = $("#CHENGKE").val();
+
+            var BOLI = $("#BOLI").val();
+            var HUAHEN = $("#HUAHEN").val();
+            var ZIRAN = $("#ZIRAN").val();
+            var SHESHUI = $("#SHESHUI").val();
+
+            var CHESHUN_BJ = $("#CHESHUN_BJ").is(':checked') ? 1 : 0;
+            var SANZHE_BJ = $("#SANZHE_BJ").is(':checked') ? 1 : 0;
+            var DAOQIANG_BJ = $("#DAOQIANG_BJ").is(':checked') ? 1 : 0;
+            var SHIJI_BJ = $("#SHIJI_BJ").is(':checked') ? 1 : 0;
+            var CHENGKE_BJ = $("#CHENGKE_BJ").is(':checked') ? 1 : 0;
+            var FUJIA_BJ = $("#FUJIA_BJ").is(':checked') ? 1 : 0;
+            var JIAOQIANG = $("#JIAOQIANG").is(':checked') ? 1 : 0;
+            var licenseNo = "{{ request.GET.licenseno }}";
+            var ownerName = "{{ request.GET.ownername }}";
+            var cityCode = "{{ request.GET.citycode }}";
+            var vin = "{{ request.GET.vin }}";
+            var engine = "{{ request.GET.engine }}";
+            var a = "{{ request.GET.a }}";
+            var key = "{{ request.GET.key }}";
+            var vehicleFgwCode = "{{ request.GET.vehiclefgwcode }}";
+            var value = "{{ request.GET.value }}";
+            var id = "{{ request.GET.id }}";
+
+            var sendval = {
+                "CHESHUN": CHESHUN,
+                "SANZHE": SANZHE,
+                "DAOQIANG": DAOQIANG,
+                'SHIJI': SHIJI,
+                "CHENGKE": CHENGKE,
+                "BOLI": BOLI,
+                "HUAHEN": HUAHEN,
+                "ZIRAN": ZIRAN,
+                "SHESHUI": SHESHUI,
+                "CHESHUN_BJ": CHESHUN_BJ,
+                "SANZHE_BJ": SANZHE_BJ,
+                "DAOQIANG_BJ": DAOQIANG_BJ,
+                "SHIJI_BJ": SHIJI_BJ,
+                "CHENGKE_BJ": CHENGKE_BJ,
+                "FUJIA_BJ": FUJIA_BJ,
+                "JIAOQIANG": JIAOQIANG,
+                "licenseno": licenseNo,
+                "ownername": ownerName,
+                "citycode": cityCode,
+                "vin": vin,
+                "engine": engine,
+                "a": a,
+                "carkey": key,
+                "vehiclefgwcode": vehicleFgwCode,
+                "value": value,
+                "company": bxgs,
+                "id": id,
+                "time": String((new Date()).valueOf()),
+                "chang": "1"
+
+            };
+            $.post('/bxservice/PriceList/', sendval, function (e) {
+
+                AddListDB(imgDiv, bxgs, e);
+            });
+
+
+        }
+
+        $(function () {
+            //请求安盛
+            GetList("as", "#as_TotalPremium");
+            //请求中华
+            GetList("zh", "#zh_TotalPremium");
+            //请求阳光
+            GetList("yg", "#yg_TotalPremium");
+            $("select,input").change(function () {
+                IsSetSelect();
+            });
+            $("#changtbfa").click(function () {
+                ChangAction("as", "#as_TotalPremium");
+                ChangAction("zh", "#zh_TotalPremium");
+                ChangAction("yg", "#yg_TotalPremium")
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,324 @@
+{% load staticfiles %}
+{% load wechattag %}
+<div class="navbar theme-red">
+    <div class="navbar-inner wechat_bjcolor">
+        <div class="left"><a href="#" class="link back">返回</a></div>
+        <div class="center sliding">卡来宝车险</div>
+        <div class="right"></div>
+    </div>
+</div>
+<div data-page="share" class="page">
+    <div class="page-content theme-red">
+        {% for h in PricingHistory %}
+        <div class="card facebook-card">
+            <div id='Detailed' class="card-header">
+                <div class="facebook-avatar">
+                    {% ifequal h.bxgs 'yg'  %}
+                    <img src="{% static 'wechat/img/bxgs/60x60/logo-yangguang.png' %}" width="34" height="34">
+                    {% endifequal %}
+                    {% ifequal h.bxgs 'as'  %}
+                    <img src="{% static 'wechat/img/bxgs/60x60/logo-ansheng.png' %}" width="34" height="34">
+                    {% endifequal %}
+                    {% ifequal h.bxgs 'zh'  %}
+                    <img src="{% static 'wechat/img/bxgs/60x60/logo-zhonghua.png' %}" width="34" height="34">
+                    {% endifequal %}
+                </div>
+                <div class="facebook-name">
+                    {% ifequal h.bxgs 'yg'  %}
+                    阳光保险
+                    {% endifequal %}
+                    {% ifequal h.bxgs 'as'  %}
+                    安盛保险
+                    {% endifequal %}
+                    {% ifequal h.bxgs 'zh'  %}
+                    中华保险
+                    {% endifequal %}
+                </div>
+                <div class="facebook-date">{{ h.zongji }}</div>
+            </div>
+            <table style="width:98%;margin:auto;color:#ADADAD;margin-top:0em" >
+            <tbody>
+            {% ifequal h.chechuan '0' %}
+            {% else %}
+            <tr>
+                <td style="text-align:left">车损险</td>
+                <td style="text-align:right"><span>{{ h.chesun }}</span></td>
+            </tr>
+            {% endifequal %}
+            {% ifequal h.sanzhe '0' %}
+            {% else %}
+            <tr>
+                <td style="text-align:left">三责险</td>
+                <td style="text-align:right"><span>{{ h.sanzhe }}</span></td>
+            </tr>
+            {% endifequal %}
+            {% ifequal h.daoqiang '0' %}
+            {% else %}
+            <tr>
+                <td style="text-align:left">盗抢险</td>
+                <td style="text-align:right"><span>{{ h.daoqiang }}</span></td>
+            </tr>
+            {% endifequal %}
+            {% ifequal h.siji '0' %}
+            {% else %}
+            <tr>
+                <td style="text-align:left">司机座位险</td>
+                <td style="text-align:right"><span>{{ h.siji }}</span></td>
+            </tr>
+            {% endifequal %}
+            {% ifequal h.chengke '0' %}
+            {% else %}
+            <tr>
+                <td style="text-align:left">乘客座位险</td>
+                <td style="text-align:right"><span>{{ h.chengke }}</span></td>
+            </tr>
+            {% endifequal %}
+            {% ifequal h.ziran '0' %}
+            {% else %}
+            <tr>
+                <td style="text-align:left">自燃险</td>
+                <td style="text-align:right"><span>{{ h.ziran }}</span></td>
+            </tr>
+            {% endifequal %}
+            {% ifequal h.boli '0' %}
+            {% else %}
+            <tr>
+                <td style="text-align:left">玻璃破碎险</td>
+                <td style="text-align:right"><span>{{ h.boli }}</span></td>
+            </tr>
+            {% endifequal %}
+            {% ifequal h.huahen '0' %}
+            {% else %}
+            <tr>
+                <td style="text-align:left">划痕险</td>
+                <td style="text-align:right"><span>{{ h.huahen }}</span></td>
+            </tr>
+            {% endifequal %}
+            {% ifequal h.fadongji '0' %}
+            {% else %}
+            <tr>
+                <td style="text-align:left">涉水险</td>
+                <td style="text-align:right"><span>{{ h.fadongji }}</span></td>
+            </tr>
+            {% endifequal %}
+            {% ifequal h.chesun_bj '0' %}
+            {% else %}
+            <tr>
+                <td style="text-align:left">车损险不计免赔</td>
+                <td style="text-align:right"><span>{{ h.chesun_bj }}</span></td>
+            </tr>
+            {% endifequal %}
+            {% ifequal h.sanzhe_bj '0'%}
+            {% else %}
+            <tr>
+                <td style="text-align:left">三责险不计免赔</td>
+                <td style="text-align:right"><span>{{ h.sanzhe_bj }}</span></td>
+            </tr>
+            {% endifequal %}
+            {% ifequal h.daoqiang_bj '0'%}
+            {% else %}
+            <tr>
+                <td style="text-align:left">盗抢险不计免赔</td>
+                <td style="text-align:right"><span>{{ h.daoqiang_bj }}</span></td>
+            </tr>
+            {% endifequal %}
+            {% ifequal h.siji_bj '0' %}
+            {% else %}
+            <tr>
+                <td style="text-align:left">责任司机不计免赔</td>
+                <td style="text-align:right"><span>{{ h.siji_bj }}</span></td>
+            </tr>
+            {% endifequal %}
+            {% ifequal h.chengke_bj '0'%}
+            {% else %}
+            <tr>
+                <td style="text-align:left">责任乘客不计免赔</td>
+                <td style="text-align:right"><span>{{ h.chengke_bj }}</span></td>
+            </tr>
+            {% endifequal %}
+            {% ifequal h.jiaoqiang '0' %}
+            {% else %}
+            <tr>
+                <td style="text-align:left">交强险</td>
+                <td style="text-align:right"><span>{{ h.jiaoqiang }}</span></td>
+            </tr>
+            {% endifequal %}
+            {% ifequal h.chechuan '0' %}
+            {% else %}
+            <tr>
+                <td style="text-align:left">车船税</td>
+                <td style="text-align:right"><span>{{ h.chechuan }}</span></td>
+            </tr>
+            {% endifequal %}
+            </tbody>
+            </table>
+        <!--
+                        <div class="card-content">
+                <div class="card-content-inner">
+                    <div class="wechat-history-list">
+                        <span class="wechat-history-list-title">
+                            车损险:
+                        </span>
+                        <span class="wechat-history-list-content">
+                            {{ h.chesun }}
+                        </span>
+                    </div>
+                    <div class="wechat-history-list">
+                        <span class="wechat-history-list-title">
+                            第三者责任险:
+                        </span>
+                        <span class="wechat-history-list-content">
+                            {{ h.sanzhe }}
+                        </span>
+                    </div>
+                    <div class="wechat-history-list">
+                        <span class="wechat-history-list-title">
+                            盗抢险:
+                        </span>
+                        <span class="wechat-history-list-content">
+                            {{ h.daoqiang }}
+                        </span>
+                    </div>
+                    <div class="wechat-history-list">
+                        <span class="wechat-history-list-title">
+                            责任险(司机):
+                        </span>
+                        <span class="wechat-history-list-content">
+                            {{ h.siji }}
+                        </span>
+                    </div>
+                    <div class="wechat-history-list">
+                        <span class="wechat-history-list-title">
+                            责任险(乘客):
+                        </span>
+                        <span class="wechat-history-list-content">
+                            {{ h.chengke }}
+                        </span>
+                    </div>
+                    <div class="wechat-history-list">
+                        <span class="wechat-history-list-title">
+                            玻璃破碎险:
+                        </span>
+                        <span class="wechat-history-list-content">
+                            {{ h.boli }}
+                        </span>
+                    </div>
+                    <div class="wechat-history-list">
+                        <span class="wechat-history-list-title">
+                            划痕险:
+                        </span>
+                        <span class="wechat-history-list-content">
+                            {{ h.huahen }}
+                        </span>
+                    </div>
+                    <div class="wechat-history-list">
+                        <span class="wechat-history-list-title">
+                            自然险:
+                        </span>
+                        <span class="wechat-history-list-content">
+                            {{ h.ziran }}
+                        </span>
+                    </div>
+                    <div class="wechat-history-list">
+                        <span class="wechat-history-list-title">
+                            涉水险:
+                        </span>
+                        <span class="wechat-history-list-content">
+                            {{ h.fadongji }}
+                        </span>
+                    </div>
+                    <div class="wechat-history-list">
+                        <span class="wechat-history-list-title">
+                            不计免赔(车损):
+                        </span>
+                        <span class="wechat-history-list-content">
+                            {{ h.chesun_bj}}
+                        </span>
+                    </div>
+                    <div class="wechat-history-list">
+                        <span class="wechat-history-list-title">
+                            不计免赔(三者):
+                        </span>
+                        <span class="wechat-history-list-content">
+                            {{ h.sanzhe_bj}}
+                        </span>
+                    </div>
+                    <div class="wechat-history-list">
+                        <span class="wechat-history-list-title">
+                            不计免赔(盗抢险):
+                        </span>
+                        <span class="wechat-history-list-content">
+                            {{ h.daoqiang_bj}}
+                        </span>
+                    </div>
+                    <div class="wechat-history-list">
+                        <span class="wechat-history-list-title">
+                            不计免赔(司机):
+                        </span>
+                        <span class="wechat-history-list-content">
+                            {{ h.siji_bj}}
+                        </span>
+                    </div>
+                    <div class="wechat-history-list">
+                        <span class="wechat-history-list-title">
+                            不计免赔(乘客):
+                        </span>
+                        <span class="wechat-history-list-content">
+                            {{ h.chengke_bj}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            -->
+            <div class="card-footer">
+                <a href="#" class="link"></a>
+                <a href="#" class="link"></a>
+                <a href="/wechat/pricing/1/?id={{ h.car_id }}" class="link">重新比价</a>
+            </div>
+        </div>
+
+        {% endfor %}
+        <!--
+        <div class="card facebook-card">
+            <div class="card-header">
+                <div class="facebook-avatar">
+                    <img src="{% static 'wechat/img/bxgs/60x60/logo-ansheng.png' %}" width="34" height="34">
+                </div>
+                <div class="facebook-name">安盛保险</div>
+                <div class="facebook-date">2015-10-25</div>
+            </div>
+            <div class="card-content">
+                <div class="card-content-inner">
+
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="link"></a>
+                <a href="#" class="link"></a>
+                <a href="#" class="link">重新比价</a>
+            </div>
+        </div>
+        <div class="card facebook-card">
+            <div class="card-header">
+                <div class="facebook-avatar">
+                    <img src="{% static 'wechat/img/bxgs/60x60/logo-zhonghua.png' %}" width="34" height="34">
+                </div>
+                <div class="facebook-name">中华保险</div>
+                <div class="facebook-date">2015-10-25</div>
+            </div>
+            <div class="card-content">
+                <div class="card-content-inner">
+
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="#" class="link"></a>
+                <a href="#" class="link"></a>
+                <a href="#" class="link">重新比价</a>
+            </div>
+        </div>
+    -->
+    </div>
+</div>
+
+

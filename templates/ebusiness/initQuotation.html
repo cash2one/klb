@@ -1,0 +1,656 @@
+{% extends 'ebusiness/common.html' %}
+{% load staticfiles %}
+{% block style %}
+    <style>
+        body {
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+        }
+
+        body, a, h1, h2, h3, h4, h5, span, div, ul, label {
+            font-family: "Microsoft YaHei", "微软雅黑" !important;
+        }
+
+        .main-content {
+            padding: 10px 10px 10px 10px !important;
+        }
+
+        .tab-content {
+            padding: 30px 10px 10px 10px !important;
+        }
+
+        .ebusiness-hr {
+            border-bottom: 1px solid #EEE !important;
+        }
+
+        .ebusiness-mt10 {
+            margin-top: 10px !important;
+        }
+
+        .ebusiness-pt0 {
+            padding-top: 0 !important;
+        }
+
+        .ebusiness-ml0 {
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+        }
+
+        .ebusiness-l60 {
+
+            line-height: 60px !important;
+        }
+
+        .ebusiness-l50 {
+
+            line-height: 50px !important;
+        }
+
+        .ebusiness-mpr0 {
+
+            margin-right: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        .ebusiness-p5 {
+            padding: 5px !important;
+        }
+
+        .ebusiness-p0 {
+            padding: 0 !important;
+        }
+
+        .ebusiness-mt5 {
+            margin-top: 5px !important;
+        }
+
+        .ebusiness-mb0 {
+            margin-bottom: 0 !important;
+        }
+
+        .ebusiness-fr {
+            float: right !important;
+            margin-right: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        .ebusiness-fs {
+            font-size: 12px !important;
+        }
+
+        .ebusiness-bt0 {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            margin: 0 !important;
+        }
+
+        .ebusiness-h50lh50 {
+            height: 50px !important;
+            line-height: 50px !important;
+            text-align: right !important;
+        }
+
+        .ebusiness-dis-b-50 {
+            min-width: 50px !important;
+            display: block !important;
+            float: right !important;
+        }
+
+        .ebusiness-dis-b-100 {
+            min-width: 100px !important;
+            display: block !important;
+            float: right !important;
+        }
+
+        .ebusiness-min-height45 {
+            min-height: 45px !important;
+        }
+
+        .ebusiness-ul-li50 {
+            min-height: 50px !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .ebusiness-h50 {
+            height: 50px !important;
+            line-height: 50px !important;
+        }
+
+        .ebusiness-text-align-right {
+            text-align: right !important;
+        }
+
+        .ebusiness-lr-mp-0 {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        .ebusiness-float-right {
+            float: right !important;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+
+            <ul class="nav nav-tabs nav-tabs-justified">
+                <li class="active">
+                    <a href="#Price-List" data-toggle="tab">
+                        推荐套餐
+                    </a>
+                </li>
+                <li>
+                    <a href="#profile-3" data-toggle="tab">
+                        自定义套餐
+                    </a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="Price-List">
+
+
+                    <div class="panel-group" id="accordion-list">
+
+                        <div class="panel panel-default ebusiness-hr ebusiness-p5">
+                            <div class="panel-heading">
+                                <div class="panel-title ebusiness-l50">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion-list"
+                                       href="#accordion-zhonghua">
+
+                                        <div class="col-xs-5 ebusiness-ml0 ebusiness-mpr0">
+                                            <h4 class="ebusiness-bt0">
+                                                <img src="{% static 'wechat/img/bxgs/60x60/logo-zhonghua.png' %}"
+                                                     class="img-thumbnail" width="50">
+                                                <span>中华联合</span>
+                                            </h4>
+                                        </div>
+
+                                        <div class="col-xs-6 ebusiness-ml0 ebusiness-fr">
+                                            <h4 class="ebusiness-bt0 ebusiness-h50lh50">
+                                                <span class="ebusiness-dis-b-50">
+                                                    <button class="btn btn-purple  btn-sm full-right ebusiness-mb0"
+                                                            type="button"><i class="fa fa-shopping-cart"></i></button>
+                                                </span>
+                                                <span class="ebusiness-dis-b-100">1385222元</span>
+                                            </h4>
+                                        </div>
+
+                                    </a>
+                                </div>
+                            </div>
+                            <div style="" id="accordion-zhonghua" class="panel-collapse collapse">
+                                <div class="panel-body ebusiness-pt0">
+                                    <table class="table table-model-2 table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>险种名称</th>
+                                            <th>额度</th>
+                                            <th>保费</th>
+                                        </tr>
+                                        </thead>
+
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-red">主险</span>
+                                                <span>机动车损失保险</span>
+                                            </td>
+                                            <td>投保</td>
+                                            <td>376.40元</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-red">主险</span>
+                                                <span>第三者责任保险</span>
+                                            </td>
+                                            <td>投保</td>
+                                            <td>376.40元</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-red">主险</span>
+                                                <span>全车盗抢保险</span>
+                                            </td>
+                                            <td>投保</td>
+                                            <td>376.40元</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <span class="label label-red">主险</span>
+                                                <span>车上人员责任险（司机）</span>
+                                            </td>
+                                            <td>投保</td>
+                                            <td>376.40元</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-red">主险</span>
+                                                <span>车上人员责任险（乘客）</span>
+                                            </td>
+                                            <td>投保</td>
+                                            <td>376.40元</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-success">附加险</span>
+                                                <span>玻璃单独破碎险</span>
+                                            </td>
+                                            <td>投保</td>
+                                            <td>376.40元</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-success">附加险</span>
+                                                <span>车身划痕损失险</span>
+                                            </td>
+                                            <td>投保</td>
+                                            <td>376.40元</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-success">附加险</span>
+                                                <span>自燃损失险</span>
+                                            </td>
+                                            <td>投保</td>
+                                            <td>376.40元</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-success">其他</span>
+                                                <span>不计免赔率险</span>
+                                            </td>
+                                            <td>投保</td>
+                                            <td>376.40元</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-blue">其他</span>
+                                                <span>交强险</span>
+                                            </td>
+                                            <td>投保</td>
+                                            <td>376.40元</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="label label-blue">其他</span>
+                                                <span>车船税</span>
+                                            </td>
+                                            <td>投保</td>
+                                            <td>376.40元</td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <ul class="pager">
+                                        <li class="previous"><a href="#">重新算价</a></li>
+                                        <li class="next"><a href="#" class="btn btn-red">去购买</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default ebusiness-hr ebusiness-p5">
+                            <div class="panel-heading">
+                                <div class="panel-title ebusiness-l50">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion-list"
+                                       href="#accordion-yangguang">
+
+                                        <div class="col-xs-5 ebusiness-ml0 ebusiness-mpr0">
+                                            <h4 class="ebusiness-bt0">
+                                                <img src="{% static 'wechat/img/bxgs/60x60/logo-yangguang.png' %}"
+                                                     class="img-thumbnail" width="50">
+                                                <span>阳光车险</span>
+                                            </h4>
+                                        </div>
+                                        <div class="col-xs-6 ebusiness-ml0 ebusiness-fr">
+                                            <h4 class="ebusiness-bt0 ebusiness-h50lh50">
+                                                <span class="ebusiness-dis-b-50">
+                                                    <button class="btn btn-purple  btn-sm full-right ebusiness-mb0"
+                                                            type="button"><i class="fa fa-shopping-cart"></i></button>
+                                                </span>
+                                                <span class="ebusiness-dis-b-100">1385222元</span>
+                                            </h4>
+                                        </div>
+
+                                    </a>
+                                </div>
+                            </div>
+                            <div style="height: 0px;" id="accordion-yangguang" class="panel-collapse collapse">
+                                <div class="panel-body">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default ebusiness-p5">
+                            <div class="panel-heading">
+                                <div class="panel-title ebusiness-l50">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion-list"
+                                       href="#accordion-ansheng">
+
+                                        <div class="col-xs-5 ebusiness-ml0  ebusiness-mpr0">
+                                            <h4 class="ebusiness-bt0">
+                                                <img src="{% static 'wechat/img/bxgs/60x60/logo-ansheng.png' %}"
+                                                     class="img-thumbnail" width="50">
+                                                <span>安盛天平</span>
+                                            </h4>
+                                        </div>
+
+                                        <div class="col-xs-6 ebusiness-ml0 ebusiness-fr">
+                                            <h4 class="ebusiness-bt0 ebusiness-h50lh50">
+                                                <span class="ebusiness-dis-b-50">
+                                                    <button class="btn btn-purple  btn-sm full-right ebusiness-mb0"
+                                                            type="button"><i class="fa fa-shopping-cart"></i></button>
+                                                </span>
+                                                <span class="ebusiness-dis-b-100">1385222元</span>
+                                            </h4>
+                                        </div>
+
+                                    </a>
+                                </div>
+                            </div>
+                            <div style="height: 0px;" id="accordion-ansheng" class="panel-collapse collapse">
+                                <div class="panel-body">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="tab-pane" id="profile-3">
+
+                    <div class="row">
+
+                        <div class="col-sm-6">
+                            <form role="form" class="form-horizontal">
+                                <strong>Table Model 2</strong>
+
+                                <table class="table table-model-2 table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>名称</th>
+                                        <th style="text-align: center;">操作</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <span class="label label-red">主险</span>
+                                            机动车损失保险
+                                        </td>
+                                        <td class="ebusiness-text-align-right ebusiness-p0">
+                                            <input name="CHESHUN" id="CHESHUN" type="checkbox"
+                                                   class="iswitch iswitch-secondary iswitch-lg ebusiness-mt5"
+                                                   checked="checked">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Ramadani</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Fisteku</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+
+                    </div>
+
+
+                    <!--
+                        <ul class="list-group list-group-minimal">
+                            <li class="list-group-item ebusiness-ul-li50">
+                                <div class="col-xs-6 ebusiness-ml0 ebusiness-h50">
+                                    <span class="label label-red">主险</span>
+                                    <span>机动车损失保险</span>
+                                </div>
+                                <div class="col-xs-4 ebusiness-h50 ebusiness-lr-mp-0 ebusiness-float-right">
+                                    <div class="ebusiness-text-align-right ebusiness-lr-mp-0">
+                                        <input name="CHESHUN" id="CHESHUN" type="checkbox" class="iswitch iswitch-secondary iswitch-lg" checked="checked">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item ebusiness-ul-li50">
+
+                                <div class="col-xs-9 ebusiness-ml0 ebusiness-h50">
+                                    <span class="label label-red">主险</span>
+                                    <span>第三者责任保险</span>
+                                </div>
+                                <div class="col-xs-3 full-right ebusiness-h50 ebusiness-lr-mp-0">
+                                    <div class="ebusiness-text-align-right ebusiness-lr-mp-0">
+                                        <script type="text/javascript">
+										jQuery(document).ready(function($)
+										{
+											$("#SANZHE").selectBoxIt().on('open', function()
+											{
+												$(this).data('selectBoxSelectBoxIt').list.perfectScrollbar();
+											});
+										});
+									</script>
+									<select class="form-control" id="SANZHE">
+										<option value="al">不投保</option>
+										<option value="au">5万</option>
+										<option value="bd">10万</option>
+										<option value="br">20万</option>
+                                        <option value="br">30万</option>
+                                        <option value="br">50万</option>
+                                        <option value="br">100万</option>
+									</select>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item ebusiness-ul-li50">
+                                <div class="col-xs-6 ebusiness-ml0 ebusiness-h50">
+                                    <span class="label label-red">主险</span>
+                                    <span>全车盗抢保险</span>
+                                </div>
+                                <div class="col-xs-4 ebusiness-h50 ebusiness-lr-mp-0 ebusiness-float-right">
+                                    <div class="ebusiness-text-align-right ebusiness-lr-mp-0">
+                                        <input name="DAOQIANG" id="DAOQIANG" type="checkbox" class="iswitch iswitch-secondary iswitch-lg" checked="checked">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item ebusiness-min-height45">
+
+                                <div class="col-xs-10 ebusiness-ml0  ebusiness-h50">
+                                    <span class="label label-red">主险</span>
+                                    <span>车上人员责任险（司机）</span>
+                                </div>
+                                <div class="col-xs-2 ebusiness-h50 ebusiness-lr-mp-0 ebusiness-float-right">
+                                    <div class="ebusiness-text-align-right ebusiness-lr-mp-0">
+                                        <input name="SHIJI" id="SHIJI" type="checkbox" class="iswitch  iswitch-secondary iswitch-lg iswitch-lg" checked="checked">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item ebusiness-min-height45">
+
+                                <div class="col-xs-10 ebusiness-ml0">
+                                    <span class="label label-red">主险</span>
+                                    <span>车上人员责任险（乘客）</span>
+                                </div>
+                                <div class="col-xs-2 full-right">
+                                    <div class="ebusiness-text-align-right ebusiness-lr-mp-0">
+                                        <input name="CHENGKE" id="CHENGKE" type="checkbox" class="iswitch  iswitch-secondary iswitch-lg" checked="checked">
+                                    </div>
+                                </div>
+                            </li>
+                            {# 附加险 #}
+                            <li class="list-group-item ebusiness-min-height45">
+
+                                <div class="col-xs-10 ebusiness-ml0">
+                                    <span class="label label-success">附加险</span>
+                                    <span>玻璃单独破碎险</span>
+                                </div>
+                                <div class="col-xs-2 full-right">
+                                    <div class="ebusiness-text-align-right ebusiness-lr-mp-0">
+                                        <input name="BOLI" id="BOLI" type="checkbox" class="iswitch  iswitch-secondary iswitch-lg"
+                                               checked="checked">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item ebusiness-min-height45">
+
+                                <div class="col-xs-10 ebusiness-ml0">
+                                    <span class="label label-success">附加险</span>
+                                    <span>车身划痕损失险</span>
+                                </div>
+                                <div class="col-xs-2 full-right">
+                                    <div class="ebusiness-text-align-right ebusiness-lr-mp-0">
+                                        <input name="HUAHEN" id="HUAHEN" type="checkbox"
+                                               class="iswitch  iswitch-secondary iswitch-lg" checked="checked">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item ebusiness-min-height45">
+
+                                <div class="col-xs-10 ebusiness-ml0">
+                                    <span class="label label-success">附加险</span>
+                                    <span>自燃损失险</span>
+                                </div>
+                                <div class="col-xs-2 full-right">
+                                    <div class="ebusiness-text-align-right ebusiness-lr-mp-0">
+                                        <input name="ZIRAN" id="ZIRAN" type="checkbox" class="iswitch  iswitch-secondary iswitch-lg"
+                                               checked="checked">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item ebusiness-min-height45">
+
+                                <div class="col-xs-10 ebusiness-ml0">
+                                    <span class="label label-success">附加险</span>
+                                    <span>发动机涉水险</span>
+                                </div>
+                                <div class="col-xs-2 full-right">
+                                    <div class="ebusiness-text-align-right ebusiness-lr-mp-0">
+                                        <input name="SHESHUI" id="SHESHUI" type="checkbox"
+                                               class="iswitch  iswitch-secondary iswitch-lg" checked="checked">
+                                    </div>
+                                </div>
+                            </li>
+                            {# 不计免赔 #}
+                            <li class="list-group-item ebusiness-min-height45">
+                                <div class="col-xs-10 ebusiness-ml0">
+                                    <span class="label label-default">不计免赔</span>
+                                    <span>车损不计免赔</span>
+                                </div>
+                                <div class="col-xs-2 full-right">
+                                    <div class="ebusiness-text-align-right ebusiness-lr-mp-0">
+                                        <input name="CHESHUN_BJ" id="CHESHUN_BJ" type="checkbox"
+                                               class="iswitch  iswitch-secondary iswitch-lg" checked="checked">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item ebusiness-min-height45">
+                                <div class="col-xs-10 ebusiness-ml0">
+                                    <span class="label label-default">不计免赔</span>
+                                    <span>三者不计免赔</span>
+                                </div>
+                                <div class="col-xs-2 full-right">
+                                    <div class="ebusiness-text-align-right ebusiness-lr-mp-0">
+                                        <input name="SANZHE_BJ" id="SANZHE_BJ" type="checkbox"
+                                               class="iswitch  iswitch-secondary iswitch-lg" checked="checked">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item ebusiness-min-height45">
+                                <div class="col-xs-10 ebusiness-ml0">
+                                    <span class="label label-default">不计免赔</span>
+                                    <span>盗抢不计免赔</span>
+                                </div>
+                                <div class="col-xs-2 full-right">
+                                    <div class="ebusiness-text-align-right ebusiness-lr-mp-0">
+                                        <input name="DAOQIANG_BJ" id="DAOQIANG_BJ" type="checkbox"
+                                               class="iswitch  iswitch-secondary iswitch-lg" checked="checked">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item ebusiness-min-height45">
+                                <div class="col-xs-10 ebusiness-ml0">
+                                    <span class="label label-default">不计免赔</span>
+                                    <span>司机不计免赔</span>
+                                </div>
+                                <div class="col-xs-2 full-right">
+                                    <div class="ebusiness-text-align-right ebusiness-lr-mp-0">
+                                        <input name="SHIJI_BJ" id="SHIJI_BJ" type="checkbox"
+                                               class="iswitch  iswitch-secondary iswitch-lg" checked="checked">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item ebusiness-min-height45">
+                                <div class="col-xs-10 ebusiness-ml0">
+                                    <span class="label label-default">不计免赔</span>
+                                    <span>乘客不计免赔</span>
+                                </div>
+                                <div class="col-xs-2 full-right">
+                                    <div class="ebusiness-text-align-right ebusiness-lr-mp-0">
+                                        <input name="CHENGKE_BJ" id="CHENGKE_BJ" type="checkbox"
+                                               class="iswitch  iswitch-secondary iswitch-lg" checked="checked">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item ebusiness-min-height45">
+                                <div class="col-xs-10 ebusiness-ml0">
+                                    <span class="label label-default">不计免赔</span>
+                                    <span>附加险不计免赔</span>
+                                </div>
+                                <div class="col-xs-2 full-right">
+                                    <div class="ebusiness-text-align-right ebusiness-lr-mp-0">
+                                        <input name="FUJIA_BJ" id="FUJIA_BJ" type="checkbox"
+                                               class="iswitch  iswitch-secondary iswitch-lg" checked="checked">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item ebusiness-min-height45">
+                                <div class="col-xs-10 ebusiness-ml0">
+                                    <span class="label label-blue">其它</span>
+                                    <span>交强险和车船税（强制）</span>
+                                </div>
+                                <div class="col-xs-2 full-right">
+                                    <div class="ebusiness-text-align-right ebusiness-lr-mp-0">
+                                        <input name="JIAOQIANG" id="JIAOQIANG" type="checkbox"
+                                               class="iswitch  iswitch-secondary iswitch-lg" checked="checked">
+                                    </div>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                        -->
+
+                </div>
+            </div>
+
+            <ul class="pager">
+                <li class="previous"><a href="/ebusiness/selectCerList/">上一步</a></li>
+                <li class="next"><a href="#">下一步</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block script %}
+    <script src="{% static 'ebusiness/js/joinable.js' %}"></script>
+    <script src="{% static 'ebusiness/js/jquery-ui/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'ebusiness/js/selectboxit/jquery.selectBoxIt.min.js' %}"></script>
+    <script>
+        $(function () {
+            $("#tb2 a").click();
+        });
+    </script>
+{% endblock %}

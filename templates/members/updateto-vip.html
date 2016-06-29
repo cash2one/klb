@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>卡来宝 -- 让车生活更美好！</title>
+    <!--  SEO META TAGS -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="ghostrin" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <!-- Mobile Specific Meta -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--Core CSS -->
+    <link rel="stylesheet" type="text/css" media="all" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="../css/main.css" />
+    <!--page CSS -->
+    <link rel="stylesheet" type="text/css" media="all" href="css/user-center.css" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+</head>
+
+<body class="user-center">
+    <!-- Top-bar BEGIN-->
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-xs-4">
+                    <p>
+                        <a href="javascript:window.external.AddFavorite('http://www.kalaibao.com','卡来宝')">收藏卡来宝</a></li> |
+                        <a href="http://www.weibo.com/client=XXXX">关注卡来宝</a>
+                    </p>
+                </div>
+                <div class="col-sm-6 col-xs-8">
+                    <ul>
+                        <li class="login"><a href="#" data-toggle="modal" data-target="#loginModal"><i class="fa fa-user"></i>登 录</a></li>
+                        <li class="sign-in"><a href="#"><i class="fa fa-tint"></i>注册 </a></li>
+                        <li class="order"><a href="#"><i class="fa fa-shopping-cart"></i>订单查询</a></li>
+                        <li class="user-center"><a href="#"><i class="fa fa-group"></i>用户中心</a></li>
+                        <li class="help"><a href="#"><i class="fa fa-question"></i>帮助</a></li>
+                        <!-- search form, maybe you like -->
+                        <li class="search"><a href="#"><i class="fa fa-search"></i></a>
+                            <ul class="search-items radius-bottom">
+                                <li class="search-form">
+                                    <form method="get" id="searchform" action="action">
+                                        <div>
+                                            <input class="radius" type="text" size="" name="s" id="s" value="请输入关键字" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
+                                            <input type="submit" id="searchsubmit" value="Search" />
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/.top-bar END-->
+
+    <!-- Header BEGIN-->
+    <header id="header">
+        <nav class="navbar navbar-inverse" role="navigation">
+            <div id="sticky_navigation">
+                <div class="container">
+
+                    <!--JUST FOR MOBILE-->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">点击展开</span>
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <h1 class="logo">
+                            <a href="#" title="卡来宝" class="navbar-brand"><img src="../images/logo.png"></a>
+                            <i class="fa fa-slogn"></i>
+                        </h1>
+                    </div>
+
+                    <!-- navbar-header END-->
+                    <div class="collapse navbar-collapse navbar-right">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="../index.html">首 页</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">车 险 <i class="fa fa-angle-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">来宝好车险</a></li>
+                                    <li><a href="#">保单验真</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">汽车召回</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">福 利 <i class="fa fa-angle-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">投保有礼</a></li>
+                                    <li><a href="#">推荐有礼</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">公 益 <i class="fa fa-angle-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">公益新闻</a></li>
+                                    <li><a href="#">公益图片</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="contact-us.html">联系我们</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!--/.container-->
+            </div>
+            <!--/#sticky_navigation-->
+        </nav>
+        <!--/nav-->
+    </header>
+    <!--/header-->
+    <!-- =================== INCLUDE ABOVE TO YOUR WEBSITE ========================= -->
+    <div class="container margin-top">
+        <div class="row">
+            <!-- left side bar -->
+            <aside class="col-md-3">
+
+                <!-- 用户基本资料 -->
+                <div class="user-info">
+                    <div class="user-info-detail clearfix">
+                        <img src="../images/user_portrait.jpg" class="img-thumbnail">
+                        <h6 id="userName">ghostrin</h6>
+                        <h6 id="userLevel">普通管理员</h6>
+                    </div>                    
+                    <ul class="user-info-status">
+                        <li class="with-tips">
+                            <i class="fa fa-users"></i>
+                            <div class="tips">
+                                <i class="fa fa-caret-up fa-2x"></i>
+                                <p>您已完成实名认证</p>
+                            </div>
+                        </li>
+                        <li class="with-tips">
+                            <i class="fa fa-calculator"></i>
+                            <div class="tips">
+                                <i class="fa fa-caret-up fa-2x"></i>
+                                <p>您已绑定手机号131****5366</p>
+                            </div>
+                        </li>
+                        <li class="with-tips">
+                            <i class="fa fa-envelope-o"></i>
+                            <div class="tips">
+                                <i class="fa fa-caret-up fa-2x"></i>
+                                <p>您已完成邮箱验证 <a href='#' style='color:rgb(20,104,236)'>点击修改</a></p>
+                            </div>
+                        </li>
+                        <li class="with-tips">
+                            <i class="fa fa-lock"></i>
+                            <div class="tips">
+                                <i class="fa fa-caret-up fa-2x"></i>
+                                <p>您已设置支付密码 <a href='#' style='color:rgb(20,104,236)'>点击修改</a></p>
+                            </div>
+                        </li>
+                        <li class="with-tips">
+                            <i class="fa fa-edit"></i>
+                            <div class="tips">
+                                <i class="fa fa-caret-up fa-2x"></i>
+                                <p>修改个人资料信息 <a href='#' style='color:rgb(20,104,236)'>点击修改</a></p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
+                    </div>
+                    <div class="status-no">您还有认证未完成</div>
+                    <!-- <div class="status-yes">恭喜您完成所有认证</div>  根据完成的状态，显示不同 -->
+                    <div class="status-txt">
+                        安全等级：<b class="red">中</b>
+                        <a href="#" class="pull-right">提升>></a>
+                    </div>
+                </div>
+
+                <!-- 左侧导航 -->
+                <ul class="sidebar-nav">
+                    <li>
+                        <a data-toggle="collapse" href="#payment" class="collapsed"><i class="fa fa-credit-card"></i> 我的订单</a>
+                        <ul id="payment" class="menu-submenu list-unstyled collapse">
+                            <li><a href="paid.html"><i class="fa fa-cart-plus"></i> 已支付</a></li>
+                            <li><a href="non-payment.html"><i class="fa fa-paypal"></i>  未支付</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="my-recall.html" class="no-collapsed"><i class="fa fa-retweet"></i> 我的召回</a></li>
+                    <li><a href="my-car.html" class="no-collapsed"><i class="fa fa-car"></i> 我的爱车</a></li>
+                    <li><a href="my-wallet.html" class="no-collapsed"><i class="fa fa-money"></i> 我的钱包</a></li>
+                    <li><a href="my-beans.html" class="no-collapsed"><i class="fa fa-gift"></i> 我的卡豆</a></li>
+                    <li><a href="diffuse-center.html" class="no-collapsed"><i class="fa fa-paw"></i> 推广中心</a></li>
+                    <li><a href="updateto-vip.html" class="no-collapsed"><i class="fa fa-paper-plane-o"></i> 会员升级</a></li>
+                    <li>
+                        <a data-toggle="collapse" href="#account" class="collapsed"><i class="fa fa-list-alt"></i> 管理账户</a>
+                        <ul id="account" class="menu-submenu list-unstyled collapse">
+                            <li><a href="about-me.html"><i class="fa fa-arrow-circle-right"></i> 个人资料</a></li>
+                            <li><a href="security-setting.html"><i class="fa fa-arrow-circle-right"></i> 安全设置</a></li>
+                            <li><a href="manage-info.html"><i class="fa fa-arrow-circle-right"></i> 消息管理</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- main content -->
+            <div class="col-md-9">
+                <!-- 消息提示区域 -->
+                <div class="alert alert-primary">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">知道了</button>
+                    <div class="badge-primary">提 醒</div><i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;&nbsp;交易提醒：
+                    <a href="pending-pay.html">待处理订单（0）</a> &nbsp;&nbsp;&nbsp;&nbsp;消息提醒：
+                    <a href="sys-info.html">系统消息（2）</a>
+                </div>
+
+                <!-- 账号信息 -->
+                <div class="account-center clearfix">
+                    <!-- 我的余额 -->
+                    <div class="balance-box">
+                        <div class="box-title">
+                            <i class="fa fa-balance"></i>
+                            <h5>
+                                可用余额 <br/>
+                                <b class="red">450元</b>
+                             </h5>
+                        </div>
+                        <p>
+                            <a href="withdraw.html" class="btn btn-ar btn-danger btn-small">提现</a>
+                            <a href="recharge.html" class="btn btn-ar btn-danger btn-small">充值</a>
+                            <a href="manage-money.html" class="btn btn-ar btn-danger btn-small disabled">理财</a>
+                            <a href="buy-card.html" class="btn btn-ar btn-danger btn-small">购买会员卡</a>
+                        </p>
+                    </div>
+                    <!-- 即将到账 -->
+                    <div class="account-box">
+                        <div class="box-title">
+                            <i class="fa fa-account"></i>
+                            <h5>
+                                即将到账 <br/>
+                                <b class="red">450元</b>
+                             </h5>
+                        </div>
+                        <p>预计2天后到账</p>
+                    </div>
+                    <!-- 我的卡豆 -->
+                    <div class="goldenBean-box">
+                        <div class="box-title">
+                            <i class="fa fa-goldenBean"></i>
+                            <h5>
+                                 我的卡豆<br/>
+                                <b class="red">4500</b>
+                             </h5>
+                        </div>
+                        <p>
+                            <a href="#" class="btn btn-ar btn-danger">购买会员卡</a>
+                            <a href="#" class="btn btn-ar btn-danger disabled">兑换商品</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 主体区域 -->
+
+                <h3 class="bottom-line">
+                    <span class="bottom-line-red">升级中心</span>                   
+                </h3> 
+
+                <h5>我的会员等级：<span class="red">普通会员</span></h5>
+                <p>（您的会员级别比较低，部分功能受限，卡来宝建议您 升级 <a href="#" class="btn btn-ar btn-danger btn-small">金卡</a> <a href="#" class="btn btn-ar btn-default btn-small">钻石</a> 会员 ）</p>
+
+                <div class="row">
+                    <form action="#" class="form-horizontal">
+                      <div class="form-group" style="margin-left:-50px">
+                        <label for="tuijianma" class="col-sm-2 control-label">推荐码升级</label>
+                        <div class="col-sm-4">
+                          <input type="email" class="form-control" id="tuijianma" placeholder="请填写推荐码">
+                        </div>
+                        <button class="btn btn-danger">升级</button>
+                      </div>
+                    </form>
+                </div>
+
+                <h3 class="bottom-line">
+                    <span class="bottom-line-red">购买会员卡</span>                   
+                </h3> 
+
+                <div class="panel panel-border">
+                    <div class="panel-body">
+                    <h6>卡来宝会员升级资费标准：</h6>
+                        <ol>
+                            <li>卡来宝黄金卡：48元（普通会员升黄金会员）</li>
+                            <li>卡来宝钻石卡：88元（普通会员直升钻石会员）</li>
+                            <li>黄金会员升钻石会员：支付差额（40元）。</li>
+                        </ol>
+                    <form action="#">
+                    <div class="col-md-6 tc">
+                        <img src="images/gold-card.jpg">
+                        <h6><input type="radio"> 黄金会员卡  48元</h6>
+                    </div>
+                    <div class="col-md-6 tc">
+                        <img src="images/diamond.jpg">
+                        <h6><input  type="radio"> 钻石会员卡  88元</h6>
+                    </div>
+                    <div class="col-md-12">
+                        <b>支付方式：</b> <input type="radio"> 钱包余额   &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio"> 网银支付
+                        <h6>您账户内有XXXX卡豆，可以抵扣XX元，您只需再支付XX元即可升级。</h6>
+                    </div>
+                    <div class="col-sm-offset-5 col-md-2" style="margin-top:20px;"><a href="#" data-toggle="modal" data-target="#pay"  class="btn btn-danger">确定，去支付</a></div>
+                  </form>
+                        
+                    </div>
+                </div> 
+
+                  <div class="row margin-bottom">
+                    <h5> 会员升级说明：</h5>
+                        <ol>
+                            <li>卡来宝会员分为普通会员、黄金会员、钻石会员三个级别，用户购买车险以后的补贴比例，与会员等级相关联，会员等级越高，补贴也就越高。</li>
+                            <li>会员如需提升等级，可以购买卡来宝会员卡，在线自动升级。每个会员对应一个唯一会员卡号。</li>
+                            <li>会员每推荐一个好友注册，卡来宝即送您500卡豆，当卡豆达到4800个，即可用4800卡豆兑换一个会员等级的会员卡，并在线升级。</li>
+                            <li>购买卡来宝会员卡的支付方式包括：我的钱包余额支付、卡豆支付、网银支付等。</li>
+                            <li>若用户已经为黄金会员，升级为钻石会员，则只需要支付其差额40元，或4000卡豆。</li>
+                        </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright -->
+    <div class="footer">
+        <p>Copyright © 2003-2015 kalaibao.net, All Rights Reserved　</p>
+    </div>
+    <!-- / Copyright -->
+    <!-- back top -->
+    <div id="back-top" style="display: block;">
+        <a href="#header"><i class="fa fa-chevron-up"></i></a>
+    </div>
+    <!-- /.back top -->
+
+    <!--login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">会员登录</h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group clearfix">
+                            <div class="input-group login-input">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input type="text" class="form-control" value="用户名" onfocus="if(this.value=='用户名'){this.value='';this.style.color='#555'}" onblur="if(this.value==''){this.value='用户名';this.style.color='#f00'}">
+                            </div>
+                            <br>
+                            <div class="input-group login-input">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox">记住用户名和密码
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-ar btn-primary pull-right">用户登录</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/.Modal -->
+
+    <!--pay Modal -->
+    <div class="modal fade" id="pay" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                     <h6 class="modal-title" id="myModalLabel">设定收款账户</h6>   
+                </div>
+                <div class="modal-body">                    
+                    <div class="gray-bg">
+                        这里有一大段文字，这里有一大段文字，这里有一大段文字，这里有一大段文字，这里有一大段文字，这里有一大段文字，这里有一大段文字，这里有一大段文字，                        
+                    </div>
+
+                    <form class="form-horizontal padding-20">
+                      <div class="form-group">
+                        <label for="account" class="col-sm-3 control-label">银行卡号：</label>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" id="account" >
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="name" class="col-sm-3 control-label">真实姓名：</label>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" id="name" >
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-sm-3 control-label">开户省市：</label>
+                        <div class="col-sm-7">
+                            <!-- 地区级联 -->
+                            <select id="SelProvince" class="form-control" style="width:100px; float:left">
+                                <option>请选择</option>
+                            </select>
+
+                             <select id="SelCity" class="form-control" style="display: none; width:100px; float:left" >
+                                <option>请选择</option>
+                            </select>
+
+                            <select id="SelArea" class="form-control" style="display: none; width:100px; float:left">
+                                <option>请选择</option>
+                            </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="name" class="col-sm-3 control-label">开户行：</label>
+                        <div class="col-sm-9">
+                          <ul class="bank-list">
+                              <li><input type="radio" ><img src="../images/bank/gongshangbc.png"></li>
+                              <li><input type="radio" ><img src="../images/bank/jianshebc.png"></li>
+                              <li><input type="radio" ><img src="../images/bank/jiaotongbc.png"></li>
+                              <li><input type="radio" ><img src="../images/bank/mingshengbc.png"></li>
+                              <li><input type="radio" ><img src="../images/bank/nongyebc.png"></li>
+                              <li><input type="radio" ><img src="../images/bank/xingyebc.png"></li>
+                              <li><input type="radio" ><img src="../images/bank/zgbc.png"></li>
+                              <li><input type="radio" ><img src="../images/bank/zhaoshangbc.png"></li>
+                              <li><input type="radio" ><img src="../images/bank/zhongxingbc.png"></li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                          <button type="submit" class="btn btn-danger"> 支 付 </button>
+                        </div>
+                      </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============= JavaScript ============= -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../member/js/user-center.js"></script>
+    <script src="../js/cityArea.js"></script>    
+
+    <!-- ============= Statistics Script ============= -->
+    <!-- BAIDU  statistics -->
+    <!--<script type="text/javascript">
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fxxxxxxxxxxxxxxxx' type='text/javascript'%3E%3C/script%3E"));
+    </script>-->
+    <!-- 51la  Statistics -->
+    <!--<script language="javascript" type="text/javascript" src="http://js.users.51.la/yyyyy.js"></script>
+    <noscript><a href="http://www.51.la/?yyyyyy" target="_blank"><img alt="卡来宝统计" src="http://img.users.51.la/yyyyyy.asp" style="border:none" /></a></noscript>-->
+</body>
+
+</html>

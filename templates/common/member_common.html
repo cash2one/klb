@@ -1,0 +1,291 @@
+{% extends 'common/common.html' %}
+{% load staticfiles %}
+{% load memberstag %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'stylesheets/members/user-center.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'javascripts/uploadify/uploadify.css' %}">
+    <style>
+        .uploadify1 {
+            background: url({% static 'images/user_portrait.jpg' %});
+            border: none;
+        }
+    </style>
+
+{% endblock %}
+
+{% block content %}
+    <div class="container margin-top">
+        <div class="row">
+            <!-- left side bar -->
+            <!-- left side bar -->
+            <aside class="col-md-3">
+
+                <!-- 用户基本资料 -->
+                <div class="user-info">
+                    <div class="user-info-detail clearfix">
+                        <a href="javascript:void(0);" id="image_btn"><img src="{{ request.user.id|UserThumb }}"
+                                                                          class="img-thumbnail" id="img_thumbnail"></a>
+                        <h6 id="userName">
+                            {% ifnotequal request.user.nick_name "" %}
+                                {{ request.user.nick_name }}
+                            {% else %}
+                                {{ request.user.username }}
+                            {% endifnotequal %}
+                        </h6>
+                        <h6 id="userLevel"><a href="/members/updatetovip/">普通会员</a></h6>
+                    </div>
+                    <ul class="user-info-status">
+                        <li class="with-tips">
+                            <i class="fa fa-users"></i>
+
+                            <div class="tips">
+                                <i class="fa fa-caret-up fa-2x"></i>
+
+                                <p>您已完成实名认证</p>
+                            </div>
+                        </li>
+                        <li class="with-tips">
+                            <i class="fa fa-calculator"></i>
+
+                            <div class="tips">
+                                <i class="fa fa-caret-up fa-2x"></i>
+
+                                <p>您已绑定手机号</p>
+                            </div>
+                        </li>
+                        <li class="with-tips">
+                            <i class="fa fa-envelope-o"></i>
+
+                            <div class="tips">
+                                <i class="fa fa-caret-up fa-2x"></i>
+
+                                <p>您已完成邮箱验证 <a href='javascript:void(0);' style='color:rgb(20,104,236)'>点击修改</a></p>
+                            </div>
+                        </li>
+                        <li class="with-tips">
+                            <i class="fa fa-lock"></i>
+
+                            <div class="tips">
+                                <i class="fa fa-caret-up fa-2x"></i>
+
+                                <p>您已设置支付密码 <a href='javascript:void(0);' style='color:rgb(20,104,236)'>点击修改</a></p>
+                            </div>
+                        </li>
+                        <li class="with-tips">
+                            <i class="fa fa-edit"></i>
+
+                            <div class="tips">
+                                <i class="fa fa-caret-up fa-2x"></i>
+
+                                <p>修改个人资料信息 <a href='javascript:void(0);' style='color:rgb(20,104,236)'>点击修改</a></p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80"
+                             aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
+                    </div>
+                    <div class="status-no">您还有认证未完成</div>
+                    <!-- <div class="status-yes">恭喜您完成所有认证</div>  根据完成的状态，显示不同 -->
+                    <div class="status-txt">
+                        安全等级：<b class="red">中</b>
+                        <a href="javascript:void(0);" class="pull-right">提升>></a>
+                    </div>
+                </div>
+
+                <!-- 左侧导航 -->
+                <ul class="sidebar-nav">
+                    <li>
+                        <a data-toggle="collapse" href="#payment" class="collapsed"><i class="fa fa-credit-card"></i>
+                            我的订单</a>
+                        <ul id="payment" class="menu-submenu list-unstyled collapse">
+                            <li><a href="/members/order_details/paid/"><i class="fa fa-cart-plus"></i> 已支付</a></li>
+                            <li><a href="/members/order_details/non_payment/"><i class="fa fa-paypal"></i> 未支付</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/members/recall/" class="no-collapsed"><i class="fa fa-retweet"></i> 我的召回</a></li>
+                    <li><a href="/members/mycar/" class="no-collapsed"><i class="fa fa-car"></i> 我的爱车</a></li>
+                    <li><a href="my-wallet.html" class="no-collapsed"><i class="fa fa-money"></i> 我的钱包</a></li>
+                    <li><a href="my-beans.html" class="no-collapsed"><i class="fa fa-gift"></i> 我的卡豆</a></li>
+                    <li><a href="diffuse-center.html" class="no-collapsed"><i class="fa fa-paw"></i> 推广中心</a></li>
+                    <li><a href="/members/updatetovip/" class="no-collapsed"><i class="fa fa-paper-plane-o"></i>
+                        会员升级</a>
+                    </li>
+                    <li>
+                        <a data-toggle="collapse" href="#account" class="collapsed"><i class="fa fa-list-alt"></i> 管理账户</a>
+                        <ul id="account" class="menu-submenu list-unstyled collapse">
+                            <li><a href="/members/setting/info/"><i class="fa fa-arrow-circle-right"></i> 个人资料</a></li>
+                            <li><a href="/members/setting/security/"><i class="fa fa-arrow-circle-right"></i> 安全设置</a>
+                            </li>
+                            <li><a href="/members/setting/message/"><i class="fa fa-arrow-circle-right"></i> 消息管理</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+
+            <div id="show_uploadimg" style="display: none; padding: 10px;" class="simple-form-inline ">
+                <div style="height: 30px; width: 150px;float: left;">
+                    <form action=""><input id="img" type="file" name="img"></form>
+                </div>
+                <div id="image_show_" style="margin-top: 10px; width: 210px;float: left;">
+                    <img id="image_show_pic" src="{{ request.user.id|UserThumb }}" class="img-thumbnail"
+                         style="max-width: 200px;max-height: 200px;">
+                </div>
+            </div>
+
+            <!-- main content -->
+            <div class="col-md-9">
+                {% load staticfiles %}
+                <!-- 消息提示区域 -->
+                {#<div class="alert alert-primary">#}
+                {#    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">知道了</button>#}
+                {#    <div class="badge-primary">提 醒</div>#}
+                {#    <i class="fa fa-caret-right"></i> &nbsp;&nbsp;&nbsp;&nbsp;交易提醒：#}
+                {#    <a href="pending-pay.html">待处理订单（0）</a> &nbsp;&nbsp;&nbsp;&nbsp;消息提醒：#}
+                {#    <a href="sys-info.html">系统消息（2）</a>#}
+                {#</div>#}
+
+                <!-- 账号信息 -->
+                <div class="account-center clearfix">
+                    <!-- 我的余额 -->
+                    <div class="balance-box">
+                        <div class="box-title">
+                            <i class="fa fa-balance"></i>
+                            <h5>
+                                可用余额 <br/>
+                                <b class="red">450元</b>
+                            </h5>
+                        </div>
+                        <p>
+                            {#                            <a href="withdraw.html" class="btn btn-ar btn-danger">提现</a>#}
+                            <a href="/members/pay/" class="btn btn-ar btn-danger">充值</a>
+                            <a href="manage-money.html" class="btn btn-ar btn-danger disabled">理财</a>
+                            <a href="buy-card.html" class="btn btn-ar btn-danger">购买会员卡</a>
+                        </p>
+                    </div>
+                    <!-- 即将到账 -->
+                    <div class="account-box">
+
+                    </div>
+                    <!-- 我的卡豆 -->
+                    <div class="goldenBean-box">
+                        <div class="box-title">
+                            <i class="fa fa-goldenBean"></i>
+                            <h5>
+                                我的卡豆<br/>
+                                <b class="red">4500</b>
+                            </h5>
+                        </div>
+                        <p>
+                            <a href="#" class="btn btn-ar btn-danger">购买会员卡</a>
+                            <a href="#" class="btn btn-ar btn-danger disabled">兑换商品</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 主体区域 -->
+
+                <h3 class="bottom-line">
+                    <span class="bottom-line-red">
+                        {% block content_title %}
+
+                        {% endblock %}
+                    </span>
+                    {% block content_title_detail %}
+
+
+                    {% endblock %}
+                </h3>
+                {% block content_detail %}
+
+                {% endblock %}
+
+            </div>
+        </div>
+    </div>
+    <div id="addcar" style="display: none;padding: 50px;">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">车牌号</label>
+
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="inputchepai" placeholder="车牌号">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">车主姓名</label>
+
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="carusername" placeholder="车主姓名">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">车架号(VIN)</label>
+
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="inputvin" placeholder="车架号">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-3 control-label">发动机号</label>
+
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="inputfadongji" placeholder="发动机号">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-10">
+                    <button type="button" class="btn btn-default" id="addcarbtn">添加</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+{% endblock %}
+
+{% block footerjs %}
+    <script src="{% static 'javascripts/members/user-center.js' %}"></script>
+    <script src="{% static 'javascripts/uploadify/jquery.uploadify.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'javascripts/app.js' %}"></script>
+    <script src="{% static 'javascripts/cityArea.js' %}"></script>
+    <script>
+        $(function () {
+            $("#image_btn").click(function () {
+                layer.open({
+                    title: '更换头像',
+                    type: 1,
+                    skin: 'layui-layer-demo', //样式类名
+                    closeBtn: false, //不显示关闭按钮
+                    shift: 2,
+                    area: ['420px', '280px'],
+                    shadeClose: true, //开启遮罩关闭
+                    content: $("#show_uploadimg")
+                });
+            });
+            $("#img").uploadify({
+
+                swf: '{% static "javascripts/uploadify/uploadify.swf" %}',
+                uploader: '/members/imgupload/',
+                fileTypeExts: '*.jpg;*.gif;*.jpeg;*.png;*.bmp',
+                buttonText: "选择头像",
+                queueID: 'img',
+                fileObjName: 'img',
+                sizeLimit: 2048,
+                height: 30,
+                {#            buttonClass:'btn btn-primary',#}
+                onUploadSuccess: function (file, data, response) {
+                    var d = $.parseJSON(data);
+                    if (d.error == 0) {
+                        $("#image_show_pic").attr("src", "/media/" + d.data.image);
+                        $("#img_thumbnail").attr("src", "/media/" + d.data.thumbnail);
+                        layer.alert('上传成功', function (index) {
+                            layer.closeAll();
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "ebusiness/common.html" %}
+{% load staticfiles %}
+{% load EbusinessTag %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+
+
+            {% if isok %}
+                <div class="col-sm-12">
+
+                    <blockquote class="blockquote blockquote-black">
+                        <p>
+                            <strong>创建成功!</strong>
+                        </p>
+
+                        <p>
+                            <small>请等待，系统正在跳转自动跳转......</small>
+                        </p>
+                    </blockquote>
+
+                </div>
+            {% else %}
+                <div class="panel panel-default panel-border">
+                    <div class="panel-heading">
+                        完善您的资料
+                    </div>
+
+                    <div class="panel-body">
+                        <form role="form" class="form-horizontal p-h-xs" action="{{ request.get_full_path }}"
+                              method="post">
+                            <div class="form-group">
+                                <label for="username" class="col-sm-2 control-label">{{ forms.username.label }}</label>
+
+                                <div class="col-sm-4">
+                                    {{ forms.username }}
+                                    <span class="help-block m-b-none">{{ forms.username.errors.as_text }}</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="password">{{ forms.passwd.label }}</label>
+
+                                <div class="col-sm-4">
+                                    {{ forms.passwd }}
+                                    <span class="help-block m-b-none">{{ forms.passwd.errors.as_text }}</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"
+                                       for="repassword">{{ forms.repasswd.label }}</label>
+
+                                <div class="col-sm-4">
+
+                                    {{ forms.repasswd }}
+                                    <span class="help-block m-b-none">{{ forms.repasswd.errors.as_text }}</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <button type="submit" class="btn btn-primary waves-effect">创建</button>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+        $(function () {
+            {% if isok %}
+                setTimeout(function () {
+                    window.location = "/webadmin/Login/";
+                }, 5000);
+            {% endif %}
+        });
+    </script>
+{% endblock %}

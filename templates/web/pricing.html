@@ -1,0 +1,110 @@
+{% extends 'common/common.html' %}
+{% load staticfiles %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'stylesheets/pricing-page.css' %}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'stylesheets/steps-page.css' %}"/>
+{% endblock %}
+{% block content %}
+    <div class="container margin-top margin-bottom white-bg pricing-wrap">
+        <div class="steps-title">
+            <div class="progress">
+                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="25" aria-valuemin="0"
+                     aria-valuemax="100" style="width: 25%"></div>
+            </div>
+            <a href="javascript:void(0);" class="active">01.输入信息</a>
+            <a href="javascript:void(0);">02.精准报价</a>
+            <a href="javascript:void(0);">03.官网支付</a>
+        </div>
+        <hr class="color dashed">
+        <div class="row lateral-padding">
+            <div class="col-md-8">
+                <!-- comparative prices -->
+                <div class="comparative-prices">
+                    <h4>车险精准比价</h4>
+
+                    <form role="form" action="#">
+                        <div class="form-group" id="selectCity">
+                            <label for="drivCity"><b>*</b> 行驶城市：</label>
+                            <input type="text" class="form-control" id="drivCity" value="请选择投保城市"
+                                   onfocus="if(this.value=='请选择投保城市'){this.value=''}"
+                                   onblur="if(this.value==''){this.value='请选择投保城市'}"/>
+                            <span class="input-group-addon"><i class="fa fa-angle-down"></i></span>
+                            <!-- cityArea,maybe load from database -->
+                            <div class="cityArea">
+                                <ul style="list-style: none;padding: 0;margin: 0;display: block;" id="cityArea0">
+                                    <li fc="0"><a href="javascript:void(0);" rel="1">北京</a></li>
+                                </ul>
+                                <ul class="second-city" style="list-style: none;padding: 0;margin: 0;display: block;"
+                                    id="cityArea1">
+                                    <li fc="one"><a href="javascript:void(0);" rel="1">北京</a></li>
+                                </ul>
+                                <ul class="second-city" id="cityArea2">
+                                    <li fc="two"><a href="javascript:void(0);" rel="6">杭州</a></li>
+                                </ul>
+                            </div>
+                            <input type="hidden" id="cityCode" value="" name="cityCode">
+                        </div>
+                        <div class="form-group">
+                            <label for="ownerName"><b>*</b> 车主姓名：</label>
+                            <input type="text" class="form-control" id="ownerName" value="" name="ownerName">
+                        </div>
+                        <div class="form-group">
+                            <label for="licenseNo"><b>*</b> 车牌号码：</label>
+                            <input type="text" class="form-control" id="licenseNo" value="" name="licenseNo" onkeyup="this.value = this.value.toUpperCase();">
+                        </div>
+
+                        <div class="form-group">
+                            <button type="button" class="btn btn-ar btn-danger" id="action1">立即比价</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.comparative-prices -->
+            </div>
+            <div class="col-md-4">
+                <div class="tc margin-top"><img src="{% static 'images/kuai.png' %}"></div>
+                <div class="tc margin-10"><img src="{% static 'images/hao.png' %}"></div>
+                <div class="tc margin-10"><img src="{% static 'images/sheng.png' %}"></div>
+            </div>
+        </div>
+    </div>
+    <!-- loading 效果 -->
+    <style type="text/css">
+        /* 控制弹窗的高度 */
+        .modal-dialog {
+            margin: 240px auto 0;
+        }
+    </style>
+    <!--loading Modal -->
+    <div class="modal fade" id="loading" tabindex="-1" role="dialog" aria-labelledby="loading" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body tc">
+                    <h5>正在为你加载数据，请耐心等待……</h5>
+                    <img src="{% static 'images/aCar.gif' %}">
+                    <!--  loading  -->
+                    <div class="loading">
+                        <dl class="barbox">
+                            <dd class="barline">
+                                <div w="80" style="width:0px;" class="charts"></div>
+                            </dd>
+                        </dl>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/.Modal -->
+    <div style="padding: 5px;display: none;" id="carlist_b">
+        <div class="list-group" id="carlist">
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block footerjs %}
+    <script src="{% static 'javascripts/cityList.js' %}"></script>
+    <script src="{% static 'javascripts/cityArea.js' %}"></script>
+
+{% endblock %}

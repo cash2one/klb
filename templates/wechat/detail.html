@@ -1,0 +1,159 @@
+{% load staticfiles %}
+<div class="navbar theme-red">
+    <div class="navbar-inner wechat_bjcolor">
+        <div class="left"><a href="#" class="link back">返回</a></div>
+        <div class="center sliding">卡来宝车险</div>
+        <div class="right"><a href="#" class="link" klb="Go5">下一步</a></div>
+    </div>
+</div>
+<div data-page="bx-detail" class="page">
+    <div class="page-content theme-red">
+            <div class="content-block-title">投保项目(单位:￥)</div>
+            <div class="list-block">
+                <ul>
+                    <li class="item-divider"><span class="group_title_color">主险</span></li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="item_title_color">车辆损失险</span></div>
+                            <div class="item-after wechat-font14" id="detail_VehicleLoss"></div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="item_title_color">第三责任险</span></div>
+                            <div class="item-after wechat-font14" id="detail_SanZhe"></div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="item_title_color">盗抢险</span></div>
+                            <div class="item-after wechat-font14" id="detail_DaoQiang"></div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="item_title_color">司机座位险</span></div>
+                            <div class="item-after wechat-font14" id="detail_ZeRenSJ"></div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="item_title_color">乘客座位险</span></div>
+                            <div class="item-after wechat-font14" id="detail_ZeRenCK"></div>
+                        </div>
+                    </li>
+                    <li class="item-divider"><span class="group_title_color">附加险</span></li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="item_title_color">玻璃单独破碎险</span></div>
+                            <div class="item-after wechat-font14" id="detail_BoLiPS"></div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="item_title_color">划痕险</span></div>
+                            <div class="item-after wechat-font14" id="detail_HuaHen"></div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="item_title_color">自燃险</span></div>
+                            <div class="item-after wechat-font14" id="detail_ZiRan"></div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="item_title_color">发动机涉水险</span></div>
+                            <div class="item-after wechat-font14" id="detail_SheShui"></div>
+                        </div>
+                    </li>
+                    <li class="item-divider"><span class="group_title_color">不计免赔</span></li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="item_title_color">不计免赔（车损）</span></div>
+                            <div class="item-after wechat-font14" id="detail_BUJiCS"></div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="item_title_color">不计免赔（三者）</span></div>
+                            <div class="item-after wechat-font14" id="detail_BuJiSZ"></div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="item_title_color">不计免赔（盗抢）</span></div>
+                            <div class="item-after wechat-font14" id="detail_BuJiDQ"></div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="item_title_color">不计免赔（司机）</span></div>
+                            <div class="item-after wechat-font14" id="detail_BuJiSJ"></div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="item_title_color">不计免赔（乘客）</span></div>
+                            <div class="item-after wechat-font14" id="detail_BuJiCK"></div>
+                        </div>
+                    </li>
+                    <li class="item-divider"><span class="group_title_color">交强险和车船税</span></li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="item_title_color">交强险</span></div>
+                            <div class="item-after wechat-font14" id="detail_forcePre"></div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="item_title_color">车船税</span></div>
+                            <div class="item-after wechat-font14" id="detail_VehTaxPremium"></div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-media"><i class="fa fa-cart-plus"></i></div>
+
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="group_title_color">合计</span></div>
+                            <div class="item-after wechat-font14" id="detail_totalPremium"></div>
+                        </div>
+                    </li>
+                    <li class="item-divider"><span class="group_title_color">会员补贴</span></li>
+
+                    <li class="item-content">
+                        <div class="item-media"><i class="fa fa-user"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="item_title_color">会员等级</span></div>
+                            <div class="item-after wechat-font14">钻石会员</div>
+                        </div>
+                    </li>
+                    <li class="item-content">
+                        <div class="item-media"><i class="fa fa-jpy"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title wechat-font14"><span class="item_title_color">补贴金额</span></div>
+                            <div class="item-after wechat-font14"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+{#            <div class="list-block">#}
+{#                <p><a href="/wechat/pricing/5/" class="button button-round button-big" id="ConfirmBuy">确认购买</a></p>#}
+{#            </div>#}
+
+    </div>
+    <div class="toolbar theme-red">
+        <div class="toolbar-inner">
+            <a href="#" class="link"></a>
+            {% ifequal bxgs 'zh' %}
+                <a href="#" class="button active" klb="Go5">下一步</a>
+            {% else %}
+                <a href="#" class="button active" klb="Go5">下一步</a>
+            {% endifequal %}
+
+            <a href="#" class="link"></a>
+        </div>
+    </div>
+</div>
+

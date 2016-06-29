@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="GBK" standalone="yes"?>
+<PackageList>
+    <Package>
+        <Header>
+            <Version>2</Version>
+            <RequestType>100</RequestType>
+            <InsureType>100</InsureType>
+            <SessionId>%s</SessionId>
+            <From>kalaibao</From>
+            <To>2051078519</To>
+            <SendTime>%s</SendTime>
+            <Status>100</Status>
+            <SellerId>kalaibao</SellerId>
+            <AgentCode>W06910012</AgentCode>
+        </Header>
+       <Request>
+			<InputsList>
+				<Inputs type='vehicleInfo'>
+					<input name='ownerName'>%s</input>
+					<input name='eSalesServicearea'></input>
+					<input name='ownerMobile'>%s</input>
+					<input name='cityCode'>%s</input>
+					<input name='terminalType'>1</input>
+					<input name='accountNo'></input>
+					<input name='bizModel'></input>
+					<input name='eSalesPhone'></input>
+					<input name='agentCode'>W06910012</input>
+					<input name='licenseNo'>%s</input>
+					<input name='netcampaignno'></input>
+					<input name='accountType'></input>
+					<input name='noLicenseFlag'>0</input>
+					<input name='ownerEmail'></input>
+					<input name='eSalesHandlercode'></input>
+					<input name='spsource'>P05-ADWBPZYL-M-xs165</input>
+				</Inputs>
+			</InputsList>
+		</Request>
+        <Sign><!--[SIGN]--></Sign>
+    </Package>
+</PackageList>

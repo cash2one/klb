@@ -1,0 +1,56 @@
+{% extends 'common/member_common.html' %}
+{% load staticfiles %}
+{% block content_title %}安全中心{% endblock %}
+{% block content_detail %}
+    <div class="panel panel-border">
+        <div class="panel-body">
+            <i class="fa fa-security fa-security-info"></i>
+
+            <div class="security-progress">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger" aria-valuenow="30" aria-valuemin="0"
+                         aria-valuemax="100" style="width: 30%">
+                        低
+                    </div>
+                </div>
+                <p>建议你启动全部安全设置，以保证账号安全</p>
+            </div>
+
+            <div class="security-log pull-right">
+                <a href="#" data-toggle="modal" data-target="#security-log">查看登录历史</a>
+
+                <p>上次登录时间：2015-04-03 15:32:07</p>
+            </div>
+        </div>
+    </div>
+    <div class="security-area">
+        <ul class="security-list">
+            <li>
+                <i class="fa fa-security fa-security-ture"></i>
+                <b>登录密码</b>
+                <span>互联网账号存在被盗风险，建议您定期更改密码已保护账户安全</span>
+                <a href="#" data-toggle="modal" data-target="#login-password">修改>></a>
+            </li>
+            <li>
+                <i class="fa fa-security fa-security-false"></i>
+                <b>邮箱验证</b>
+                <span>互联网账号存在被盗风险，建议您定期更改密码已保护账户安全</span>
+                <a href="#" data-toggle="modal" data-target="#login-email">修改>></a>
+            </li>
+            <li>
+                <i class="fa fa-security fa-security-false"></i>
+                <b>手机验证</b>
+                <span>互联网账号存在被盗风险，建议您定期更改密码已保护账户安全</span>
+                <a href="#" data-toggle="modal" data-target="#login-mobile">修改>></a>
+            </li>
+            <li>
+                <i class="fa fa-security fa-security-false"></i>
+                <b>支付密码</b>
+                <span>互联网账号存在被盗风险，建议您定期更改密码已保护账户安全</span>
+                <a href="#" data-toggle="modal" data-target="#paid-password">修改>></a>
+            </li>
+        </ul>
+    </div>
+
+    <div style="height: 30px;"></div>
+{% endblock %}

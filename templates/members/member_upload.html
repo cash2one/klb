@@ -1,0 +1,41 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'stylesheets/bootstrap.min.css' %}" />
+</head>
+<body>
+
+            <form enctype="multipart/form-data" action="#">
+
+                    <input id="img" class="file" type="file" name="img">
+
+            </form>
+
+</body>
+<script src="{% static 'javascripts/jquery.min.js' %}"></script>
+<script src="{% static 'javascripts/bootstrap.min.js' %}"></script>
+<script>
+    $(function(){
+        $("#img").uploadify({
+
+            height: 30,
+            swf: '{% static "javascripts/uploadify/uploadify.swf" %}',
+            uploader: '/members/imgupload/',
+            width: 120,
+            fileTypeExts: '*.jpg;*.gif;*.jpeg;*.png;*.bmp',
+            buttonText:"选择头像",
+            queueID: 'img',
+            fileObjName : 'img',
+            multi: true,
+            buttonCursor: 'hand',
+            onUploadSuccess  : function(file,data,response) {
+                var d = $.parseJSON(data);
+                alert(d.msg);
+            }
+        });
+    });
+</script>
+</html>

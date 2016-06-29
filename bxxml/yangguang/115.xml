@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='GBK' standalone='yes'?>
+<PackageList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Package>
+		<Header>
+			<Version>2</Version>
+			<RequestType>115</RequestType>
+			<InsureType>100</InsureType>
+			<SessionId>%s</SessionId>
+			<From>kalaibao</From>
+			<To>2051078519</To>
+			<AgentCode>W06910012</AgentCode>
+			<SendTime>%s</SendTime>
+			<SellerId>kalaibao</SellerId>
+			<Status>100</Status>
+			<ErrorMessage></ErrorMessage>
+			<terminalTpye></terminalTpye>
+		</Header>
+		<Request>
+			<InputsList>
+				<Inputs>
+					<input name='packageType'></input>
+				</Inputs>
+			</InputsList>
+		</Request>
+		<Sign><!--[SIGN]--></Sign>
+    </Package>
+</PackageList>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="GBK" standalone="yes"?>
+<PackageList>
+    <Package>
+        <Header>
+            <Version>2</Version>
+            <RequestType>115</RequestType>
+            <InsureType>100</InsureType>
+            <SessionId>%s</SessionId>
+            <SendTime>%s</SendTime>
+            <Status>100</Status>
+            <SellerId>2015061901</SellerId>
+        </Header>
+        <Request>
+            <Order>
+                <TBOrderId>%s</TBOrderId>
+                <Premium>%s</Premium>
+                <SubOrderList>
+                    <SubOrder type="force">
+                        <TBOrderId>%s</TBOrderId>
+                        <ItemId>%s</ItemId>
+                        <Premium>%s</Premium>
+                    </SubOrder>
+                    <SubOrder type="biz">
+                        <TBOrderId>%s</TBOrderId>
+                        <ItemId>%s</ItemId>
+                        <Premium>%s</Premium>
+                    </SubOrder>
+                </SubOrderList>
+            </Order>
+            <InputsList>
+                <Inputs type="optional">
+                    <Input name="forceFlag">%s</Input>
+                    <Input name="cov_200">%s</Input>
+                    <Input name="cov_210">%s</Input>
+                    <Input name="cov_231">%s</Input>
+                    <Input name="cov_290">%s</Input>
+                    <Input name="cov_310">%s</Input>
+                    <Input name="cov_500">%s</Input>
+                    <Input name="cov_600">%s</Input>
+                    <Input name="cov_701">%s</Input>
+                    <Input name="cov_702">%s</Input>
+                    <Input name="cov_900">%s</Input>
+                    <Input name="cov_911">%s</Input>
+                    <Input name="cov_912">%s</Input>
+                    <Input name="cov_921">%s</Input>
+                    <Input name="cov_928">%s</Input>
+                    <Input name="cov_922">%s</Input>
+                    <Input name="cov_923">%s</Input>
+                    <Input name="cov_924">%s</Input>
+                    <Input name="cov_929">%s</Input>
+                    <Input name="cov_930">%s</Input>
+                    <Input name="cov_931">%s</Input>
+                    <Input name="totalPremium">%s</Input>
+                    <Input name="standardPremium">%s</Input>
+                    <Input name="bizTotalPremium">%s</Input>
+                    <Input name="bizFlag">%s</Input>
+                    <Input name="discountPremium"></Input>
+                </Inputs>
+                <Inputs type="ownerInfo">
+                    <Input name="ownerMobile">%s</Input>
+                    <Input name="ownerIdNo">%s</Input>
+                    <Input name="ownerName">%s</Input>
+                    <Input name="ownerIdType">01</Input>
+                    <Input name="ownerGender">1</Input>
+                    <Input name="ownerBirthday"></Input>
+                    <Input name="ownerAge"></Input>
+                    <Input name="ownerEmail"></Input>
+                </Inputs>
+                <Inputs type="insuredInfo">
+                    <Input name="insuredName">%s</Input>
+                    <Input name="insuredIdType">01</Input>
+                    <Input name="insuredGender">1</Input>
+                    <Input name="insuredBirthday"></Input>
+                    <Input name="insuredIdNo">%s</Input>
+                    <Input name="insuredMobile">%s</Input>
+                </Inputs>
+                <Inputs type="applicantInfo">
+                    <Input name="applicantBirthday"></Input>
+                    <Input name="applicantGender">1</Input>
+                    <Input name="applicantIdType">01</Input>
+                    <Input name="applicantName">%s</Input>
+                    <Input name="applicantIdNo">%s</Input>
+                    <Input name="applicantMobile">%s</Input>
+                    <Input name="applicantEmail"></Input>
+                </Inputs>
+                <Inputs type="deliverInfo">
+                    <Input name="addresseeName">%s</Input>
+                    <Input name="addresseeMobile">%s</Input>
+                    <Input name="addresseeProvince">%s</Input>
+                    <Input name="addresseeCity">%s</Input>
+                    <Input name="addresseeTown">%s</Input>
+                    <Input name="addresseeDetails">%s</Input>
+                </Inputs>
+                <Inputs type="deadline">
+                    <Input name="bizBeginDate">%s</Input>
+                    <Input name="forceBeginDate">%s</Input>
+                </Inputs>
+                <Inputs type="force">
+                    <Input name="vehicleTaxPremium">%s</Input>
+                    <Input name="forceTotalPremium">%s</Input>
+                    <Input name="forcePremium">%s</Input>
+                </Inputs>
+            </InputsList>
+        </Request>
+        <Sign><!--[SIGN]--></Sign>
+    </Package>
+</PackageList>

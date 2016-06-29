@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div_n{height: 30px;}
+    </style>
+</head>
+<body>
+<form id="upload" action="/app/imgupload/" method="post" enctype="multipart/form-data">
+    <h1>文件上传</h1>
+    <div class="div_n">user:<input id="user" name="user" value=""></div>
+    <div class="div_n">token:<input id="token" name="token" value=""></div>
+    <div class="div_n">img:<input type="file" id="img" name="img"></div>
+    <div class="div_n"><input type="submit" value="上传"></div>
+
+</form>
+</body>
+</html>

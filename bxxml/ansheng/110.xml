@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="GBK" standalone="yes"?>
+<PackageList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Package>
+        <Header>
+            <Version>2</Version>
+            <RequestType>110</RequestType>
+            <InsureType>100</InsureType>
+            <SessionId>%s</SessionId>
+            <SellerId>2015061901</SellerId>
+            <Status>100</Status>
+            <ErrorMessage></ErrorMessage>
+            <SendTime>%s</SendTime>
+        </Header>
+        <Request>
+            <InputsList>
+                <Inputs type="optional">
+                    <Input name="bizFlag">1</Input>
+                    <Input name="cov_200">%s</Input>
+                    <Input name="cov_600">%s</Input>
+                    <Input name="cov_500">%s</Input>
+                    <Input name="cov_701">%s</Input>
+                    <Input name="cov_702">%s</Input>
+                    <Input name="cov_231">%s</Input>
+                    <Input name="forceFlag">%s</Input>
+                    <Input name="cov_310">%s</Input>
+                    <Input name="cov_210">%s</Input>
+                    <Input name="cov_290">%s</Input>
+                    <Input name="cov_900">%s</Input>
+                    <Input name="cov_910">%s</Input>
+                    <Input name="cov_911">%s</Input>
+                    <Input name="cov_912">%s</Input>
+                    <Input name="cov_921">%s</Input>
+                    <Input name="cov_922">%s</Input>
+                    <Input name="cov_923">%s</Input>
+                    <Input name="cov_924">%s</Input>
+                    <Input name="cov_928">%s</Input>
+                    <Input name="cov_929">%s</Input>
+                    <Input name="cov_930">%s</Input>
+                    <Input name="cov_931">%s</Input>
+                </Inputs>
+            </InputsList>
+        </Request>
+        <Sign><!--[SIGN]--></Sign>
+</Package>
+</PackageList>

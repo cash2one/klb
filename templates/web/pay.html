@@ -1,0 +1,915 @@
+{% extends 'common/common.html' %}
+{% load staticfiles %}
+{% load webtag %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" media="all"
+          href="{% static 'stylesheets' %}/bootstrap-datepicker.standalone.min.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'stylesheets' %}/steps-page.css"/>
+    <style type="text/css">
+        .insurance-form label {
+            width: 150px;
+        }
+
+        .insurance-form .T-popover {
+            width: 370px;
+            max-width: 370px;
+            padding: 15px;
+            background: transparent;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .H-chejiahao, .H-zhuceriqi, .H-pinpaihao, .H-pinpaimiaoshu, .H-fadongjihao {
+            height: 25px;
+            background-color: rgba(207, 50, 84, .5);
+        }
+
+        .H-chejiahao {
+            width: 270px;
+            margin: 137px 0 0 70px;
+        }
+
+        .H-zhuceriqi {
+            width: 130px;
+            margin: 186px 0 0 70px;
+        }
+
+        .H-pinpaihao {
+            width: 162px;
+            margin: 106px 0 0 178px;
+        }
+
+        .H-pinpaimiaoshu {
+            width: 120px;
+            margin: 50px 0 0 20px;
+            display: none
+        }
+
+        .H-fadongjihao {
+            width: 270px;
+            margin: 162px 0 0 70px;
+        }
+        .exp1{font-size:12px;}
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="container margin-top margin-bottom white-bg pricing-wrap">
+        <div class="row lateral-padding">
+            <div class="steps-title">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="25"
+                         aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                </div>
+                <a href="javascript:void(0);" class="active">01.输入信息</a>
+                <a href="javascript:void(0);" class="active">02.精准报价</a>
+                <a href="javascript:void(0);" class="active">03.官网支付</a>
+            </div>
+
+            <hr class="color dashed">
+
+            <h3 class="bottom-line">填写详细信息</h3>
+
+            <div class="col-md-7 insurance-form">
+
+
+                <h3 class="bottom-line">投保人信息
+                    <span class="more-group red"></span>
+                </h3>
+                <ul class="form-box" id="form-box-2">
+                    <li class="form-group">
+                        <label for="C_APP_NAME" class="text-right">投保人姓名：</label>
+                        <input type="text" id="C_APP_NAME" fc="tb_username" class="form-control"
+                               value="{{ PayInfo.app_name }}">
+                        <span id="app_name" class="exp1"></span>
+                    </li>
+
+                    <li class="form-group">
+                        <label for="C_APP_IDENT_NO" class="text-right">投保人身份证：</label>
+                        <input type="text" id="C_APP_IDENT_NO" class="form-control" fc="tb_identno">
+                        <span id="app_no" class="exp1"></span>
+                    </li>
+                    <li class="form-group">
+                        <label for="C_APP_TEL" class="text-right">投保人联系电话：</label>
+                        <input type="text" id="C_APP_TEL" class="form-control" fc="tb_apptel">
+                        <span id="app_tel" class="exp1"></span>
+                    </li>
+                    <li class="form-group">
+                        <label for="C_APP_ADDR" class="text-right">投保人地址：</label>
+                        <input type="text" id="C_APP_ADDR" class="form-control" fc="tb_appaddr">
+                        <span id="app_addr" class="exp1"></span>
+                    </li>
+                    <li class="form-group">
+                        <label for="C_APP_EMAIL" class="text-right">投保人邮箱：</label>
+                        <input type="text" id="C_APP_EMAIL" class="form-control" fc="tb_appemail">
+                        <span id="app_email" class="exp1"></span>
+                    </li>
+
+                </ul>
+                <h3 class="bottom-line">被投保人信息
+                    <span class="more-group red"></span>
+                </h3>
+                <ul class="form-box" id="form-box-2">
+                    <li class="form-group">
+                        <label for="C_INSRNT_NME" class="text-right">被投保人姓名：</label>
+                        <input type="text" id="C_INSRNT_NME" fc="btb_username" class="form-control"
+                               value="{{ PayInfo.app_name }}">
+                        <span id="insrnt_name" class="exp1"></span>
+                    </li>
+
+                    <li class="form-group">
+                        <label for="C_INSRNT_IDENT_NO" class="text-right">被投保人身份证：</label>
+                        <input type="text" id="C_INSRNT_IDENT_NO" fc="btb_identno" class="form-control">
+                        <span id="insrnt_no" class="exp1"></span>
+                    </li>
+                    <li class="form-group">
+                        <label for="C_INSRNT_TEL" class="text-right">被投保人联系电话：</label>
+                        <input type="text" id="C_INSRNT_TEL" class="form-control" fc="btb_apptel">
+                        <span id="insrnt_tel" class="exp1"></span>
+                    </li>
+                    <li class="form-group">
+                        <label for="C_INSRNT_ADDR" class="text-right">被投保人地址：</label>
+                        <input type="text" id="C_INSRNT_ADDR" class="form-control" fc="btb_appaddr">
+                        <span id="insrnt_addr" class="exp1"></span>
+                    </li>
+                    <li class="form-group">
+                        <label for="C_INSRNT_EMAIL" class="text-right">被投保人邮箱：</label>
+                        <input type="text" id="C_INSRNT_EMAIL" class="form-control" fc="btb_appemail">
+                        <span id="insrnt_email" class="exp1"></span>
+                    </li>
+
+                </ul>
+                <h3 class="bottom-line">保单配送信息
+                    <span class="more-group"></span>
+                </h3>
+                <ul class="form-box clearfix" id="form-box-3">
+                    <li class="form-group">
+                        <label for="name" class="text-right">收件人：</label>
+                        <input type="text" id="C_CONTACT_NAME" class="form-control" value="{{ PayInfo.app_name }}">
+                        <span id="contact_name" class="exp1"></span>
+                    </li>
+                    <li class="form-group">
+                        <label for="id" class="text-right">手机号：</label>
+                        <input type="text" id="C_CONTACT_TEL" class="form-control" value="" fc="btb_apptel">
+                        <span id="contact_tel" class="exp1"></span>
+                    </li>
+                    <!--
+                    <li class="form-group">
+                        <label for="addr" class="text-right">选择收货地址：</label>
+                        <select id="C_DELIVERY_PROVINCE" class="form-control" style="width:100px">
+                            <option value="0">请选择</option>
+                        </select>
+
+                        <select id="C_DELIVERY_CITY" class="form-control" style="display: none; width:100px;">
+                            <option value="0">请选择</option>
+                        </select>
+
+                        <select id="C_DELIVERY_DISTRICT" class="form-control" style="display: none; width:100px;">
+                            <option value="0">请选择</option>
+                        </select>
+
+                    </li>
+                        -->
+                    <li class="form-group">
+                        <label for="addr" class="text-right">输入详细地址：</label>
+                        <input type="text" id="C_ADDRESS" class="form-control">
+                        <span id="address" class="exp1"></span>
+                    </li>
+                </ul>
+
+                <p class="tc padding-20">
+                    <input name="bxgs" value="{{ request.GET.bx }}" id="bxgs" type="hidden">
+                    <input name="ORDER_ID" id="ORDER_ID" value="{{ PayInfo.order_id }}" type="hidden">
+                    <input name="Session_ID" id="Session_ID" value="{{ PayInfo.session_id }}" type="hidden">
+                    <input name="bxgs_type" id="bxgs_type" value="{{ PayInfo.bxgs_type }}" type="hidden">
+                    <input name="vin" id="vin" value="{{ vin }}" type="hidden">
+                    <a href="javascript:window.history.go(-1);" class="btn btn-danger btn-large">上一步</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="javascript:void(0);" class="btn btn-danger btn-large" id="paysubmit">下一步</a>
+                </p>
+            </div>
+
+            <div class="col-md-5 insurance-panel">
+                <div class="tc">
+                    <img src="{% static 'images/jsz.jpg' %}">
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        为什么要准确输入信息？
+                    </div>
+                    <div class="panel-body">
+                        卡来宝报价平台为精确报价，信息输入不准确可能会导致报价失败或报价错误。
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        按照行驶证输入，为什么找不到我的车型？
+                    </div>
+                    <div class="panel-body">
+                        如果您的厂牌型号为“红旗CA7230AT”，请直接输入"CA7230AT"进行车型查找。
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        起保日期怎么填写？
+                    </div>
+                    <div class="panel-body">
+                        若上年保单显示“保险期间2013年10月20日0时起 至 2014年10月19日24时”，今年的保险起期为2014年10月20日。日期提前会导致重复投保，日期拖后会导致脱保，请准确填写。
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        我可以提前多少天投保？
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr align="center" bgcolor="#f6faff">
+                                <td width="124" height="26">地区</td>
+                                <td width="124" height="26">商业险提前投保</td>
+                                <td width="124" height="26" class="_fill_border">交强险提前投保</td>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr align="center" valign="middle">
+                                <td>上海</td>
+                                <td>≤60天</td>
+                                <td>≤30天</td>
+                            </tr>
+                            <tr align="center" valign="middle">
+                                <td>苏州</td>
+                                <td>≤40天</td>
+                                <td>≤40天</td>
+                            </tr>
+                            <tr align="center" valign="middle">
+                                <td>浙江</td>
+                                <td>≤30天</td>
+                                <td>≤30天</td>
+                            </tr>
+                            <tr align="center" valign="middle">
+                                <td>宁波</td>
+                                <td>≤30天</td>
+                                <td>≤30天</td>
+                            </tr>
+                            <tr align="center" valign="middle">
+                                <td>山东</td>
+                                <td>≤30天</td>
+                                <td>≤30天</td>
+                            </tr>
+                            <tr align="center" valign="middle">
+                                <td>江苏</td>
+                                <td>≤40天</td>
+                                <td>≤40天</td>
+                            </tr>
+                            <tr align="center" valign="middle">
+                                <td>其他地区</td>
+                                <td>≤90天</td>
+                                <td>≤90天</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footerjs %}
+    <script src="{% static 'javascripts/hoverMenu.min.js' %}"></script>
+    <script src="{% static 'javascripts/bootstrap-datepicker.min.js' %}"></script>
+    <script src="{% static 'javascripts/bootstrap-datepicker.zh-CN.min.js' %}"></script>
+    <script src="{% static 'javascripts/Validform_v5.3.2_min.js' %}"></script>
+    <script src="{% static 'javascripts/steps2.js' %}"></script>
+    <script src="{% static 'javascripts/cityList.js' %}"></script>
+    <script>
+        $(function () {
+            var F='';
+            $('[fc*="tb_"]').keyup(function () {
+                var fcname = $(this).attr("fc");
+                var fcnameArr = fcname.split("_");
+                var val = $(this).val();
+                $('[fc="btb_' + fcnameArr[1] + '"]').val(val);
+            });
+            for (var i = 0; i < impCitys.length; i++) {
+                impCitys[i]['id'] = impCitys[i]['id'] == '110100' ? "110000" : impCitys[i]['id'];
+                impCitys[i]['id'] = impCitys[i]['id'] == '120100' ? "120000" : impCitys[i]['id'];
+
+                $("#C_DELIVERY_PROVINCE").append('<option value="' + impCitys[i]['id'] + '">' + impCitys[i]['name'] + '</option>');
+
+
+            }
+            for (var i = 0; i < provinces.length; i++) {
+                $("#C_DELIVERY_PROVINCE").append('<option value="' + provinces[i]['id'] + '">' + provinces[i]['name'] + '</option>');
+            }
+
+            $("#C_DELIVERY_PROVINCE").change(function () {
+                var citycode = $(this).val();
+                var p = 0;
+                $("#C_DELIVERY_CITY").empty();
+
+                for (var i = 0; i < dictionary.length; i++) {
+                    if (dictionary[i]['pid'] == citycode) {
+                        p++;
+                        $("#C_DELIVERY_CITY").append('<option value="' + dictionary[i]['id'] + '">' + dictionary[i]['name'] + '</option>')
+                    }
+                }
+                if (p > 0) {
+                    $("#C_DELIVERY_CITY").show();
+                } else {
+                    $("#C_DELIVERY_CITY").hide();
+                }
+
+
+            });
+            var U='';
+            {% if  openwin %}
+                var Y = layer.open({
+                    type: 2,
+                    title: '确认浮动费率',
+                    shadeClose: false,
+                    shade: 0.8,
+                    area: ['700px', '650px'],
+                    content: 'http://e.cic.cn/nsp/vehicle/initFloatNotice.do?orderNo={{ orderNo }}&businessCode=11',
+                    success: function (l, i) {
+                    },
+                    end: function () {
+                        {% ifequal businessCode "12"  %}
+                           U = layer.open({
+                                type: 2,
+                                title: '确认浮动费率',
+                                shadeClose: false,
+                                shade: 0.8,
+                                area: ['700px', '650px'],
+                                content: 'http://e.cic.cn/nsp/vehicle/initFloatNotice.do?orderNo={{ orderNo }}&businessCode=12',
+                                success: function (l, i) {
+                                    $("#layui-layer-iframe1").scrollTop(700);
+                                    $(".layui-layer-content").find("iframe").prop('scrollTop', '700px');
+                                }
+
+                            });
+                        {% endifequal %}
+                    }
+                });
+            {% endif %}
+            var bxgss = $.trim($("#bxgs").val());
+            if (bxgss == 'zh') {
+                var timers = setInterval(IsRead, 1000);
+                var timers2 = setInterval(IsReads, 1000);
+            };
+
+            //点击提交
+            $("#paysubmit").click(function () {
+{#                prom()#}
+                if (!VerifyIsNull()){
+                    return false;
+                }
+                var bxgs = $.trim($("#bxgs").val());
+                var bxgs_type = $.trim($("#bxgs_type").val());
+                var Session_ID = $.trim($("#Session_ID").val());
+                var ORDER_ID = $.trim($("#ORDER_ID").val());
+                var C_APP_NAME = $.trim($("#C_APP_NAME").val()); //投保人姓名
+                var C_APP_IDENT_NO = $.trim($("#C_APP_IDENT_NO").val()); //投保人身份证号
+                var C_APP_TEL = $.trim($("#C_APP_TEL").val()); //投保人电话
+                var C_APP_ADDR = $.trim($("#C_APP_ADDR").val()); //投保人地址
+                var C_APP_EMAIL = $.trim($("#C_APP_EMAIL").val()); // 投保人邮箱
+                var C_INSRNT_NME = $.trim($("#C_INSRNT_NME").val()); //被保险人姓名
+                var C_INSRNT_IDENT_NO = $.trim($("#C_INSRNT_IDENT_NO").val()); // 被保险人身份证号
+                var C_INSRNT_TEL = $.trim($("#C_INSRNT_TEL").val()); //被保险人电话
+                var C_INSRNT_ADDR = $.trim($("#C_INSRNT_ADDR").val()); //被保险人地址
+                var C_INSRNT_EMAIL = $.trim($("#C_INSRNT_EMAIL").val()); //被保险人邮箱
+                var C_CONTACT_NAME = $.trim($("#C_CONTACT_NAME").val()); // 收件人姓名
+                var C_CONTACT_TEL = $.trim($("#C_CONTACT_TEL").val()) ; //收件人电话
+                var C_ADDRESS = $.trim($("#C_ADDRESS").val()); //收件地址
+                var C_IDET_NAME = "{{ PayInfo.app_name }}"; // 行驶证车主
+                var C_IDENT_NO = $.trim($("#C_INSRNT_IDENT_NO").val()); // 身份证号
+
+                var C_DELIVERY_PROVINCE = '';//$.trim($("#C_DELIVERY_PROVINCE").val());
+                var C_DELIVERY_CITY = '';//$.trim($("#C_DELIVERY_CITY").val());
+                var C_DELIVERY_DISTRICT = '';//$.trim($("#C_DELIVERY_DISTRICT").val());
+                var pam = {
+                    "vin":'{{ vin }}',
+                    "bxgs_type":bxgs_type,
+                    "Session_ID":Session_ID,
+                    "ORDER_ID":ORDER_ID,
+                    "C_APP_NAME":C_APP_NAME,
+                    "C_APP_IDENT_NO":C_APP_IDENT_NO,
+                    "C_APP_TEL":C_APP_TEL,
+                    "C_APP_ADDR":C_APP_ADDR,
+                    "C_APP_EMAIL":C_APP_EMAIL,
+                    "C_INSRNT_NME":C_INSRNT_NME,
+                    "C_INSRNT_IDENT_NO":C_INSRNT_IDENT_NO,
+                    "C_INSRNT_TEL":C_INSRNT_TEL,
+                    "C_INSRNT_ADDR":C_INSRNT_ADDR,
+                    "C_INSRNT_EMAIL":C_INSRNT_EMAIL,
+                    "C_CONTACT_NAME":C_CONTACT_NAME,
+                    "C_CONTACT_TEL":C_CONTACT_TEL,
+                    "C_ADDRESS":C_ADDRESS,
+                    "C_IDET_NAME":C_IDET_NAME,
+                    "C_IDENT_NO":C_IDENT_NO,
+                    "C_DELIVERY_PROVINCE":C_DELIVERY_PROVINCE,
+                    "C_DELIVERY_CITY":C_DELIVERY_CITY,
+                    "C_DELIVERY_DISTRICT":C_DELIVERY_DISTRICT,
+                    "bxgs":bxgs
+                };
+
+                var Index = layer.msg('与保险公司通信中....', {icon: 16,time: 20000});
+
+                $.post('/bxservice/ConfirmTouBao/',pam,function(d){
+                    layer.close(Index);
+                    if(d.data.error=="1"){
+                        alert(d.data.msg);
+                    }
+                    if(d.data.error=="2"){
+                        prom()
+                    }else{
+                        window.open(d.url);
+                    }
+
+
+                },"json");
+
+{#                window.open("/web/PayLoading/?orderNo="+order)#}
+
+            });
+            function prom() {
+                var Verify = prompt("请输入验证码", "");
+                if (Verify) {
+                    var Index = layer.msg('与保险公司通信中....', {icon: 16,time: 20000});
+                    var C_INSRNT_NME1 = $.trim($("#C_INSRNT_NME").val());
+                    var pam = {
+                        "Verify":Verify,
+                        "bxgs":"yg",
+                        "vin":'{{ vin }}',
+                        "C_INSRNT_NME":C_INSRNT_NME1
+
+                    };
+                    $.post('/bxservice/ConfirmTouBao/',pam,function(d){
+                        layer.close(Index);
+                        if(d.data.error=="1"){
+                            alert(d.data.msg);
+                        }
+                        if(d.data.error=="2"){
+                            prom()
+                        }else{
+                            window.open(d.url);
+                        }
+
+                },"json");
+
+                }else{
+                    prom()
+                }
+            }
+            function VerifyIsNull(){
+                if (($.trim($("#C_APP_NAME").val())) == "") {
+                    window.setTimeout(function () {
+                        document.getElementById('C_APP_NAME').select();
+                    }, 0);
+                    window.scrollTo(400,0);
+                    $("#C_APP_NAME")[0].focus();
+                    document.getElementById("app_name").innerHTML = ("<span style='color:red;'>"+"请输入信息!"+"</span>")
+                    return false;
+                }
+                if (($.trim($("#C_APP_IDENT_NO").val())) == "") {
+                    window.setTimeout(function () {
+                        document.getElementById('C_APP_IDENT_NO').select();
+                    }, 0);
+                    window.scrollTo(400,0);
+                    $("#C_APP_IDENT_NO")[0].focus();
+                    document.getElementById("app_no").innerHTML = ("<span style='color:red;'>"+"请输入信息!"+"</span>")
+                    return false;
+                }
+                if (($.trim($("#C_APP_TEL").val())) == "") {
+                    window.setTimeout(function () {
+                        document.getElementById('C_APP_TEL').select();
+                    }, 0);
+                    window.scrollTo(400,0);
+                    $("#C_APP_TEL")[0].focus();
+                    document.getElementById("app_tel").innerHTML = ("<span style='color:red;'>"+"请输入信息!"+"</span>")
+                    return false;
+                }
+                if (($.trim($("#C_APP_ADDR").val())) == "") {
+                    window.setTimeout(function () {
+                        document.getElementById('C_APP_ADDR').select();
+                    }, 0);
+                    window.scrollTo(200,200);
+                    $("#C_APP_ADDR")[0].focus();
+                    document.getElementById("app_addr").innerHTML = ("<span style='color:red;'>"+"请输入信息!"+"</span>")
+                    return false;
+                }
+                if (($.trim($("#C_APP_EMAIL").val())) == "") {
+                    window.setTimeout(function () {
+                        document.getElementById('C_APP_EMAIL').select();
+                    }, 0);
+                    window.scrollTo(200,200);
+                    $("#C_APP_EMAIL")[0].focus();
+                    document.getElementById("app_email").innerHTML = ("<span style='color:red;'>"+"请输入信息!"+"</span>")
+                    return false;
+                }
+                if (($.trim($("#C_INSRNT_NME").val())) == "") {
+                    window.setTimeout(function () {
+                        document.getElementById('C_INSRNT_NME').select();
+                    }, 0);
+                    window.scrollTo(0,200);
+                    $("#C_INSRNT_NME")[0].focus();
+                    document.getElementById("insrnt_name").innerHTML = ("<span style='color:red;'>"+"请输入信息!"+"</span>")
+                    return false;
+                }
+                if (($.trim($("#C_INSRNT_IDENT_NO").val())) == "") {
+                    window.setTimeout(function () {
+                        document.getElementById('C_INSRNT_IDENT_NO').select();
+                    }, 0);
+                    window.scrollTo(0,200);
+                    $("#C_INSRNT_IDENT_NO")[0].focus();
+                    document.getElementById("insrnt_no").innerHTML = ("<span style='color:red;'>"+"请输入信息!"+"</span>")
+                    return false;
+                }
+                if (($.trim($("#C_INSRNT_TEL").val())) == "") {
+                    window.setTimeout(function () {
+                        document.getElementById('C_INSRNT_TEL').select();
+                    }, 0);
+                    window.scrollTo(100,200);
+                    $("#C_INSRNT_TEL")[0].focus();
+                    document.getElementById("insrnt_tel").innerHTML = ("<span style='color:red;'>"+"请输入信息!"+"</span>")
+                    return false;
+                }
+                if (($.trim($("#C_INSRNT_ADDR").val())) == "") {
+                    window.setTimeout(function () {
+                        document.getElementById('C_INSRNT_ADDR').select();
+                    }, 0);
+                    window.scrollTo(100,300);
+                    $("#C_INSRNT_ADDR")[0].focus();
+                    document.getElementById("insrnt_addr").innerHTML = ("<span style='color:red;'>"+"请输入信息!"+"</span>")
+                    return false;
+                }
+                if (($.trim($("#C_INSRNT_EMAIL").val())) == "") {
+                    window.setTimeout(function () {
+                        document.getElementById('C_INSRNT_EMAIL').select();
+                    }, 0);
+                     window.scrollTo(100,400);
+                    $("#C_INSRNT_EMAIL")[0].focus();
+                    document.getElementById("insrnt_email").innerHTML = ("<span style='color:red;'>"+"请输入信息!"+"</span>")
+                    return false;
+                }
+                if (($.trim($("#C_CONTACT_NAME").val())) == "") {
+                    window.setTimeout(function () {
+                        document.getElementById('C_CONTACT_NAME').select();
+                    }, 0);
+                    $("#C_CONTACT_NAME")[0].focus();
+                    document.getElementById("contact_name").innerHTML = ("<span style='color:red;'>"+"请输入信息!"+"</span>")
+                    return false;
+                }
+                if (($.trim($("#C_CONTACT_TEL").val())) == "") {
+                    window.setTimeout(function () {
+                        document.getElementById('C_CONTACT_TEL').select();
+                    }, 0);
+                    $("#C_CONTACT_TEL")[0].focus();
+                    document.getElementById("contact_tel").innerHTML = ("<span style='color:red;'>"+"请输入信息!"+"</span>")
+                    return false;
+                }
+                if (($.trim($("#C_ADDRESS").val())) == "") {
+                    window.setTimeout(function () {
+                        document.getElementById('C_ADDRESS').select();
+                    }, 0);
+                    $("#C_ADDRESS")[0].focus();
+                    document.getElementById("address").innerHTML = ("<span style='color:red;'>"+"请输入信息!"+"</span>")
+                    return false;
+                }
+                return true
+            }
+            // 投保人姓名
+            $("#C_APP_NAME").blur(function(){
+                var C_APP_NAME = $.trim($("#C_APP_NAME").val())
+                reg = /^[\u4E00-\u9FA5]{2,4}$/;
+                if (!reg.test(C_APP_NAME)){
+                    document.getElementById("app_name").innerHTML = ("<span style='color:red;'>"+"姓名错误!"+"</span>")
+                    return false;
+                }else{
+                    document.getElementById("app_name").innerHTML = ("<span style='color:#BBBB00;'>"+"信息通过验证!"+"</span>")
+                    return true
+                }
+            })
+            // 被保险人姓名
+            $("#C_INSRNT_NME").blur(function(){
+                var C_INSRNT_NME= $.trim($("#C_INSRNT_NME").val())
+                reg = /^[\u4E00-\u9FA5]{2,4}$/;
+                if (!reg.test(C_INSRNT_NME)){
+                    document.getElementById("insrnt_name").innerHTML = ("<span style='color:red;'>"+"姓名错误!"+"</span>")
+                    return false;
+                }else{
+                    document.getElementById("insrnt_name").innerHTML = ("<span style='color:#BBBB00;'>"+"信息通过验证!"+"</span>")
+                    return true
+                }
+            });
+            $("#C_CONTACT_NAME").blur(function(){
+                var C_CONTACT_NAME = $.trim($("#C_CONTACT_NAME").val())
+                reg = /^[\u4E00-\u9FA5]{2,4}$/;
+                if (re.test(C_CONTACT_NAME)){
+                    document.getElementById("contact_name").innerHTML = ("<span style='color:red;'>"+"姓名错误!"+"</span>")
+                    return false;
+                }else{
+                    document.getElementById("contact_name").innerHTML = ("<span style='color:#BBBB00;'>"+"信息通过验证!"+"</span>")
+
+                }
+            })
+            // 控制地址长度
+            // 投保人地址
+            $("#C_APP_ADDR").blur(function(){
+                var ADDR = $.trim($("#C_APP_ADDR").val())
+                if (ADDR.length < 10){
+                    document.getElementById("app_addr").innerHTML = ("<span style='color:red;'>"+"地址长度过短!"+"</span>");
+                }else{
+                    document.getElementById("app_addr").innerHTML = ("<span style='color:#BBBB00;'>"+"信息通过验证!"+"<span>");
+                }
+
+            });
+            // 被保险人地址
+            $("#C_INSRNT_ADDR").blur(function(){
+                    var ADDR = $.trim($("#C_INSRNT_ADDR").val())
+                    if (ADDR.length < 10){
+                        document.getElementById("insrnt_addr").innerHTML = ("<span style='color:red;'>"+"地址长度过短!"+"</span>");
+                    }else{
+                        document.getElementById("insrnt_addr").innerHTML = ("<span style='color:#BBBB00;'>"+"信息通过验证!"+"<span>");
+                    }
+
+                });
+            // 收件地址
+            $("#C_ADDRESS").blur(function(){
+                    var ADDR = $.trim($("#C_ADDRESS").val())
+                    if (ADDR.length < 10){
+                        document.getElementById("address").innerHTML = ("<span style='color:red;'>"+"地址长度过短!"+"</span>");
+                    }else{
+                        document.getElementById("address").innerHTML = ("<span style='color:#BBBB00;'>"+"信息通过验证!"+"<span>");
+                    }
+
+                });
+            // 验证手机号
+            // 投保人手机号
+            $("#C_APP_TEL").blur(function(){
+                var tel = $.trim($("#C_APP_TEL").val())
+                var reg = /^0?1[3|4|5|8][0-9]\d{8}$/;
+                if (tel == ""){
+                    document.getElementById("app_tel").innerHTML = ("<span style='color:red;'>"+"手机号错误!"+"</span>");
+                    return false;
+                }
+                else if (reg.test(tel)) {
+                    document.getElementById("app_tel").innerHTML = ("<span style='color:#BBBB00;'>"+"手机验证通过!"+"</span>");
+                } else {
+                    document.getElementById("app_tel").innerHTML = ("<span style='color:red;'>"+"手机号错误!"+"</span>");
+                }
+            });
+            // 被保险人手机号
+            $("#C_INSRNT_TEL").blur(function(){
+                var tel = $.trim($("#C_INSRNT_TEL").val())
+                var reg = /^0?1[3|4|5|8][0-9]\d{8}$/;
+                if (tel == ""){
+                    document.getElementById("insrnt_tel").innerHTML = ("<span style='color:red;'>"+"手机号错误!"+"</span>");
+                    return false;
+                }
+                else if (reg.test(tel)) {
+                    document.getElementById("insrnt_tel").innerHTML = ("<span style='color:#BBBB00;'>"+"手机验证通过!"+"</span>");
+                } else {
+                    window.setTimeout(function () {
+                        document.getElementById('C_INSRNT_TEL').select();
+                    }, 0);
+                    document.getElementById("insrnt_tel").innerHTML = ("<span style='color:red;'>"+"手机号错误!"+"</span>");
+                }
+            });
+            $("#C_CONTACT_TEL").blur(function(){
+                var tel = $.trim($("#C_CONTACT_TEL").val())
+                var reg = /^0?1[3|4|5|8][0-9]\d{8}$/;
+                if (tel == ""){
+                    document.getElementById("contact_tel").innerHTML = ("<span style='color:red;'>"+"手机号错误!"+"</span>");
+                    return false;
+                }
+                else if (reg.test(tel)) {
+                    document.getElementById("contact_tel").innerHTML = ("<span style='color:#BBBB00;'>"+"手机验证通过!"+"</span>");
+                } else {
+                    document.getElementById("contact_tel").innerHTML = ("<span style='color:red;'>"+"手机号错误!"+"</span>");
+                }
+            });
+             // 验证邮箱
+             //投保人邮箱
+            $("#C_APP_EMAIL").blur(function(){
+                var email = $.trim($("#C_APP_EMAIL").val())
+                var  re = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+                if(email == ""){
+                    document.getElementById("app_email").innerHTML = ("<span style='color:red;'>"+"邮箱输入错误!"+"</span>");
+                }
+                else if(re.test(email)){
+                    document.getElementById("app_email").innerHTML = ("<span style='color:#BBBB00;'>"+"邮箱验证通过!"+"</span>");
+                    return true;
+                }else{
+                    document.getElementById("app_email").innerHTML = ("<span style='color:red;'>"+"邮箱输入错误!"+"</span>");
+                }
+            });
+            //被保险人邮箱
+            $("#C_INSRNT_EMAIL").blur(function(){
+                var email = $.trim($("#C_INSRNT_EMAIL").val())
+                var  re = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+                if(email == ""){
+                    document.getElementById("insrnt_email").innerHTML = ("<span style='color:red;'>"+"邮箱输入错误!"+"</span>");
+                }
+                else if(re.test(email)){
+                    document.getElementById("insrnt_email").innerHTML = ("<span style='color:#BBBB00;'>"+"邮箱验证通过!"+"</span>");
+                    return true;
+                }else{
+                     window.setTimeout(function () {
+                        document.getElementById('C_INSRNT_EMAIL').select();
+                    }, 0);
+                    document.getElementById("insrnt_email").innerHTML = ("<span style='color:red;'>"+"邮箱输入错误!"+"</span>");
+                }
+            });
+            // 验证身份证
+            var Wi = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2, 1];    // 加权因子
+            var ValideCode = [1, 0, 10, 9, 8, 7, 6, 5, 4, 3, 2];            // 身份证验证位值.10代表X
+            // 投保人身份证
+            $("#C_APP_IDENT_NO").blur(function IdCardValidate() {
+                    var ownerID = $.trim($("#C_APP_IDENT_NO").val())
+                    idCard = trim(ownerID.replace(/ /g, ""));
+                    if (idCard == ""){
+                        document.getElementById("app_no").innerHTML = ("<span style='color:red;'>"+"身份验证失败!"+"</span>");
+                    }else if (idCard.length == 18) {
+                        var a_idCard = idCard.split("");                // 得到身份证数组
+                        if (isValidityBrithBy18IdCard(idCard) && isTrueValidateCodeBy18IdCard(a_idCard)) {   //进行18位身份证的基本验证和第18位的验证
+                            document.getElementById("app_no").innerHTML = ("<span style='color:#BBBB00;'>"+"身份验证通过!"+"</span>");
+                            return true;
+                        } else {
+                            document.getElementById("app_no").innerHTML = ("<span style='color:red;'>"+"身份验证失败!"+"</span>");
+                            return false;
+                        }
+                    }
+                    else if (idCard.length == 15){
+                       return  isValidityBrithBy15IdCard(idCard)
+                    }
+                    else {
+                        document.getElementById("app_no").innerHTML = ("<span style='color:red;'>"+"身份验证失败!"+"</span>");
+                    }
+
+            });
+            // 被保险人身份证
+             $("#C_INSRNT_IDENT_NO").blur(function IdCardValidate() {
+                    var ownerID = $.trim($("#C_INSRNT_IDENT_NO").val())
+                    idCard = trim(ownerID.replace(/ /g, ""));
+                    if (idCard == ""){
+                        document.getElementById("insrnt_no").innerHTML = ("<span style='color:red;'>"+"身份验证失败!"+"</span>");
+                    }else if (idCard.length == 18) {
+                        var a_idCard = idCard.split("");                // 得到身份证数组
+                        if (isValidityBrithBy18IdCard(idCard) && isTrueValidateCodeBy18IdCard(a_idCard)) {   //进行18位身份证的基本验证和第18位的验证
+                            document.getElementById("insrnt_no").innerHTML = ("<span style='color:#BBBB00;'>"+"身份验证通过!"+"</span>");
+                            return true;
+                        } else {
+                            document.getElementById("insrnt_no").innerHTML = ("<span style='color:red;'>"+"身份验证失败!"+"</span>");
+                            return false;
+                        }
+                    }
+                    else if (idCard.length == 15){
+                       return  isValidityBrithBy15IdCard(idCard)
+                    }
+                    else {
+                        document.getElementById("insrnt_no").innerHTML = ("<span style='color:red;'>"+"身份验证失败!"+"</span>");
+                    }
+
+            });
+            // 去空格
+            function trim(str) {
+                return str.replace(/(^\s*)|(\s*$)/g, "");
+            }
+            /**
+             * 判断身份证号码为18位时最后的验证位是否正确
+             * @param a_idCard 身份证号码数组
+             * @return
+             */
+            function isTrueValidateCodeBy18IdCard(a_idCard) {
+                var sum = 0;                             // 声明加权求和变量
+                if (a_idCard[17].toLowerCase() == 'x') {
+                    a_idCard[17] = 10;                    // 将最后位为x的验证码替换为10方便后续操作
+                }
+                for (var i = 0; i < 17; i++) {
+                    sum += Wi[i] * a_idCard[i];            // 加权求和
+                }
+                valCodePosition = sum % 11;                // 得到验证码所位置
+                if (a_idCard[17] == ValideCode[valCodePosition]) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            /**
+             * 验证18位数身份证号码中的生日是否是有效生日
+             * @param idCard 18位书身份证字符串
+             * @return
+             */
+            function isValidityBrithBy18IdCard(idCard18) {
+                var year = idCard18.substring(6, 10);
+                var month = idCard18.substring(10, 12);
+                var day = idCard18.substring(12, 14);
+                var temp_date = new Date(year, parseFloat(month) - 1, parseFloat(day));
+                if (temp_date.getFullYear() != parseFloat(year)
+                        || temp_date.getMonth() != parseFloat(month) - 1
+                        || temp_date.getDate() != parseFloat(day)) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            /**
+             * 验证15位数身份证号码中的生日是否是有效生日
+             * @param idCard15 15位书身份证字符串
+             * @return
+             */
+            function isValidityBrithBy15IdCard(idCard15) {
+                var year = idCard15.substring(6, 8);
+                var month = idCard15.substring(8, 10);
+                var day = idCard15.substring(10, 12);
+                var temp_date = new Date(year, parseFloat(month) - 1, parseFloat(day));
+                // 对于老身份证中的你年龄则不需考虑千年虫问题而使用getYear()方法
+                if (temp_date.getYear() != parseFloat(year)
+                        || temp_date.getMonth() != parseFloat(month) - 1
+                        || temp_date.getDate() != parseFloat(day)) {
+                    window.setTimeout(function () {
+                        document.getElementById('C_APP_IDENT_NO').select();
+                    }, 0);
+{#                    $("#C_APP_IDENT_NO")[0].focus();#}
+                    document.getElementById("app_no").innerHTML = ("<span style='color:red;'>"+"身份验证失败!"+"</span>");
+
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            function IsRead() {
+                ORDER_ID = $.trim($("#ORDER_ID").val());
+                db = {
+                    'order_id': ORDER_ID,
+                    'M': '11'
+                };
+                $.ajax({
+                    url: '/bxservice/GetRead/',
+                    type: "POST",
+                    contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                    data: db,
+                    dataType: "json",
+                    success: function (d) {
+                        if (d.data.error == '1') {
+                            flag = d.data.error;
+{#                            alert(d.data.msg);#}
+                            return flag;
+                        }
+                        else {
+                            clearInterval(timers);
+                            layer.close(Y);
+                            return flag;
+                        }
+                    },
+                    error: function (xhr, err) {
+                        alert("系统异常！请稍后再试");
+                        return False;
+                    }
+                });
+            }
+            function IsReads() {
+                ORDER_ID = $.trim($("#ORDER_ID").val());
+                db = {
+                    'order_id': ORDER_ID,
+                    'M': '12'
+                };
+                $.ajax({
+                    url: '/bxservice/GetRead/',
+                    type: "POST",
+                    contentType: "application/x-www-form-urlencoded; charset=utf-8",
+                    data: db,
+                    dataType: "json",
+                    success: function (d) {
+                        if (d.data.error == '1') {
+                        }
+                        else {
+                            clearInterval(timers2);
+                            layer.close(U);
+                        }
+                    },
+                    error: function (xhr, err) {
+                        alert("系统异常！请稍后再试");
+                        return False;
+                    }
+                });
+            }
+{#            function IsRED(){#}
+{#                if (F == '0'){#}
+{#                    clearInterval(timer);#}
+{#                    layer.close(Y);#}
+{#                    layer.close(U);#}
+{#                }#}
+{#            }#}
+        function Islogin() {
+
+        }
+        });
+    </script>
+{% endblock %}

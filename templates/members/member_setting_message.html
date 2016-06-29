@@ -1,0 +1,56 @@
+{% extends 'common/member_common.html' %}
+{% load staticfiles %}
+{% block content_title %}系统消息{% endblock %}
+
+{% block content_detail %}
+    <div class="panel panel-border">
+        <div class="panel-body">
+            将消息同步到微信，查看消息更及时更方便！
+        </div>
+    </div>
+
+    <div class="manageInfo-area">
+
+        <h6><input type="checkbox"/> 全选 <span><a href="#">批量删除</a></span></h6>
+        <ul class="manageInfo-list">
+            <li>
+                <h6><input type="checkbox"/> 2015-04-20 16:30:21 <span><a href="#">删除</a></span></h6>
+
+                <p>小Y终于换了高分屏 看起来爽多了 外形也更霸气了 Y系列优质的血统都在延续</p>
+            </li>
+
+            <li>
+                <h6><input type="checkbox"/> 2015-04-20 16:30:21 <span><a href="#">删除</a></span></h6>
+
+                <p>小Y终于换了高分屏 看起来爽多了 外形也更霸气了 Y系列优质的血统都在延续</p>
+            </li>
+
+            <li>
+                <h6><input type="checkbox"/> 2015-04-20 16:30:21 <span><a href="#">删除</a></span></h6>
+
+                <p>小Y终于换了高分屏 看起来爽多了 外形也更霸气了 Y系列优质的血统都在延续</p>
+            </li>
+
+            <li>
+                <h6><input type="checkbox"/> 2015-04-20 16:30:21 <span><a href="#">删除</a></span></h6>
+
+                <p>小Y终于换了高分屏 看起来爽多了 外形也更霸气了 Y系列优质的血统都在延续</p>
+            </li>
+        </ul>
+        <h6><input type="checkbox"/> 全选 <span><a href="#">批量删除</a></span></h6>
+
+    </div>
+
+    <!-- 翻页 -->
+    <div class="clearfix">
+        <ul class="pagination pull-right">
+            <li class="disabled"><a href="#">«</a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">»</a></li>
+        </ul>
+    </div>
+{% endblock %}

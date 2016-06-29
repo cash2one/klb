@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="GBK"?>
+<PackageList>
+	<Package>
+		<Header>
+			<Version>2</Version>
+			<InsureType>100</InsureType>
+			<RequestType>215</RequestType>
+			<SellerId>714354464</SellerId>
+			<SessionId>f53f83def2537d5148ab55d24f072c5c</SessionId>
+			<SendTime>2014-08-28 01:16:28</SendTime>
+			<Status>100</Status>
+			<ErrorMessage></ErrorMessage>
+		</Header>
+		<Sign></Sign>
+		<Response>
+			<Order>
+				<TBOrderId>789805132860910</TBOrderId>
+				<Premium>301933</Premium>
+				<PayNo></PayNo>
+				<SubOrderList>
+					<SubOrder type="biz">
+						<TBOrderId>789805132880910</TBOrderId>
+						<ItemId>26238164963</ItemId>
+						<Premium>205433</Premium>
+						<ProposalNo>1000108000087006471</ProposalNo>
+					</SubOrder>
+					<SubOrder type="force">
+						<TBOrderId>789805132870910</TBOrderId>
+						<ItemId>26238164963</ItemId>
+						<Premium>96500</Premium>
+						<ProposalNo>1000105000087006472</ProposalNo>
+					</SubOrder>
+				</SubOrderList>
+			</Order>
+		</Response>
+	</Package>
+</PackageList>

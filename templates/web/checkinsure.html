@@ -1,0 +1,62 @@
+{% extends 'common/common.html' %}
+{% load staticfiles %}
+{% block style %}
+    <style type="text/css">
+     .checkinsure {list-style: none; padding: 0 0 30px 0; margin: 0}
+     .checkinsure li{ width: 21%; height: 160px; float: left; margin: 10px 2% 0; padding: 10px; text-align: center; border: 1px solid #fff;}
+     .checkinsure li a{display: block; margin: 10px 25%;}
+     .checkinsure li p{display: none; padding: 0 30px}
+     .checkinsure li:hover{box-shadow:0 1px 1px rgba(100,100,100,0.5); border-top:1px solid #ddd;}
+     .checkinsure li:hover p{display: block;}
+    </style>
+{% endblock %}
+{% block content %}
+<div class="container margin-top margin-bottom white-bg">
+        <div class="row lateral-padding">
+          <h3 class="bottom-line">点击下面图标跳转到官网 <span class="red">验证真伪</span></h3>
+          <ul class="checkinsure clearfix">
+              <li>
+                  <img src="{% static 'images/' %}Verification_logo_tpy.jpg">
+                  <a href="#" class="btn btn-danger">保单验真</a>
+                  <p>请准备好您的保单和身份证件进入官网验真</p>
+              </li>
+              <li>
+                  <img src="{% static 'images/' %}Verification_logo_tpy.jpg">
+                  <a href="#" class="btn btn-danger">保单验真</a>
+                  <p>请准备好您的保单和身份证件进入官网验真</p>
+              </li>
+              <li>
+                  <img src="{% static 'images/' %}Verification_logo_tpy.jpg">
+                  <a href="#" class="btn btn-danger">保单验真</a>
+                  <p>请准备好您的保单和身份证件进入官网验真</p>
+              </li>
+              <li>
+                  <img src="{% static 'images/' %}Verification_logo_tpy.jpg">
+                  <a href="#" class="btn btn-danger">保单验真</a>
+                  <p>请准备好您的保单和身份证件进入官网验真</p>
+              </li>
+              <li>
+                  <img src="{% static 'images/' %}Verification_logo_tpy.jpg">
+                  <a href="#" class="btn btn-danger">保单验真</a>
+                  <p>请准备好您的保单和身份证件进入官网验真</p>
+              </li>
+              <li>
+                  <img src="{% static 'images/' %}Verification_logo_tpy.jpg">
+                  <a href="#" class="btn btn-danger">保单验真</a>
+                  <p>请准备好您的保单和身份证件进入官网验真</p>
+              </li>
+              <li>
+                  <img src="{% static 'images/' %}Verification_logo_tpy.jpg">
+                  <a href="#" class="btn btn-danger">保单验真</a>
+                  <p>请准备好您的保单和身份证件进入官网验真</p>
+              </li>
+              <li>
+                  <img src="{% static 'images/' %}Verification_logo_tpy.jpg">
+                  <a href="#" class="btn btn-danger">保单验真</a>
+                  <p>请准备好您的保单和身份证件进入官网验真</p>
+              </li>
+          </ul>
+
+        </div>
+    </div>
+{% endblock %}

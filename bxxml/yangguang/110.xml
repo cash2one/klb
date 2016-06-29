@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='GBK' standalone='yes'?>
+<PackageList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Package>
+		<Header>
+			<Version>2</Version>
+			<RequestType>110</RequestType>
+			<InsureType>100</InsureType>
+			<SessionId>%s</SessionId>
+			<From>kalaibao</From>
+			<To>2051078519</To>
+			<AgentCode>W06910012</AgentCode>
+			<SendTime>%s</SendTime>
+			<SellerId>kalaibao</SellerId>
+			<Status>100</Status>
+			<ErrorMessage></ErrorMessage>
+			<terminalTpye></terminalTpye>
+		</Header>
+		<Request>
+			<InputsList>
+				<Inputs>
+					<input name='cov_200'>%s</input>
+                    <input name='cov_210'>%s</input>
+                    <input name='cov_231'>%s</input>
+                    <input name='cov_291'>%s</input>
+                    <input name='cov_310'>%s</input>
+                    <input name='cov_321'>%s</input>
+                    <input name='cov_390'>%s</input>
+                    <input name='cov_500'>%s</input>
+                    <input name='cov_600'>%s</input>
+                    <input name='cov_640'>%s</input>
+                    <input name='cov_701'>%s</input>
+                    <input name='cov_702'>%s</input>
+                    <input name='cov_911'>%s</input>
+                    <input name='cov_912'>%s</input>
+					<input name='cov_921'>%s</input>
+					<input name='cov_922'>%s</input>
+					<input name='cov_928'>%s</input>
+					<input name='cov_929'>%s</input>
+					<input name='packageType'></input>
+					<input name='forceBeginDate'></input>
+					<input name='forceFlag'>%s</input>
+					<input name='bizBeginDate'></input>
+				</Inputs>
+				<Inputs type='immevalid'>
+					<input name='immeValidHoursStart'></input>
+					<input name='isImmevalid'>1</input>
+				</Inputs>
+				<Inputs type='runAreaType'>
+					<input name='runArea'>04</input>
+				</Inputs>
+				<Inputs type='driverInfoFlag'>
+					<input name='agreedDriver'>0</input>
+				</Inputs>
+				<Inputs type='driverInfo'>
+					<input name='driverDate'></input>
+					<input name='driverNum'></input>
+					<input name='driverName'></input>
+				</Inputs>
+			</InputsList>
+		</Request>
+		<Sign><!--[SIGN]--></Sign>
+    </Package>
+</PackageList>
